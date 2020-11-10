@@ -7,3 +7,9 @@ let p = document.createElement("p");
 p.id = "funcionamento";
 p.innerHTML = "Clique duas vezes em um item para marcá-lo como completo";
 header.appendChild(p);
+
+let divInput = document.createElement("div");
+body.appendChild(divInput);
+let input = document.createElement("input");
+input.id = "texto-tarefa";
+divInput.appendChild(input);
