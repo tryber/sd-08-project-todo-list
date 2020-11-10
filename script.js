@@ -16,10 +16,11 @@ addHeader();
 
 // Requisito 02
 
-function addParagraph (){
+function addParagraph() {
     let paragraph = document.createElement('p');
     paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo'
     paragraph.id = 'funcionamento'
+    paragraph.style.fontStyle = 'italic';
 
     for (let index = 0; index < body.length; index += 1) {
         body[index].appendChild(paragraph)
@@ -29,7 +30,7 @@ addParagraph();
 
 // Requisito 03
 
-function addInput(){
+function addInput() {
     let boxText = document.createElement('input');
     boxText.id = 'texto-tarefa';
     boxText.type = 'text'
@@ -41,3 +42,14 @@ function addInput(){
 addInput();
 
 // Requisito 04
+
+function addList() {
+    let ol = document.createElement('ol');
+    ol.id = 'lista-tarefas'
+
+    for (let index = 0; index < body.length; index += 1) {
+        body[index].appendChild(ol).appendChild(li)
+    }
+}
+
+addList();
