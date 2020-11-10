@@ -51,8 +51,18 @@ function verificaDoubleClickLista() {
   }
 }
 
+function limparLista() {
+  const lista = document.querySelectorAll('.elemento-lista');
+  for (let index = 0; index < lista.length; index++) {
+    lista[index].remove();
+  }
+}
+
 window.onload = function () {
   const botaoAdicionar = document.querySelector('#criar-tarefa');
+  const botaoLimparLista = document.querySelector('#apaga-tudo');
+
   botaoAdicionar.addEventListener('click', adicionaTarefaLista);
+  botaoLimparLista.addEventListener('click', limparLista);
   verificaCliqueLista();
 };
