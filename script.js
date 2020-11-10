@@ -1,3 +1,5 @@
+addSavedList();
+
 document.querySelector('#criar-tarefa').addEventListener('click', createListItemManual);
 document.querySelector('#texto-tarefa').addEventListener('change', createListItemManual);
 
@@ -26,13 +28,17 @@ document.querySelector('#salvar-tarefas').addEventListener('click', () => {
   localStorage.listaSalva = JSON.stringify(savedList);
 });
 
-function addSavedList() {
-  const savedList = JSON.parse(localStorage.listaSalva);
+document.querySelector('#mover-baixo').addEventListener('click', () => {
+  const selected = document.querySelector('.selected');
+  if (selected.nextElementSibling != null) {
+    selected.nextElementSibling.insertAdjacentElement('afterend', selected);
+  }
+});
 
-  savedList.forEach((item, index) => {
-    createListItemAuto();
-    document.querySelectorAll('li')[index].innerText = item;
-  });
-};
+document.querySelector('#mover-cima').addEventListener('click', () => {
+  const selected = document.querySelector('.selected');
+  if (selected.previousElementSibling != null) {
+    selected.previousElementSibling.insertAdjacentElement('beforebegin', selected);
+  }
+});
 
-addSavedList();
