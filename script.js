@@ -3,6 +3,7 @@ const listLocal = document.querySelector('#lista-tarefas');
 const inputLocal = document.querySelector('#texto-tarefa');
 const butonClear = document.querySelector('#apaga-tudo');
 const butonClearScratcheds = document.querySelector('#remover-finalizados');
+const butonSave = document.querySelector('#salvar-tarefas');
 
 function insertElement() {
   const newElement = document.createElement('li');
@@ -54,3 +55,20 @@ function clearScratcheds() {
 }
 
 butonClearScratcheds.addEventListener('click', clearScratcheds);
+
+function saveList() {
+    localStorage.clear();
+  for (let i = 0; i < listLocal.children.length; i += 1) {
+    localStorage.setItem(i, listLocal.children[i].innerText);
+  }
+}
+
+butonSave.addEventListener('click', saveList);
+
+function comeListBack() {
+  for (let i = 0; i < localStorage.length; i += 1) {
+    insertElement();
+    listLocal.children[i].innerText = localStorage.getItem(i);
+  }
+}
+camoListBack();
