@@ -1,4 +1,4 @@
-//Requisito 5
+//Requisito 5 e 6
 //usei o site cursos.alura.com.br/forum/topico-como-resolvo-o-problema-object-htmlinputelement-no-meu-codigo-78324 para aprender sobre o 'value'
 const captureInput = document.getElementById('texto-tarefa');
 const captureListOl = document.getElementById('lista-tarefas'); 
@@ -12,9 +12,18 @@ function addText () {
     liTask.innerText = captureInput.value;
     captureListOl.appendChild(liTask);
     captureInput.value = '';
-    
-    
-}
+    liTask.style.backgroundColor = 'rgb(128, 128, 128)';
+
+};
+
+
+
+
+//requisito 7
+//capturar a lista ol
+//criar um evento onde ao se clicar na lista a cor de fundo seja alterad
+
+//usar o event.target
 
 
 
