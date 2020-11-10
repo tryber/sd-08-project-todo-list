@@ -25,15 +25,25 @@ button.innerHTML = "Adicionar";
 divInput.appendChild(button);
 
 function addListTodo(){
-
     button.addEventListener("click", function(){
-
         let valueInput = input.value;
         let liOrdered = document.createElement("li");
         liOrdered.innerHTML = valueInput;
         olOrdered.appendChild(liOrdered);
         input.value = "";
     });
-
 }
 addListTodo();
+
+let olColor = document.querySelector("#lista-tarefas");
+
+function listColor(){
+
+    olColor.addEventListener("click", function(event){
+        event.target.style.backgroundColor = "rgb(128, 128, 128)";
+
+    });
+}
+listColor();
+
+console.log(olColor);
