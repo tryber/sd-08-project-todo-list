@@ -1,0 +1,12 @@
+body{
+  background-color: rgb(131, 218, 45);
+}
+
+#divGrande{
+  background-color: rgb(236, 236, 235);
+  display: block;
+  width: 40%;
+  height: auto;
+  border-radius: 10px 20px;
+
+}
