@@ -14,14 +14,6 @@ function criarTarefa() {
  }
 criarTarefa();
 
-
-
-/*function selecionaTarefa() {
-  let tarefas = document.querySelectorAll('.tarefa');
-  for (let index = 0; index < tarefas.length; index += 1){
-    tarefas[index].addEventListener('click', mudaClasseSelecionada);    
-  }*/
-
   function mudaClasseSelecionada(event){
     let tarefas = document.querySelectorAll('.tarefa');
     for (let index = 0; index < tarefas.length; index += 1){
@@ -30,13 +22,6 @@ criarTarefa();
       event.target.classList.add('selecionada');
     }  
   }  
-
-
-/*function completaTarefa(){
-  let tasks = document.querySelectorAll('.tarefa');
-  for (let index = 0; index < tasks.length; index += 1){
-    tasks[index].addEventListener('dblclick', mudaClasseCompleted);
-  }*/
 
   function mudaClasseCompleted(event){
       if(event.target.classList.contains('completed')){
@@ -57,19 +42,13 @@ function apagaTudo(){
 }
 apagaTudo();
 
-/*
-function completaTarefa() {
-  let tarefas = document.querySelectorAll('.tarefa');
-  for (let index = 0; index < tarefas.length; index += 1){
-    tarefas[index].addEventListener('dblclick', mudaClasseCompleted);
-  }
-  function mudaClasseCompleted(event){
-    for (let index = 0; index < tarefas.length; index += 1){
-          event.target.classlist.toggle('completed');
+function removeFinalizadas(){
+  let botao = document.getElementById('remover-finalizados');
+  botao.addEventListener('click',function(){
+    let finalizadas = document.getElementsByClassName('completed');
+    for (let index = 0; index < finalizadas.length; index += 1){
+      finalizadas[index].remove();
     }
-  }
-}
-
-*/
-
-
+      })
+    }
+removeFinalizadas();
