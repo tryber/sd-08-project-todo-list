@@ -1,4 +1,9 @@
 function toggleSelected(event) {
+  const tasks = document.querySelectorAll('.task');
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    if (task !== event.target) task.classList.remove('selected');
+  }
   event.target.classList.toggle('selected');
 }
 
