@@ -7,11 +7,8 @@ function botao() {
         const linha = document.createElement("li");
         pai.appendChild(linha);
         linha.innerText = texto.value;
+        texto.value = "";
     })
-    texto.addEventListener("click", (event) => {
-        if (texto !== "") {
-            texto = "";
-        }
-    })
+    
 }
 botao();
