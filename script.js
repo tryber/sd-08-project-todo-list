@@ -2,9 +2,11 @@ let texto_tarefa_cxa = document.querySelector('#texto-tarefa');
 let criar_tarefa_btn = document.querySelector('#criar-tarefa');
 let lista_tarefas_ol = document.querySelector('#lista-tarefas');
 let apaga_tudo_btn = document.querySelector('#apaga-tudo');
+let remover_finalizados_btn = document.querySelector('#remover-finalizados');
 
 criar_tarefa_btn.addEventListener('click', criaTarefa);
 apaga_tudo_btn.addEventListener('click', apagaLista);
+remover_finalizados_btn.addEventListener('click', apagaFinalizados);
 
 function criaTarefa() { // Função que adiciona uma nova tarefa na lista
     let tarefa = document.createElement('li');
@@ -30,4 +32,10 @@ function concluiTarefa(event) { // Função que adiciona um risco à tarefa da l
 
 function apagaLista() { // Limpa a lista apagando todas as tarefas
     lista_tarefas_ol.innerHTML = '';
+}
+
+function apagaFinalizados() { // Apaga da lista os itens já concluidos
+    let concluidos = document.querySelectorAll('.completed');
+
+    for (tarefa of concluidos) { lista_tarefas_ol.removeChild(tarefa); }
 }
