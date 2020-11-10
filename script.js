@@ -67,5 +67,14 @@ window.onload = function () {
         }
     })
 
-    
+    let clearCompletButton = document.querySelector('#remover-finalizados');
+    clearCompletButton.addEventListener('click', function () {
+        let listaDeTarefas = document.querySelector('#lista-tarefas');
+        let itensCompletos = document.querySelectorAll('.completed');
+        if (itensCompletos.length > 0) {
+            for (let item of itensCompletos) {
+                listaDeTarefas.removeChild(item);
+            }
+        }
+    })
 }
