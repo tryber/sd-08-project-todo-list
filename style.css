@@ -6,13 +6,13 @@ body {
 .container {
     background-color: white;
     border-radius: 15px;
-    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;    
     padding-bottom: 30px;
     padding-left: 35px;
     padding-right: 35px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 120px
+    width: 700px;
 }
 
 #title {
@@ -42,69 +42,71 @@ body {
 }
 
 #mover-cima {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    margin-right: 30px;
-    border-radius: 40px;
-    width: 70px;
-    height: 30px;
     background-color: orange;
     border: 1px solid black;
+    border-radius: 40px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    margin-right: 30px;
+    width: 70px;
 }
 
 #mover-baixo {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    margin-right: 30px;
-    border-radius: 40px;
-    width: 70px;
-    height: 30px;
     background-color: orange;
     border: 1px solid black;
+    border-radius: 40px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    margin-right: 30px;
+    width: 70px;
 }
 
 #criar-tarefa {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    margin-right: 30px;
-    border-radius: 40px;
-    width: 150px;
-    height: 30px;
     background-color: rgb(78, 100, 221);
     border: 1px solid black;
+    border-radius: 40px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    margin-right: 30px;
+    width: 150px;
 }
 
 #apaga-tudo {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    margin-right: 30px;
-    border-radius: 40px;
-    width: 150px;
-    height: 30px;
+    
     background-color: rgb(230, 29, 29);
     border: 1px solid black;
+    border-radius: 40px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    margin-right: 30px;
+    width: 150px;
 }
 
 #remover-selecionado {
-    margin-right: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
     background-color: rgb(230, 29, 29);
-    width: 70px;
-    height: 30px;
     border-radius: 40px;
     border: 1px solid black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    margin-right: 30px;
+    width: 70px;
 }
 
 #remover-finalizados {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    margin-right: 30px;
-    height: 30px;
-    width: 150px;
+    
     background-color: rgb(78, 100, 221);
     border-radius: 40px;
     border: 1px solid black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    margin-right: 30px;
+    width: 150px;
 }
 
 #buttons {
