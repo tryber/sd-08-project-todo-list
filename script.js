@@ -1,3 +1,21 @@
+const initialState = [
+  { description: 'Primeira', selected: false, completed: false },
+  { description: 'Segunda', selected: false, completed: false },
+  { description: 'Terceira', selected: false, completed: false },
+];
+
+const savedTasks = JSON.parse(localStorage.getItem('tasks')) || initialState;
+const olTasks = document.getElementById('lista-tarefas');
+
+function init() {
+  for (let i = 0; i < savedTasks.length; i += 1) {
+    const task = savedTasks[i];
+    olTasks.appendChild(createTask(task));
+  }
+}
+
+init();
+
 function toggleSelected(event) {
   const tasks = document.querySelectorAll('.task');
   for (let i = 0; i < tasks.length; i++) {
@@ -12,23 +30,25 @@ function toggleCompleted(event) {
 }
 
 // Cria uma tarefa
-function createTask(description) {
+function createTask(newTask) {
+  const { description, selected = false, completed = false } = newTask;
   const task = document.createElement('li');
   task.className = 'task';
   task.textContent = description;
+  if (selected) task.classList.add('selected');
+  if (completed) task.classList.add('completed');
   task.addEventListener('click', toggleSelected);
   task.addEventListener('dblclick', toggleCompleted);
   return task;
 }
 
-const olTasks = document.getElementById('lista-tarefas');
 const taskTextInput = document.getElementById('texto-tarefa');
 const createTaskButton = document.getElementById('criar-tarefa');
 
 // Cria uma nova tarefa e a adiciona a ol quando clicamos no botao
 createTaskButton.addEventListener('click', function() {
   const taskDescription = taskTextInput.value;
-  const task = createTask(taskDescription);
+  const task = createTask({ description: taskDescription });
   olTasks.appendChild(task);
   taskTextInput.value = "";
 });
@@ -54,3 +74,20 @@ function eraseCompletedTasks() {
 
 const eraseCompletedButton = document.getElementById('remover-finalizados');
 eraseCompletedButton.addEventListener('click', eraseCompletedTasks);
+
+function saveTasks() {
+  const tasksObjArray = [];
+  const tasks = olTasks.querySelectorAll('.task');
+  for (let i = 0; i < tasks.length; i += 1) {
+    const task = tasks[i];
+    const taskObj = Object.create(null);
+    taskObj.description = task.textContent;
+    taskObj.selected = task.classList.contains('selected');
+    taskObj.completed = task.classList.contains('completed');
+    tasksObjArray.push(taskObj);
+  }
+  localStorage.setItem('tasks', JSON.stringify(tasksObjArray));
+}
+
+const saveTasksButton = document.getElementById('salvar-tarefas');
+saveTasksButton.addEventListener('click', saveTasks);
