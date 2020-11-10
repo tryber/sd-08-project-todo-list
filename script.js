@@ -1,7 +1,8 @@
 let inputTask = document.getElementById('texto-tarefa');
 let todoList = document.getElementById('lista-tarefas');
 let btnAdd = document.getElementById('criar-tarefa');
-let selectedItem;
+let btnEraseAll = document.getElementById('apaga-tudo');
+let selectedItem = '';
 
 function selectItem(event) {
   if (selectedItem) {
@@ -26,8 +27,15 @@ function createTask(text) {
 
 function addTask() {
   let task = createTask(inputTask.value);
-  todoList.appendChild(task);
+  todoList.append(task);
   inputTask.value = '';
 }
 
+// reference: https://attacomsian.com/blog/javascript-dom-remove-all-children-of-an-element
+function eraseAll() {
+  selectedItem = '';
+  todoList.innerHTML = '';
+}
+
 btnAdd.addEventListener('click', addTask);
+btnEraseAll.addEventListener('click', eraseAll);
