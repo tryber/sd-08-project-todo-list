@@ -18,3 +18,10 @@ let olOrdered = document.createElement("ol");
 olOrdered.id = "lista-tarefas";
 divInput.appendChild(olOrdered);
 
+let button = document.createElement("button");
+button.id = "criar-tarefa";
+button.innerHTML = "Adicionar";
+divInput.appendChild(button);
+
+
+
