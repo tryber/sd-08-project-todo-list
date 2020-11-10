@@ -1,5 +1,10 @@
 function createToDo() {
   const inputFieldValue = document.getElementById('texto-tarefa').value;
+
+  if (!inputFieldValue) {
+    return;
+  }
+
   const listOfTodos = document.getElementById('lista-tarefas');
   const createLi = document.createElement('li');
   createLi.innerText = inputFieldValue;
@@ -13,7 +18,7 @@ function createToDo() {
   });
 
   createLi.addEventListener('dblclick', (Event) => {
-    let isCompleted = Event.target.classList.contains('completed');
+    const isCompleted = Event.target.classList.contains('completed');
     if (isCompleted) {
       Event.target.classList.remove('completed');
     } else {
@@ -44,7 +49,7 @@ function eraseFinishedItems() {
 }
 
 function eraseSelectedItem() {
-  let selected = document.getElementsByClassName('selected');
+  const selected = document.getElementsByClassName('selected');
   const ol = document.getElementById('lista-tarefas');
 
   if (!selected[0]) {
@@ -55,17 +60,17 @@ function eraseSelectedItem() {
 }
 
 function moveItemUp() {
-  let selected = document.querySelector('.selected');
+  const selected = document.querySelector('.selected');
   const ol = document.getElementById('lista-tarefas');
   if (!selected || ol.children[0] === selected) {
     return;
   }
 
-  ol.insertBefore(selected, selected.previousElementSibling)
+  ol.insertBefore(selected, selected.previousElementSibling);
 }
 
 function moveItemDown() {
-  let selected = document.querySelector('.selected');
+  const selected = document.querySelector('.selected');
   const ol = document.getElementById('lista-tarefas');
   if (!selected || ol.children[ol.children.length - 1] === selected) {
     return;
@@ -75,11 +80,41 @@ function moveItemDown() {
 }
 
 function saveTodo() {
-  // a fazer
-  console.log('salvar');
+  const liArray = document.getElementById('lista-tarefas').children;
+  let liObj = {};
+  
+  for (let i = 0; i < liArray.length; i += 1) {
+    const text = liArray[i].innerText;
+    const classes = liArray[i].className;
+
+    liObj[i] = {
+      text,
+      classes,
+    }
+  }
+
+  localStorage.setItem('lastState', JSON.stringify(liObj));
+  console.log(localStorage.getItem('lastState'));
+}
+
+function handleStorage() {
+  const ol = document.getElementById('lista-tarefas');
+  const storedItems = JSON.parse(localStorage.getItem('lastState'));
+
+  for (let key in storedItems) {
+    let li = document.createElement('li');
+    li.innerText = storedItems[key].text;
+    li.className = storedItems[key].classes;
+
+    ol.appendChild(li);
+  }
 }
 
 window.onload = () => {
+  if (localStorage.getItem('lastState')) {
+    handleStorage();
+  }
+
   const createToDoBtn = document.getElementById('criar-tarefa');
   createToDoBtn.addEventListener('click', createToDo);
 
@@ -89,7 +124,7 @@ window.onload = () => {
   const eraseFinishedBtn = document.getElementById('remover-finalizados');
   eraseFinishedBtn.addEventListener('click', eraseFinishedItems);
 
-  const eraseSelectedBtn = document.getElementById("remover-selecionado");
+  const eraseSelectedBtn = document.getElementById('remover-selecionado');
   eraseSelectedBtn.addEventListener('click', eraseSelectedItem);
 
   const moveUpBtn = document.getElementById('mover-cima');
