@@ -1,0 +1,7 @@
+.completed{
+    text-decoration: line-through;
+}
+#apaga-tudo, #criar-tarefa{
+    display: inline-block;
+    max-width: 45%;
+}
