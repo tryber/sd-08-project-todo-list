@@ -27,3 +27,14 @@ btnCriarTarefa.addEventListener("click", function () {
     }
   });
 });
+
+let btnLimparLista = document.getElementById("apaga-tudo");
+
+function limparLista() {
+  let size = listaTarefa.children.length;
+  for (let index = 0; index < size; index += 1) {
+    listaTarefa.removeChild(listaTarefa.firstElementChild);
+  }
+}
+
+btnLimparLista.addEventListener("click", limparLista);
