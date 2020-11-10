@@ -21,8 +21,13 @@ window.onload = function () {
 
     addEventListener('click', function (event) {
         let item = event.target;
+        let ultimoItem = document.querySelector('.selected');
+        if (ultimoItem !== null) {
+            ultimoItem.className = 'task'
+        }
+
         if (item.className === 'task') {
-            item.style.backgroundColor = 'rgb(128, 128, 128)';
+            item.className += ' selected';
         }
     })
 }
