@@ -63,13 +63,12 @@ function deleteCompletedTasks() {
   let btnRemoveTasks = document.querySelector('#remover-finalizados');
   btnRemoveTasks.addEventListener('click', function() {
     let lista = document.querySelector('#lista-tarefas');
-    let indice = lista.children.length;
-    for(let i = 0; i < indice; i += 1) {
+    for(let i = 0; i < lista.children.length; i += 1) {
       if(lista.children[i].className === 'completed') {
         lista.removeChild(lista.children[i]);
+        i -= 1;
       }
     }
   });
 }
-
 deleteCompletedTasks();
