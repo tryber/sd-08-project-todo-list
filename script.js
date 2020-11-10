@@ -73,3 +73,34 @@ const buttonSaveTasks = document.getElementById('salvar-tarefas');
 buttonSaveTasks.addEventListener('click', function () {
   localStorage.setItem();
 })
+
+//botao transfere o selected
+let moveUp = document.getElementById('mover-cima');
+
+moveUp.addEventListener('click', function () {
+    for (let i in taskListArray) {
+        if (taskListArray[i].className.includes('selected')) {
+            if (i - 1 < 0) {}
+            else{
+                taskListArray[i].classList.remove('selected');
+                taskListArray[i - 1].classList.add('selected')
+            }
+        }
+    }
+})
+
+let moveDown = document.getElementById('mover-baixo');
+
+moveDown.addEventListener('click', function () {
+    for (let i in taskListArray) {
+        if (taskListArray[i].className.includes('selected')) {
+            console.log(taskListArray)
+            if (i === taskListArray.length - 1) {}
+            else{
+                taskListArray[i].classList.remove('selected');
+                taskListArray[i + 1].classList.add('selected');
+            }
+        }
+    
+    }
+})
