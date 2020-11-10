@@ -37,7 +37,11 @@ function adicionaTarefaLista() {
 }
 
 function riscaElementoLista(elemento) {
-  elemento.target.classList.add('completed');
+  if (elemento.target.classList.contains('completed')) {
+    elemento.target.classList.remove('completed');
+  } else {
+    elemento.target.classList.add('completed');
+  }
 }
 
 function verificaDoubleClickLista() {
