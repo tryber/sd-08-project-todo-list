@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Minha Lista</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="script.js"></script>
-    <title>Minha Lista</title>
 </head>
 <body>
     <header>
@@ -16,11 +15,19 @@
     <main>
         <section id="textInput">
             <input type="text" id="texto-tarefa">
-            <button id="criar-tarefa">Adicionar</button>
+            <button id="criar-tarefa" onclick="adicionaTexto()">Adicionar</button>
         </section>
         <section id="toDoList">
             <ol id="lista-tarefas">
             </ol>
+        </section>
+        <section id="options">
+            <button>X</button>
+            <button>Up</button>
+            <button>Down</button>
+            <button>Limpar Completos</button>
+            <button>Limpar Lista</button>
+            <button>Salvar Lista</button>
         </section>
     </main>
 </body>
