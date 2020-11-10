@@ -3,7 +3,7 @@ const listaTarefa = document.createElement('ol')
 // criar li dinamicamente
 window.onload = function(){  
   document.body.appendChild(listaTarefa)
-  listaTarefa.id = 'lista-tarefa'  
+  listaTarefa.id = 'lista-tarefas'  
 }
 
 function addTask(){  
