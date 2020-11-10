@@ -2,37 +2,22 @@ const btnCriarTarefa = document.getElementById('criar-tarefa');
 const tarefaTexto = document.getElementById('texto-tarefa');
 const listaTarefa = document.getElementById('lista-tarefas');
 
-let btnApagar = document.getElementById('remover-selecionado');
+const btnApagar = document.getElementById('remover-selecionado');
 btnApagar.disabled = true;
 btnApagar.addEventListener('click', function () {
-  let selected = document.querySelector('.selected');
+  const selected = document.querySelector('.selected');
   selected.parentNode.removeChild(selected);
   btnApagar.disabled = true;
 });
 
 function clearSelection() {
-  for (tarefa of listaTarefa.children) {
+  for (let tarefa of listaTarefa.children) {
     tarefa.classList.remove('selected');
   }
   // btnUpArrow.disabled = true;
-  //btnDownArrow.disabled = true;
+  // btnDownArrow.disabled = true;
   btnApagar.disabled = true;
 }
-
-if (localStorage.getItem('tarefas') != null) {
-  let listaLocal = localStorage.getItem('tarefas').split(',');
-  let listaCompleted = localStorage.getItem('completos').split(',');
-
-  if (localStorage.getItem('tarefas') != '') {
-    for (index = 0; index < listaLocal.length; index += 1) {
-      adicionarTarefa(listaLocal[index]);
-      if (listaCompleted.includes(listaLocal[index])) {
-        listaTarefa.lastElementChild.classList.add('completed');
-      }
-    }
-  }
-}
-
 function adicionarTarefa(tarefaTexto) {
   let tarefaItem = document.createElement('li');
   tarefaItem.innerHTML = tarefaTexto;
@@ -58,6 +43,21 @@ function adicionarTarefa(tarefaTexto) {
     }
   });
 }
+
+if (localStorage.getItem('tarefas') != null) {
+  const listaLocal = localStorage.getItem('tarefas').split(',');
+  const listaCompleted = localStorage.getItem('completos').split(',');
+
+  if (localStorage.getItem('tarefas') !== '') {
+    for (let index = 0; index < listaLocal.length; index += 1) {
+      adicionarTarefa(listaLocal[index]);
+      if (listaCompleted.includes(listaLocal[index])) {
+        listaTarefa.lastElementChild.classList.add('completed');
+      }
+    }
+  }
+}
+
 btnCriarTarefa.addEventListener('click', function () {
   let tarefa = tarefaTexto.value;
   tarefaTexto.value = '';
