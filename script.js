@@ -45,9 +45,16 @@ createButton('Task');
     };
     apagarBtn('Clear');
     
-    document.getElementById("apaga-tudo").addEventListener("click", () => {
-        let item = document.querySelectorAll("li");
+    document.getElementById('apaga-tudo').addEventListener('click', () => {
+        let item = document.querySelectorAll('li');
         for (let i = 0; i < item.length; i += 1) {
-          document.getElementById("lista-tarefas").removeChild(item[i]);
+          document.getElementById('lista-tarefas').removeChild(item[i]);
         }
+      });
+
+
+    
+      document.getElementById('remover-finalizado').addEventListener('click', () => {
+        let object = document.querySelector('.completed');
+          document.getElementById('lista-tarefas').removeChild(object);
       });
