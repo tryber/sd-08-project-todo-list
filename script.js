@@ -15,9 +15,11 @@ button.addEventListener('click', adicionarLi);
 
 function selectLi(event) {
   for (let i = 0; i < ol.children.length; i += 1) {
-    ol.children[i].style.backgroundColor = 'white';
+    ol.children[i].classList.remove('selected');
+    //ol.children[i].style.backgroundColor = 'white';
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  //event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.classList.add('selected');
 }
 
 ol.addEventListener('click', selectLi);
@@ -46,10 +48,84 @@ const eraseCompleted = document.querySelector('#remover-finalizados');
 
 function eraseAllCompleted() {
   for (let i = ol.children.length; i > 0; i -= 1) {
-    if (ol.children[i -1].classList.contains('completed')) {
+    if (ol.children[i - 1].classList.contains('completed')) {
       ol.removeChild(ol.children[i - 1]);
     }
   }
 }
 
 eraseCompleted.addEventListener('click', eraseAllCompleted);
+
+const salvarTarefa = document.querySelector('#salvar-tarefas');
+
+function storeTasks() {
+  localStorage.clear();
+  for (let i = 0; i < ol.children.length; i += 1) {
+    localStorage.setItem(i, ol.children[i].innerText);
+  }
+}
+
+salvarTarefa.addEventListener('click', storeTasks);
+
+window.onload = function () {
+  if (localStorage.length !== 0) {
+    for (let i = 0; i < localStorage.length; i += 1) {
+      const li = document.createElement('li');
+      ol.appendChild(li);
+      ol.children[ol.children.length - 1].innerText = localStorage.getItem(i);
+    }
+  }
+}
+
+const paraCima = document.querySelector('#mover-cima');
+const paraBaixo = document.querySelector('#mover-baixo');
+
+function moveDown() {
+  let position;
+  for (let i = 0; i < ol.children.length; i += 1) {
+    if (ol.children[i].classList.contains('selected')) {
+      position = i;
+    }
+  }
+
+  const text1 = ol.children[position].innerText;
+  const text2 = ol.children[position + 1].innerText;
+
+  ol.children[position].innerText = text2;
+  ol.children[position + 1].innerText = text1;
+
+  ol.children[position].classList.remove('selected');
+  ol.children[position + 1].classList.add('selected');
+
+  if (ol.children[position].classList.contains('completed')) {
+    ol.children[position].classList.remove('completed');
+    ol.children[position + 1].classList.add('completed');
+  }
+}
+
+paraBaixo.addEventListener('click', moveDown);
+
+function moveUp() {
+  let position;
+  for (let i = 0; i < ol.children.length; i += 1) {
+    if (ol.children[i].classList.contains('selected')) {
+      position = i;
+    }
+  }
+
+  const text1 = ol.children[position].innerText;
+  const text2 = ol.children[position - 1].innerText;
+
+  ol.children[position].innerText = text2;
+  ol.children[position - 1].innerText = text1;
+
+  ol.children[position].classList.remove('selected');
+  ol.children[position - 1].classList.add('selected');
+
+  if (ol.children[position].classList.contains('completed')) {
+    ol.children[position].classList.remove('completed');
+    ol.children[position - 1].classList.add('completed');
+  }
+}
+
+paraCima.addEventListener('click', moveUp);
