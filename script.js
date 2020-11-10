@@ -9,8 +9,13 @@ btnCreateTask.addEventListener('click', createTask);
 olListTasks.addEventListener('click', setBackGroundColor);
 
 // Funções dos eventos dos objetos
-function setBackGroundColor(event) {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';    
+function setBackGroundColor(event) {    
+    if (document.querySelector('.task-selected') !== null){
+        document.querySelector('.task-selected').removeAttribute("style");
+        document.querySelector('.task-selected').removeAttribute('class');
+    }
+    event.target.className = "task-selected";
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';       
 }
 
 function checkEnterEvent(event) {
