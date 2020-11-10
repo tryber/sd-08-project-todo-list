@@ -27,7 +27,7 @@ window.onload = function () {
 
         let item = event.target;
         let ultimoItem = document.querySelector('.selected');
-        
+
         if (ultimoItem !== null) {
             let classes = ultimoItem.className.split(' ');
             classes.splice(classes.indexOf('selected'), 1)
@@ -53,4 +53,19 @@ window.onload = function () {
             item2.className += ' completed';
         }
     })
+
+    let clearButton = document.querySelector('#apaga-tudo');
+    clearButton.addEventListener('click', function () {
+        // limpa todas as tasks ao clicar em 'limpar'
+
+        let listaDeTarefas = document.querySelector('#lista-tarefas');
+        let itensDaLista = document.querySelectorAll('.task');
+        if (itensDaLista.length > 0) {
+            for (let i = 0; i < itensDaLista.length; i += 1) {
+                listaDeTarefas.removeChild(itensDaLista[i])
+            }
+        }
+    })
+
+    
 }
