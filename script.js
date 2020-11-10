@@ -41,7 +41,7 @@ function completed (task) {
 }
 
 //  Botão apaga tudo
-let buttonClearAll = document.getElementById('apaga-tudo');
+const buttonClearAll = document.getElementById('apaga-tudo');
 
 buttonClearAll.addEventListener('click', function () {
     while (taskList.firstChild) {
@@ -54,7 +54,7 @@ const buttonClearCompleted = document.getElementById('remover-finalizados');
 
 buttonClearCompleted.addEventListener('click', function () {
     const completeds = document.getElementsByClassName('completed')
-   while (completeds) {
+   while (completeds.length > 0) {
        completeds[0].parentNode.removeChild(completeds[0]);
    }
 })
@@ -65,4 +65,11 @@ const buttonClearSelected = document.getElementById('remover-selecionado');
 buttonClearSelected.addEventListener('click', function () {
     const selected = document.getElementsByClassName('selected');
     selected[0].parentNode.removeChild(selected[0]);
+})
+
+//Botão salvar tarefas
+const buttonSaveTasks = document.getElementById('salvar-tarefas');
+
+buttonSaveTasks.addEventListener('click', function () {
+  localStorage.setItem();
 })

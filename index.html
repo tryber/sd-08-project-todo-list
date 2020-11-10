@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
     <link rel="stylesheet" href="/style.css">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Syne+Mono&display=swap" rel="stylesheet"></head>
 <body>
   <header>
     <h1>Minha Lista de Tarefas</h1>
@@ -15,10 +15,15 @@
     <input id='texto-tarefa'>
     <button id='criar-tarefa'>Adicionar tarefa</button>
     <ol id='lista-tarefas'></ol>
-    <button id='apaga-tudo'>Limpar Tarefas</button>
-    <button id='remover-finalizados'>Remover finalizados</button>
-    <button id='remover-selecionado'>Remover Selecionado</button>
   </main>
+    <div class="button-container">
+        <button id='apaga-tudo' class='apaga-tudo'>Limpar Tarefas</button>
+        <button id='remover-finalizados' class='remover-finalizados'>Remover finalizados</button>
+        <button id='remover-selecionado' class='remover-selecionado'>Remover Selecionado</button>
+    </div>
+  <footer>
+      <button id='salvar-tarefas' class='salvar-tarefas'>Salvar tarefas</button>
+  </footer>
   <script src="/script.js"></script>
 </body>
 </html>
