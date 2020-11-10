@@ -55,7 +55,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-08-project-todo-list/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
-
+ 
 ## Entregáveis
 
 Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
