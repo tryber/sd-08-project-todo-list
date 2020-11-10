@@ -6,7 +6,6 @@ const butonClear = document.querySelector('#apaga-tudo');
 function insertElement() {
   const newElement = document.createElement('li');
   newElement.innerHTML = inputLocal.value;
-  newElement.className = 'itemList';
   listLocal.appendChild(newElement);
   inputLocal.value = '';
 }
@@ -20,19 +19,19 @@ function changeBackGroundColorSelectedItem(event) {
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
-listLocal.addEventListener('click', changeBackGroundColorSelectedItem);
+listLocal.addEventListener('mouseover', changeBackGroundColorSelectedItem);
 
 function scratchCompletedItem(event) {
-  if (event.target.className === 'itemlist') {
-    event.target.className += ' completed';
+  if (event.target.className === '') {
+    event.target.className = 'completed';
   } else {
-    event.target.className = 'itemlist';
+    event.target.className = '';
   }
 }
 
 listLocal.addEventListener('dblclick', scratchCompletedItem);
 
-function clearList() {    
+function clearList() {
   while (listLocal.firstChild) {
     listLocal.removeChild(listLocal.firstChild);
   }
