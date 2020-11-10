@@ -2,6 +2,7 @@ let inputTask = document.getElementById('texto-tarefa');
 let todoList = document.getElementById('lista-tarefas');
 let btnAdd = document.getElementById('criar-tarefa');
 let btnEraseAll = document.getElementById('apaga-tudo');
+let btnRemoveCompleted = document.getElementById('remover-finalizados');
 let selectedItem = '';
 
 function selectItem(event) {
@@ -37,5 +38,14 @@ function eraseAll() {
   todoList.innerHTML = '';
 }
 
+function removeCompleted() {
+  let completeds = document.querySelectorAll('.completed');
+
+  for (let i = completeds.length - 1; i >= 0; i -= 1) {
+    completeds[i].remove();
+  }
+}
+
 btnAdd.addEventListener('click', addTask);
 btnEraseAll.addEventListener('click', eraseAll);
+btnRemoveCompleted.addEventListener('click', removeCompleted);
