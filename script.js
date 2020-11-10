@@ -10,22 +10,32 @@ addTaskButton.addEventListener('click', function () {
   createLi.classList.add('element-list');
   taskList.appendChild(createLi);
   input.value = ''
+  completed(createLi);
 });
 
 //  Adicionar classe selected para a li selecionada;
 const taskListArray = document.getElementsByClassName('element-list');
 
 function selected () {
-    for (let index = 0; index < taskListArray.length; index += 1) {
-        taskListArray[index].addEventListener('click', function () {
-        for (let i = 0; i < taskListArray.length; i += 1) {
+  for (let index = 0; index < taskListArray.length; index += 1) {
+    taskListArray[index].addEventListener('click', function () {
+      for (let i = 0; i < taskListArray.length; i += 1) {
         if (taskListArray[i].className.includes('selected')) {
-            taskListArray[i].classList.remove('selected');
+          taskListArray[i].classList.remove('selected');
         }
-        }
-        taskListArray[index].classList.add('selected');
+      }
+      taskListArray[index].classList.add('selected');
     });
-    }
+  }
 }
 //  A função será executada toda vez que eu adicionar um elemento na lista;
 addTaskButton.addEventListener('click', selected);
+
+//  Adicionar função que risca tarefas concluidas;
+
+function completed (task) {
+  task.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed')
+  });   
+}
+
