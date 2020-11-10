@@ -2,6 +2,8 @@
 const taskInput = document.querySelector('#texto-tarefa');
 const addTask = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
+const deleteAll = document.querySelector('#apaga-tudo');
+const deleteCompleted = document.querySelector('#remover-finalizados');
 
 // Creates 'add to list' button functionality
 function createListItem() {
@@ -23,9 +25,11 @@ function removeColor() {
 }
 
 function addColor(event) {
-  removeColor();
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
-  event.target.classList.add('selected');
+  if (event.target.id != 'lista-tarefas') {
+    removeColor();
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    event.target.classList.add('selected');
+  }
 }
 
 taskList.addEventListener('click', addColor);
@@ -40,3 +44,11 @@ function completedTask(event) {
 }
 
 taskList.addEventListener('dblclick', completedTask);
+
+// Deletes all tasks
+function removeTasks() {
+  while (taskList.lastChild)
+  taskList.removeChild(taskList.lastChild)
+}
+
+deleteAll.addEventListener('click', removeTasks)
