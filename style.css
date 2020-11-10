@@ -15,6 +15,7 @@ button {
     padding: 5px;
     border-width: 0;
     cursor: pointer;
+    margin: 5px;
 }
 
 .container {
@@ -25,25 +26,29 @@ button {
     width: 95%;
 }
 
-#title {
+.inputAdd {
+    margin: 20px 20px 20px 20px;
+}
+
+.title {
     font-weight: bold;
     font-size: 20px;
     margin: 15px 15px 0px 15px;
     font-family: 'Montserrat', sans-serif;
 }
 
-#funcionamento {
+.funcionamento {
     font-size: 12px;
     font-style: italic;
     color: #b9b4b4;
     margin: 5px 15px 20px 15px;
 }
 
-#criar-tarefa, #remover-finalizados {
+.criar-tarefa, .remover-finalizados {
     background-color: #0B87CF;
 }
 
-#criar-tarefa:hover, #remover-finalizados:hover {
+.criar-tarefa:hover, .remover-finalizados:hover {
     background-color: #39A2D9;
 }
 
