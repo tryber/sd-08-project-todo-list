@@ -1,12 +1,12 @@
 body {
   background: greenyellow;
-  color: #333;
+  color: rgb(51 , 51 , 51);
   margin: 0;
   padding: 0;
 }
 
 main {
-  background: rgb(255, 255, 255);
+  background: white;
   border-radius: 10px;
   margin: 50px auto;
   max-width: 900px;
