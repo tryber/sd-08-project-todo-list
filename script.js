@@ -6,8 +6,8 @@ function clearSelection() {
   for (tarefa of listaTarefa.children) {
     tarefa.classList.remove("selected");
   }
-  btnUpArrow.disabled = true;
-  btnDownArrow.disabled = true;
+  // btnUpArrow.disabled = true;
+  //btnDownArrow.disabled = true;
   btnApagar.disabled = true;
 }
 
@@ -33,12 +33,12 @@ function adicionarTarefa(tarefaTexto) {
     clearSelection();
     btnApagar.disabled = false;
     e.target.classList.add("selected");
-    if (e.target.previousSibling != null) {
-      btnUpArrow.disabled = false;
-    }
-    if (e.target.nextSibling != null) {
-      btnDownArrow.disabled = false;
-    }
+    // if (e.target.previousSibling != null) {
+    //   btnUpArrow.disabled = false;
+    // }
+    // if (e.target.nextSibling != null) {
+    //   btnDownArrow.disabled = false;
+    // }
   });
   tarefaItem.addEventListener("dblclick", function (e) {
     let classes = e.target.classList;
@@ -103,34 +103,34 @@ let btnDownArrow = document.getElementById("mover-baixo");
 
 btnUpArrow.addEventListener("click", function () {
   let selected = document.querySelector(".selected");
-  if (selected.previousSibling != null) {
+  if (selected != null && selected.previousSibling != null) {
     let prev = document
       .getElementById("lista-tarefas")
       .replaceChild(selected, selected.previousSibling);
     document
       .getElementById("lista-tarefas")
       .insertBefore(prev, selected.nextSibling);
-    if (selected.previousSibling == null) {
-      btnUpArrow.disabled = true;
-    }
+    // if (selected.previousSibling == null) {
+    //   btnUpArrow.disabled = true;
+    // }
   }
 });
 
 btnDownArrow.addEventListener("click", function () {
   let selected = document.querySelector(".selected");
-  if (selected.nextElementSibling != null) {
+  if (selected != null && selected.nextElementSibling != null) {
     let post = document
       .getElementById("lista-tarefas")
       .replaceChild(selected, selected.nextSibling);
     document.getElementById("lista-tarefas").insertBefore(post, selected);
-    if (selected.nextSibling == null) {
-      btnDownArrow.disabled = true;
-    }
+    // if (selected.nextSibling == null) {
+    //   btnDownArrow.disabled = true;
+    // }
   }
 });
 
-btnUpArrow.disabled = true;
-btnDownArrow.disabled = true;
+// btnUpArrow.disabled = true;
+// btnDownArrow.disabled = true;
 
 let btnApagar = document.getElementById("remover-selecionado");
 btnApagar.disabled = true;
