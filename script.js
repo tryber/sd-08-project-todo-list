@@ -4,11 +4,11 @@ document.querySelector('#criar-tarefa').addEventListener('click', function(){
     document.querySelector('#lista-tarefas').appendChild(listElement);
     listElement.innerHTML = document.querySelector('#texto-tarefa').value;
     document.querySelector('#texto-tarefa').value = '';
+    document.querySelectorAll('li');
     changeBackColor();        
     deleteAllTasks();
     removeFinishedTask();
-    textDecoration();
-    removTextDecoration();    
+    textDecoration();          
 });
 
 
@@ -63,6 +63,8 @@ function removeFinishedTask() {
         }
     });
 }
+
+
 
 
 
