@@ -34,3 +34,15 @@ function selectedTask() {
   });
 };
 selectedTask();
+
+function completedTask() {
+  orderedList.addEventListener('dblclick', function (event) {
+    const completedListItem = document.querySelector(".tarefa.completed");
+    if (completedListItem === null) {
+      event.target.className = 'tarefa completed';
+    } else {
+      event.target.className = 'tarefa';
+    }
+  });
+};
+completedTask();
