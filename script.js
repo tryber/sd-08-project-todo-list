@@ -30,3 +30,16 @@ function corFundoTarefa() {
 }
 
 corFundoTarefa();
+
+function riscarTarefa() {
+  const listaOrdenada = document.getElementById('lista-tarefas');
+
+  listaOrdenada.addEventListener('dblclick', (event) => {
+    event.target.classList.add('completed');
+    if (event.target.className === 'tarefa completed') {
+      event.target.classList.remove('completed');
+    }
+  });
+}
+
+riscarTarefa();
