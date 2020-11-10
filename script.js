@@ -11,3 +11,11 @@ function addTask() {
   });
 }
 addTask();
+
+function addTaskColor() {
+  let lista = document.querySelector('#lista-tarefas');
+  lista.addEventListener('click', function(event){
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+  });
+}
+addTaskColor();
