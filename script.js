@@ -21,8 +21,16 @@ addTaskToList();
 
 function selectedTask() {
   orderedList.addEventListener('click', function (event) {
-    event.target.className = 'selected';
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    const selectedListItem = document.querySelector('.selected');
+    if (selectedListItem === null) {
+      event.target.classList.add('selected');
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    } else {
+      selectedListItem.classList.remove('selected');
+      selectedListItem.style.backgroundColor = '';
+      event.target.classList.add('selected');
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
   });
 };
 selectedTask();
