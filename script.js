@@ -29,9 +29,9 @@ function addParagraph() {
 addParagraph();
 
 // Requisito 03
-
+let boxText = document.createElement('input');
 function addInput() {
-    let boxText = document.createElement('input');
+    
     boxText.id = 'texto-tarefa';
     boxText.type = 'text'
     for (let index = 0; index < body.length; index += 1) {
@@ -40,11 +40,13 @@ function addInput() {
 }
 
 addInput();
+// Função adiciona botão
+addAssignment();
 
 // Requisito 04
 
+let ol = document.createElement('ol');
 function addList() {
-    let ol = document.createElement('ol');
     ol.id = 'lista-tarefas'
 
     for (let index = 0; index < body.length; index += 1) {
@@ -53,3 +55,30 @@ function addList() {
 }
 
 addList();
+
+// Requisito 05
+
+// Função adiciona botao esta sendo chamada apos a criação do input
+function addAssignment(){
+    let button = document.createElement('button');
+    button.id = 'criar-tarefa';
+    button.innerText = 'Adicionar';
+    button.style.margin = '10px'
+    for (let index = 0; index < body.length; index += 1) {
+        body[index].appendChild(button);
+    }
+
+    button.addEventListener('click', function(){
+        let textValue = document.getElementById('texto-tarefa').value;
+        let li = document.createElement('li');
+        li.innerText = textValue;
+        if (textValue == ''){
+            alert('Digite algo!')
+        }else{
+            ol.appendChild(li)
+        }
+    });
+    
+}
+
+
