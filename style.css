@@ -8,7 +8,15 @@
   width: 400px;
   text-align: center;
   margin: auto;
-  background-color: aqua;
+}
+
+input {
+  display: block;
+  margin: auto;
+}
+
+button {
+  margin: 10px;
 }
 
 h1 {
@@ -28,9 +36,11 @@ p {
 }
 
 ol {
-  margin-top: 30px;
+  margin-top: 20px;
+  text-align: left;
 }
 
 li {
   list-style-type: none;
+  margin: 10px;
 }

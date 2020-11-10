@@ -36,9 +36,23 @@ function completaTarefa(){
     tasks[index].addEventListener('dblclick', mudaClasseCompleted);
   }
   function mudaClasseCompleted(event){
-      event.target.classList.toggle('completed');
-    }
+      if(event.target.classList.contains('completed')){
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
+      }
+  }
 }
+
+function apagaTudo(){
+  const botaoApagaTudo = document.getElementById('apaga-tudo');
+  botaoApagaTudo.addEventListener('click', deletaItems);
+  function deletaItems(){
+    let lista = document.getElementById('lista-tarefas');
+    lista.innerHTML = '';
+  }
+}
+apagaTudo();
 
 /*
 function completaTarefa() {
