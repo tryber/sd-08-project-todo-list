@@ -12,10 +12,15 @@ body {
 
 button {
     border-radius: 15px;
-    padding: 5px;
+    padding: 9px;
     border-width: 0;
     cursor: pointer;
     margin: 5px;
+    color: #ffffff;
+}
+
+button:hover {
+    opacity: 0.9;
 }
 
 .container {
@@ -52,3 +57,19 @@ button {
     background-color: #39A2D9;
 }
 
+.remover-selecionado, .apaga-tudo {
+    background-color: #91261B;
+}
+
+.salvar-tarefas {
+    background-color: #5AAD41;
+}
+
+.mover-cima, .mover-baixo {
+    background-color: #F27F31;
+}
+
+.mover-cima, .mover-baixo, .remover-selecionado {
+    padding-left: 20px;
+    padding-right: 20px;
+}
