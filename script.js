@@ -36,8 +36,20 @@ btnDel.innerHTML = 'Apagar Tudo';
 btnDel.addEventListener('click', function () {
   const olList = document.querySelector('#lista-tarefas');
   const liLista = document.querySelectorAll('#lista-tarefas li');
-  for(let i = 0; i < liLista.length; i += 1) {
+  for (let i = 0; i < liLista.length; i += 1) {
     olList.removeChild(liLista[i]);
   }
 });
 document.body.appendChild(btnDel);
+
+const btnDelFinish = document.createElement('button');
+btnDelFinish.id = 'remover-finalizados';
+btnDelFinish.innerHTML = 'Remover Finalizados';
+btnDelFinish.addEventListener('click', function () {
+  const olList = document.querySelector('#lista-tarefas');
+  const liLista = document.querySelectorAll('.completed');
+  for (let i = 0; i < liLista.length; i += 1) {
+    olList.removeChild(liLista[i]);
+  }
+});
+document.body.appendChild(btnDelFinish);
