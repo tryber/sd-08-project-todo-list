@@ -8,11 +8,11 @@ function adicionaTexto(){
     itemList.addEventListener("click", function(){
         verificaListItem();
         itemList.style.backgroundColor = 'rgb(' + [128,128,128].join(',') + ')';
-        itemList.className = 'selected';
+        itemList.className += ' selected';
        });
     // Requisito 9
     itemList.addEventListener("dblclick", function(){
-        itemList.classList.toggle('completed');
+        itemList.classList.toggle('completed')
        });
     list.appendChild(itemList);
     texto.value = "";
@@ -39,7 +39,7 @@ function clearSelected(){
     let list = document.getElementById('lista-tarefas');
     let itemList = document.getElementsByTagName('li');
         Array.from(itemList).forEach(function(itemList){
-            if(itemList.className == "completed"){
+            if(itemList.className.includes("completed")){
                 list.removeChild(itemList);
             }
         });
