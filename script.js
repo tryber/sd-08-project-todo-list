@@ -38,3 +38,12 @@ const removeAll = document.getElementById('apaga-tudo');
 removeAll.addEventListener('click', () => {
   taskList.innerHTML = '';
 })
+
+const removeCompleted = document.getElementById('remover-finalizados');
+removeCompleted.addEventListener('click', () => {
+  const completedTasks = document.getElementsByClassName('completed');
+  const length = completedTasks.length;
+  for (let index = 0; index < length; index += 1) {
+    completedTasks[0].parentElement.removeChild(completedTasks[0]);
+  }
+})
