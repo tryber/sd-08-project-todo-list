@@ -27,5 +27,15 @@ createButton('Task');
             }
             elemento.style.backgroundColor = bg;
         })
+            elemento.addEventListener('dblclick', function(){
+                if(elemento.className == 'completed'){
+                    elemento.className = '';
+                }else{
+                    elemento.className = 'completed';
+                }
+            })
     })
+        
+            
+
 
