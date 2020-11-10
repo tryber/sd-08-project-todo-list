@@ -59,3 +59,12 @@ botaoLimpa.addEventListener('click', function() {
     tarefas.removeChild(element);
   }
 })
+
+let botaoCompletados = document.querySelector('#remover-finalizados');
+botaoCompletados.addEventListener('click', function (){
+  let completados = document.querySelectorAll('.completed');
+  for (i = 0; i< completados.length; i++){
+    element = completados[i];
+    tarefas.removeChild(element);
+  }
+})
