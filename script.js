@@ -14,3 +14,10 @@ document.getElementById("lista-tarefas").addEventListener("click", () => {
   }
   event.target.style.backgroundColor = "rgb(128,128,128)";
 });
+document.getElementById("lista-tarefas").addEventListener("dblclick", () => {
+  if (event.target.className == "completed") {
+    event.target.className = "";
+  } else {
+    event.target.className = "completed";
+  }
+});
