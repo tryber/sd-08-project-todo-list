@@ -13,7 +13,6 @@ document.getElementById("lista-tarefas").addEventListener("click", () => {
   }
   event.target.style.backgroundColor = "rgb(128,128,128)";
 });
-
 document.getElementById("lista-tarefas").addEventListener("dblclick", () => {
   if (event.target.className == "completed") {
     event.target.className = "";
@@ -21,10 +20,13 @@ document.getElementById("lista-tarefas").addEventListener("dblclick", () => {
     event.target.className = "completed";
   }
 });
-
 document.getElementById("apaga-tudo").addEventListener("click", () => {
   let item = document.querySelectorAll("li");
   for (let i = 0; i < item.length; i += 1) {
     document.getElementById("lista-tarefas").removeChild(item[i]);
   }
+});
+document.getElementById("remover-finalizados").addEventListener("click", () => {
+  let item = document.querySelector(".completed");
+  document.getElementById("lista-tarefas").removeChild(item);
 });
