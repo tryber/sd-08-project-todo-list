@@ -7,6 +7,11 @@ function createButton(){
     button.addEventListener('click',function(){
         let input = document.getElementById('texto-tarefa')
         let createLI = document.createElement('li')
+        createLI.addEventListener('click', function(){
+            if(createLI.style.background !== null){
+                createLI.style.backgroundColor = 'rgb(128, 128, 128)'
+            }
+        })
         let lista = document.getElementById('lista-tarefas')
         if(input.value.length > 0){
             createLI.innerText = input.value
