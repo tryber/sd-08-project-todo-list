@@ -44,7 +44,6 @@ function createsTask() {
         } else {
           task.className = 'completed';
         }
-
       });
 
     }
