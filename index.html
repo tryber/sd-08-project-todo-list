@@ -9,22 +9,37 @@
 </head>
 <body>
 
-    <header>
-        Minha Lista de Tarefas
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
+    <div class="container">
+        <header>
 
-   <input type="text" id="texto-tarefa">
+            <h1>Minha Lista de Tarefas</h1>
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo </p>
 
-    <ol id="lista-tarefas"></ol>
+        </header>
 
-    <button id="criar-tarefa">Adicionar</button>
-    <button id="apaga-tudo">Limpar</button>
-    <button id="remover-finalizados">Apagar Tudo</button>
-  
 
-<!-- <input type=”button” value=”botar” onclick=”botar()”/>
-<input type=”button” value=”tirar” onclick=”tirar()”/> -->
+        <div id="">
+            <input id="texto-tarefa" class="inputNewTodo" value="" type="text" name="newTodo">
+            <button class="button-primary" id="criar-tarefa">Adicionar nova Tarefa</button>
+        </div>
+
+        <div id="">
+            <ol id="lista-tarefas">
+
+            </ol>
+        </div>
+
+        <div class="actions">
+            <button class="buttonWarning" id="remover-selecionado">X</button>
+            <button class="buttonAlert" id="mover-cima">^</button>
+            <button class="buttonAlert" id="mover-baixo">v</button>
+            <button class="cleanDonesButton button-primary" id="remover-finalizados">Limpar Completos</button>
+            <button class="buttonWarning cleanListButton" id="apaga-tudo">Limpar Lista</button>
+            <button class="saveListButton buttonSuccess" id="salvar-tarefas">Salvar Lista</button>
+        </div>
+        </section>
+
+    </div>
 
 
 
