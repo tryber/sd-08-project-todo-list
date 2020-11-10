@@ -11,8 +11,8 @@ btnApagar.addEventListener('click', function () {
 });
 
 function clearSelection() {
-  for (const tarefa of listaTarefa.children) {
-    tarefa.classList.remove('selected');
+  for (let i = 0; i < listaTarefa.children.length; i += 1) {
+    listaTarefa.children[i].classList.remove('selected');
   }
   // btnUpArrow.disabled = true;
   // btnDownArrow.disabled = true;
@@ -91,7 +91,8 @@ const btnSalvar = document.getElementById('salvar-tarefas');
 function getData() {
   const tarefasData = [];
   const completedData = [];
-  for (const tarefa of listaTarefa.children) {
+  for (let i = 0; i < listaTarefa.children.length; i += 1) {
+    const tarefa = listaTarefa.children[i];
     tarefasData.push(tarefa.innerHTML);
     if (tarefa.classList.contains('completed')) {
       completedData.push(tarefa.innerHTML);
@@ -101,7 +102,8 @@ function getData() {
 }
 btnSalvar.addEventListener('click', function () {
   const data = getData();
-  for (const key of Object.keys(data)) {
+  for (let i = 0; i < Object.keys(data).length; i += 1) {
+    const key = Object.keys(data)[i];
     localStorage.setItem(key, data[key]);
   }
 });
