@@ -4,6 +4,7 @@ const addTask = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const deleteAll = document.querySelector('#apaga-tudo');
 const deleteCompleted = document.querySelector('#remover-finalizados');
+const saveTasks = document.querySelector('#salvar-tarefas');
 
 // Creates 'add to list' button functionality
 function createListItem() {
@@ -66,3 +67,37 @@ function removeCompleted() {
 }
 
 deleteCompleted.addEventListener('click', removeCompleted);
+
+// Saves task list
+function saveList() {
+  localStorage.clear();
+  for (let i = 0; i < taskList.childElementCount; i += 1) {
+    const item = taskList.children[i];
+    localStorage.setItem(`${i}`, `${item.innerHTML}`)
+  }
+}
+
+saveTasks.addEventListener('click', saveList);
+
+// Adds saved items to list
+let savedItems;
+
+function retrieveItems() {
+  savedItems = [];
+  for (let i = 0; i < Object.keys(localStorage).length; i += 1) {
+    savedItems.push(localStorage.getItem(i));
+  }
+}
+
+function generateFromStorage() {
+  if (localStorage.getItem(0)) {
+    retrieveItems();
+    for (let i in savedItems) {
+      const listItem = document.createElement('li');
+      listItem.innerText = savedItems[i];
+      taskList.appendChild(listItem);
+    }
+  }
+}
+
+generateFromStorage();
