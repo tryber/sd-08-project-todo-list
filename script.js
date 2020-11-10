@@ -81,6 +81,22 @@ function carregarLocalStorage() {
   }
 }
 
+function moverParaCima(){
+    
+}
+
+function moverParaBaixo() {
+    const elementoSelecionado = document.querySelector('.colore-elemento-lista');
+    const pai = elementoSelecionado.parentNode
+    const proximo = elementoSelecionado.nextSibling;
+    pai.insertBefore(elementoSelecionado, proximo);
+}
+
+function removerSelecionado() {
+    const elementoSelecionado = document.querySelector('.colore-elemento-lista');
+    elementoSelecionado.remove();
+}
+
 window.onload = function () {
   const botaoAdicionar = document.querySelector('#criar-tarefa');
   const botaoLimparLista = document.querySelector('#apaga-tudo');
@@ -88,6 +104,9 @@ window.onload = function () {
     '#remover-finalizados',
   );
   const botaoSalvarLista = document.querySelector('#salvar-tarefas');
+  const botaoMoverCima = document.querySelector('#mover-cima');
+  const botaoMoverBaixo = document.querySelector('#mover-baixo');
+  const botaoRemoverSelecionado = document.querySelector('#remover-selecionado')
 
   carregarLocalStorage();
   botaoAdicionar.addEventListener('click', adicionaTarefaLista);
@@ -95,4 +114,7 @@ window.onload = function () {
   botaoRemoverFinalizados.addEventListener('click', limparFinalizados);
   verificaCliqueLista();
   botaoSalvarLista.addEventListener('click', salvarLista);
+  botaoMoverCima.addEventListener('click', moverParaCima)
+  botaoMoverBaixo.addEventListener('click', moverParaBaixo)
+  botaoRemoverSelecionado.addEventListener('click', removerSelecionado)
 };
