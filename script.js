@@ -50,10 +50,11 @@ function deleteList() {
   let btnApaga = document.querySelector('#apaga-tudo');
   btnApaga.addEventListener('click', function () {
     let lista = document.querySelector('#lista-tarefas');
-    let indice = lista.children.length;
-    for(let i = 0; i < indice; i += 1) {
-      lista.removeChild(lista.lastElementChild);
-    }
+    lista.innerHTML = '';
+    // let indice = lista.children.length;
+    // for(let i = 0; i < indice; i += 1) {
+    //   lista.removeChild(lista.lastElementChild);
+    // }
   });
 }
 deleteList();
