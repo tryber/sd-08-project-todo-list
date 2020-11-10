@@ -19,7 +19,8 @@ function addTarefa(text) {
     item.target.className = 'selected';
   });
 }
-function adicionarTarefa() {
+
+document.querySelector('#criar-tarefa').addEventListener('click', function() {
   // Adicionar nova Tarefa
   let textInput = document.querySelector('#texto-tarefa');
   if (textInput === null || textInput === '') {
@@ -27,5 +28,4 @@ function adicionarTarefa() {
   }
   addTarefa(textInput.value);
   textInput.value = '';
-}
-document.querySelector('#criar-tarefa').addEventListener('click', adicionarTarefa);
+});
