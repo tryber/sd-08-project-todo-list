@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.itemLista {
+  cursor: pointer;
+  user-select: none;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
+}
