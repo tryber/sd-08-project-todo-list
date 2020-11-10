@@ -37,3 +37,10 @@ function addTask() {
 
 // Setting the button to add a new task and clean the input
 btnCreateTask.addEventListener('click', addTask);
+
+// Removing all tasks
+const btnClearAll = document.getElementById('apaga-tudo');
+btnClearAll.addEventListener('click', function (event) {
+	let tasksList = document.getElementById('lista-tarefas');
+	tasksList.innerHTML = '';
+});
