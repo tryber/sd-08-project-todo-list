@@ -25,7 +25,7 @@ function removeColor() {
 }
 
 function addColor(event) {
-  if (event.target.id != 'lista-tarefas') {
+  if (event.target.id !== 'lista-tarefas') {
     removeColor();
     event.target.style.backgroundColor = 'rgb(128,128,128)';
     event.target.classList.add('selected');
