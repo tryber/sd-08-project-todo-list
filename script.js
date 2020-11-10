@@ -8,6 +8,7 @@ function clearSelection() {
   }
   btnUpArrow.disabled = true;
   btnDownArrow.disabled = true;
+  btnApagar.disabled = true;
 }
 
 if (localStorage.getItem("tarefas") != null) {
@@ -30,9 +31,8 @@ function adicionarTarefa(tarefaTexto) {
   listaTarefa.appendChild(tarefaItem);
   tarefaItem.addEventListener("click", function (e) {
     clearSelection();
+    btnApagar.disabled = false;
     e.target.classList.add("selected");
-    btnUpArrow.disabled = true;
-    btnDownArrow.disabled = true;
     if (e.target.previousSibling != null) {
       btnUpArrow.disabled = false;
     }
@@ -98,11 +98,11 @@ btnSalvar.addEventListener("click", function () {
   }
 });
 
-btnUpArrow = document.getElementById("mover-cima");
-btnDownArrow = document.getElementById("mover-baixo");
+let btnUpArrow = document.getElementById("mover-cima");
+let btnDownArrow = document.getElementById("mover-baixo");
 
 btnUpArrow.addEventListener("click", function () {
-  selected = document.querySelector(".selected");
+  let selected = document.querySelector(".selected");
   let prev = document
     .getElementById("lista-tarefas")
     .replaceChild(selected, selected.previousSibling);
@@ -115,7 +115,7 @@ btnUpArrow.addEventListener("click", function () {
 });
 
 btnDownArrow.addEventListener("click", function () {
-  selected = document.querySelector(".selected");
+  let selected = document.querySelector(".selected");
   let post = document
     .getElementById("lista-tarefas")
     .replaceChild(selected, selected.nextSibling);
@@ -127,3 +127,12 @@ btnDownArrow.addEventListener("click", function () {
 
 btnUpArrow.disabled = true;
 btnDownArrow.disabled = true;
+
+let btnApagar = document.getElementById("remover-selecionado");
+btnApagar.disabled = true;
+
+btnApagar.addEventListener("click", function () {
+  let selected = document.querySelector(".selected");
+  selected.parentNode.removeChild(selected);
+  btnApagar.disabled = true;
+});
