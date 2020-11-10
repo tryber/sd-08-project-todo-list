@@ -30,3 +30,14 @@ document.querySelector('#criar-tarefa').addEventListener('click', function () {
   textInput.value = '';
   return addTarefa(texto);
 });
+const btnDel = document.createElement('button');
+btnDel.id = 'apaga-tudo';
+btnDel.innerHTML = 'Apagar Tudo';
+btnDel.addEventListener('click', function () {
+  const olList = document.querySelector('#lista-tarefas');
+  const liLista = document.querySelectorAll('#lista-tarefas li');
+  for(let i = 0; i < liLista.length; i += 1) {
+    olList.removeChild(liLista[i]);
+  }
+});
+document.body.appendChild(btnDel);
