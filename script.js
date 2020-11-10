@@ -11,3 +11,7 @@ textInf.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 const txtBox = document.createElement('input');
 txtBox.id = 'texto-tarefa';
 document.querySelector('body').appendChild(txtBox);
+//Cria lista ordenada - 4º requisito
+const taskList = document.createElement('ol');
+taskList.id = 'lista-tarefas';
+document.querySelector('body').appendChild(taskList);
