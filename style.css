@@ -51,9 +51,15 @@ body {
 
 #apaga-tudo {
     background-color: red;
+    width: 200px;
 }
 
 #remover-finalizados {
     background-color: rgb(0, 119, 255);
+    width: 200px;
+}
+
+#salvar-tarefas {
+    background-color: green;
     width: 200px;
 }
