@@ -23,8 +23,7 @@ listLocal.addEventListener('click', changeBackGroundColorSelectedItem);
 function scratchCompletedItem(event) {
   if (event.target.className !== 'completed') {
     event.target.className = 'completed';
-  }
-  else {
+  }  else {
     event.target.className = '';
   }
 }
