@@ -36,7 +36,16 @@ lista.addEventListener("dblclick", function (event) {
 });
 
 // Botão de apagar tudo
-let buttonApagar = document.getElementById("apaga-tudo");
-buttonApagar.addEventListener("click", function () {
+let buttonApagarTudo = document.getElementById("apaga-tudo");
+buttonApagarTudo.addEventListener("click", function () {
     lista.innerHTML = "";
+})
+
+// Botão de apagar concluídos
+let buttonApagarConcluido = document.getElementById("remover-finalizados");
+buttonApagarConcluido.addEventListener("click", function () {
+    let listaConcluido = document.getElementsByClassName("completed");
+    for (let j = 0; j < listaConcluido.length; j += 1) {
+        listaConcluido[j].remove();
+    }
 })
