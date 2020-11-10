@@ -11,3 +11,8 @@ selButtom.addEventListener('click', function() {
   selLista.appendChild(adiciona);
   selInput.value = ''
 });
+
+selLista.addEventListener('click', function(event) {
+  event.target.style.background = 'rgb(128, 128, 128)';
+  selButtom.style.backgroundColor = "";
+})
