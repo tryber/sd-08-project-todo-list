@@ -8,6 +8,7 @@ function createTaskList() {
     createList.innerText = getInput.value;
     createList.className = 'task-list';
     getOrderedList.appendChild(createList);
+    getInput.value = '';
   })
 }
 createTaskList();
