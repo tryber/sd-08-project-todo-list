@@ -89,8 +89,8 @@ saveTasksButton.addEventListener('click', saveTasks);
 
 function moveUp() {
   const selected = olTasks.querySelector('.selected');
-  const previous = selected.previousElementSibling;
-  if (selected && previous) {
+  if (selected && selected.previousSibling) {
+    const previous = selected.previousSibling;
     const parent = selected.parentNode;
     parent.insertBefore(selected, previous);
   }  
@@ -101,8 +101,8 @@ moveUpButton.addEventListener('click', moveUp);
 
 function moveDown() {
   const selected = olTasks.querySelector('.selected');
-  const next = selected.nextElementSibling;
-  if (selected && next) {
+  if (selected && selected.nextSibling) {
+    const next = selected.nextSibling;
     const parent = selected.parentNode;
     parent.insertBefore(next, selected);
   }
