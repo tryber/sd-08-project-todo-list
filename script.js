@@ -40,3 +40,17 @@ function clearColorTask() {
     tag.style.backgroundColor = 'white';
   }
 }
+
+
+function taskCompleted() {
+  const listTask = document.querySelector('#lista-tarefas');
+  listTask.addEventListener('dblclick', function (solved) {
+    if (solved.target.className === 'tarefa completed') {
+      solved.target.className = 'tarefa';
+    } else {
+      solved.target.className = 'tarefa completed';
+    }
+  });
+}
+
+taskCompleted();
