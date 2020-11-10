@@ -88,3 +88,16 @@ let paiTarefas = document.querySelector("#lista-tarefas");
     }
   }
 })
+
+let botaoRemoveSelecionado = document.querySelector("#remover-selecionado");
+botaoRemoveSelecionado.addEventListener('click', function () {
+let listaTarefas = document.querySelectorAll('.tarefasLi');
+let paiTarefas = document.querySelector("#lista-tarefas");
+  for (let i = 0; i < listaTarefas.length; i++ ) {
+    let element = listaTarefas[i];
+    if (element.style.backgroundColor === 'rgb(128, 128, 128)' ) {
+        paiTarefas.removeChild(element)
+    }
+  }
+})
+
