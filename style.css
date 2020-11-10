@@ -44,3 +44,7 @@ body {
     text-decoration:none;
     display: inline-block;
 }
+
+.completed {
+    text-decoration: line-through;
+}

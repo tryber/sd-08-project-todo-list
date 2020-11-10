@@ -7,15 +7,24 @@ const olListTasks = document.getElementById('lista-tarefas');
 txtTask.addEventListener('keyup', checkEnterEvent);
 btnCreateTask.addEventListener('click', createTask);
 olListTasks.addEventListener('click', setBackGroundColor);
+olListTasks.addEventListener('dblclick', setTaskCompleted);
 
 // Funções dos eventos dos objetos
 function setBackGroundColor(event) {    
-    if (document.querySelector('.task-selected') !== null){
-        document.querySelector('.task-selected').removeAttribute("style");
-        document.querySelector('.task-selected').removeAttribute('class');
+    if (document.querySelector('.selected') !== null){
+        document.querySelector('.selected').style.backgroundColor = '';
+        document.querySelector('.selected').classList.remove('selected');
     }
-    event.target.className = "task-selected";
+    event.target.classList.add('selected');
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';       
+}
+
+function setTaskCompleted(event) {
+    if (event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed');
+    } else {
+    event.target.classList.add('completed');
+    }      
 }
 
 function checkEnterEvent(event) {
@@ -36,6 +45,7 @@ function createTask() {
         let listTasks = document.querySelector('.task-list');
         let liTask = document.createElement('li');
         
+        liTask.className = "task";
         liTask.innerHTML = txtTask.value;
         listTasks.appendChild(liTask);
 
