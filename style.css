@@ -14,6 +14,14 @@ body {
   
 .input-container {
     width: 50%;
-    height: 100px;
     display: inline-block;
+  }
+
+  .task-list {
+    margin-top: 10px;
+  }
+  
+  #lista-tarefas {
+    list-style-type: decimal;    
+    font-size: 20px;
   }
