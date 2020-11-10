@@ -20,8 +20,24 @@ function setBackgroudItem(element) {
   element.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
+function setCompletedTask(element) {
+  if (!element.classList.contains('completed')) {
+    element.style.textDecoration = '';
+  } else {
+    element.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+  }
+}
 function selectItem() {
   const itens = document.getElementById('lista-tarefas');
+  itens.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+      setCompletedTask(event.target);
+    } else {
+      event.target.classList.add('completed');
+      setCompletedTask(event.target);
+    }
+  });
   itens.addEventListener('click', function (event) {
     setBackgroudItem(event.target);
   });
