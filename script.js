@@ -49,7 +49,7 @@ function apagaTudo(){
   botaoApagaTudo.addEventListener('click', deletaItems);
   function deletaItems(){
     let lista = document.getElementById('lista-tarefas');
-    lista.innerHTML = '';
+    lista.innerHTML = '';    
   }
 }
 apagaTudo();
