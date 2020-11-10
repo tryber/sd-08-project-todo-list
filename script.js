@@ -89,11 +89,11 @@ saveTasksButton.addEventListener('click', saveTasks);
 
 function moveUp() {
   const selected = olTasks.querySelector('.selected');
-  if (!selected) return;
   const previous = selected.previousElementSibling;
-  if (!previous) return;
-  const parent = selected.parentNode;
-  parent.insertBefore(selected, previous);
+  if (selected && previous) {
+    const parent = selected.parentNode;
+    parent.insertBefore(selected, previous);
+  }  
 }
 
 const moveUpButton = document.getElementById('mover-cima');
@@ -101,11 +101,11 @@ moveUpButton.addEventListener('click', moveUp);
 
 function moveDown() {
   const selected = olTasks.querySelector('.selected');
-  if (!selected) return;
   const next = selected.nextElementSibling;
-  if (!next) return;
-  const parent = selected.parentNode;
-  parent.insertBefore(next, selected);
+  if (selected && next) {
+    const parent = selected.parentNode;
+    parent.insertBefore(next, selected);
+  }
 }
 
 const moveDownButton = document.getElementById('mover-baixo');
