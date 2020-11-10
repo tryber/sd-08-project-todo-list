@@ -30,7 +30,7 @@ function addTaskToList() {
                 createTask.innerText = taskDescription
                 createTask.className = 'task'
                 createTask.style.backgroundColor = "rgb(255, 255, 255)"
-
+                //adiciona função que permite um elemento criado seja marcado como selecionado.
                 createTask.addEventListener("click", function (event) {
                     let currentBackgroundColor = "rgb(255, 255, 255)"
                     if (currentBackgroundColor = "rgb(255, 255, 255)") {
@@ -43,7 +43,15 @@ function addTaskToList() {
                         event.target.classList.add("selected")
                     }
                 })
-
+                //adiciona a marcação de elemento completo caso tenha um doubleClick no elemento.
+                createTask.addEventListener("dblclick", function(event){
+                    let currentStatus = event.target.classList.contains("completed")
+                    if(!currentStatus){
+                        event.target.classList.add("completed")
+                    }else{
+                        event.target.classList.remove("completed")
+                    }
+                })
                 taskList.appendChild(createTask)
                 taskInput.value = ""
             } else (alert("Adicione um nome para tarefa!"))
