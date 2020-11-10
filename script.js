@@ -2,12 +2,14 @@
 const txtTask = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
 const btnClearListTasks = document.getElementById('apaga-tudo');
+const btnRemoveTaskCompleted = document.getElementById('remover-finalizados');
 const olListTasks = document.getElementById('lista-tarefas');
 
 // Lista de eventos de objetos
 txtTask.addEventListener('keyup', checkEnterEvent);
 btnCreateTask.addEventListener('click', createTask);
 btnClearListTasks.addEventListener('click', clearListTasks);
+btnRemoveTaskCompleted.addEventListener('click', removeTaskCompleted);
 olListTasks.addEventListener('click', setBackGroundColor);
 olListTasks.addEventListener('dblclick', setTaskCompleted);
 
@@ -28,6 +30,16 @@ function setTaskCompleted(event) {
     event.target.classList.add('completed');
     }      
 }
+
+function removeTaskCompleted() {
+    for (let index = 0; index < olListTasks.childElementCount; index += 1) {
+      const task = olListTasks.children[index];
+      if (task.classList.contains('completed')) {
+        olListTasks.removeChild(task);
+        index -= 1;
+      }
+    }
+  }
 
 function checkEnterEvent(event) {
     if (event.type === 'keyup')

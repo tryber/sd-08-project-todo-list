@@ -19,7 +19,7 @@ body {
 }
 
 .input-container {
-    width: 50%;
+    width: 100%;
     display: inline-block;
 }
 
@@ -51,4 +51,9 @@ body {
 
 #apaga-tudo {
     background-color: red;
+}
+
+#remover-finalizados {
+    background-color: rgb(0, 119, 255);
+    width: 200px;
 }
