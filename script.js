@@ -2,8 +2,10 @@
 let buttonsContainer = document.querySelector('.buttons-container');
 let list = document.getElementById('lista-tarefas');
 let textByUser = document.getElementById('texto-tarefa');
-
+let itemLength = 0;
+//
 // Criando função para facilitar criação de botões
+//
 function createButton(buttonText, typeOfButton, idOfButton ) {
   let button = document.createElement('button');
   button.setAttribute('type','button');
@@ -13,14 +15,9 @@ function createButton(buttonText, typeOfButton, idOfButton ) {
   button.classList.add(typeOfButton);
   buttonsContainer.appendChild(button);
 }
-// Requisito 5 - Criando evento de adição de texto a caixa de texto;
-/*
-textByUser.addEventListener('keyup',function () {
-  let textByUser = document.getElementById('texto-tarefa');
-  let string = textByUser.value
-})*/
-
-//Requisito 5 -Criando botão de input e adicionando evento de input
+//
+// Requisito 5 e 6 - Criando botão de input e adicionando evento de input
+//
 createButton('input', 'input', 'criar-tarefa');
 let inputbutton = document.querySelector('.input')
 inputbutton.addEventListener('click', function () {
@@ -30,8 +27,28 @@ inputbutton.addEventListener('click', function () {
   item.className = 'item';
   item.innerHTML = textByUser.value;
   list.appendChild(item);
-  textByUser.value ="";
+  textByUser.value = "";
+  itemLength += 1;
 })
-
-
-
+// Requisito 7 - Adicionando evento para mudança de style para o item selecionado
+//
+// Adicionando evento para chamar função com tamanho de lista de items itemLength atualizado
+let item = document.getElementsByClassName('item');
+list.addEventListener('mouseover',function () {
+  clickOnList();
+})
+//
+// Adicionando evento para mudança de background
+function clickOnList() {
+  for (let i = 0; i < itemLength; i += 1) {
+    item[i].addEventListener('click', function() {
+      item[i].style.backgroundColor = 'rgb(128,128,128)';
+      index = i
+      for(let j = 0; j < itemLength; j += 1){
+        if (j !== index) {
+          item[j].style.backgroundColor ='';
+        }
+      }
+    })
+  }
+}  
