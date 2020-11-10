@@ -41,6 +41,17 @@ btnCreateTask.addEventListener('click', addTask);
 // Removing all tasks
 const btnClearAll = document.getElementById('apaga-tudo');
 btnClearAll.addEventListener('click', function (event) {
-	let tasksList = document.getElementById('lista-tarefas');
-	tasksList.innerHTML = '';
+  let tasksList = document.getElementById('lista-tarefas');
+  tasksList.innerHTML = '';
 });
+
+// Removing completed tasks
+const btnClearCompleted = document.getElementById('remover-finalizados');
+btnClearCompleted.addEventListener('click', removeCompleted);
+
+function removeCompleted(event) {
+  const allCompletedTasks = document.querySelectorAll('.completed');
+  for (let task = 0; task < allCompletedTasks.length; task += 1) {
+    allCompletedTasks[task].remove();
+  }
+}
