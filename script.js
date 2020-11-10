@@ -34,8 +34,9 @@ inputbutton.addEventListener('click', function () {
 //
 // Adicionando evento para chamar função com tamanho de lista de items itemLength atualizado
 let item = document.getElementsByClassName('item');
-list.addEventListener('mouseover',function () {
+list.addEventListener('mouseenter',function () {
   clickOnList();
+  doubleClickOnList()
 })
 //
 // Adicionando evento para mudança de background
@@ -51,4 +52,18 @@ function clickOnList() {
       }
     })
   }
-}  
+} 
+// Requisitos 9 - Adicionando evento de double click para alterar classe do item selecionado
+function doubleClickOnList() {
+  for (let i = 0; i < itemLength; i += 1) {
+    item[i].addEventListener('dblclick', function() {
+      let classOfItemDoubleClicked = document.getElementsByClassName('item')[i].className;
+      if (classOfItemDoubleClicked == 'item') {
+        item[i].classList.add('completed');
+      }
+      if(classOfItemDoubleClicked == 'item completed'){
+        item[i].className = 'item';
+      }
+    })
+  }
+} 
