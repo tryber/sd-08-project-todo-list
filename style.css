@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100%;
+    background-color: #5AAD41;
+}
+
+button {
+    border-radius: 15px;
+    padding: 5px;
+    border-width: 0;
+    cursor: pointer;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 30px;
+    width: 95%;
+}
+
+#title {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 15px 0px 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#funcionamento {
+    font-size: 12px;
+    font-style: italic;
+    color: #b9b4b4;
+    margin: 5px 15px 20px 15px;
+}
+
+#criar-tarefa, #remover-finalizados {
+    background-color: #0B87CF;
+}
+
+#criar-tarefa:hover, #remover-finalizados:hover {
+    background-color: #39A2D9;
+}
+

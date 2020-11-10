@@ -2,27 +2,33 @@
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8" />
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'/>
 		<meta name="viewport" content="width=device-width, initial-" />
 		<link rel="stylesheet" href="style.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap" rel="stylesheet">
 		<title>Minha Lista de Tarefas</title>
 	</head>
 	<body>
-		<header id="title">
-			Minha Lista de Tarefas
-		</header>
-		<p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-		<input id="texto-tarefa"></input>
-		<button id="criar-tarefa"></button>
-		<ol id="lista-tarefas"></ol>
-		<button id="apaga-tudo"></button>
-		<button id="remover-finalizados"></button>
+		<div class="container">
+			<header id="title">
+				Minha Lista de Tarefas
+			</header>
+			<p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
 
-		<section class="bonus">
-			<button id="salvar-tarefas"></button>
-			<button id="mover-cima"></button>
-			<button id="mover-baixo"></button>
-			<button id="remover-selecionado"></button>
-		</section>
+			<input type="text" id="texto-tarefa" placeholder="What do you want do to?"></input>
+			<button id="criar-tarefa">Adicionar</button>
+
+			<ol id="lista-tarefas"></ol>
+			<button id="apaga-tudo">Limpar Lista</button>
+			<button id="remover-finalizados">Limpar Completos</button>
+
+			<section class="bonus">
+				<button id="salvar-tarefas">Salvar Lista</button>
+				<button id="mover-cima"></button>
+				<button id="mover-baixo"></button>
+				<button id="remover-selecionado"></button>
+			</section>
+		</div>
 		<script src="script.js"></script>
 	</body>
 </html>
