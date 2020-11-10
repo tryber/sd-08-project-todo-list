@@ -18,4 +18,11 @@ createButton('Task');
         elemento.innerText = texto.value;
         orList.appendChild(elemento);
         texto.value = '';
+        elemento.addEventListener('click', function(){
+            elemento.style.backgroundColor = 'rgb(128,128,128)';
+        })
     })
+
+ //mudando background
+
+   
