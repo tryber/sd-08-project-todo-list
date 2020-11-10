@@ -30,3 +30,19 @@ lista.addEventListener('click', function (event){
     event.target.className = 'selected';
   }
 });
+
+const complet = document.getElementById('lista-tarefas')
+complet.addEventListener('dblclick', function (event){
+  let selectedItem = document.getElementsByClassName('selected')
+  let completedItem = document.getElementsByClassName('completed')
+  console.log(selectedItem.length)
+  if( event.target.tagName === 'LI'){
+    if( selectedItem.length >= 1 ){
+      selectedItem[0].className = "";
+    }
+    if( completedItem.length >= 1 ){
+      completedItem[0].className = "";
+    }
+    event.target.className = 'completed';
+  }
+});
