@@ -99,7 +99,7 @@ function moverCima() {
 function moverBaixo() {
   const itensLista = document.querySelectorAll('li');
 
-  for (let index = (itensLista.length - 2); index > 0; index -= 1) {
+  for (let index = (itensLista.length - 2); index >= 0; index -= 1) {
     const pos = index + 1;
     if (itensLista[index].className === 'selected' || itensLista[index].className === 'selected completed') {
       const temp = itensLista[index].innerText;
