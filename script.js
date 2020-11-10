@@ -84,27 +84,27 @@ function salvaTarefas() {
 }
 
 function moverCima() {
-  let itensLista = document.querySelectorAll('li');
+  const itensLista = document.querySelectorAll('li');
 
   for (let index = 1; index < itensLista.length; index += 1) {
-      let pos = index - 1
+    const pos = index - 1;
     if (itensLista[index].className === 'selected' || itensLista[index].className === 'selected completed') {
-        let temp = itensLista[index].innerText
-        itensLista[index].innerText = itensLista[pos].innerText
-        itensLista[pos].innerText = temp
+      const temp = itensLista[index].innerText;
+      itensLista[index].innerText = itensLista[pos].innerText;
+      itensLista[pos].innerText = temp;
     }
   }
 }
 
 function moverBaixo() {
-  let itensLista = document.querySelectorAll('li');
+  const itensLista = document.querySelectorAll('li');
 
   for (let index = (itensLista.length - 2); index > 0; index -= 1) {
-    let pos = index + 1
+    const pos = index + 1;
     if (itensLista[index].className === 'selected' || itensLista[index].className === 'selected completed') {
-      let temp = itensLista[index].innerText
-      itensLista[index].innerText = itensLista[pos].innerText
-      itensLista[pos].innerText = temp
+      const temp = itensLista[index].innerText;
+      itensLista[index].innerText = itensLista[pos].innerText;
+      itensLista[pos].innerText = temp;
     }
   }
 }
