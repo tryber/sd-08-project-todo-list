@@ -40,11 +40,15 @@ body {
     border: 0px;
     border-radius:20px;
     height: 40px;
-    width: 30%;
+    width: 150px;
     text-decoration:none;
     display: inline-block;
 }
 
 .completed {
     text-decoration: line-through;
+}
+
+#apaga-tudo {
+    background-color: red;
 }

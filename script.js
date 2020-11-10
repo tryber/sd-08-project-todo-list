@@ -1,11 +1,13 @@
 // Lista de objetos
 const txtTask = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
+const btnClearListTasks = document.getElementById('apaga-tudo');
 const olListTasks = document.getElementById('lista-tarefas');
 
 // Lista de eventos de objetos
 txtTask.addEventListener('keyup', checkEnterEvent);
 btnCreateTask.addEventListener('click', createTask);
+btnClearListTasks.addEventListener('click', clearListTasks);
 olListTasks.addEventListener('click', setBackGroundColor);
 olListTasks.addEventListener('dblclick', setTaskCompleted);
 
@@ -51,4 +53,9 @@ function createTask() {
 
         txtTask.value = '';
     }
+}
+
+function clearListTasks() {    
+    let listTasks = document.getElementById('lista-tarefas');
+    listTasks.innerHTML = '';
 }
