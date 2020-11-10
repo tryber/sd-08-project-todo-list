@@ -4,7 +4,8 @@ document.querySelector('#criar-tarefa').addEventListener('click', function(){
     document.querySelector('#lista-tarefas').appendChild(listElement);
     listElement.innerHTML = document.querySelector('#texto-tarefa').value;
     document.querySelector('#texto-tarefa').value = '';
-    changeBackColor();   
+    changeBackColor();
+    textDecoration();   
 });
 
 //MUDAR COR DE FUNDO
@@ -19,3 +20,11 @@ function changeBackColor(){
     }
 }
 
+// COLOCANDO DECORAÇAO NA TAREFA QUE JÁ FOI EXECUTADA
+function textDecoration(){
+    for(let index = 0; index < document.querySelectorAll('li').length; index+=1) {
+        document.querySelectorAll('li')[index].addEventListener('dblclick', function (){
+            document.querySelectorAll('li')[index].classList.add('completed');
+        });        
+    }
+}
