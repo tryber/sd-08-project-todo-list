@@ -11,11 +11,22 @@ function insertElement() {
 
 butonTarefaLocal.addEventListener('click', insertElement);
 
-function changeBackGroundColorSelectedItem(event) {  
-  for (let i=0; i<listLocal.children.length; i+=1) {
+function changeBackGroundColorSelectedItem(event) {
+  for (let i = 0; i < listLocal.children.length; i += 1) {
     listLocal.children[i].style.backgroundColor = '';
   }
-  event.target.style.backgroundColor = 'rgb(128,128,128)';  
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
 listLocal.addEventListener('click', changeBackGroundColorSelectedItem);
+
+function scratchCompletedItem(event) {
+  if (event.target.className !== 'completed') {
+    event.target.className = 'completed';
+  }
+  else {
+    event.target.className = '';
+  }
+}
+
+listLocal.addEventListener('dblclick', scratchCompletedItem);
