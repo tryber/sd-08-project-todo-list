@@ -1,9 +1,4 @@
-const initialState = [
-  { description: 'Primeira', selected: false, completed: false },
-  { description: 'Segunda', selected: false, completed: false },
-  { description: 'Terceira', selected: false, completed: false },
-];
-
+const initialState = [];
 const savedTasks = JSON.parse(localStorage.getItem('tasks')) || initialState;
 const olTasks = document.getElementById('lista-tarefas');
 
