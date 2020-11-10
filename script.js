@@ -81,8 +81,8 @@ function moveItemDown() {
 
 function saveTodo() {
   const liArray = document.getElementById('lista-tarefas').children;
-  let liObj = {};
-  
+  const liObj = {};
+
   for (let i = 0; i < liArray.length; i += 1) {
     const text = liArray[i].innerText;
     const classes = liArray[i].className;
@@ -90,23 +90,26 @@ function saveTodo() {
     liObj[i] = {
       text,
       classes,
-    }
+    };
   }
 
   localStorage.setItem('lastState', JSON.stringify(liObj));
-  console.log(localStorage.getItem('lastState'));
 }
 
 function handleStorage() {
   const ol = document.getElementById('lista-tarefas');
   const storedItems = JSON.parse(localStorage.getItem('lastState'));
 
-  for (let key in storedItems) {
-    let li = document.createElement('li');
+  let key = 0;
+
+  while (storedItems[key]) {
+    const li = document.createElement('li');
     li.innerText = storedItems[key].text;
     li.className = storedItems[key].classes;
 
     ol.appendChild(li);
+
+    key += 1;
   }
 }
 
