@@ -39,3 +39,12 @@ function completed (task) {
   });   
 }
 
+//  Botão apaga tudo
+let buttonClearAll = document.getElementById('apaga-tudo');
+
+buttonClearAll.addEventListener('click', function () {
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.firstChild);
+    }
+})
+
