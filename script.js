@@ -47,10 +47,11 @@ function listColor(){
 
     olColor.addEventListener("dblclick", function(event){
         if (event.target.className == "class"){
-            event.target.className = "completed";
+            event.target.className = "completed";              
         }else {
             event.target.className = "class"
-        }       
+        }  
+            
     })
 }
 listColor();
@@ -69,4 +70,24 @@ function listClear(){
 }
 listClear();
 
+let buttonRemove = document.createElement("button");
+buttonRemove.id = "remover-finalizados";
+buttonRemove.innerHTML = "Limpar Completos";
+divInput.appendChild(buttonRemove);
+
+function listRemove(){
+
+    buttonRemove.addEventListener("click", function(){
+        
+        let completed = document.querySelector(".completed").className;
+
+        if (completed == "completed"){
+            olOrdered.childNodes.innerHTML = "";
+        }
+
+
+    });
+    
+}
+listRemove();
 
