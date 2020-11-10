@@ -1,14 +1,14 @@
-* {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 h1 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-p {
-    margin-top: 0;
-    font-size: 80%;
-    font-style: italic;
+p {    
+  font-size: 80%;
+  font-style: italic;
+  margin-top: 0;
 }
