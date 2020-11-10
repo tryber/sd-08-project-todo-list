@@ -10,12 +10,18 @@ function criaTarefa() { // Função que adiciona uma nova tarefa na lista
     texto_tarefa_cxa.value = '';
     lista_tarefas_ol.appendChild(tarefa);
     tarefa.addEventListener('click', alteraCor);
+    tarefa.addEventListener('dblclick', concluiTarefa);
 }
 
 function alteraCor(event) { // Funcão que altera a cor da tarefa da lista
     for (tarefa of document.querySelectorAll('li')) { // Remove a seleção dos outros itens da lista
         tarefa.style.backgroundColor = null;
     }
-    
+
     event.target.style.backgroundColor = 'rgb(128,128,128)';
+}
+
+function concluiTarefa(event) { // Função que adiciona um risco à tarefa da lista, indicando que ela foi concluída
+    if (event.target.className != 'completed') { event.target.className = 'completed'; }
+    else { event.target.className = null; }
 }
