@@ -1,6 +1,7 @@
 body {
-  background-color: rgb(15, 163, 107);
+  background-color: rgb(15 , 163 , 107);
 }
+
 .principal {
   background-color: white;
   border-radius: 30px;
@@ -19,9 +20,9 @@ body {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }

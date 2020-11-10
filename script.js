@@ -1,11 +1,11 @@
 const taskList = document.getElementById('lista-tarefas');
-taskList.innerHTML = localStorage.getItem('List')
+taskList.innerHTML = localStorage.getItem('List');
 
 // Eventos click
 document.addEventListener('click', (event) => {
   // Adicionar tarefa à lista
   if (event.target.id === 'criar-tarefa') {
-    let input = document.getElementById('texto-tarefa');
+    const input = document.getElementById('texto-tarefa');
     const task = document.createElement('li');
     task.innerHTML = input.value;
     task.classList.add('task');
@@ -48,11 +48,15 @@ document.addEventListener('click', (event) => {
         selected = index;
       }
     }
-    if (selected !== 0) {
-      childNode[selected].parentElement.insertBefore(childNode[selected], childNode[selected - 1]);
+    if (selected > 0) {
+      childNode[selected].parentElement.insertBefore(
+        childNode[selected],
+        childNode[selected - 1],
+      );
       // Solução encontrada no site 'https://stackoverflow.com/questions/9732624/how-to-swap-dom-child-nodes-in-javascript'
     }
   }
+  // Mover para baixo o item selecionado
   if (event.target.id === 'mover-baixo') {
     const childNode = document.querySelectorAll('.task');
     let selected;
@@ -62,13 +66,16 @@ document.addEventListener('click', (event) => {
       }
     }
     if (selected < childNode.length) {
-      childNode[selected].parentElement.insertBefore(childNode[selected], childNode[selected - 1]);
+      childNode[selected].parentElement.insertBefore(
+        childNode[selected],
+        childNode[selected - 1],
+      );
     }
   }
   if (event.target.id === 'remover-selecionado') {
     document.querySelector('.selected').remove();
   }
-})
+});
 
 // Eventos dblclick
 // Torna a tarefa completa
