@@ -13,3 +13,11 @@ buttonParent.addEventListener("click", function () {
 }
 );
 
+let allItems = document.getElementsByClassName("items");
+
+orderedList.addEventListener("click", function () {
+  for (index = 0; index < allItems.length; index += 1) {
+    allItems[index].style.backgroundColor = "white";
+  }
+  event.target.style.backgroundColor = "rgb(128, 128, 128)";
+})
