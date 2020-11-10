@@ -8,12 +8,25 @@ buttonCreat.addEventListener('click', function() {
   document.getElementById('lista-tarefas').appendChild(task)
 });
 
-
+let task = document.getElementsByTagName('li');
 const buttonRemove  = document.getElementById('apaga-tudo');
-buttonRemove.addEventListener('click', function() {
-  let task = document.getElementsByTagName('li');
+buttonRemove.addEventListener('click', function () {
+console.log('Tenho ' + task.length + ' itens na lista')
   for(let i=0; i<task.length; i++){
     // let apaga = ;
     task[i].remove();
+    console.log(i);
+  }
+});
+
+const lista = document.getElementById('lista-tarefas')
+lista.addEventListener('click', function (event){
+  let selectedItem = document.getElementsByClassName('selected')
+  console.log(selectedItem.length)
+  if( event.target.tagName === 'LI'){
+    if( selectedItem.length >= 1 ){
+      selectedItem[0].className = "";
+    }
+    event.target.className = 'selected';
   }
 });
