@@ -22,9 +22,32 @@ function removeColor() {
 
 function adicionaColor() {
   let listaTarefas = document.querySelector('#lista-tarefas');
-  listaTarefas.addEventListener('click', function(event) {
+  listaTarefas.addEventListener('click', function (event) {
     removeColor();
     event.target.classList.add('selected');
   });
 }
 adicionaColor();
+
+function tarefaCompleta() {
+  let tarefas = document.querySelectorAll('.tarefas');
+  for (let i = 0; i < tarefas.length; i += 1) {
+    tarefas[i].addEventListener('dblclick', function (event) {
+      if (event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
+      }
+    });
+  }
+}
+tarefaCompleta();
+
+function apagaTudo() {
+  let apagaButton = document.getElementById('apaga-tudo');
+  apagaButton.addEventListener('click', function () {
+    let listaTarefas = document.getElementById('lista-tarefas')
+    listaTarefas.innerText = '';
+  })
+}
+apagaTudo();
