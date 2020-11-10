@@ -36,6 +36,18 @@ createButton('Task');
             })
     })
         
+    function apagarBtn(Clear){
+        const clearAll = document.querySelector('#apaga-tudo');
+        let nButton = document.createElement('button');
+        nButton.innerHTML = 'Clear';
+        clearAll.appendChild(nButton);
             
-
-
+    };
+    apagarBtn('Clear');
+    
+    document.getElementById("apaga-tudo").addEventListener("click", () => {
+        let item = document.querySelectorAll("li");
+        for (let i = 0; i < item.length; i += 1) {
+          document.getElementById("lista-tarefas").removeChild(item[i]);
+        }
+      });
