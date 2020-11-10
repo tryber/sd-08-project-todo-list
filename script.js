@@ -1,8 +1,13 @@
+function toggleSelected(event) {
+  event.target.classList.toggle('selected');
+}
+
 // Cria uma tarefa
 function createTask(description) {
   const task = document.createElement('li');
   task.className = 'task';
   task.textContent = description;
+  task.addEventListener('click', toggleSelected);
   return task;
 }
 
