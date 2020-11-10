@@ -13,10 +13,16 @@ window.onload = function () {
             let listaDeTarefas = document.querySelector('#lista-tarefas');
             let tarefa = document.createElement('li');
             tarefa.innerHTML = textoTarefa.value;
+            tarefa.className = 'task';
             listaDeTarefas.appendChild(tarefa);
             textoTarefa.value = null;
         }
     })
 
-    
+    addEventListener('click', function (event) {
+        let item = event.target;
+        if (item.className === 'task') {
+            item.style.backgroundColor = 'rgb(128, 128, 128)';
+        }
+    })
 }
