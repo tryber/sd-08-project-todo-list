@@ -6,7 +6,6 @@ document.getElementById("criar-tarefa").addEventListener("click", () => {
   listaOrdenada.appendChild(itemDaLista);
   textoDaTarefa.value = "";
 });
-
 document.getElementById("lista-tarefas").addEventListener("click", () => {
   let object = document.querySelectorAll("li");
   for (let index = 0; index < object.length; index += 1) {
@@ -14,10 +13,18 @@ document.getElementById("lista-tarefas").addEventListener("click", () => {
   }
   event.target.style.backgroundColor = "rgb(128,128,128)";
 });
+
 document.getElementById("lista-tarefas").addEventListener("dblclick", () => {
   if (event.target.className == "completed") {
     event.target.className = "";
   } else {
     event.target.className = "completed";
+  }
+});
+
+document.getElementById("apaga-tudo").addEventListener("click", () => {
+  let item = document.querySelectorAll("li");
+  for (let i = 0; i < item.length; i += 1) {
+    document.getElementById("lista-tarefas").removeChild(item[i]);
   }
 });
