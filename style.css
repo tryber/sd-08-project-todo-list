@@ -1,0 +1,53 @@
+body {
+  background-color: rgb(230 , 230 , 230);
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+li {
+  padding: 3px;
+}
+
+.colore-elemento-lista {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.lista-tarefas {
+  background-color: lightsteelblue;
+  border-radius: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 5%;
+  width: 70%;
+}
+
+.cabecalho {
+  text-align: center;
+}
+
+.btn-adicionar {
+  background-color: rgb(46 , 184 , 46);
+}
+
+.btn-salvar {
+  background-color: rgb(46 , 184 , 46);
+}
+
+.btn-limpar {
+  background-color: rgb(255 , 71 , 26);
+}
+
+.mover {
+  background-color: rgb(115 , 38 , 77);
+}
