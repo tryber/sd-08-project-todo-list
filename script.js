@@ -7,18 +7,9 @@ const initialState = [
 const savedTasks = JSON.parse(localStorage.getItem('tasks')) || initialState;
 const olTasks = document.getElementById('lista-tarefas');
 
-function init() {
-  for (let i = 0; i < savedTasks.length; i += 1) {
-    const task = savedTasks[i];
-    olTasks.appendChild(createTask(task));
-  }
-}
-
-init();
-
 function toggleSelected(event) {
   const tasks = document.querySelectorAll('.task');
-  for (let i = 0; i < tasks.length; i++) {
+  for (let i = 0; i < tasks.length; i += 1) {
     const task = tasks[i];
     if (task !== event.target) task.classList.remove('selected');
   }
@@ -42,20 +33,29 @@ function createTask(newTask) {
   return task;
 }
 
+function init() {
+  for (let i = 0; i < savedTasks.length; i += 1) {
+    const task = savedTasks[i];
+    olTasks.appendChild(createTask(task));
+  }
+}
+
+init();
+
 const taskTextInput = document.getElementById('texto-tarefa');
 const createTaskButton = document.getElementById('criar-tarefa');
 
 // Cria uma nova tarefa e a adiciona a ol quando clicamos no botao
-createTaskButton.addEventListener('click', function() {
+createTaskButton.addEventListener('click', function () {
   const taskDescription = taskTextInput.value;
   const task = createTask({ description: taskDescription });
   olTasks.appendChild(task);
-  taskTextInput.value = "";
+  taskTextInput.value = '';
 });
 
 function eraseAllTasks() {
   const tasks = olTasks.querySelectorAll('li');
-  for (let i = 0; i < tasks.length; i++) {
+  for (let i = 0; i < tasks.length; i += 1) {
     const task = tasks[i];
     task.remove();
   }
@@ -66,7 +66,7 @@ eraseAllButton.addEventListener('click', eraseAllTasks);
 
 function eraseCompletedTasks() {
   const completedTasks = olTasks.querySelectorAll('.completed');
-  for (let i = 0; i < completedTasks.length; i++) {
+  for (let i = 0; i < completedTasks.length; i += 1) {
     const task = completedTasks[i];
     task.remove();
   }
@@ -91,8 +91,6 @@ function saveTasks() {
 
 const saveTasksButton = document.getElementById('salvar-tarefas');
 saveTasksButton.addEventListener('click', saveTasks);
-
-
 
 function moveUp() {
   const selected = olTasks.querySelector('.selected');
@@ -125,5 +123,5 @@ function removeSelected() {
   }
 }
 
-const removeSelectedButton = document.getElementById('remover-selecionado')
+const removeSelectedButton = document.getElementById('remover-selecionado');
 removeSelectedButton.addEventListener('click', removeSelected);
