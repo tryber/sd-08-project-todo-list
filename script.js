@@ -1,20 +1,66 @@
-function addTaskButton() {
+function createsTask() {
 
-  let button = document.getElementById('criar-tarefa');
+  let button = document.querySelector('#criar-tarefa');
   let input = document.querySelector('#texto-tarefa');
-  let listContainer = document.getElementById('lista-tarefas');
+  let taskListContainer = document.querySelector('#lista-tarefas');
 
   button.addEventListener('click', function () {
+    if (input.value == '') {
+      alert('Digite uma tarefa');
+    } else {
+      let createdTask = document.createElement('li');
 
-    console.log('entrou');
+      createdTask.style.backgroundColor = 'white';
+      createdTask.innerHTML = input.value;
+      taskListContainer.appendChild(createdTask);
+      input.value = '';
 
-    let listItem = document.createElement('li');
 
-    listItem.innerHTML = input.value;
-    listContainer.appendChild(listItem);
-    input.value = '';
+      /* PRA N DEIXAR ESSE ADDEVENTLISTENER AQUI DA PRA ADD UMA CLASSE .task A CADA TAREFA CRIADA E DEPOIS DAR UM QUERYSELECTORALL E ADICIONAR O ADDEVENTLISTENER EM OUTRA FUNÇÃO */
+      createdTask.addEventListener('click', function (event) {
+        let task = event.target;
+        let allTasks = document.querySelectorAll('li');
 
+
+        if (task.style.backgroundColor == 'white') {
+
+          for (let index = 0; index < allTasks.length; index += 1) {
+            allTasks[index].classList.remove('selected');
+            allTasks[index].style.backgroundColor = 'white';
+          }
+
+          task.className = 'selected';
+          task.style.backgroundColor = 'rgb(128,128,128)';
+
+        } else {
+
+          alert('Tarefa já selecionada');
+
+        }
+
+
+      });
+    }
   });
 
 }
-addTaskButton();
+createsTask();
+
+function selectTask() {
+
+  let tasks = document.querySelectorAll('li');
+
+  for (let index = 0; index < tasks.length; index += 1) {
+    task = tasks[index];
+
+    task.addEventListener('click', function (event) {
+
+
+    });
+
+  }
+
+}
+
+
+
