@@ -47,8 +47,21 @@ taskList.addEventListener('dblclick', completedTask);
 
 // Deletes all tasks
 function removeTasks() {
-  while (taskList.lastChild)
-  taskList.removeChild(taskList.lastChild)
+  while (taskList.lastChild);
+  taskList.removeChild(taskList.lastChild);
 }
 
-deleteAll.addEventListener('click', removeTasks)
+deleteAll.addEventListener('click', removeTasks);
+
+// Deletes completed tasks
+function removeCompleted() {
+  for (let i = 0; i < taskList.childElementCount; i += 1) {
+    const item = taskList.children[i];
+    if (item.classList.contains('completed')) {
+      taskList.removeChild(item);
+      i -= 1;
+    }
+  }
+}
+
+deleteCompleted.addEventListener('click', removeCompleted);
