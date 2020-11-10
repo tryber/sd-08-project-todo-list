@@ -71,4 +71,4 @@ function comeListBack() {
     listLocal.children[i].innerText = localStorage.getItem(i);
   }
 }
-camoListBack();
+comeListBack();
