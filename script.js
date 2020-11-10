@@ -11,27 +11,19 @@ buttonCriar.addEventListener("click", function () {
 
 // Selecionar item na lista
 let listItem = document.getElementsByTagName("li");
-lista.addEventListener("click", function () {
-  for (let i = 0; i < listItem.length; i += 1) {
-    listItem[i].addEventListener("click", function (event) {
+lista.addEventListener("click", function (event) {
       for (let i = 0; i < listItem.length; i += 1) {
-          if (listItem[i].className === "selected completed") {
-              listItem[i].className = "completed"
-          } else if (listItem[i].className === "selected") {
-              listItem[i].className = "";
-          }
+               listItem[i].style.backgroundColor = ''
       } 
-      event.target.className = "selected";
+      event.target.style.backgroundColor = "rgb(128, 128, 128)";
     });
-  }
-});
 
 // Indicar item completo
 lista.addEventListener("dblclick", function (event) {
-  if (event.target.className === "selected") {
-    event.target.className = "selected completed";
+  if (event.target.className === "completed") {
+    event.target.className = "";
   } else {
-    event.target.className = "selected";
+    event.target.className = "completed";
   }
 });
 

@@ -1,11 +1,17 @@
 body {
     background-color: #F65204;
-}
-
-.selected {
-    background-color: rgb(128, 128, 128)
+    font-family: monospace;
 }
 
 .completed {
     text-decoration: line-through;
+}
+
+.box {
+    width: 70%;
+    padding: 5%;
+    position: absolute;
+    border-radius: 3%;
+    background-color: white;
+    margin-left: 7%;
 }
