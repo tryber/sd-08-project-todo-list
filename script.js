@@ -40,13 +40,19 @@ init();
 const taskTextInput = document.getElementById('texto-tarefa');
 const createTaskButton = document.getElementById('criar-tarefa');
 
-// Cria uma nova tarefa e a adiciona a ol quando clicamos no botao
-createTaskButton.addEventListener('click', function () {
+function createTaskHandler() {
   const taskDescription = taskTextInput.value;
   const task = createTask({ description: taskDescription });
   olTasks.appendChild(task);
   taskTextInput.value = '';
+}
+
+taskTextInput.addEventListener('keydown', function (event) {
+  if (event.code === 'Enter') createTaskHandler();
 });
+
+// Cria uma nova tarefa e a adiciona a ol quando clicamos no botao
+createTaskButton.addEventListener('click', createTaskHandler);
 
 function eraseAllTasks() {
   const tasks = olTasks.querySelectorAll('li');
@@ -89,11 +95,11 @@ saveTasksButton.addEventListener('click', saveTasks);
 
 function moveUp() {
   const selected = olTasks.querySelector('.selected');
-  if (selected && selected.previousSibling) {
-    const previous = selected.previousSibling;
+  if (selected && selected.previousElementSibling) {
+    const previous = selected.previousElementSibling;
     const parent = selected.parentNode;
     parent.insertBefore(selected, previous);
-  }  
+  }
 }
 
 const moveUpButton = document.getElementById('mover-cima');
@@ -101,8 +107,8 @@ moveUpButton.addEventListener('click', moveUp);
 
 function moveDown() {
   const selected = olTasks.querySelector('.selected');
-  if (selected && selected.nextSibling) {
-    const next = selected.nextSibling;
+  if (selected && selected.nextElementSibling) {
+    const next = selected.nextElementSibling;
     const parent = selected.parentNode;
     parent.insertBefore(next, selected);
   }
