@@ -5,7 +5,8 @@ document.querySelector('#criar-tarefa').addEventListener('click', function(){
     listElement.innerHTML = document.querySelector('#texto-tarefa').value;
     document.querySelector('#texto-tarefa').value = '';
     changeBackColor();
-    textDecoration();   
+    textDecoration();
+    deleteAllTasks();   
 });
 
 //MUDAR COR DE FUNDO
@@ -32,3 +33,13 @@ function textDecoration(){
         });        
     }
 }
+
+// BOTAO APAGA TUDO
+function deleteAllTasks () {
+    document.querySelector('#apaga-tudo').addEventListener('click', function(){
+        for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
+            document.querySelector('#lista-tarefas').removeChild(document.querySelectorAll('li')[index]);
+        }
+    });    
+}
+
