@@ -21,6 +21,7 @@ function addTaskColor() {
   let lista = document.querySelector('#lista-tarefas');
   lista.addEventListener('click', function(event){
     event.target.style.backgroundColor = 'rgb(128,128,128)';
+    // Requisito 08 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo.
     for(let i = 0; i < lista.children.length; i += 1) {
       if(event.target !== lista.children[i]) {
         lista.children[i].style.backgroundColor = 'white';
@@ -29,3 +30,15 @@ function addTaskColor() {
   });
 }
 addTaskColor();
+
+function taskCompleted() {
+  let lista = document.querySelector('#lista-tarefas');
+  lista.addEventListener('dblclick', function(event) {
+    if(event.target.className !== 'completed') {
+      event.target.className = 'completed';
+    } else {
+      event.target.className = '';
+    }
+  });
+}
+taskCompleted();
