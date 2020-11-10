@@ -15,34 +15,32 @@ botaoAdd.addEventListener('click', function () {
 // Ainda não entendi o uso do booleano
 // tô quase entendendo, o evento de 2 clicks irá limpar o timer, e tornar prevent verdadeiro...ainda tá complicado
 
-var timer = 0;
-var delay = 200;
-var prevent = false;
+
 tarefas.addEventListener('click', function (event) {
   // condição para um clique
   if (event.detail === 1) {
     // se o elemento não estiver selecionado...
     if (event.target.style.backgroundColor !== 'rgb(128 , 128 , 128)') {
-      timer = setTimeout(function () {
+      
         // Condição para gerar delay e o evento distinguir entre duplo clique e único clique
-        if (!prevent) {
+        
             // Aqui vou colocar um for para tirar o cinza dos outro cinzas, preciso e uma lista
             listaTarefas = document.querySelectorAll('.tarefasLi')
             console.log(listaTarefas)
             for (let i = 0; i < listaTarefas.length; i++ ) {
               let element = listaTarefas[i];
               if (element.style.backgroundColor === 'rgb(128, 128, 128)' ) {
-                element.style.backgroundColor = 'white';
+                element.style.backgroundColor = 'rgba(0, 0, 0, 0)';
               }
             }
           event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
-        }
+        
         prevent = false;
-      }, delay);
+      
     }
   } else if (event.detail === 2) {
-    clearTimeout(timer);
-    prevent = true;
+    
+    
     if (event.target.className !== 'tarefasLi completed') {
       event.target.className = 'tarefasLi completed';
     } else {
@@ -69,3 +67,9 @@ botaoCompletados.addEventListener('click', function (){
     tarefas.removeChild(element);
   }
 })
+
+// nextElementSibling: retorna o próximo elemento.
+// previousElementSibling: retorna o elemento anterior.
+
+//elementoPai.insertBefore(novoElemento, elemento referência)
+//
