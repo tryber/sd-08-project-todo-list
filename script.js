@@ -1,22 +1,30 @@
+const lista = document.querySelector('#lista-tarefas');
+function rmCompleted() {
+  let element = document.querySelectorAll('.completed');
+  element.forEach((evt) => {
+    lista.removeChild(evt);
+  });
+}
 function addTarefa(text) {
   // Cria o Span e a div da Tarefa
 
   const liNew = document.createElement('li');
   liNew.innerHTML = text;
 
-  const lista = document.querySelector('#lista-tarefas');
+
   lista.appendChild(liNew);
 
 
   liNew.addEventListener('click', function (item) {
     // Funçao que altera a cor do item caso selecionado
-    const checkSelected = document.querySelector('.selected');
-    if (checkSelected) {
-      checkSelected.className = '';
-      checkSelected.style.backgroundColor = '';
-    }
-    item.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
-    item.target.className = 'selected';
+    const checkSelected = document.querySelectorAll('.selected');
+    checkSelected.forEach((evt) => {
+     evt.classList.remove("selected");
+    });
+    item.target.classList.add("selected");
+  });
+  liNew.addEventListener("dblclick", function (evt) {
+    evt.target.classList.toggle("completed");
   });
 }
 
@@ -45,11 +53,5 @@ document.body.appendChild(btnDel);
 const btnDelFinish = document.createElement('button');
 btnDelFinish.id = 'remover-finalizados';
 btnDelFinish.innerHTML = 'Remover Finalizados';
-btnDelFinish.addEventListener('click', function () {
-  const olList = document.querySelector('#lista-tarefas');
-  const liLista = document.querySelectorAll('.completed');
-  for (let i = 0; i < liLista.length; i += 1) {
-    olList.removeChild(liLista[i]);
-  }
-});
+btnDelFinish.addEventListener('click', rmCompleted);
 document.body.appendChild(btnDelFinish);
