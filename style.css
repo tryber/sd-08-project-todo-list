@@ -3,3 +3,11 @@
 
 #lista-tarefas {
 }
+
+.completed {
+  text-decoration: line-through;
+}
+
+.unclick {
+
+}

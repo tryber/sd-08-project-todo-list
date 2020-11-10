@@ -20,14 +20,22 @@ buttonParent.addEventListener("click", function () {
 
 let allItems = document.getElementsByClassName("items");
 
-orderedList.addEventListener("click", function () {
+orderedList.addEventListener("click", function (event) {
   for (index = 0; index < allItems.length; index += 1) {
     allItems[index].style.backgroundColor = "white";
   }
   event.target.style.backgroundColor = "rgb(128, 128, 128)";
-})
+});
 
 //req 9
+
+orderedList.addEventListener("dblclick", function (event){
+  if (event.target.className == "items completed") {
+    event.target.className = "items";
+  } else {
+    event.target.className = "items completed";
+  }
+});
 
 //req 10
 
