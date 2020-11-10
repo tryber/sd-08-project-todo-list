@@ -5,9 +5,21 @@ function createTask() {
     button.addEventListener('click', function () {
         let newLi = document.createElement('li');
         newLi.innerText = input.value;
+        newLi.classList = 'task'
         list.appendChild(newLi);
+        selecting(newLi);
         input.value = '';
     })
 }
 
 createTask();
+
+function selecting(element) {
+    element.addEventListener('click', function(event) {
+            let selected = document.querySelector('.selected');
+            if (selected !== null) {
+                selected.className = 'task';
+            }
+            event.target.className = 'task selected';
+    })   
+}
