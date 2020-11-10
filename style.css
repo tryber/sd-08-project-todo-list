@@ -1,0 +1,13 @@
+#texto-tarefa {
+    display: inline-block;
+}
+
+#criar-tarefa {
+    margin-left: 10px;
+    background-color: blue;    
+    border-radius: 10px;
+}
+
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
