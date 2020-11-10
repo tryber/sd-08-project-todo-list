@@ -11,8 +11,11 @@ document.querySelector('#criar-tarefa').addEventListener('click', function(){
 function changeBackColor(){
     for(let index = 0; index < document.querySelectorAll('li').length; index+=1) {
         document.querySelectorAll('li')[index].addEventListener('click', function (event){
+            for (let index2 = 0; index2 < document.querySelectorAll('li').length; index2 +=1) {
+                document.querySelectorAll('li')[index2].style.background = '';                    
+            }
             event.target.style.background = 'rgb(128,128,128)';
-        });
+        });        
     }
 }
 
