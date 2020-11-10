@@ -32,7 +32,19 @@ function adicionaTarefaLista() {
   elementoLista.className = 'elemento-lista';
   elementoLista.innerText = tarefaInput;
   listaOrdenada.appendChild(elementoLista);
+  verificaDoubleClickLista();
   verificaCliqueLista();
+}
+
+function riscaElementoLista(elemento) {
+  elemento.target.classList.add('completed');
+}
+
+function verificaDoubleClickLista() {
+  const lista = document.querySelectorAll('.elemento-lista');
+  for (let index = 0; index < lista.length; index += 1) {
+    lista[index].addEventListener('dblclick', riscaElementoLista);
+  }
 }
 
 window.onload = function () {
