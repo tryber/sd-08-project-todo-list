@@ -27,10 +27,16 @@ lista.addEventListener("click", function () {
 });
 
 // Indicar item completo
-      lista.addEventListener("dblclick", function (event) {
-          if (event.target.className === "selected") {
-              event.target.className = "selected completed"
-          } else {
-              event.target.className = "selected";
-          }
-      });
+lista.addEventListener("dblclick", function (event) {
+  if (event.target.className === "selected") {
+    event.target.className = "selected completed";
+  } else {
+    event.target.className = "selected";
+  }
+});
+
+// Botão de apagar tudo
+let buttonApagar = document.getElementById("apaga-tudo");
+buttonApagar.addEventListener("click", function () {
+    lista.innerHTML = "";
+})
