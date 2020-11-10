@@ -90,8 +90,11 @@ function moverCima() {
     const pos = index - 1;
     if (itensLista[index].className === 'selected' || itensLista[index].className === 'selected completed') {
       const temp = itensLista[index].innerText;
+      const tempClass = itensLista[index].className;
       itensLista[index].innerText = itensLista[pos].innerText;
+      itensLista[index].className = itensLista[pos].className;
       itensLista[pos].innerText = temp;
+      itensLista[pos].className = tempClass;
     }
   }
 }
@@ -103,8 +106,11 @@ function moverBaixo() {
     const pos = index + 1;
     if (itensLista[index].className === 'selected' || itensLista[index].className === 'selected completed') {
       const temp = itensLista[index].innerText;
+      const tempClass = itensLista[index].className;
       itensLista[index].innerText = itensLista[pos].innerText;
+      itensLista[index].className = itensLista[pos].className;
       itensLista[pos].innerText = temp;
+      itensLista[pos].className = tempClass;
     }
   }
 }
