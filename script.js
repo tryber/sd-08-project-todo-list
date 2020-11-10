@@ -5,7 +5,7 @@ function limpaCampoInput() {
 
 function removerCorElementoLista() {
   const lista = document.querySelectorAll('.elemento-lista');
-  for (let index = 0; index < lista.length; index++) {
+  for (let index = 0; index < lista.length; index += 1) {
     if (lista[index].classList.contains('colore-elemento-lista')) {
       lista[index].classList.remove('colore-elemento-lista');
     }
@@ -21,6 +21,13 @@ function verificaCliqueLista() {
   const lista = document.querySelectorAll('.elemento-lista');
   for (let index = 0; index < lista.length; index += 1) {
     lista[index].addEventListener('click', trocaCorElementoLista);
+  }
+}
+
+function verificaDoubleClickLista() {
+  const lista = document.querySelectorAll('.elemento-lista');
+  for (let index = 0; index < lista.length; index += 1) {
+    lista[index].addEventListener('dblclick', riscaElementoLista);
   }
 }
 
@@ -44,25 +51,31 @@ function riscaElementoLista(elemento) {
   }
 }
 
-function verificaDoubleClickLista() {
+function limparLista() {
   const lista = document.querySelectorAll('.elemento-lista');
   for (let index = 0; index < lista.length; index += 1) {
-    lista[index].addEventListener('dblclick', riscaElementoLista);
+    lista[index].remove();
   }
 }
 
-function limparLista() {
+function limparFinalizados() {
   const lista = document.querySelectorAll('.elemento-lista');
   for (let index = 0; index < lista.length; index++) {
-    lista[index].remove();
+    if (lista[index].classList.contains('completed')) {
+      lista[index].remove();
+    }
   }
 }
 
 window.onload = function () {
   const botaoAdicionar = document.querySelector('#criar-tarefa');
   const botaoLimparLista = document.querySelector('#apaga-tudo');
+  const botaoRemoverFinalizados = document.querySelector(
+    '#remover-finalizados',
+  );
 
   botaoAdicionar.addEventListener('click', adicionaTarefaLista);
   botaoLimparLista.addEventListener('click', limparLista);
+  botaoRemoverFinalizados.addEventListener('click', limparFinalizados);
   verificaCliqueLista();
 };
