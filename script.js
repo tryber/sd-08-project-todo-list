@@ -14,11 +14,13 @@ window.onload = function () {
        // taskInput.addEventListener("keyup", addTask(event))
         function addTask(event) {
             if (event.code == "Enter" || event.button === 0) {
-                let taskInput = document.getElementById('texto-tarefa').value;
+                let taskInput = document.getElementById('texto-tarefa');
+                let taskDescription = taskInput.value
                 let taskList = document.getElementById('lista-tarefas');
                 let createTask = document.createElement('li')
-                createTask.innerText = taskInput
+                createTask.innerText = taskDescription
                 taskList.appendChild(createTask)
+                taskInput.value = ""
             }
         }
     }
