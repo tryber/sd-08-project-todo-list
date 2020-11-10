@@ -4,8 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minha Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>Minha Lista de Tarefas</header>
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+      <small id="funcionamento"
+        >Clique duas vezes em um item para marcá-lo como completo</small
+      >
+      <div id="input-tasks">
+        <input type="text" name="lista-tarefas" id="texto-tarefa" />
+        <button id="criar-tarefa">VQV</button>
+      </div>
+    </header>
+    <section>
+      <ol id="lista-tarefas"></ol>
+    </section>
+    <script src="script.js"></script>
   </body>
 </html>
