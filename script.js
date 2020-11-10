@@ -67,15 +67,32 @@ function limparFinalizados() {
   }
 }
 
+function salvarLista() {
+  const listaOrdenada = document.querySelector('#lista-tarefas');
+  const conteudoLista = listaOrdenada.innerHTML;
+  localStorage.setItem('conteudoLista', conteudoLista);
+}
+
+function carregarLocalStorage() {
+  if (localStorage.length === 0) {
+  } else {
+    const listaOrdenada = document.querySelector('#lista-tarefas');
+    listaOrdenada.innerHTML = localStorage.conteudoLista;
+  }
+}
+
 window.onload = function () {
   const botaoAdicionar = document.querySelector('#criar-tarefa');
   const botaoLimparLista = document.querySelector('#apaga-tudo');
   const botaoRemoverFinalizados = document.querySelector(
     '#remover-finalizados',
   );
+  const botaoSalvarLista = document.querySelector('#salvar-tarefas');
 
+  carregarLocalStorage();
   botaoAdicionar.addEventListener('click', adicionaTarefaLista);
   botaoLimparLista.addEventListener('click', limparLista);
   botaoRemoverFinalizados.addEventListener('click', limparFinalizados);
   verificaCliqueLista();
+  botaoSalvarLista.addEventListener('click', salvarLista);
 };
