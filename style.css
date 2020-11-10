@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Nunito:ital,wght@0,700;1,400&family=Poppins:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #d9d9d9;
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  color: #353535;
+  font-family: Poppins;
+  font-size: 48px;
+  font-weight: 600;
+  padding: 20px;
+  text-align: center;
+}
+
+.main-content {
+  border-radius: 20px;
+  background-color: #3c6e71;
+  border: 1px solid black;
+  margin: 0 auto;
+  text-align: center;
+  width: 800px;
+}
+
+.operation {
+  color: #ffffff;
+  font-family: Nunito;
+  font-size: 24px;
+  padding: 10px;
+}
+
+input {
+  border-radius: 5px;
+  font-family: Nunito;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.create-task {
+  border-radius: 10px;
+  color: #ffffff;
+  margin-top: 20px;
+  font-family: Poppins;
+  font-size: 24px;
+  background-color: #284b63;
+  width: 160px;
+}
+
+.task-list {
+  font-family: Poppins;
+}
