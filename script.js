@@ -73,13 +73,14 @@ function saveList() {
   localStorage.clear();
   for (let i = 0; i < taskList.childElementCount; i += 1) {
     const item = taskList.children[i];
-    localStorage.setItem(`${i}`, `${item.innerHTML}`)
+    localStorage.setItem(`${i}`, `${item.innerHTML}`);
   }
 }
 
 saveTasks.addEventListener('click', saveList);
 
 // Adds saved items to list
+// Object.keys() source: https://stackoverflow.com/a/17748203/14424360
 let savedItems;
 
 function retrieveItems() {
@@ -92,7 +93,7 @@ function retrieveItems() {
 function generateFromStorage() {
   if (localStorage.getItem(0)) {
     retrieveItems();
-    for (let i in savedItems) {
+    for (let i = 0; i < savedItems.length; i += 1) {
       const listItem = document.createElement('li');
       listItem.innerText = savedItems[i];
       taskList.appendChild(listItem);
