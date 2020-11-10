@@ -76,6 +76,7 @@ function addAssignment(){
             alert('Digite algo!')
         }else{
             ol.appendChild(li)
+            document.getElementById('texto-tarefa').value= '';
         }
     });
     
