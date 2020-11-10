@@ -7,4 +7,7 @@ btnCriarTarefa.addEventListener("click", function () {
   let tarefaItem = document.createElement("li");
   tarefaItem.innerHTML = tarefa;
   listaTarefa.appendChild(tarefaItem);
+  tarefaItem.addEventListener("click", function (e) {
+    e.target.style.backgroundColor = "rgb(128,128,128)";
+  });
 });
