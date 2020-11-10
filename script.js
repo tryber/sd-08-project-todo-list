@@ -9,6 +9,7 @@ function clearSelection() {
 }
 btnCriarTarefa.addEventListener("click", function () {
   let tarefa = tarefaTexto.value;
+  tarefaTexto.value = "";
   let tarefaItem = document.createElement("li");
   tarefaItem.innerHTML = tarefa;
   listaTarefa.appendChild(tarefaItem);
