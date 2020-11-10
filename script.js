@@ -31,6 +31,8 @@ function addTaskColor() {
 }
 addTaskColor();
 
+// Requisito 09 - Ao clicar duas vezes em um item, ele deverá ser riscado, indicando que foi completo.
+// Deve ser possível desfazer essa ação clicando novamente duas vezes no item.
 function taskCompleted() {
   let lista = document.querySelector('#lista-tarefas');
   lista.addEventListener('dblclick', function(event) {
@@ -42,3 +44,16 @@ function taskCompleted() {
   });
 }
 taskCompleted();
+
+// Requisito 10 - Deve haver um botão com id="apaga-tudo" que quando clicado deve apagar todos os items da lista.
+function deleteList() {
+  let btnApaga = document.querySelector('#apaga-tudo');
+  btnApaga.addEventListener('click', function () {
+    let lista = document.querySelector('#lista-tarefas');
+    let indice = lista.children.length;
+    for(let i = 0; i < indice; i += 1) {
+      lista.removeChild(lista.lastElementChild);
+    }
+  });
+}
+deleteList();
