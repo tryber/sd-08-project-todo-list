@@ -6,7 +6,8 @@ document.querySelector('#criar-tarefa').addEventListener('click', function(){
     document.querySelector('#texto-tarefa').value = '';
     changeBackColor();
     textDecoration();
-    deleteAllTasks();   
+    deleteAllTasks();
+    removeFinishedTask();   
 });
 
 //MUDAR COR DE FUNDO
@@ -35,7 +36,7 @@ function textDecoration(){
 }
 
 // BOTAO APAGA TUDO
-function deleteAllTasks () {
+function deleteAllTasks() {
     document.querySelector('#apaga-tudo').addEventListener('click', function(){
         for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
             document.querySelector('#lista-tarefas').removeChild(document.querySelectorAll('li')[index]);
@@ -43,3 +44,12 @@ function deleteAllTasks () {
     });    
 }
 
+function removeFinishedTask() {
+    document.querySelector('#remover-finalizados').addEventListener('click', function (){
+        for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
+            if (document.querySelectorAll('li')[index].classList.contains('completed')) {
+                document.querySelector('#lista-tarefas').removeChild(document.querySelectorAll('li')[index]);
+            }
+        }
+    });
+}
