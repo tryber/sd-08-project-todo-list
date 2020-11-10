@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin: 50px auto;
+  max-width: 900px;
+  text-align: center;
+}
+
+main {
+  margin: auto;
+  max-width: 900px;
+}
