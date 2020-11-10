@@ -77,4 +77,11 @@ window.onload = function () {
             }
         }
     })
+
+    let clearSelectedButton = document.querySelector('#remover-selecionado');
+    clearSelectedButton.addEventListener('click', function () {
+        let listaDeTarefas = document.querySelector('#lista-tarefas');
+        let itemSelecionado = document.querySelector('.selected');
+        listaDeTarefas.removeChild(itemSelecionado);
+    })
 }

@@ -1,5 +1,6 @@
 body {
     background-color: rgb(25, 175, 25);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -18,9 +19,18 @@ body {
     padding-top: 50px;
 }
 
+#funcionamento {
+    padding-bottom: 15px;
+}
+
 #lista-tarefas {
-    float: left;
-    padding-top: 20px;
+    /*float: left;*/
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.task {
+    font-size: 20px;
 }
 
 .selected {
@@ -31,10 +41,50 @@ body {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
-#apaga-tudo {
+#criar-tarefa {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
     margin-right: 30px;
+    border-radius: 40px;
+    width: 150px;
+    height: 30px;
+    background-color: rgb(78, 100, 221);
+    border: 2px dotted;
+}
+
+#apaga-tudo {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-right: 30px;
+    border-radius: 40px;
+    width: 150px;
+    height: 30px;
+    background-color: rgb(230, 29, 29);
+    border: 2px dotted;
+}
+
+#remover-selecionado {
+    margin-right: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: rgb(230, 29, 29);
+    width: 70px;
+    height: 30px;
+    border-radius: 40px;
+    border: 2px dotted;
+}
+
+#remover-finalizados {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-right: 30px;
+    height: 30px;
+    width: 150px;
+    background-color: rgb(78, 100, 221);
+    border-radius: 40px;
+    border: 2px dotted;
 }
 
 #buttons {
-    padding-top: 150px;
+    position: initial;
 }
