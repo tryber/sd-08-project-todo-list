@@ -18,10 +18,11 @@ function addText () {
 //requisito 7
 //Evento onde ao se clicar na lista a cor de fundo seja alterada
 function color () {
-    captureListOl.addEventListener ('click', grayColor);
-    function grayColor () {
-        captureListOl.style.backgroundColor = 'rgb(128, 128, 128)';
-    }
+    const color = 'rgb(128, 128, 128)';
+    captureListOl.addEventListener('click', grey)
+    function grey (event) {
+        event.target.style.backgroundColor = color;
+      };
 };
 color ()
 
