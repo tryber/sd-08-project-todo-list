@@ -11,25 +11,26 @@ addTaskButton.addEventListener('click', function () {
   taskList.appendChild(createLi);
   input.value = ''
   completed(createLi);
+  selected(createLi)
 });
 
 //  Adicionar classe selected para a li selecionada;
 const taskListArray = document.getElementsByClassName('element-list');
 
-function selected () {
-  for (let index = 0; index < taskListArray.length; index += 1) {
-    taskListArray[index].addEventListener('click', function () {
-      for (let i = 0; i < taskListArray.length; i += 1) {
-        if (taskListArray[i].className.includes('selected')) {
-          taskListArray[i].classList.remove('selected');
-        }
-      }
-      taskListArray[index].classList.add('selected');
-    });
+function selected (tasks) {
+    tasks.addEventListener('click', function (event) {
+        for (let i = 0; i < taskListArray.length; i += 1) {
+            if (taskListArray[i].className.includes('selected')) {
+              taskListArray[i].classList.remove('selected');
+            }
+          } 
+      event.target.classList.toggle('selected')
+    });   
   }
-}
+
+
 //  A função será executada toda vez que eu adicionar um elemento na lista;
-addTaskButton.addEventListener('click', selected);
+//addTaskButton.addEventListener('click', selected);
 
 //  Adicionar função que risca tarefas concluidas;
 
@@ -49,12 +50,19 @@ buttonClearAll.addEventListener('click', function () {
 })
 
 //  Botão remover finalizados
-let buttonClearCompleted = document.getElementById('remover-finalizados');
+const buttonClearCompleted = document.getElementById('remover-finalizados');
 
 buttonClearCompleted.addEventListener('click', function () {
-   let completeds = document.getElementsByClassName('completed')
+    const completeds = document.getElementsByClassName('completed')
    while (completeds) {
        completeds[0].parentNode.removeChild(completeds[0]);
    }
 })
 
+//Botão remover selecionado
+const buttonClearSelected = document.getElementById('remover-selecionado');
+
+buttonClearSelected.addEventListener('click', function () {
+    const selected = document.getElementsByClassName('selected');
+    selected[0].parentNode.removeChild(selected[0]);
+})
