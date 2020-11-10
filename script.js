@@ -37,7 +37,7 @@ selectedTask();
 
 function completedTask() {
   orderedList.addEventListener('dblclick', function (event) {
-    const completedListItem = document.querySelector(".tarefa.completed");
+    const completedListItem = document.querySelector(".tarefa.selected.completed");
     if (completedListItem === null) {
       event.target.className = 'tarefa selected completed';
     } else {
@@ -61,11 +61,10 @@ function deleteCompletedTasks() {
   const btnDeleteTasks = document.querySelector('#remover-finalizados');
  
   btnDeleteTasks.addEventListener('click', function () {
-    let completedItemTask = document.getElementsByClassName('.completed');
+    let completedItemTask = document.getElementsByClassName('completed');
     while(completedItemTask.length > 0) {
       completedItemTask[0].parentNode.removeChild(completedItemTask[0]);
     }
   });
 };
 deleteCompletedTasks();
-
