@@ -2,3 +2,7 @@ label {
   display: block;
   margin-bottom: 15px;
 }
+
+.completed {
+  text-decoration: line-through;
+}

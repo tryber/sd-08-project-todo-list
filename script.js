@@ -29,3 +29,14 @@ function addColor(event) {
 }
 
 taskList.addEventListener('click', addColor);
+
+// Adds or removes completed task designation
+function completedTask(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+taskList.addEventListener('dblclick', completedTask)
