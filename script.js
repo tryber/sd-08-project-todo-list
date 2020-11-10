@@ -7,13 +7,18 @@ function createToDo() {
   createLi.addEventListener('click', (Event) => {
     const liArray = document.getElementsByTagName('li');
     for (let i = 0; i < liArray.length; i += 1) {
-      liArray[i].style.backgroundColor = 'white';
+      liArray[i].classList.remove('selected');
     }
-    Event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
+    Event.target.classList.add('selected');
   });
 
   createLi.addEventListener('dblclick', (Event) => {
-    Event.target.className = Event.target.className ? '' : 'completed';
+    let isCompleted = Event.target.classList.contains('completed');
+    if (isCompleted) {
+      Event.target.classList.remove('completed');
+    } else {
+      Event.target.classList.add('completed');
+    }
   });
 
   listOfTodos.appendChild(createLi);
@@ -38,6 +43,31 @@ function eraseFinishedItems() {
   }
 }
 
+function eraseSelectedItem() {
+  let selected = document.getElementsByClassName('selected');
+  const ol = document.getElementById('lista-tarefas');
+
+  if (!selected[0]) {
+    return;
+  }
+
+  ol.removeChild(selected[0]);
+}
+
+function moveItemUp() {
+  let selected = document.querySelector('.selected');
+  const ol = document.getElementById('lista-tarefas');
+
+  ol.insertBefore(selected, selected.previousElementSibling)
+}
+
+function moveItemDown() {
+  let selected = document.querySelector('.selected');
+  const ol = document.getElementById('lista-tarefas');
+
+  ol.insertBefore(selected.nextElementSibling, selected);
+}
+
 window.onload = () => {
   const createToDoBtn = document.getElementById('criar-tarefa');
   createToDoBtn.addEventListener('click', createToDo);
@@ -47,4 +77,13 @@ window.onload = () => {
 
   const eraseFinishedBtn = document.getElementById('remover-finalizados');
   eraseFinishedBtn.addEventListener('click', eraseFinishedItems);
+
+  const eraseSelectedBtn = document.getElementById("remover-selecionado");
+  eraseSelectedBtn.addEventListener('click', eraseSelectedItem);
+
+  const moveUpBtn = document.getElementById('mover-cima');
+  moveUpBtn.addEventListener('click', moveItemUp);
+
+  const moveDownBtn = document.getElementById('mover-baixo');
+  moveDownBtn.addEventListener('click', moveItemDown);
 };
