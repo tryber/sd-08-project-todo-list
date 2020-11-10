@@ -29,5 +29,4 @@ document.querySelector('#criar-tarefa').addEventListener('click', function () {
   }
   textInput.value = '';
   return addTarefa(texto);
-
 });
