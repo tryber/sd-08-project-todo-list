@@ -63,3 +63,13 @@ body {
     background-color: green;
     width: 200px;
 }
+
+#mover-cima {
+    background-color: orange;
+    width: 70px;
+}
+
+#mover-baixo {
+    background-color: orange;
+    width: 70px;
+}
