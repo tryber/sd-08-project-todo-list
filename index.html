@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto</title>
+    <title> Projeto </title>
 </head>
 <body>
     <header>
         <h1> Minha Lista de Tarefas </h1>
         <p id = "funcionamento"> Clique duas vezes em um item para marcá-lo como completo </p>
     </header>
-    <main>
-        <input id = "texto-tarefa" type = "text" > 
-        <section>
-            <ol id="lista-tarefas">
-
-            </ol>        
-        </section>
+    <main>   
+        <form>
+            <input id = "texto-tarefa" type = "text" >
+            <button id = "criar-tarefa" type = "submit"> Enviar </button>
+        </form>
     </main>
-    
+    <ol id = "lista-tarefas"></ol> 
+    <script src= "script.js"></script>
 </body>
 </html>
