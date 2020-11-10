@@ -8,6 +8,7 @@ function adicionaTexto(){
     itemList.addEventListener("click", function(){
         verificaListItem();
         itemList.style.backgroundColor = 'rgb(' + [128,128,128].join(',') + ')';
+        itemList.className = 'selected';
        });
     // Requisito 9
     itemList.addEventListener("dblclick", function(){
@@ -20,9 +21,10 @@ function adicionaTexto(){
 //Requisito 8
 function verificaListItem(){
 
-    let box = document.getElementsByTagName('li');
-        Array.from(box).forEach(function(box){
-            box.style.removeProperty('background-color');
+    let itemList = document.getElementsByTagName('li');
+        Array.from(itemList).forEach(function(itemList){
+            itemList.style.removeProperty('background-color');
+            itemList.classList.remove('selected');
         });
 }
 //Requisito 10
@@ -35,11 +37,41 @@ function clearAll(){
 function clearSelected(){
     
     let list = document.getElementById('lista-tarefas');
-    let box = document.getElementsByTagName('li');
-        Array.from(box).forEach(function(box){
-            if(box.className == "completed"){
-                list.removeChild(box);
+    let itemList = document.getElementsByTagName('li');
+        Array.from(itemList).forEach(function(itemList){
+            if(itemList.className == "completed"){
+                list.removeChild(itemList);
             }
         });
 
+}
+//Requisito 13
+function moveUp(){
+
+    let itemList = document.querySelector('.selected');
+    if(itemList.previousSibling.tagName != undefined){
+        verificaListItem();
+        itemList.previousSibling.style.backgroundColor = 'rgb(' + [128,128,128].join(',') + ')';
+        itemList.previousSibling.className = 'selected';
+    }  
+}
+
+function moveDown(){
+
+    let itemList = document.querySelector('.selected');
+    if(itemList.nextSibling != null){
+        verificaListItem();
+        itemList.nextSibling.style.backgroundColor = 'rgb(' + [128,128,128].join(',') + ')';
+        itemList.nextSibling.className = 'selected';
+    }
+    
+}
+//Requisito 14
+function deleteSelected(){
+
+    let list = document.getElementById('lista-tarefas');
+    let itemList = document.querySelector('.selected');
+    try{
+        list.removeChild(itemList);
+    }catch{}
 }
