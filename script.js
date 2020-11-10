@@ -12,7 +12,7 @@ let task = document.getElementsByTagName('li');
 const buttonRemove  = document.getElementById('apaga-tudo');
 buttonRemove.addEventListener('click', function () {
 console.log('Tenho ' + task.length + ' itens na lista')
-  for(let i=0; i<task.length; i++){
+  for(let i=0; i<task.length; i+=1){
     // let apaga = ;
     task[i].remove();
     console.log(i);
@@ -34,15 +34,15 @@ lista.addEventListener('click', function (event){
 const complet = document.getElementById('lista-tarefas')
 complet.addEventListener('dblclick', function (event){
   let selectedItem = document.getElementsByClassName('selected')
-  let completedItem = document.getElementsByClassName('completed')
   console.log(selectedItem.length)
-  if( event.target.tagName === 'LI'){
-    if( selectedItem.length >= 1 ){
+  if ( event.target.tagName === 'LI'){
+    if ( selectedItem.length >= 1 ){
       selectedItem[0].className = "";
     }
-    if( completedItem.length >= 1 ){
-      completedItem[0].className = "";
+    if ( event.target.className ==='completed'  ){
+      event.target.className = "";
+    } else {
+      event.target.className = 'completed';
     }
-    event.target.className = 'completed';
   }
 });
