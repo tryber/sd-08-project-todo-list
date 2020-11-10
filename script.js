@@ -26,6 +26,7 @@ function adicionarTarefa() {
     return alert('Favor Preencher com alguma Tarefa.');
   }
   addTarefa(textInput);
-  return textInput = '';
+  textInput = '';
+  return console.log('yes');
 }
 document.querySelector('#criar-tarefa').addEventListener('click', adicionarTarefa);
