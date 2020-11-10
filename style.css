@@ -1,11 +1,31 @@
 body {
   margin: 0;
+  padding-left: 30px;
+  padding-top: 30px;
   font-size: 25px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
+
+header {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+em {
+  font-size: 0.7em;
+}
+
 .itemLista {
   cursor: pointer;
   user-select: none;
+}
+
+input {
+  border: 1px solid #0fa36b66;
+  outline: 0;
+  height: 30px;
+  width: 300px;
+  box-shadow: 2px 2px #00000088;
 }
 
 .selected {
@@ -14,4 +34,21 @@ body {
 
 .completed {
   text-decoration: line-through;
+}
+
+#criar-tarefa {
+}
+
+.botoes {
+  background-color: #0fa36b;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  font-size: 1em;
+  box-shadow: 2px 2px #00000088;
+  margin: 3px;
+}
+
+.botoes:hover {
+  background-color: lightskyblue;
 }

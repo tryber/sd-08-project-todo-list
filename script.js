@@ -3,6 +3,8 @@ var listaOrdenada = document.querySelector("#lista-tarefas");
 window.onload = function () {
   botaoAdicionar();
 
+  checaLocalStorage();
+
   document
     .querySelector("#remover-selecionado")
     .addEventListener("click", removerSelecionado);
@@ -20,6 +22,10 @@ window.onload = function () {
   document
     .querySelector("#mover-baixo")
     .addEventListener("click", moverParaBaixo);
+
+  document
+    .querySelector("#salvar-tarefas")
+    .addEventListener("click", salvarLista);
 };
 
 function criarLista(string) {
@@ -27,16 +33,21 @@ function criarLista(string) {
 
   let novoItem = document.createElement("li");
   novoItem.classList.add("itemLista");
-  novoItem.addEventListener("click", (e) => {
+
+  adicionarEventosItems(novoItem);
+
+  novoItem.innerHTML = string;
+  listaOrdenada.appendChild(novoItem);
+}
+
+function adicionarEventosItems(item) {
+  item.addEventListener("click", (e) => {
     removerCinzaTodos();
     e.target.classList.add("selected");
   });
-  novoItem.addEventListener("dblclick", (e) => {
+  item.addEventListener("dblclick", (e) => {
     e.target.classList.toggle("completed");
   });
-  novoItem.innerHTML = string;
-
-  listaOrdenada.appendChild(novoItem);
 }
 
 function removerCinzaTodos() {
@@ -110,3 +121,26 @@ function moverParaBaixo() {
     }
   }
 }
+
+function salvarLista() {
+  let listaEmString = listaOrdenada.innerHTML;
+  localStorage.clear();
+  localStorage.setItem("lista", JSON.stringify(listaEmString));
+}
+
+function checaLocalStorage() {
+  let info = JSON.parse(localStorage.getItem("lista"));
+  if (info !== "") {
+    listaOrdenada.innerHTML = info;
+    let elementos = document.querySelectorAll(".itemLista");
+    elementos.forEach((e) => {
+      adicionarEventosItems(e);
+    });
+  }
+  return;
+}
+
+/* 
+storage.setItem("trybe", JSON.stringify(organization));
+let org = JSON.parse(storage.getItem("trybe"));
+ */
