@@ -16,6 +16,10 @@ function selectTask(event) {
   event.target.style.backgroundColor = colors.gray;
 }
 
+function completeTask(event) {
+	event.target.classList.toggle('complete');
+}
+
 // Adding a new task
 function addTask() {
   const newTask = document.createElement('li');
@@ -25,9 +29,12 @@ function addTask() {
   tasksList.appendChild(newTask);
   const allTasks = document.querySelectorAll('.task');
   for (let task = 0; task < allTasks.length; task += 1) {
-    allTasks[task].addEventListener('click', selectTask);
+		allTasks[task].addEventListener('click', selectTask);
+		allTasks[task].addEventListener('dblclick', completeTask);
   }
 }
 
 // Setting the button to add a new task and clean the input
 btnCreateTask.addEventListener('click', addTask);
+
+
