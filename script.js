@@ -5,10 +5,11 @@ function criarTarefa() {
    let input = document.getElementById('texto-tarefa');
    tarefa.innerText = input.value;
    tarefa.classList.add('tarefa');
+   tarefa.addEventListener('dblclick', mudaClasseCompleted);
+   tarefa.addEventListener('click', mudaClasseSelecionada);
    let lista = document.getElementById('lista-tarefas');   
    lista.appendChild(tarefa);
-   input.value = '';
-   completaTarefa();
+   input.value = '';  
    selecionaTarefa();   
  }) 
  }
@@ -16,25 +17,28 @@ criarTarefa();
 
 
 
-function selecionaTarefa() {
+/*function selecionaTarefa() {
   let tarefas = document.querySelectorAll('.tarefa');
   for (let index = 0; index < tarefas.length; index += 1){
     tarefas[index].addEventListener('click', mudaClasseSelecionada);    
-  }
+  }*/
+
   function mudaClasseSelecionada(event){
+    let tarefas = document.querySelectorAll('.tarefa');
     for (let index = 0; index < tarefas.length; index += 1){
       //tarefas[index].className = 'tarefa';
       tarefas[index].classList.remove('selecionada');
       event.target.classList.add('selecionada');
     }  
   }  
-}
 
-function completaTarefa(){
+
+/*function completaTarefa(){
   let tasks = document.querySelectorAll('.tarefa');
   for (let index = 0; index < tasks.length; index += 1){
     tasks[index].addEventListener('dblclick', mudaClasseCompleted);
-  }
+  }*/
+
   function mudaClasseCompleted(event){
       if(event.target.classList.contains('completed')){
         event.target.classList.remove('completed');
@@ -42,7 +46,7 @@ function completaTarefa(){
         event.target.classList.add('completed');
       }
   }
-}
+
 
 function apagaTudo(){
   const botaoApagaTudo = document.getElementById('apaga-tudo');
