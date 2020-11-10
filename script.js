@@ -25,21 +25,28 @@ function createsTask() {
         if (task.style.backgroundColor == 'white') {
 
           for (let index = 0; index < allTasks.length; index += 1) {
-            allTasks[index].classList.remove('selected');
             allTasks[index].style.backgroundColor = 'white';
           }
 
-          task.className = 'selected';
           task.style.backgroundColor = 'rgb(128,128,128)';
 
+        }
+      });
+
+      createdTask.addEventListener('dblclick', function (event) {
+
+        console.log('dblclick');
+
+        let task = event.target;
+
+        if (task.className == 'completed') {
+          task.className = '';
         } else {
-
-          alert('Tarefa já selecionada');
-
+          task.className = 'completed';
         }
 
-
       });
+
     }
   });
 
