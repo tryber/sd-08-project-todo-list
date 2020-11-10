@@ -6,7 +6,15 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
 
     novaTarefa.innerText = input.value;
     novaTarefa.addEventListener('click', () => {
-      novaTarefa.classList.toggle('selected');
+      const selecteds = document.querySelectorAll('.selected');
+      if (novaTarefa.classList.contains('selected')) {
+        novaTarefa.classList.remove('selected');
+      } else if (selecteds.length > 0) {
+        selecteds[0].classList.remove('selected');
+        novaTarefa.classList.add('selected');
+      } else {
+        novaTarefa.classList.add('selected');
+      }
     });
     lista.appendChild(novaTarefa);
 
