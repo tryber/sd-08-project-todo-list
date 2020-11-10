@@ -49,5 +49,13 @@ eraseSection.addEventListener("click", function () {
 })
 
 //req 11
+let removeCompleteButton = document.getElementById("apagar-completo");
+
+removeCompleteButton.addEventListener("click", function () {
+  let completeItems = document.querySelectorAll(".completed");
+  for (index = 0; index < completeItems.length; index += 1) {
+    completeItems[index].remove();
+  }
+});
 
 //req 12
