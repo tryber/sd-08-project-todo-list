@@ -1,8 +1,17 @@
+// Lista de objetos
 const txtTask = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
+const olListTasks = document.getElementById('lista-tarefas');
 
+// Lista de eventos de objetos
 txtTask.addEventListener('keyup', checkEnterEvent);
 btnCreateTask.addEventListener('click', createTask);
+olListTasks.addEventListener('click', setBackGroundColor);
+
+// Funções dos eventos dos objetos
+function setBackGroundColor(event) {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';    
+}
 
 function checkEnterEvent(event) {
     if (event.type === 'keyup')
