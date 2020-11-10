@@ -35,9 +35,10 @@ function riscarTarefa() {
   const listaOrdenada = document.getElementById('lista-tarefas');
 
   listaOrdenada.addEventListener('dblclick', (event) => {
-    event.target.classList.add('completed');
-    if (event.target.className === 'tarefa completed') {
+    if (event.target.className === 'tarefa completed' || event.target.className === 'tarefa selecionada completed') {
       event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
     }
   });
 }
