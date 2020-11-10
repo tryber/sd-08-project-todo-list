@@ -1,6 +1,6 @@
 const lista = document.querySelector('#lista-tarefas');
 function rmCompleted() {
-  let element = document.querySelectorAll('.completed');
+  const element = document.querySelectorAll('.completed');
   element.forEach((evt) => {
     lista.removeChild(evt);
   });
@@ -19,12 +19,12 @@ function addTarefa(text) {
     // Funçao que altera a cor do item caso selecionado
     const checkSelected = document.querySelectorAll('.selected');
     checkSelected.forEach((evt) => {
-     evt.classList.remove("selected");
+      evt.classList.remove('selected');
     });
-    item.target.classList.add("selected");
+    item.target.classList.add('selected');
   });
-  liNew.addEventListener("dblclick", function (evt) {
-    evt.target.classList.toggle("completed");
+  liNew.addEventListener('dblclick', function (evt) {
+    evt.target.classList.toggle('completed');
   });
 }
 
