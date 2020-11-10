@@ -36,6 +36,25 @@ function criabotao(){
              
                 
             })
+            criaelista.addEventListener("dblclick" , function(event){
+                
+               
+               if(criaelista.className !== "completed" && criaelista.style.textDecoration !== "line-through"){
+
+                event.target.className = "completed"
+                
+               }
+               else{
+                   event.target.classList.remove("completed")
+                   
+
+                
+               }
+               
+
+
+
+            })
         
         getposi1.appendChild(criaelista)
 
@@ -80,6 +99,7 @@ hightlightelement()
 
 
 function botaoapaga(){
+
 let getposi4 = document.querySelector("#botaoapaga")
 let getposi5 = document.getElementsByClassName("li")
 let criabotaoapaga = document.createElement("button")
