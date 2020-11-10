@@ -7,19 +7,27 @@ const colorLi = 'rgb(128,128,128)';
 function backgroundColor(target, color) {
   target.style.backgroundColor = color;
 }
-function removeSelectedAll() {
+function removeSelectedAll(classElement) {
   document.querySelectorAll('li').forEach((element) => {
-    removeSelected(element);
+    removeSelected(element, classElement);
   });
 }
-function removeSelected(target) {
-  return target.classList.remove('selected');
+function removeSelected(target, classElement) {
+  return target.classList.remove(classElement);
 }
-function addedSelected(target) {
-  removeSelectedAll();
-  // backgroundColor(target, colorLi);
-  target.classList.add('selected');
+function addedSelected(target, classElement) {
+  target.classList.add(classElement);
 }
+function selected(target) {
+  removeSelectedAll('selected');
+  addedSelected(target, 'selected');
+}
+function completed(target) {
+  return target.className.includes('completed')
+    ? removeSelected(target, 'completed')
+    : addedSelected(target, 'completed');
+}
+
 function createElementHTML(value) {
   for (let index = 0; index < value.length; index += 1) {
     let createdLi = document.createElement('li');
@@ -47,4 +55,5 @@ function capturedElementEvents(target, event, callback) {
   });
 }
 capturedElementEvents('criar-tarefa', 'click', push);
-capturedElementEvents('lista-tarefas', 'click', addedSelected);
+capturedElementEvents('lista-tarefas', 'click', selected);
+capturedElementEvents('lista-tarefas', 'dblclick', completed);
