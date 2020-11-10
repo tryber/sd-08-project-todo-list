@@ -13,8 +13,33 @@ function criabotao(){
 
         
         let criaelista = document.createElement("li")
-        criaelista.innerText =  textoinput
+       
+        
+            criaelista.innerText = textoinput
+
+            textoinput.value = " "
+
+            criaelista.addEventListener("click",function(event){
+
+                if(criaelista.style.backgroundColor !== "rgb(128,128,128)"){
+
+                    event.target.style.backgroundColor ="rgb(128,128,128)"
+
+                    }
+                    else if(criaelista.style.backgroundColor === "rgb(128,128,128)"){
+
+                        event.target.style.backgroundColor ="pink"
+                    }
+
+                
+               
+               
+                
+            })
+        
         getposi1.appendChild(criaelista)
+
+     
 
 
 
@@ -26,15 +51,18 @@ function criabotao(){
 }
 criabotao()
 
-
-
-function hightlightelement(){
-
+/*
 
 let getposi3 = document.querySelectorAll("#lista-tarefas")
 
+function hightlightelement(){
+
+    
+
 
 for(let i = 0 ; i < getposi3.length ; i ++){
+    
+    
     
     
     getposi3[i].addEventListener("click",function(){
@@ -51,6 +79,29 @@ getposi3[i].style.backgroundColor ="rgb(128,128,128)"
 }
 
 hightlightelement()
+
+*/
+
+
+function botaoapaga(){
+let getposi4 = document.querySelector("#botaoapaga")
+let getposi5 = document.getElementsByClassName("li")
+let criabotaoapaga = document.createElement("button")
+criabotaoapaga.id = "apaga-tudo"
+criabotaoapaga.innerText = "Apagar tudo"
+getposi4.appendChild(criabotaoapaga)
+
+criabotaoapaga.addEventListener("click", function(){
+
+   
+
+getposi5.length = 0
+
+})
+
+
+}
+botaoapaga()
 
 /*
 function criaitemlista(){

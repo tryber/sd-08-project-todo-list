@@ -1,0 +1,9 @@
+.listaelement{
+    display: block;
+}
+#texto-tarefa{
+    display: inline-block;
+}
+#botao{
+    display: inline-block;
+}
