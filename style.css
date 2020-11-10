@@ -1,75 +1,69 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
 body {
-    height: 100%;
-    background-color: #5AAD41;
+	height: 100%;
+	background-color: #5aad41;
 }
 
 button {
-    border-radius: 15px;
-    padding: 9px;
-    border-width: 0;
-    cursor: pointer;
-    margin: 5px;
-    color: #ffffff;
+	border-radius: 15px;
+	padding: 9px;
+	border-width: 0;
+	cursor: pointer;
+	margin: 5px;
+	color: white;
+	font-family: Montserrat, sans-serif;
 }
 
 button:hover {
-    opacity: 0.9;
+	opacity: 0.9;
 }
 
 .container {
-    background-color: #ffffff;
-    border-radius: 30px;
-    padding: 10px;
-    margin: 30px;
-    width: 95%;
+	background-color: #fff;
+	border-radius: 30px;
+	padding: 10px;
+	margin: 30px;
+	width: 95%;
 }
 
 .inputAdd {
-    margin: 20px 20px 20px 20px;
+	margin: 20px;
 }
 
 .title {
-    font-weight: bold;
-    font-size: 20px;
-    margin: 15px 15px 0px 15px;
-    font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+	font-size: 20px;
+	margin: 15px 15px 0;
+	font-family: Montserrat, sans-serif;
 }
 
 .funcionamento {
-    font-size: 12px;
-    font-style: italic;
-    color: #b9b4b4;
-    margin: 5px 15px 20px 15px;
+	font-size: 12px;
+	font-style: italic;
+	color: #b9b4b4;
+	margin: 5px 15px 20px 15px;
 }
 
-.criar-tarefa, .remover-finalizados {
-    background-color: #0B87CF;
+.criar-tarefa , .remover-finalizados {
+	background-color: #0b87cf;
 }
 
-.criar-tarefa:hover, .remover-finalizados:hover {
-    background-color: #39A2D9;
+.criar-tarefa:hover , .remover-finalizados:hover {
+	background-color: #39a2d9;
 }
 
 .remover-selecionado, .apaga-tudo {
-    background-color: #91261B;
+	background-color: #91261b;
 }
 
 .salvar-tarefas {
-    background-color: #5AAD41;
+	background-color: #5aad41;
 }
 
-.mover-cima, .mover-baixo {
-    background-color: #F27F31;
+.mover-cima , .mover-baixo {
+	background-color: #f27f31;
 }
 
-.mover-cima, .mover-baixo, .remover-selecionado {
-    padding-left: 20px;
-    padding-right: 20px;
+.mover-cima , .mover-baixo , .remover-selecionado {
+	padding-left: 20px;
+	padding-right: 20px;
 }
