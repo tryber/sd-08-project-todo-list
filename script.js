@@ -9,7 +9,7 @@ function adicionaTarefa(){
         li.innerHTML = input.value;
         ol.appendChild(li); 
         input.value = '';
-        })    
+    })    
 }
 
 adicionaTarefa();
