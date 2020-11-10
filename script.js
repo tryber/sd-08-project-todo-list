@@ -25,7 +25,7 @@ function removeColor() {
 function addColor(event) {
   removeColor();
   event.target.style.backgroundColor = 'rgb(128,128,128)';
-  event.target.classList.add('selected')
+  event.target.classList.add('selected');
 }
 
 taskList.addEventListener('click', addColor);
