@@ -6,7 +6,7 @@ function criabotao(){
     getposi.appendChild(criabot)
     let getposi2 = document.getElementById("texto-tarefa")
     let getposi1 = document.querySelector("#lista-tarefas")
-    
+    let lastselected = null
 
     criabot.addEventListener("click", function(){
         let textoinput = getposi2.value
@@ -17,33 +17,29 @@ function criabotao(){
         
             criaelista.innerText = textoinput
 
-            textoinput.value = " "
+            getposi2.value = " "
 
             criaelista.addEventListener("click",function(event){
 
-                if(criaelista.style.backgroundColor !== "rgb(128,128,128)"){
+               if(lastselected === null){
+                   lastselected = event.target
 
-                    event.target.style.backgroundColor ="rgb(128,128,128)"
+               }
+               else{
+                   lastselected.style.backgroundColor = "white"
+                   lastselected = event.target
+                   
+               }
+               event.target.style.backgroundColor = "rgb(128,128,128)"
 
-                    }
-                    else if(criaelista.style.backgroundColor === "rgb(128,128,128)"){
 
-                        event.target.style.backgroundColor ="pink"
-                    }
-
-                
-               
-               
+             
                 
             })
         
         getposi1.appendChild(criaelista)
 
      
-
-
-
-
     })
 
 
