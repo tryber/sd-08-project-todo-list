@@ -22,19 +22,20 @@ tarefas.addEventListener('click', function (event) {
   // condição para um clique
   if (event.detail === 1) {
     // se o elemento não estiver selecionado...
-    if (event.target.className !== 'tarefasLi selected') {
+    if (event.target.style.backgroundColor !== 'rgb(128 , 128 , 128)') {
       timer = setTimeout(function () {
         // Condição para gerar delay e o evento distinguir entre duplo clique e único clique
         if (!prevent) {
-          // condição que mostra a existêincia de algum elemento com a classe .selected. Fiz para eliminar um errinho chato
-          if (document.querySelector('.selected') !== null) {
-            let itemSelecionado = document.querySelector('.selected');
-            // Se algum outro item estiver selecionado, esta condição desfaz
-            if (itemSelecionado.className === 'tarefasLi selected') {
-              itemSelecionado.className = 'tarefasLi';
+            // Aqui vou colocar um for para tirar o cinza dos outro cinzas, preciso e uma lista
+            listaTarefas = document.querySelectorAll('.tarefasLi')
+            console.log(listaTarefas)
+            for (let i = 0; i < listaTarefas.length; i++ ) {
+              let element = listaTarefas[i];
+              if (element.style.backgroundColor === 'rgb(128, 128, 128)' ) {
+                element.style.backgroundColor = 'white';
+              }
             }
-          }
-          event.target.className = 'tarefasLi selected';
+          event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
         }
         prevent = false;
       }, delay);
