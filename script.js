@@ -17,10 +17,11 @@ function corLista (event) {
   const evento = event.target;
   const estilo = event.target.style;
   const lista = document.querySelectorAll('.lista');
+  for (let index = 0; index < lista.length; index += 1) {
+    lista[index].style.backgroundColor = 'rgb(255, 255, 255)';
+  }
   if(evento.className == 'lista') {
-    if(estilo.backgroundColor == 'rgb(128, 128, 128)'){
-      estilo.backgroundColor = 'rgb(255, 255, 255)'
-    } else {
+    if(estilo.backgroundColor != 'rgb(128, 128, 128)'){
       estilo.backgroundColor = 'rgb(128, 128, 128)';
     } 
   }
