@@ -8,3 +8,12 @@ body {
   padding: 30px;
   width: 60%;
 }
+
+ol {
+  padding: 0;
+  margin: 10px 30px;
+}
+
+.task {
+  list-style-position: inside;
+}
