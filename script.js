@@ -9,21 +9,19 @@ function criarTarefa() {
    lista.appendChild(tarefa);
    input.value = '';
    selecionaTarefa();
- })
- 
+ }) 
  }
 criarTarefa();
 
-
 function selecionaTarefa() {
-  const tarefas = document.querySelectorAll('.tarefa');
-  console.log(tarefas);
+  const tarefas = document.querySelectorAll('.tarefa');  
   for (let index = 0; index < tarefas.length; index += 1){
     tarefas[index].addEventListener('click', mudaClasse);
   }
   function mudaClasse(event){
     for (let index = 0; index < tarefas.length; index += 1){
-      event.target.classList.toggle('selecionada');  
+      tarefas[index].className = 'tarefa';
+      event.target.className = 'tarefa selecionada';  
     }  
   }
 }
