@@ -1,4 +1,3 @@
-localStorage.clear();
 const initialState = [];
 const savedTasks = JSON.parse(localStorage.getItem('tasks')) || initialState;
 const olTasks = document.getElementById('lista-tarefas');
