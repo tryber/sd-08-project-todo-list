@@ -12,9 +12,14 @@ function selectItem(event) {
   selectedItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
 }
 
+function completeTask(event) {
+  event.target.classList.add('completed');
+}
+
 function createTask(text) {
   let task = document.createElement('li');
   task.innerText = text;
+  task.addEventListener('dblclick', completeTask);
   task.addEventListener('click', selectItem);
   return task;
 }
