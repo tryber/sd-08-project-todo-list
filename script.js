@@ -1,4 +1,5 @@
 let listaTarefas = document.getElementById("lista-tarefas");
+let tarefas = document.getElementsByTagName("li");
 
 function criaTarefa () {
     let entradaTarefa = document.getElementById("texto-tarefa");
@@ -10,10 +11,9 @@ function criaTarefa () {
 document.getElementById("criar-tarefa").addEventListener("click",criaTarefa);
 
 function selecionaItem (event) {
-    let itens = document.getElementsByTagName("li");
-    for (let i=0; i<itens.length; i+=1){
-        if (itens[i].style.backgroundColor === "rgb(128, 128, 128)"){
-            itens[i].style.backgroundColor = "";
+    for (let i=0; i<tarefas.length; i+=1){
+        if (tarefas[i].style.backgroundColor === "rgb(128, 128, 128)"){
+            tarefas[i].style.backgroundColor = "";
         }
     }
     event.target.style.backgroundColor = "rgb(128, 128, 128)";
@@ -28,3 +28,19 @@ function tarefaCompleta (event) {
     }
 }
 listaTarefas.addEventListener("dblclick",tarefaCompleta);
+
+function apagaLista () {
+    // Trecho retirado de ---https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild --- Para apagar todos os filhos de um elemento
+    while (listaTarefas.firstChild) {
+        listaTarefas.removeChild(listaTarefas.firstChild);
+    }
+}
+document.getElementById("apaga-tudo").addEventListener("click",apagaLista);
+
+function apagaFinalizados () {
+    let finalizados = document.querySelectorAll(".completed");
+    for(let i=0; i<finalizados.length; i+=1){
+        listaTarefas.removeChild(finalizados[i]);
+    }
+}
+document.getElementById("remover-finalizados").addEventListener("click",apagaFinalizados);
