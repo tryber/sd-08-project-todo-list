@@ -4,10 +4,33 @@
   box-sizing: border-box;
 }
 
+.container {
+  width: 400px;
+  text-align: center;
+  margin: auto;
+  background-color: aqua;
+}
+
+h1 {
+  margin: 35px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
 .selecionada {
   background-color: rgb(128, 128, 128);
 }
 
 .completed {
   text-decoration: line-through;
+}
+
+ol {
+  margin-top: 30px;
+}
+
+li {
+  list-style-type: none;
 }
