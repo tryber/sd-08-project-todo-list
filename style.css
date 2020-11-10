@@ -1,0 +1,15 @@
+#texto-tarefa {
+    display: inline-block;
+}
+
+#criar-tarefa {
+    display: inline-block;
+    background-color: aquamarine;
+    border-radius: 20px;
+}
+
+#lista-tarefas {
+    display: block;
+    
+}
+
