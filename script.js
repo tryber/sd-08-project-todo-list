@@ -12,16 +12,18 @@ function addText () {
     liTask.innerText = captureInput.value;
     captureListOl.appendChild(liTask);
     captureInput.value = '';
-    liTask.style.backgroundColor = 'rgb(128, 128, 128)';
-
+    
 };
 
-
-
-
 //requisito 7
-//capturar a lista ol
-//criar um evento onde ao se clicar na lista a cor de fundo seja alterad
+//Evento onde ao se clicar na lista a cor de fundo seja alterada
+function color () {
+    captureListOl.addEventListener ('click', grayColor);
+    function grayColor () {
+        captureListOl.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+};
+color ()
 
 //usar o event.target
 
