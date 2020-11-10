@@ -23,7 +23,7 @@ function botao() {
 
         //Riscando texto
         linha.addEventListener("dblclick", (event) => {
-            if (linha.className === "") 
+            if (linha.className === "marcado") 
             event.target.classList.add("completed");
             else event.target.classList.remove("completed");
         })
