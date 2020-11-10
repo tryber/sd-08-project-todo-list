@@ -1,11 +1,11 @@
 function createToDo() {
-  let inputFieldValue = document.getElementById('texto-tarefa').value;
-  let listOfTodos = document.getElementById('lista-tarefas');
-  let createLi = document.createElement('li');
+  const inputFieldValue = document.getElementById('texto-tarefa').value;
+  const listOfTodos = document.getElementById('lista-tarefas');
+  const createLi = document.createElement('li');
   createLi.innerText = inputFieldValue;
 
   createLi.addEventListener('click', (Event) => {
-    let liArray = document.getElementsByTagName('li');
+    const liArray = document.getElementsByTagName('li');
     for (let i = 0; i < liArray.length; i += 1) {
       liArray[i].style.backgroundColor = 'white';
     }
@@ -21,13 +21,13 @@ function createToDo() {
 }
 
 function eraseAllItems() {
-  let ol = document.getElementById('lista-tarefas');
+  const ol = document.getElementById('lista-tarefas');
   ol.innerHTML = '';
 }
 
 function eraseFinishedItems() {
-  let finished = document.getElementsByClassName('completed');
-  let ol = document.getElementById('lista-tarefas');
+  const finished = document.getElementsByClassName('completed');
+  const ol = document.getElementById('lista-tarefas');
 
   while (finished[0]) {
     if (!finished[0]) {
@@ -47,5 +47,4 @@ window.onload = () => {
 
   const eraseFinishedBtn = document.getElementById('remover-finalizados');
   eraseFinishedBtn.addEventListener('click', eraseFinishedItems);
-
 }
