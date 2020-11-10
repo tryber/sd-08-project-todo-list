@@ -11,3 +11,10 @@ function createList(){
 }
 createList();
 
+function tintList(){
+    let ol = document.getElementById('lista-tarefas');
+    ol.addEventListener('click', function(e){
+        e.target.style.backgroundColor = 'rgb(128,128,128)'
+    })
+}
+tintList();
