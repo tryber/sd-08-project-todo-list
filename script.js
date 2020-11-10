@@ -47,8 +47,9 @@ taskList.addEventListener('dblclick', completedTask);
 
 // Deletes all tasks
 function removeTasks() {
-  while (taskList.lastChild);
-  taskList.removeChild(taskList.lastChild);
+  while (taskList.lastChild) {
+    taskList.removeChild(taskList.lastChild);
+  }
 }
 
 deleteAll.addEventListener('click', removeTasks);
