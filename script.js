@@ -65,6 +65,9 @@ document.addEventListener('click', (event) => {
       childNode[selected].parentElement.insertBefore(childNode[selected], childNode[selected - 1]);
     }
   }
+  if (event.target.id === 'remover-selecionado') {
+    document.querySelector('.selected').remove();
+  }
 })
 
 // Eventos dblclick
