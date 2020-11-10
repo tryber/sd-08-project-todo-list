@@ -35,3 +35,11 @@ document.querySelector('#apaga-tudo').addEventListener('click', () => {
     listItems[i].remove();
   }
 });
+
+document.querySelector('#remover-finalizados').addEventListener('click', () => {
+  const listItems = document.querySelectorAll('.completed');
+
+  for (let i = listItems.length - 1; i >=0; i -= 1) {
+    listItems[i].remove();
+  }
+});
