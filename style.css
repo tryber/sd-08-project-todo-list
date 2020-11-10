@@ -36,7 +36,10 @@ li {
   text-align: center;
 }
 
-.btn-adicionar , 
+.btn-adicionar {
+  background-color: rgb(46 , 184 , 46);
+}
+
 .btn-salvar {
   background-color: rgb(46 , 184 , 46);
 }

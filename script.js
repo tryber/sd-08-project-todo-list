@@ -75,8 +75,8 @@ function salvarLista() {
 
 function carregarLocalStorage() {
   if (localStorage.length !== 0) {
-      const listaOrdenada = document.querySelector('#lista-tarefas');
-      listaOrdenada.innerHTML = localStorage.conteudoLista;
+    const listaOrdenada = document.querySelector('#lista-tarefas');
+    listaOrdenada.innerHTML = localStorage.conteudoLista;
   }
   verificaDoubleClickLista();
 }
