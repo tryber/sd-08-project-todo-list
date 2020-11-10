@@ -57,6 +57,9 @@ function eraseSelectedItem() {
 function moveItemUp() {
   let selected = document.querySelector('.selected');
   const ol = document.getElementById('lista-tarefas');
+  if (!selected || ol.children[0] === selected) {
+    return;
+  }
 
   ol.insertBefore(selected, selected.previousElementSibling)
 }
@@ -64,8 +67,16 @@ function moveItemUp() {
 function moveItemDown() {
   let selected = document.querySelector('.selected');
   const ol = document.getElementById('lista-tarefas');
+  if (!selected || ol.children[ol.children.length - 1] === selected) {
+    return;
+  }
 
   ol.insertBefore(selected.nextElementSibling, selected);
+}
+
+function saveTodo() {
+  // a fazer
+  console.log('salvar');
 }
 
 window.onload = () => {
@@ -86,4 +97,7 @@ window.onload = () => {
 
   const moveDownBtn = document.getElementById('mover-baixo');
   moveDownBtn.addEventListener('click', moveItemDown);
+
+  const saveBtn = document.getElementById('salvar-tarefas');
+  saveBtn.addEventListener('click', saveTodo);
 };
