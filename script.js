@@ -19,10 +19,13 @@ createButton('Task');
         orList.appendChild(elemento);
         texto.value = '';
         elemento.addEventListener('click', function(){
-            elemento.style.backgroundColor = 'rgb(128,128,128)';
+            let cor = 'white';
+            let bg = 'rgb(128,128,128)';
+            let completeList = document.querySelectorAll('li');
+            for(i = 0; i < completeList.length; i +=1){
+                completeList[i].style.backgroundColor = cor;
+            }
+            elemento.style.backgroundColor = bg;
         })
     })
 
- //mudando background
-
-   
