@@ -83,6 +83,9 @@ function carregarLocalStorage() {
 
 function moverParaCima(){
     const elementoSelecionado = document.querySelector('.colore-elemento-lista');
+    if(elementoSelecionado === null){
+        return
+    }
     const pai = elementoSelecionado.parentNode
     const anterior = elementoSelecionado.previousSibling;
     if(anterior !== null) {
@@ -93,13 +96,22 @@ function moverParaCima(){
 
 function moverParaBaixo() {
     const elementoSelecionado = document.querySelector('.colore-elemento-lista');
+    if(elementoSelecionado === null){
+        return
+    }
     const pai = elementoSelecionado.parentNode
     const proximo = elementoSelecionado.nextSibling;
+    if(proximo === null){
+        return
+    }
     pai.insertBefore(proximo, elementoSelecionado);
 }
 
 function removerSelecionado() {
     const elementoSelecionado = document.querySelector('.colore-elemento-lista');
+    if(elementoSelecionado === null){
+        return
+    }
     elementoSelecionado.remove();
 }
 
