@@ -3,44 +3,35 @@ document.querySelector('#criar-tarefa').addEventListener('click', function(){
     let listElement = document.createElement('li');
     document.querySelector('#lista-tarefas').appendChild(listElement);
     listElement.innerHTML = document.querySelector('#texto-tarefa').value;
-    document.querySelector('#texto-tarefa').value = '';
-    document.querySelectorAll('li');
+    document.querySelector('#texto-tarefa').value = '';    
     changeBackColor();        
     deleteAllTasks();
     removeFinishedTask();
-    textDecoration();          
-});
-
-
-    
+             
+});   
 
 //MUDAR COR DE FUNDO
 function changeBackColor(){
-    for(let index = 0; index < document.querySelectorAll('li').length; index+=1) {
-        document.querySelectorAll('li')[index].addEventListener('click', function (event){
-            for (let index2 = 0; index2 < document.querySelectorAll('li').length; index2 +=1) {
-                document.querySelectorAll('li')[index2].style.background = '';                    
-            }
-            event.target.style.background = 'rgb(128,128,128)';
+    document.querySelector('#lista-tarefas').addEventListener('click', function (event){
+        for (let index2 = 0; index2 < document.querySelectorAll('li').length; index2 +=1) {
+            document.querySelectorAll('li')[index2].style.background = '';                    
+        }
+            event.target.style.background = 'rgb(128,128,128)'; 
         });        
-    }
+    
 }
-
 
 // COLOCANDO DECORAÇAO NA TAREFA QUE JÁ FOI EXECUTADA
-function textDecoration() {
-    for(let index = 0; index < document.querySelectorAll('li').length; index+=1) {
-        document.querySelectorAll('li')[index].addEventListener('dblclick', function (event){
-            if (event.target.classList.contains('completed')) {
-                event.target.classList.remove('completed');
-            } else {
-                event.target.classList.add('completed');
-            }
-        });        
-    }    
+function textDecoration() {    
+    document.querySelector('#lista-tarefas').addEventListener('dblclick', function (event){
+        if (event.target.classList.contains('completed')) {
+            event.target.classList.remove('completed');
+        } else {
+            event.target.classList.add('completed');
+        }
+    });       
 }
-    
-
+textDecoration(); 
 
 // BOTAO APAGA TUDO
 function deleteAllTasks() {
@@ -50,8 +41,6 @@ function deleteAllTasks() {
         }
     });    
 }
-
-
 
 // BOTAO REMOVER TAREFA EXECUTADA
 function removeFinishedTask() {
