@@ -9,8 +9,7 @@ function criarTarefa() {
    tarefa.addEventListener('click', mudaClasseSelecionada);
    let lista = document.getElementById('lista-tarefas');   
    lista.appendChild(tarefa);
-   input.value = '';  
-   selecionaTarefa();   
+   input.value = '';    
  }) 
  }
 criarTarefa();
