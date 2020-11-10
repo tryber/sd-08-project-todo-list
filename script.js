@@ -20,14 +20,37 @@ window.onload = function () {
     })
 
     addEventListener('click', function (event) {
+        // Quando uma task é clicada, 
+        // passa a ter a classe '.selected', 
+        // o que altera seu backgroundColor
+        // se outra task for clicada, anterior perde a classe '.selected'
+
         let item = event.target;
         let ultimoItem = document.querySelector('.selected');
+        
         if (ultimoItem !== null) {
-            ultimoItem.className = 'task'
+            let classes = ultimoItem.className.split(' ');
+            classes.splice(classes.indexOf('selected'), 1)
+            ultimoItem.className = classes.join(' ')
         }
 
-        if (item.className === 'task') {
+        if (item.classList.contains('task')) {
             item.className += ' selected';
+        }
+    })
+
+    addEventListener('dblclick', function (event) {
+        // Se o item estiver riscado e for clicado duas vezes, desrisca
+        // se ele não estiver riscado, risca
+
+        let item2 = event.target;
+
+        if (item2.classList.contains('completed') && item2.classList.contains('task')) {
+            let classes = item2.className.split(' ');
+            classes.splice(classes.indexOf('completed'), 1);
+            item2.className = classes.join(' ');
+        } else if (item2.classList.contains('task')) {
+            item2.className += ' completed';
         }
     })
 }
