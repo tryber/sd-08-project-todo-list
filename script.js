@@ -48,3 +48,13 @@ buttonClearAll.addEventListener('click', function () {
     }
 })
 
+//  Botão remover finalizados
+let buttonClearCompleted = document.getElementById('remover-finalizados');
+
+buttonClearCompleted.addEventListener('click', function () {
+   let completeds = document.getElementsByClassName('completed')
+   while (completeds) {
+       completeds[0].parentNode.removeChild(completeds[0]);
+   }
+})
+
