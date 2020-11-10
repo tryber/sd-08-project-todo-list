@@ -45,7 +45,7 @@ createButton('Task');
     };
     apagarBtn('Clear');
     
-    document.getElementById('apaga-tudo').addEventListener('click', () => {
+    document.getElementById('apaga-tudo').addEventListener('click', function() {
         let item = document.querySelectorAll('li');
         for (let i = 0; i < item.length; i += 1) {
           document.getElementById('lista-tarefas').removeChild(item[i]);
@@ -54,9 +54,9 @@ createButton('Task');
 
 
     
-      document.getElementById('remover-finalizados').addEventListener('click', () => {
+      document.getElementById('remover-finalizados').addEventListener('click', function ()  {
         let object = document.querySelectorAll('.completed');
-            for(i = 0; object.length; i +=1){
+            for(i = 0; i < object.length; i +=1){
                 document.getElementById('lista-tarefas').removeChild(object[i]);
             }
           
