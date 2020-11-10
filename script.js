@@ -7,12 +7,17 @@ function toggleSelected(event) {
   event.target.classList.toggle('selected');
 }
 
+function toggleCompleted(event) {
+  event.target.classList.toggle('completed');
+}
+
 // Cria uma tarefa
 function createTask(description) {
   const task = document.createElement('li');
   task.className = 'task';
   task.textContent = description;
   task.addEventListener('click', toggleSelected);
+  task.addEventListener('dblclick', toggleCompleted);
   return task;
 }
 
@@ -27,3 +32,15 @@ createTaskButton.addEventListener('click', function() {
   olTasks.appendChild(task);
   taskTextInput.value = "";
 });
+
+const createEraseAllButton = document.getElementById('apaga-tudo');
+
+function eraseAllTasks() {
+  const tasks = olTasks.querySelectorAll('li');
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    task.remove();
+  }
+}
+
+createEraseAllButton.addEventListener('click', eraseAllTasks);
