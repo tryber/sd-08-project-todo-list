@@ -103,25 +103,29 @@ let btnDownArrow = document.getElementById("mover-baixo");
 
 btnUpArrow.addEventListener("click", function () {
   let selected = document.querySelector(".selected");
-  let prev = document
-    .getElementById("lista-tarefas")
-    .replaceChild(selected, selected.previousSibling);
-  document
-    .getElementById("lista-tarefas")
-    .insertBefore(prev, selected.nextSibling);
-  if (selected.previousSibling == null) {
-    btnUpArrow.disabled = true;
+  if (selected.previousSibling != null) {
+    let prev = document
+      .getElementById("lista-tarefas")
+      .replaceChild(selected, selected.previousSibling);
+    document
+      .getElementById("lista-tarefas")
+      .insertBefore(prev, selected.nextSibling);
+    if (selected.previousSibling == null) {
+      btnUpArrow.disabled = true;
+    }
   }
 });
 
 btnDownArrow.addEventListener("click", function () {
   let selected = document.querySelector(".selected");
-  let post = document
-    .getElementById("lista-tarefas")
-    .replaceChild(selected, selected.nextSibling);
-  document.getElementById("lista-tarefas").insertBefore(post, selected);
-  if (selected.nextSibling == null) {
-    btnDownArrow.disabled = true;
+  if (selected.nextElementSibling != null) {
+    let post = document
+      .getElementById("lista-tarefas")
+      .replaceChild(selected, selected.nextSibling);
+    document.getElementById("lista-tarefas").insertBefore(post, selected);
+    if (selected.nextSibling == null) {
+      btnDownArrow.disabled = true;
+    }
   }
 });
 
