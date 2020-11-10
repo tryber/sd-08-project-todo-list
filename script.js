@@ -1,15 +1,23 @@
 const btnCreateTask = document.getElementById('criar-tarefa');
 const tasksList = document.getElementById('lista-tarefas');
-let taskInput = document.getElementById('texto-tarefa');
+const taskInput = document.getElementById('texto-tarefa');
 const colors = {
   gray: 'rgb(128, 128, 128)',
 };
 
-// Setting the button to add a new task and clean the input
-btnCreateTask.addEventListener('click', addTask);
+// Selecting the clicked task and deselecting the other ones
+function selectTask(event) {
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected) {
+    taskSelected.classList.remove('selected');
+    taskSelected.style.backgroundColor = '';
+  }
+  event.target.classList.add('selected');
+  event.target.style.backgroundColor = colors.gray;
+}
 
 // Adding a new task
-function addTask(event) {
+function addTask() {
   const newTask = document.createElement('li');
   newTask.className = 'task';
   newTask.innerText = taskInput.value;
@@ -21,13 +29,5 @@ function addTask(event) {
   }
 }
 
-// Selecting the clicked task and deselecting the other ones
-function selectTask(event) {
-  let taskSelected = document.querySelector('.selected');
-  if (taskSelected) {
-    taskSelected.classList.remove('selected');
-    taskSelected.style.backgroundColor = '';
-  }
-  event.target.classList.add('selected');
-  event.target.style.backgroundColor = colors.gray;
-}
+// Setting the button to add a new task and clean the input
+btnCreateTask.addEventListener('click', addTask);
