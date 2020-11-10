@@ -24,6 +24,14 @@ function verificaCliqueLista() {
   }
 }
 
+function riscaElementoLista(elemento) {
+  if (elemento.target.classList.contains('completed')) {
+    elemento.target.classList.remove('completed');
+  } else {
+    elemento.target.classList.add('completed');
+  }
+}
+
 function verificaDoubleClickLista() {
   const lista = document.querySelectorAll('.elemento-lista');
   for (let index = 0; index < lista.length; index += 1) {
@@ -43,14 +51,6 @@ function adicionaTarefaLista() {
   verificaCliqueLista();
 }
 
-function riscaElementoLista(elemento) {
-  if (elemento.target.classList.contains('completed')) {
-    elemento.target.classList.remove('completed');
-  } else {
-    elemento.target.classList.add('completed');
-  }
-}
-
 function limparLista() {
   const lista = document.querySelectorAll('.elemento-lista');
   for (let index = 0; index < lista.length; index += 1) {
@@ -60,7 +60,7 @@ function limparLista() {
 
 function limparFinalizados() {
   const lista = document.querySelectorAll('.elemento-lista');
-  for (let index = 0; index < lista.length; index++) {
+  for (let index = 0; index < lista.length; index += 1) {
     if (lista[index].classList.contains('completed')) {
       lista[index].remove();
     }
@@ -74,10 +74,9 @@ function salvarLista() {
 }
 
 function carregarLocalStorage() {
-  if (localStorage.length === 0) {
-  } else {
-    const listaOrdenada = document.querySelector('#lista-tarefas');
-    listaOrdenada.innerHTML = localStorage.conteudoLista;
+  if (localStorage.length !== 0) {
+      const listaOrdenada = document.querySelector('#lista-tarefas');
+      listaOrdenada.innerHTML = localStorage.conteudoLista;
   }
   verificaDoubleClickLista();
 }
