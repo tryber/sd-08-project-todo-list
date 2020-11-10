@@ -1,5 +1,5 @@
 //Requisito 5
-
+//usei o site cursos.alura.com.br/forum/topico-como-resolvo-o-problema-object-htmlinputelement-no-meu-codigo-78324 para aprender sobre o 'value'
 const captureInput = document.getElementById('texto-tarefa');
 const captureListOl = document.getElementById('lista-tarefas'); 
 //capturar o 'button criar-tarefa' e criar um evendo de 'click'
