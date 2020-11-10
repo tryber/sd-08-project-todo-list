@@ -16,6 +16,9 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
         novaTarefa.classList.add('selected');
       }
     });
+    novaTarefa.addEventListener('dblclick', () => {
+      novaTarefa.classList.toggle('completed');
+    });
     lista.appendChild(novaTarefa);
 
     input.value = '';
