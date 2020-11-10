@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body{
     background-color: #1db937;
 }
@@ -12,7 +14,7 @@ body{
 .container {
     width: 700px;
     height: auto;
-    background-color: #eee5e5;
+    background-color: #ffffff;
     margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
@@ -22,4 +24,48 @@ body{
 header {
     margin: 5px;
     font-family: 'Roboto', sans-serif;
+}
+
+#funcionamento {
+    margin-left: 5px;
+    font-style: italic;
+    font-size: small;
+}
+
+.input-content {
+    display: inline-block;
+}
+
+#texto-tarefa {
+    margin: 20px 0 10px 15px;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+    border: 1px solid rgba(235, 229, 229, 0.856);
+    font-size: 1.2em;
+    font-family: 'Oswald', sans-serif;
+    color: rgba(46, 46, 46, 0.904);
+}
+
+#texto-tarefa:focus {
+    outline: none;
+}
+
+.button-content {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin-left: 30px;
+}
+
+#criar-tarefa {
+    width: 80px;
+    height: 30px;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 4px;
+    color: rgba(46, 46, 46, 0.904);
+}
+#criar-tarefa:focus {
+    outline: none
 }
