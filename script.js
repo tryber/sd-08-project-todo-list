@@ -7,7 +7,8 @@ document.querySelector('#criar-tarefa').addEventListener('click', function(){
     changeBackColor();        
     deleteAllTasks();
     removeFinishedTask();
-    textDecoration();    
+    textDecoration();
+    removTextDecoration();    
 });
 
 
@@ -31,12 +32,12 @@ function textDecoration() {
     for(let index = 0; index < document.querySelectorAll('li').length; index+=1) {
         document.querySelectorAll('li')[index].addEventListener('dblclick', function (event){
             if (event.target.classList.contains('completed')) {
-                event.target.classList.remove('completed')
+                event.target.classList.remove('completed');
             } else {
                 event.target.classList.add('completed');
-            }                                       
+            }
         });        
-    }
+    }    
 }
     
 
