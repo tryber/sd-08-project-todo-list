@@ -46,3 +46,13 @@ function completedTask() {
   });
 };
 completedTask();
+
+function deleteList() {
+  const btnDeleteAll = document.querySelector('#apaga-tudo');
+  btnDeleteAll.addEventListener('click', function () {
+    while (orderedList.firstChild) {
+      orderedList.removeChild(orderedList.lastChild);
+    }
+  });
+}
+deleteList();
