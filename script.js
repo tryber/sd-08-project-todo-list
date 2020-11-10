@@ -3,6 +3,8 @@ const btnRemove = document.getElementById('apaga-tudo');
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
 const btnRemoveSelected = document.getElementById('remover-selecionado');
 const btnSave = document.getElementById('salvar-tarefas');
+const btnMoveCima = document.getElementById('mover-cima');
+const btnMoveBaixo = document.getElementById('mover-baixo');
 const textInput = document.getElementById('texto-tarefa');
 const listaDeTarefas = document.getElementById('lista-tarefas');
 
@@ -81,7 +83,35 @@ function salvaTarefas() {
 
 }
 
+function moverCima() {
+  let itensLista = document.querySelectorAll('li');
+
+  for (let index = 1; index < itensLista.length; index += 1) {
+      let pos = index - 1
+    if (itensLista[index].className === 'selected' || itensLista[index].className === 'selected completed') {
+        let temp = itensLista[index].innerText
+        itensLista[index].innerText = itensLista[pos].innerText
+        itensLista[pos].innerText = temp
+    }
+  }
+}
+
+function moverBaixo() {
+  let itensLista = document.querySelectorAll('li');
+
+  for (let index = (itensLista.length - 2); index > 0; index -= 1) {
+    let pos = index + 1
+    if (itensLista[index].className === 'selected' || itensLista[index].className === 'selected completed') {
+      let temp = itensLista[index].innerText
+      itensLista[index].innerText = itensLista[pos].innerText
+      itensLista[pos].innerText = temp
+    }
+  }
+}
+
 btnAdd.addEventListener('click', adicionaTarefa);
+btnMoveCima.addEventListener('click', moverCima);
+btnMoveBaixo.addEventListener('click', moverBaixo);
 btnRemove.addEventListener('click', apagaTudo);
 btnRemoveCompleted.addEventListener('click', removerFinalizados);
 btnRemoveSelected.addEventListener('click', removerSelecionado);
