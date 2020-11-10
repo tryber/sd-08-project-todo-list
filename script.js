@@ -1,12 +1,12 @@
-window.onload = function() {
+window.onload = function () {
   const listaDeTarefas = document.getElementById('lista-tarefas');
 
   for (let index = 0; index < localStorage.length; index += 1) {
-    let li = document.createElement('li')
-    li.innerText = localStorage.getItem(index)
-    listaDeTarefas.append(li)
+    const li = document.createElement('li');
+    li.innerText = localStorage.getItem(index);
+    listaDeTarefas.append(li);
   }
-}
+};
 
 const btnAdd = document.getElementById('criar-tarefa');
 const btnRemove = document.getElementById('apaga-tudo');
@@ -93,7 +93,7 @@ function salvaTarefas() {
   const itensLista = document.querySelectorAll('li');
 
   for (let index = 0; index < itensLista.length; index += 1) {
-    localStorage.setItem(index, itensLista[index].innerText)
+    localStorage.setItem(index, itensLista[index].innerText);
   }
 }
 
