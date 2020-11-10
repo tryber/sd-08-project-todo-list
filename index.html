@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projeto To-do List</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
@@ -21,19 +22,20 @@
         <div id="button-container">
           <button id="criar-tarefa">Adicionar Tarefa</button>
           <button id="apaga-tudo">Apagar tudo!</button>
+          <button id="remover-selecionado">Remover item selecionado</button>
           <button id="remover-finalizados">
-            Remova da lista as tarefas finalizadas
+            Remova tarefas finalizadas
           </button>
           <button id="salvar-tarefas">
-            Salvar tarefas (manter mesmo no reload)
+            Salvar tarefas
           </button>
-          <button id="mover-cima">Mover tarefa para cima</button>
-          <button id="mover-baixo">Mover tarefa para baixo</button>
-          <button id="remover-selecionado">Remover item selecionado</button>
+          <button id="mover-cima">Mover para cima</button>
+          <button id="mover-baixo">Mover para baixo</button>
         </div>
 
         <ol id="lista-tarefas"></ol>
       </section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
