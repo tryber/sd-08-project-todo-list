@@ -25,10 +25,10 @@ function selecionaTarefa(event) {
 }
 
 function completaTarefa(event) {
-  let completed = event.target
+  let completed = event.target;
 
   if (completed.className === 'selected completed') {
-    completed.className = 'selected'
+    completed.className = 'selected';
   }
   else if (completed.className === 'selected') {
     completed.className = 'selected completed';
