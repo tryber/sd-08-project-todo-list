@@ -1,10 +1,12 @@
 const butonTarefaLocal = document.querySelector('#criar-tarefa');
 const listLocal = document.querySelector('#lista-tarefas');
 const inputLocal = document.querySelector('#texto-tarefa');
+const butonClear = document.querySelector('#apaga-tudo');
 
 function insertElement() {
   const newElement = document.createElement('li');
   newElement.innerHTML = inputLocal.value;
+  newElement.className = 'itemList';
   listLocal.appendChild(newElement);
   inputLocal.value = '';
 }
@@ -21,11 +23,19 @@ function changeBackGroundColorSelectedItem(event) {
 listLocal.addEventListener('click', changeBackGroundColorSelectedItem);
 
 function scratchCompletedItem(event) {
-  if (event.target.className !== 'completed') {
-    event.target.className = 'completed';
+  if (event.target.className === 'itemlist') {
+    event.target.className += ' completed';
   } else {
-    event.target.className = '';
+    event.target.className = 'itemlist';
   }
 }
 
 listLocal.addEventListener('dblclick', scratchCompletedItem);
+
+function clearList() {    
+  while (listLocal.firstChild) {
+    listLocal.removeChild(listLocal.firstChild);
+  }
+}
+
+butonClear.addEventListener('click', clearList);
