@@ -33,8 +33,6 @@ createTaskButton.addEventListener('click', function() {
   taskTextInput.value = "";
 });
 
-const createEraseAllButton = document.getElementById('apaga-tudo');
-
 function eraseAllTasks() {
   const tasks = olTasks.querySelectorAll('li');
   for (let i = 0; i < tasks.length; i++) {
@@ -43,4 +41,16 @@ function eraseAllTasks() {
   }
 }
 
-createEraseAllButton.addEventListener('click', eraseAllTasks);
+const eraseAllButton = document.getElementById('apaga-tudo');
+eraseAllButton.addEventListener('click', eraseAllTasks);
+
+function eraseCompletedTasks() {
+  const completedTasks = olTasks.querySelectorAll('.completed');
+  for (let i = 0; i < completedTasks.length; i++) {
+    const task = completedTasks[i];
+    task.remove();
+  }
+}
+
+const eraseCompletedButton = document.getElementById('remover-finalizados');
+eraseCompletedButton.addEventListener('click', eraseCompletedTasks);
