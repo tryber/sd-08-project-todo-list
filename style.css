@@ -1,19 +1,27 @@
 body {
   background: greenyellow;
+  color: #333;
   margin: 0;
   padding: 0;
 }
 
-header {
-  margin: 50px auto;
-  max-width: 900px;
-  text-align: center;
-}
-
 main {
-  background: white;
+  background: rgb(255, 255, 255);
   border-radius: 10px;
   margin: 50px auto;
   max-width: 900px;
-  padding: 10px;
+  padding: 70px;
+}
+
+.header {
+  margin: auto;
+  max-width: 900px;
+}
+
+.header .titulo {
+  margin: 0;
+}
+
+.header .descricao {
+  margin: 12px auto 30px;
 }
