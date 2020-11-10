@@ -27,6 +27,9 @@ document.getElementById("apaga-tudo").addEventListener("click", () => {
   }
 });
 document.getElementById("remover-finalizados").addEventListener("click", () => {
-  let item = document.querySelector(".completed");
-  document.getElementById("lista-tarefas").removeChild(item);
+  let item = document.querySelectorAll(".completed");
+
+  for(let i = 0; i < item.length; i+=1){
+    document.getElementById("lista-tarefas").removeChild(item[i]);
+  }
 });
