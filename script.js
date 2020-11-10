@@ -39,9 +39,9 @@ function completedTask() {
   orderedList.addEventListener('dblclick', function (event) {
     const completedListItem = document.querySelector(".tarefa.completed");
     if (completedListItem === null) {
-      event.target.className = 'tarefa completed';
+      event.target.className = 'tarefa selected completed';
     } else {
-      event.target.className = 'tarefa';
+      event.target.className = 'tarefa selected';
     }
   });
 };
@@ -54,5 +54,18 @@ function deleteList() {
       orderedList.removeChild(orderedList.lastChild);
     }
   });
-}
+};
 deleteList();
+
+function deleteCompletedTasks() {
+  const btnDeleteTasks = document.querySelector('#remover-finalizados');
+ 
+  btnDeleteTasks.addEventListener('click', function () {
+    let completedItemTask = document.getElementsByClassName('.completed');
+    while(completedItemTask.length > 0) {
+      completedItemTask[0].parentNode.removeChild(completedItemTask[0]);
+    }
+  });
+};
+deleteCompletedTasks();
+
