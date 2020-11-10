@@ -26,6 +26,32 @@ function criabotao(){
 }
 criabotao()
 
+
+
+function hightlightelement(){
+
+
+let getposi3 = document.querySelectorAll("#lista-tarefas")
+
+
+for(let i = 0 ; i < getposi3.length ; i ++){
+    
+    
+    getposi3[i].addEventListener("click",function(){
+
+        
+
+getposi3[i].style.backgroundColor ="rgb(128,128,128)"
+
+
+    })
+}
+
+
+}
+
+hightlightelement()
+
 /*
 function criaitemlista(){
 
