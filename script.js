@@ -1,38 +1,36 @@
 const btnAdd = document.getElementById('criar-tarefa');
+const btnRemove = document.getElementById('apaga-tudo');
+const btnRemoveCompleted = document.getElementById('remover-finalizados');
 const textInput = document.getElementById('texto-tarefa');
 const listaDeTarefas = document.getElementById('lista-tarefas');
 
 function selecionaTarefa(event) {
-  const selected = document.getElementsByClassName('selected');
-  let itensLista = document.querySelectorAll('li');
-  let selecionar = event.target;
+  const itensLista = document.querySelectorAll('li');
+  const selecionar = event.target;
 
   for (let index = 0; index < itensLista.length; index += 1) {
     if (itensLista[index].className === 'selected completed') {
       itensLista[index].className = 'completed';
-    }
-    else if (itensLista[index].className === 'selected') {
+    } else if (itensLista[index].className === 'selected') {
       itensLista[index].className = 'item-lista';
     }
   }
 
   if (selecionar.className === 'completed') {
     selecionar.className = 'selected completed';
-  }
-  else {
+  } else {
     selecionar.className = 'selected';
   }
 }
 
 function completaTarefa(event) {
-  let completed = event.target;
+  const completed = event.target;
 
   if (completed.className === 'selected completed') {
     completed.className = 'selected';
-  }
-  else if (completed.className === 'selected') {
+  } else if (completed.className === 'selected') {
     completed.className = 'selected completed';
-  }  
+  }
 }
 
 function adicionaTarefa() {
@@ -45,4 +43,24 @@ function adicionaTarefa() {
   textInput.value = '';
 }
 
+function apagaTudo() {
+  const itensLista = document.querySelectorAll('li');
+
+  for (let index = 0; index < itensLista.length; index += 1) {
+    listaDeTarefas.lastElementChild.remove();
+  }
+}
+
+function removerFinalizados() {
+  const itensLista = document.querySelectorAll('li');
+
+  for (let index = 0; index < itensLista.length; index += 1) {
+    if (itensLista[index].className === 'completed' || itensLista[index].className === 'selected completed') {
+        itensLista[index].remove()
+    }
+  }
+}
+
 btnAdd.addEventListener('click', adicionaTarefa);
+btnRemove.addEventListener('click', apagaTudo);
+btnRemoveCompleted.addEventListener('click', removerFinalizados);
