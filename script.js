@@ -55,3 +55,18 @@ function listColor(){
 }
 listColor();
 
+let buttonClear = document.createElement("button");
+buttonClear.id = "apaga-tudo";
+buttonClear.innerHTML = "Limpar Lista";
+divInput.appendChild(buttonClear);
+
+function listClear(){
+    buttonClear.addEventListener("click", function(){
+
+        olOrdered.innerHTML = "";
+
+    });
+}
+listClear();
+
+
