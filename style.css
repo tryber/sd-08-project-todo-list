@@ -13,10 +13,16 @@
 input {
   display: block;
   margin: auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 2em;
 }
 
 button {
   margin: 10px;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
 }
 
 h1 {
@@ -42,5 +48,7 @@ ol {
 
 li {
   list-style-type: none;
-  margin: 10px;
+  margin: auto;
+  width: 150px;
+  padding: 10px;
 }
