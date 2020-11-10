@@ -32,10 +32,6 @@ header {
     font-size: small;
 }
 
-.input-content {
-    display: inline-block;
-}
-
 #texto-tarefa {
     margin: 20px 0 10px 15px;
     border-radius: 5px;
@@ -51,13 +47,6 @@ header {
     outline: none;
 }
 
-.button-content {
-    display: inline-block;
-    width: auto;
-    height: auto;
-    margin-left: 30px;
-}
-
 #criar-tarefa {
     width: 80px;
     height: 30px;
@@ -65,7 +54,21 @@ header {
     font-family: 'Oswald', sans-serif;
     border-radius: 4px;
     color: rgba(46, 46, 46, 0.904);
+    background-color: rgb(26, 150, 26);
+    margin-left: 15px;
 }
+
 #criar-tarefa:focus {
     outline: none
+}
+
+#criar-tarefa:hover {
+    cursor: pointer;
+    background-color: rgba(27, 158, 27, 0.829);
+}
+
+#lista-tarefas {
+    width: 90%;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
 }
