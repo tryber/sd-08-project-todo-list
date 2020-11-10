@@ -60,3 +60,33 @@ function addTaskToList() {
     }
 }
 addTaskToList()
+function clearAll(){
+    let button = document.querySelector("#apaga-tudo")
+    button.addEventListener("click", clearTask)
+        function clearTask(){
+        let tasks = document.querySelectorAll('.task')
+        if(tasks.length>0){
+            for(let index = 0 ; index < tasks.length ; index +=1){
+                tasks[index].remove()
+            }
+        }else{
+            alert("nehuma tarefa a ser removida!")
+        }
+    }
+}
+clearAll()
+function clearDone(){
+    let button = document.querySelector("#remover-finalizados")
+    button.addEventListener("click", clearTask)
+        function clearTask(){
+        let tasks = document.querySelectorAll('.completed')
+        if(tasks.length>0){
+            for(let index = 0 ; index < tasks.length ; index +=1){
+                tasks[index].remove()
+            }
+        }else{
+            alert("nehuma tarefa a ser removida!")
+        }
+    }
+}
+clearDone()
