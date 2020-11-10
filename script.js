@@ -12,3 +12,20 @@ function createListItem() {
 }
 
 addTask.addEventListener('click', createListItem);
+
+// Adds BG color only to the to selected element
+function removeColor() {
+  const allTasks = taskList.children;
+  for (let i = 0; i < allTasks.length; i += 1) {
+    allTasks[i].style.backgroundColor = '';
+    allTasks[i].classList.remove('selected');
+  }
+}
+
+function addColor(event) {
+  removeColor();
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  event.target.classList.add('selected')
+}
+
+taskList.addEventListener('click', addColor);
