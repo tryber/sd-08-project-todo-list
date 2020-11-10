@@ -48,21 +48,28 @@ function clearSelected(){
 //Requisito 13
 function moveUp(){
 
+    let list = document.getElementById('lista-tarefas');
     let itemList = document.querySelector('.selected');
+    let item = itemList.innerText;
     if(itemList.previousSibling.tagName != undefined){
         verificaListItem();
         itemList.previousSibling.style.backgroundColor = 'rgb(' + [128,128,128].join(',') + ')';
         itemList.previousSibling.className = 'selected';
+        itemList.innerText = itemList.previousSibling.innerText;
+        itemList.previousSibling.innerText = item;
     }  
 }
 
 function moveDown(){
 
     let itemList = document.querySelector('.selected');
+    let item = itemList.innerText;
     if(itemList.nextSibling != null){
         verificaListItem();
         itemList.nextSibling.style.backgroundColor = 'rgb(' + [128,128,128].join(',') + ')';
         itemList.nextSibling.className = 'selected';
+        itemList.innerText = itemList.nextSibling.innerText;
+        itemList.nextSibling.innerText = item;
     }
     
 }
