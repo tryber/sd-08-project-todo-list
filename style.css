@@ -12,8 +12,19 @@ h1 {
 }
 
 ol {
+  border: cadetblue solid 1px;
   list-style: inside;
-  list-style-type: decimal;
+  list-style-type: decimal;  
+  min-height: 200px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  text-align: left;  
+}
+
+li {
+  padding: 5px;
 }
 
 p {

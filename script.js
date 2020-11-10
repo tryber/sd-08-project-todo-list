@@ -2,6 +2,7 @@ const butonTarefaLocal = document.querySelector('#criar-tarefa');
 const listLocal = document.querySelector('#lista-tarefas');
 const inputLocal = document.querySelector('#texto-tarefa');
 const butonClear = document.querySelector('#apaga-tudo');
+const butonClearScratcheds = document.querySelector('#remover-finalizados');
 
 function insertElement() {
   const newElement = document.createElement('li');
@@ -16,7 +17,11 @@ function changeBackGroundColorSelectedItem(event) {
   for (let i = 0; i < listLocal.children.length; i += 1) {
     listLocal.children[i].style.backgroundColor = '';
   }
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  if (event.target.id === 'lista-tarefas'){
+    event.target.style.backgroundColor = '';
+  } else {
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+  }
 }
 
 listLocal.addEventListener('mouseover', changeBackGroundColorSelectedItem);
@@ -39,16 +44,13 @@ function clearList() {
 
 butonClear.addEventListener('click', clearList);
 
-function clearScratcheds (){
-  const butonClearScratcheds = document.querySelector('#remover-finalizados');
-  butonClearScratcheds.addEventListener('click', function() {
-    for (let i = 0; i < listLocal.children.length; i += 1) {
-      if (listLocal.children[i].className === 'completed'){
-        listLocal.removeChild(listLocal.children[i]);
-        i -= 1;
-      }
+function clearScratcheds() {
+  for (let i = 0; i < listLocal.children.length; i += 1) {
+    if (listLocal.children[i].className === 'completed') {
+      listLocal.removeChild(listLocal.children[i]);
+      i -= 1;
     }
-  });
+  }
 }
 
-clearScratcheds();
+butonClearScratcheds.addEventListener('click', clearScratcheds);
