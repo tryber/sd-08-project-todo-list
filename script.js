@@ -11,16 +11,16 @@ btnApagar.addEventListener('click', function () {
 });
 
 function clearSelection() {
-  for (let tarefa of listaTarefa.children) {
+  for (const tarefa of listaTarefa.children) {
     tarefa.classList.remove('selected');
   }
   // btnUpArrow.disabled = true;
   // btnDownArrow.disabled = true;
   btnApagar.disabled = true;
 }
-function adicionarTarefa(tarefaTexto) {
-  let tarefaItem = document.createElement('li');
-  tarefaItem.innerHTML = tarefaTexto;
+function adicionarTarefa(tarefaTextoDigitado) {
+  const tarefaItem = document.createElement('li');
+  tarefaItem.innerHTML = tarefaTextoDigitado;
   listaTarefa.appendChild(tarefaItem);
   tarefaItem.addEventListener('click', function (e) {
     clearSelection();
@@ -34,7 +34,7 @@ function adicionarTarefa(tarefaTexto) {
     // }
   });
   tarefaItem.addEventListener('dblclick', function (e) {
-    let classes = e.target.classList;
+    const classes = e.target.classList;
     clearSelection();
     if (classes.contains('completed')) {
       e.target.classList.remove('completed');
@@ -59,15 +59,15 @@ if (localStorage.getItem('tarefas') != null) {
 }
 
 btnCriarTarefa.addEventListener('click', function () {
-  let tarefa = tarefaTexto.value;
+  const tarefa = tarefaTexto.value;
   tarefaTexto.value = '';
   adicionarTarefa(tarefa);
 });
 
-let btnLimparLista = document.getElementById('apaga-tudo');
+const btnLimparLista = document.getElementById('apaga-tudo');
 
 function limparLista() {
-  let size = listaTarefa.children.length;
+  const size = listaTarefa.children.length;
   for (let index = 0; index < size; index += 1) {
     listaTarefa.removeChild(listaTarefa.firstElementChild);
   }
@@ -75,23 +75,23 @@ function limparLista() {
 
 btnLimparLista.addEventListener('click', limparLista);
 
-let btnLimparCompletos = document.getElementById('remover-finalizados');
+const btnLimparCompletos = document.getElementById('remover-finalizados');
 
 function removerFinalizados() {
-  let finalizados = document.getElementsByClassName('completed');
-  let size = finalizados.length;
-  for (index = 0; index < size; index += 1) {
+  const finalizados = document.getElementsByClassName('completed');
+  const size = finalizados.length;
+  for (let index = 0; index < size; index += 1) {
     listaTarefa.removeChild(finalizados[0]);
   }
 }
 
 btnLimparCompletos.addEventListener('click', removerFinalizados);
 
-let btnSalvar = document.getElementById('salvar-tarefas');
+const btnSalvar = document.getElementById('salvar-tarefas');
 function getData() {
-  let tarefasData = [];
-  let completedData = [];
-  for (tarefa of listaTarefa.children) {
+  const tarefasData = [];
+  const completedData = [];
+  for (const tarefa of listaTarefa.children) {
     tarefasData.push(tarefa.innerHTML);
     if (tarefa.classList.contains('completed')) {
       completedData.push(tarefa.innerHTML);
@@ -100,19 +100,19 @@ function getData() {
   return { tarefas: tarefasData, completos: completedData };
 }
 btnSalvar.addEventListener('click', function () {
-  let data = getData();
-  for (key of Object.keys(data)) {
+  const data = getData();
+  for (const key of Object.keys(data)) {
     localStorage.setItem(key, data[key]);
   }
 });
 
-let btnUpArrow = document.getElementById('mover-cima');
-let btnDownArrow = document.getElementById('mover-baixo');
+const btnUpArrow = document.getElementById('mover-cima');
+const btnDownArrow = document.getElementById('mover-baixo');
 
 btnUpArrow.addEventListener('click', function () {
-  let selected = document.querySelector('.selected');
+  const selected = document.querySelector('.selected');
   if (selected != null && selected.previousSibling != null) {
-    let prev = document
+    const prev = document
       .getElementById('lista-tarefas')
       .replaceChild(selected, selected.previousSibling);
     document
@@ -125,9 +125,9 @@ btnUpArrow.addEventListener('click', function () {
 });
 
 btnDownArrow.addEventListener('click', function () {
-  let selected = document.querySelector('.selected');
+  const selected = document.querySelector('.selected');
   if (selected != null && selected.nextElementSibling != null) {
-    let post = document
+    const post = document
       .getElementById('lista-tarefas')
       .replaceChild(selected, selected.nextSibling);
     document.getElementById('lista-tarefas').insertBefore(post, selected);
