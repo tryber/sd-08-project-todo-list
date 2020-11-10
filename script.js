@@ -16,16 +16,16 @@ adicionaTarefa();
 
 function corFundoTarefa() {
   const listaOrdenada = document.getElementById('lista-tarefas');
-
+  let ultimoSelecionado = null;
   listaOrdenada.addEventListener('click', (event) => {
-    const tarefaSelecionada = document.querySelector('.selecionada');
-    if (event.target.className === 'tarefa') {
-      if (tarefaSelecionada !== null) {
-        tarefaSelecionada.classList.remove('selecionada');
-        event.target.classList.add('selecionada');
-      }
-      event.target.classList.add('selecionada');
+    if (ultimoSelecionado === null) {
+      ultimoSelecionado = event.target;
+      event.target.style.backgroundColor = 'gray';
+    } else {
+      ultimoSelecionado.style.backgroundColor = 'initial';
+      ultimoSelecionado = event.target;
     }
+    event.target.style.backgroundColor = 'gray';
   });
 }
 
@@ -35,7 +35,7 @@ function riscarTarefa() {
   const listaOrdenada = document.getElementById('lista-tarefas');
 
   listaOrdenada.addEventListener('dblclick', (event) => {
-    if (event.target.className === 'tarefa completed' || event.target.className === 'tarefa selecionada completed') {
+    if (event.target.className === 'tarefa completed') {
       event.target.classList.remove('completed');
     } else {
       event.target.classList.add('completed');
