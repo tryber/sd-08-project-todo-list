@@ -8,20 +8,51 @@ function criarTarefa() {
    let lista = document.getElementById('lista-tarefas');   
    lista.appendChild(tarefa);
    input.value = '';
-   selecionaTarefa();
+   completaTarefa();
+   selecionaTarefa();   
  }) 
  }
 criarTarefa();
 
+
+
 function selecionaTarefa() {
-  const tarefas = document.querySelectorAll('.tarefa');  
+  let tarefas = document.querySelectorAll('.tarefa');
   for (let index = 0; index < tarefas.length; index += 1){
-    tarefas[index].addEventListener('click', mudaClasse);
+    tarefas[index].addEventListener('click', mudaClasseSelecionada);    
   }
-  function mudaClasse(event){
+  function mudaClasseSelecionada(event){
     for (let index = 0; index < tarefas.length; index += 1){
-      tarefas[index].className = 'tarefa';
-      event.target.className = 'tarefa selecionada';  
+      //tarefas[index].className = 'tarefa';
+      tarefas[index].classList.remove('selecionada');
+      event.target.classList.add('selecionada');
     }  
+  }  
+}
+
+function completaTarefa(){
+  let tasks = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < tasks.length; index += 1){
+    tasks[index].addEventListener('dblclick', mudaClasseCompleted);
+  }
+  function mudaClasseCompleted(event){
+      event.target.classList.toggle('completed');
+    }
+}
+
+/*
+function completaTarefa() {
+  let tarefas = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < tarefas.length; index += 1){
+    tarefas[index].addEventListener('dblclick', mudaClasseCompleted);
+  }
+  function mudaClasseCompleted(event){
+    for (let index = 0; index < tarefas.length; index += 1){
+          event.target.classlist.toggle('completed');
+    }
   }
 }
+
+*/
+
+
