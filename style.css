@@ -7,6 +7,11 @@ h1 {
   margin-bottom: 0;
 }
 
+ol {
+  list-style: inside;
+  list-style-type: decimal;
+}
+
 p {
   font-size: 80%;
   font-style: italic;
