@@ -1,4 +1,4 @@
-document.querySelector('#criar-tarefa').addEventListener('click', () => {
+function createListItem() {
   const input = document.querySelector('#texto-tarefa');
   if (input.value !== '') {
     const lista = document.querySelector('#lista-tarefas');
@@ -22,5 +22,16 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
     lista.appendChild(novaTarefa);
 
     input.value = '';
+  }
+};
+
+document.querySelector('#criar-tarefa').addEventListener('click', createListItem);
+document.querySelector('#texto-tarefa').addEventListener('change', createListItem);
+
+document.querySelector('#apaga-tudo').addEventListener('click', () => {
+  const listItems = document.querySelectorAll('li');
+
+  for (let i = listItems.length - 1; i >=0; i -= 1) {
+    listItems[i].remove();
   }
 });
