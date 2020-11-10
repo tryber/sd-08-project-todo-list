@@ -21,12 +21,11 @@ function addTarefa(text) {
 }
 function adicionarTarefa() {
   // Adicionar nova Tarefa
-  const textInput = document.querySelector('#texto-tarefa').value;
+  let textInput = document.querySelector('#texto-tarefa').value;
   if (textInput === null || textInput === '') {
     return alert('Favor Preencher com alguma Tarefa.');
   }
   addTarefa(textInput);
-  textInput = document.querySelector('#texto-tarefa')
-  textInput.value = '';
+  textInput = '';
 }
 document.querySelector('#criar-tarefa').addEventListener('click', adicionarTarefa);
