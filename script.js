@@ -9,5 +9,7 @@ buttonParent.addEventListener("click", function () {
   listItem.innerText = userInput;
   orderedList.appendChild(listItem);
 
-  }
+  textInput.value = "";
+}
 );
+
