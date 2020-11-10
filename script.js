@@ -17,7 +17,7 @@ function changeBackGroundColorSelectedItem(event) {
   for (let i = 0; i < listLocal.children.length; i += 1) {
     listLocal.children[i].style.backgroundColor = '';
   }
-  if (event.target.id === 'lista-tarefas'){
+  if (event.target.id === 'lista-tarefas') {
     event.target.style.backgroundColor = '';
   } else {
     event.target.style.backgroundColor = 'rgb(128,128,128)';
