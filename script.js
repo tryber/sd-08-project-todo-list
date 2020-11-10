@@ -7,7 +7,7 @@ function toggleSelected(event) {
     const task = tasks[i];
     if (task !== event.target) task.classList.remove('selected');
   }
-  event.target.classList.toggle('selected');
+  event.target.classList.add('selected');
 }
 
 function toggleCompleted(event) {
@@ -94,10 +94,9 @@ saveTasksButton.addEventListener('click', saveTasks);
 
 function moveUp() {
   const selected = olTasks.querySelector('.selected');
-  if (selected && selected.previousSibling) {
-    const previous = selected.previousSibling;
+  if (selected && selected.previousElementSibling) {
+    const previous = selected.previousElementSibling;
     const parent = selected.parentNode;
-    console.log(`colocando ${selected.textContent} antes de ${previous.textContent}`);
     parent.insertBefore(selected, previous);
   }
 }
@@ -107,10 +106,9 @@ moveUpButton.addEventListener('click', moveUp);
 
 function moveDown() {
   const selected = olTasks.querySelector('.selected');
-  if (selected && selected.nextSibling) {
-    const next = selected.nextSibling;
+  if (selected && selected.nextElementSibling) {
+    const next = selected.nextElementSibling;
     const parent = selected.parentNode;
-    console.log(`colocando ${next.textContent} antes de ${selected.textContent}`);
     parent.insertBefore(next, selected);
   }
 }
@@ -120,9 +118,7 @@ moveDownButton.addEventListener('click', moveDown);
 
 function removeSelected() {
   const selected = olTasks.querySelector('.selected');
-  if (selected) {
-    selected.remove();
-  }
+  if (selected) selected.remove();
 }
 
 const removeSelectedButton = document.getElementById('remover-selecionado');
