@@ -28,7 +28,7 @@ window.onload = function () {
         let item = event.target;
         let ultimoItem = document.querySelector('.selected');
 
-        if (ultimoItem !== null) {
+        if (ultimoItem !== null && item.classList.contains('task')) {
             let classes = ultimoItem.className.split(' ');
             classes.splice(classes.indexOf('selected'), 1)
             ultimoItem.className = classes.join(' ')
@@ -69,6 +69,8 @@ window.onload = function () {
 
     let clearCompletButton = document.querySelector('#remover-finalizados');
     clearCompletButton.addEventListener('click', function () {
+        // apaga todas as tasks com a classe '.completed'
+
         let listaDeTarefas = document.querySelector('#lista-tarefas');
         let itensCompletos = document.querySelectorAll('.completed');
         if (itensCompletos.length > 0) {
@@ -80,8 +82,62 @@ window.onload = function () {
 
     let clearSelectedButton = document.querySelector('#remover-selecionado');
     clearSelectedButton.addEventListener('click', function () {
+        // apaga a task com a classe '.selected'
+
         let listaDeTarefas = document.querySelector('#lista-tarefas');
         let itemSelecionado = document.querySelector('.selected');
         listaDeTarefas.removeChild(itemSelecionado);
+    })
+
+    let upButton = document.querySelector('#mover-cima');
+    upButton.addEventListener('click', function () {
+        // troca o conteudo da task '.selected' com a de cima na lista
+
+        let listaDeTarefas = document.querySelector('#lista-tarefas').children;
+        let item = document.querySelector('.selected');
+
+        if (item !== listaDeTarefas[0]) {
+            for (let i in listaDeTarefas) {
+                if (item == listaDeTarefas[i]) {
+                    let varTemp = document.createElement('li');
+                    let anterior = listaDeTarefas[i-1];
+
+                    varTemp.innerHTML = anterior.innerHTML;
+                    varTemp.className = anterior.className;
+
+                    anterior.innerHTML = item.innerHTML;
+                    anterior.className = item.className;
+
+                    item.innerHTML = varTemp.innerHTML;
+                    item.className = varTemp.className;
+                }
+            }
+        }
+    })
+
+    let downButton = document.querySelector('#mover-baixo');
+    downButton.addEventListener('click', function () {
+        // troca o conteudo da task '.selected' com a da task de baixo na lista
+
+        let listaDeTarefas = document.querySelector('#lista-tarefas').children;
+        let item = document.querySelector('.selected');
+
+        if (item !== listaDeTarefas[listaDeTarefas.length - 1]) {
+            for (let i = 0; i < listaDeTarefas.length; i += 1) {
+                if (item == listaDeTarefas[i]) {
+                    let varTemp = document.createElement('li');
+                    let proximo = listaDeTarefas[i+1];
+
+                    varTemp.innerHTML = proximo.innerHTML;
+                    varTemp.className = proximo.className;
+
+                    proximo.innerHTML = item.innerHTML;
+                    proximo.className = item.className;
+
+                    item.innerHTML = varTemp.innerHTML;
+                    item.className = varTemp.className;
+                }
+            }
+        }
     })
 }

@@ -41,6 +41,28 @@ body {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
+#mover-cima {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-right: 30px;
+    border-radius: 40px;
+    width: 70px;
+    height: 30px;
+    background-color: orange;
+    border: 1px solid black;
+}
+
+#mover-baixo {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-right: 30px;
+    border-radius: 40px;
+    width: 70px;
+    height: 30px;
+    background-color: orange;
+    border: 1px solid black;
+}
+
 #criar-tarefa {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -49,7 +71,7 @@ body {
     width: 150px;
     height: 30px;
     background-color: rgb(78, 100, 221);
-    border: 2px dotted;
+    border: 1px solid black;
 }
 
 #apaga-tudo {
@@ -60,7 +82,7 @@ body {
     width: 150px;
     height: 30px;
     background-color: rgb(230, 29, 29);
-    border: 2px dotted;
+    border: 1px solid black;
 }
 
 #remover-selecionado {
@@ -71,7 +93,7 @@ body {
     width: 70px;
     height: 30px;
     border-radius: 40px;
-    border: 2px dotted;
+    border: 1px solid black;
 }
 
 #remover-finalizados {
@@ -82,7 +104,7 @@ body {
     width: 150px;
     background-color: rgb(78, 100, 221);
     border-radius: 40px;
-    border: 2px dotted;
+    border: 1px solid black;
 }
 
 #buttons {
