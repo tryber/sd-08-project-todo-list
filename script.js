@@ -10,3 +10,9 @@ function insertElement() {
 }
 
 butonTarefaLocal.addEventListener('click', insertElement);
+
+function changeBackGroundColorSelectedItem (event) {
+  event.target.style.backgroundColor = "rgb(128,128,128)";
+}
+
+listLocal.addEventListener('click', changeBackGroundColorSelectedItem);
