@@ -2,7 +2,7 @@
 const buttonsContainer = document.querySelector('.buttons-container');
 const list = document.getElementById('lista-tarefas');
 let itemLength = 0;
-let item = document.getElementsByClassName('item');
+const item = document.getElementsByClassName('item');
 //
 // Criando função para facilitar criação de botões
 //
@@ -22,10 +22,10 @@ createButton('input', 'input', 'criar-tarefa');
 const inputbutton = document.querySelector('.input');
 inputbutton.addEventListener('click', function () {
   const textByUser = document.getElementById('texto-tarefa');
-  const item = document.createElement('li');
-  item.className = 'item';
-  item.innerHTML = textByUser.value;
-  list.appendChild(item);
+  const itemOfList = document.createElement('li');
+  itemOfList.className = 'item';
+  itemOfList.innerHTML = textByUser.value;
+  list.appendChild(itemOfList);
   textByUser.value = '';
   itemLength += 1;
 });
@@ -36,8 +36,8 @@ function clickOnList() {
   for (let i = 0; i < itemLength; i += 1) {
     item[i].addEventListener('click', function () {
       item[i].style.backgroundColor = 'rgb(128,128,128)';
-      let index = i;
-      for (let j = 0; j < itemLength; j += 1){
+      const index = i;
+      for (let j = 0; j < itemLength; j += 1) {
         if (j !== index) {
           item[j].style.backgroundColor = '';
         }
@@ -50,12 +50,12 @@ function clickOnList() {
 //
 function doubleClickOnList() {
   for (let i = 0; i < itemLength; i += 1) {
-    item[i].addEventListener('dblclick', function() {
+    item[i].addEventListener('dblclick', function () {
       const classOfItemDoubleClicked = document.getElementsByClassName('item')[i].className;
       if (classOfItemDoubleClicked === 'item') {
         item[i].classList.add('completed');
       }
-      if (classOfItemDoubleClicked === 'item completed'){
+      if (classOfItemDoubleClicked === 'item completed') {
         item[i].className = 'item';
       }
     });
