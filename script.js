@@ -17,7 +17,7 @@ function createToDo() {
   });
 
   listOfTodos.appendChild(createLi);
-  inputFieldValue = '';
+  document.getElementById('texto-tarefa').value = '';
 }
 
 function eraseAllItems() {
@@ -32,7 +32,7 @@ function eraseFinishedItems() {
   if (!finished) {
     return;
   }
-  
+
   for (let i = 0; i < finished.length; i += 1) {
     ol.removeChild(finished[i])
   }
