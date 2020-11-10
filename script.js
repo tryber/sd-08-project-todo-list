@@ -1,4 +1,5 @@
 function createButton(){
+    let lastselected = null
     let button = document.createElement('button')
     button.id = 'criar-tarefa'
     button.innerHTML = 'Criar Tarefa'
@@ -7,10 +8,14 @@ function createButton(){
     button.addEventListener('click',function(){
         let input = document.getElementById('texto-tarefa')
         let createLI = document.createElement('li')
-        createLI.addEventListener('click', function(){
-            if(createLI.style.background !== null){
-                createLI.style.backgroundColor = 'rgb(128, 128, 128)'
+        createLI.addEventListener('click', function corFundo(event){
+            if(lastselected === null){
+                lastselected = event.target 
+            }else{
+                lastselected.style.backgroundColor = 'white'
+                lastselected = event.target
             }
+            event.target.style.backgroundColor = 'rgb(128,128,128)'
         })
         let lista = document.getElementById('lista-tarefas')
         if(input.value.length > 0){
@@ -24,3 +29,6 @@ function createButton(){
     })
 }
 createButton()
+
+
+
