@@ -79,40 +79,40 @@ function carregarLocalStorage() {
     const listaOrdenada = document.querySelector('#lista-tarefas');
     listaOrdenada.innerHTML = localStorage.conteudoLista;
   }
+  verificaDoubleClickLista();
 }
 
-function moverParaCima(){
-    const elementoSelecionado = document.querySelector('.colore-elemento-lista');
-    if(elementoSelecionado === null){
-        return
-    }
-    const pai = elementoSelecionado.parentNode
-    const anterior = elementoSelecionado.previousSibling;
-    if(anterior !== null) {
-        pai.insertBefore(elementoSelecionado, anterior);
-    }
-
+function moverParaCima() {
+  const elementoSelecionado = document.querySelector('.colore-elemento-lista');
+  if (elementoSelecionado === null) {
+    return;
+  }
+  const pai = elementoSelecionado.parentNode;
+  const anterior = elementoSelecionado.previousSibling;
+  if (anterior !== null) {
+    pai.insertBefore(elementoSelecionado, anterior);
+  }
 }
 
 function moverParaBaixo() {
-    const elementoSelecionado = document.querySelector('.colore-elemento-lista');
-    if(elementoSelecionado === null){
-        return
-    }
-    const pai = elementoSelecionado.parentNode
-    const proximo = elementoSelecionado.nextSibling;
-    if(proximo === null){
-        return
-    }
-    pai.insertBefore(proximo, elementoSelecionado);
+  const elementoSelecionado = document.querySelector('.colore-elemento-lista');
+  if (elementoSelecionado === null) {
+    return;
+  }
+  const pai = elementoSelecionado.parentNode;
+  const proximo = elementoSelecionado.nextSibling;
+  if (proximo === null) {
+    return;
+  }
+  pai.insertBefore(proximo, elementoSelecionado);
 }
 
 function removerSelecionado() {
-    const elementoSelecionado = document.querySelector('.colore-elemento-lista');
-    if(elementoSelecionado === null){
-        return
-    }
-    elementoSelecionado.remove();
+  const elementoSelecionado = document.querySelector('.colore-elemento-lista');
+  if (elementoSelecionado === null) {
+    return;
+  }
+  elementoSelecionado.remove();
 }
 
 window.onload = function () {
@@ -124,7 +124,9 @@ window.onload = function () {
   const botaoSalvarLista = document.querySelector('#salvar-tarefas');
   const botaoMoverCima = document.querySelector('#mover-cima');
   const botaoMoverBaixo = document.querySelector('#mover-baixo');
-  const botaoRemoverSelecionado = document.querySelector('#remover-selecionado')
+  const botaoRemoverSelecionado = document.querySelector(
+    '#remover-selecionado',
+  );
 
   carregarLocalStorage();
   botaoAdicionar.addEventListener('click', adicionaTarefaLista);
@@ -132,7 +134,7 @@ window.onload = function () {
   botaoRemoverFinalizados.addEventListener('click', limparFinalizados);
   verificaCliqueLista();
   botaoSalvarLista.addEventListener('click', salvarLista);
-  botaoMoverCima.addEventListener('click', moverParaCima)
-  botaoMoverBaixo.addEventListener('click', moverParaBaixo)
-  botaoRemoverSelecionado.addEventListener('click', removerSelecionado)
+  botaoMoverCima.addEventListener('click', moverParaCima);
+  botaoMoverBaixo.addEventListener('click', moverParaBaixo);
+  botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
 };

@@ -1,7 +1,50 @@
+body {
+  background-color: rgb(230, 230, 230);
+}
+
+button {
+  border-radius: 6px;
+  border: none;
+  color: white;
+  font-weight: bolder;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+li {
+  padding: 3px;
+}
+
 .colore-elemento-lista {
   background-color: rgb(128, 128, 128);
 }
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.lista-tarefas {
+  background-color: lightsteelblue;
+  border-radius: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 5%;
+  width: 70%;
+}
+
+.cabecalho {
+  text-align: center;
+}
+
+.btn-adicionar,
+.btn-salvar {
+  background-color: rgb(46, 184, 46);
+}
+
+.btn-limpar {
+  background-color: rgb(255, 71, 26);
+}
+
+.mover {
+  background-color: rgb(115, 38, 77);
 }
