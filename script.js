@@ -29,14 +29,13 @@ function eraseFinishedItems() {
   let finished = document.getElementsByClassName('completed');
   let ol = document.getElementById('lista-tarefas');
 
-  if (!finished) {
-    return;
-  }
+  while (finished[0]) {
+    if (!finished[0]) {
+      return;
+    }
 
-  for (let i = 0; i < finished.length; i += 1) {
-    ol.removeChild(finished[i])
+    ol.removeChild(finished[0]);
   }
-
 }
 
 window.onload = () => {
