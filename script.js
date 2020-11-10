@@ -1,4 +1,4 @@
-addSavedList();
+// addSavedList();
 
 document.querySelector('#criar-tarefa').addEventListener('click', createListItemManual);
 document.querySelector('#texto-tarefa').addEventListener('change', createListItemManual);

@@ -46,11 +46,11 @@ function createListItemAuto() {
     lista.appendChild(novaTarefa);
 };
 
-function addSavedList() {
-  const savedList = JSON.parse(localStorage.listaSalva);
+// function addSavedList() {
+//   const savedList = JSON.parse(localStorage.listaSalva);
 
-  savedList.forEach((item, index) => {
-    createListItemAuto();
-    document.querySelectorAll('li')[index].innerText = item;
-  });
-};
+//   savedList.forEach((item, index) => {
+//     createListItemAuto();
+//     document.querySelectorAll('li')[index].innerText = item;
+//   });
+// };
