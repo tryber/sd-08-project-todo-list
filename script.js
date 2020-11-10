@@ -29,6 +29,7 @@ function addListTodo(){
         let valueInput = input.value;
         let liOrdered = document.createElement("li");
         liOrdered.innerHTML = valueInput;
+        liOrdered.className = "class";
         olOrdered.appendChild(liOrdered);
         input.value = "";
     });
@@ -40,10 +41,17 @@ let olColor = document.querySelector("#lista-tarefas");
 function listColor(){
 
     olColor.addEventListener("click", function(event){
-        event.target.style.backgroundColor = "rgb(128, 128, 128)";
+        event.target.style.backgroundColor = "rgb(128, 128, 128)";       
 
     });
+
+    olColor.addEventListener("dblclick", function(event){
+        if (event.target.className == "class"){
+            event.target.className = "completed";
+        }else {
+            event.target.className = "class"
+        }       
+    })
 }
 listColor();
 
-console.log(olColor);
