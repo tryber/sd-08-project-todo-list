@@ -27,6 +27,5 @@ function adicionarTarefa() {
   }
   addTarefa(textInput);
   textInput = '';
-  return console.log('yes');
 }
 document.querySelector('#criar-tarefa').addEventListener('click', adicionarTarefa);
