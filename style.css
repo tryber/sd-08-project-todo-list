@@ -9,11 +9,15 @@ body {
   width: 60%;
 }
 
-ol {
-  padding: 0;
+.lista-tarefas {
   margin: 10px 30px;
+  padding: 0;
 }
 
 .task {
   list-style-position: inside;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
