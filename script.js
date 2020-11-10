@@ -38,3 +38,17 @@ function clearList() {
 }
 
 butonClear.addEventListener('click', clearList);
+
+function clearScratcheds (){
+  const butonClearScratcheds = document.querySelector('#remover-finalizados');
+  butonClearScratcheds.addEventListener('click', function() {
+    for (let i = 0; i < listLocal.children.length; i += 1) {
+      if (listLocal.children[i].className === 'completed'){
+        listLocal.removeChild(listLocal.children[i]);
+        i -= 1;
+      }
+    }
+  });
+}
+
+clearScratcheds();
