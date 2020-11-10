@@ -24,7 +24,11 @@ function changeBackColor(){
 function textDecoration(){
     for(let index = 0; index < document.querySelectorAll('li').length; index+=1) {
         document.querySelectorAll('li')[index].addEventListener('dblclick', function (){
-            document.querySelectorAll('li')[index].classList.add('completed');
+            if (document.querySelectorAll('li')[index].classList.contains('completed')) {
+                document.querySelectorAll('li')[index].classList.remove('completed')
+            } else {
+                document.querySelectorAll('li')[index].classList.add('completed');
+            }            
         });        
     }
 }
