@@ -35,3 +35,36 @@ document.addEventListener('click', function (clique) {
 }, false);
 
 
+//Função para riscar o elemento se for clicado 2 vezes.
+function riscaLinha (li) {
+  let elementList = li;
+  if (elementList.classList.contains('completed')) {
+    elementList.classList.remove('completed');
+    elementList.style.removeProperty('text-decoration')
+  } else {
+    elementList.classList.add('completed');
+    elementList.style.textDecoration = 'line-through'
+  }
+}
+
+
+//Outro teste para verificar se o elemento é um li para riscá-lo ou não.
+document.addEventListener('dblclick', function (clique) {
+  if ( clique.target.classList.contains( 'elemento-lista' ) ) {
+      riscaLinha(clique.target);
+  }
+}, false);
+
+
+//Funçao para limpar lista com o botão apagaTudo.
+function limpaLista () {
+  let lista = document.getElementById('lista-tarefas');
+  let filhos = document.getElementsByClassName('elemento-lista');
+  for (i = filhos.length; i >= filhos.length; i -= 1) {
+    lista.removeChild(filhos[i - 1]);
+  }  
+}
+
+//Implementação do botão Limpar.
+let apagaTudo = document.getElementById('apaga-tudo');
+apagaTudo.addEventListener('click', limpaLista)
