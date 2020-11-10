@@ -47,4 +47,4 @@ window.onload = () => {
 
   const eraseFinishedBtn = document.getElementById('remover-finalizados');
   eraseFinishedBtn.addEventListener('click', eraseFinishedItems);
-}
+};
