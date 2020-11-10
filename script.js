@@ -39,6 +39,7 @@ removeAll.addEventListener('click', () => {
   taskList.innerHTML = '';
 })
 
+// Apaga tarefas completas
 const removeCompleted = document.getElementById('remover-finalizados');
 removeCompleted.addEventListener('click', () => {
   const completedTasks = document.getElementsByClassName('completed');
@@ -47,3 +48,10 @@ removeCompleted.addEventListener('click', () => {
     completedTasks[0].parentElement.removeChild(completedTasks[0]);
   }
 })
+
+// Salva a lista de tarefas
+const saveTasks = document.getElementById('salvar-tarefas');
+saveTasks.addEventListener('click', () => {
+  localStorage.setItem('List', taskList.innerHTML);
+})
+taskList.innerHTML = localStorage.getItem('List')
