@@ -1,15 +1,21 @@
 let inputTask = document.getElementById('texto-tarefa');
 let todoList = document.getElementById('lista-tarefas');
 let btnAdd = document.getElementById('criar-tarefa');
+let selectedItem;
 
-function setBackgroundColorGray(event) {
-  event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
+function selectItem(event) {
+  if (selectedItem) {
+    selectedItem.style.backgroundColor = '';
+  }
+
+  selectedItem = event.target;
+  selectedItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
 }
 
 function createTask(text) {
   let task = document.createElement('li');
   task.innerText = text;
-  task.addEventListener('click', setBackgroundColorGray);
+  task.addEventListener('click', selectItem);
   return task;
 }
 
