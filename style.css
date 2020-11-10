@@ -11,17 +11,36 @@ body {
     color: #666;
     font-style: italic;
   }
-  
+
+#texto-tarefa {
+    height: 25px;
+    font-size: 18px;
+    text-decoration:none;
+}
+
 .input-container {
     width: 50%;
     display: inline-block;
-  }
+}
 
-  .task-list {
+.task-list {
     margin-top: 10px;
-  }
-  
-  #lista-tarefas {
+}
+
+#lista-tarefas {
     list-style-type: decimal;    
     font-size: 20px;
-  }
+}
+
+.buttons {
+    background-color: rgb(0, 119, 255);
+    color: white;
+    font-size: 18px;
+    font-weight:bold;
+    border: 0px;
+    border-radius:20px;
+    height: 40px;
+    width: 30%;
+    text-decoration:none;
+    display: inline-block;
+}
