@@ -16,10 +16,16 @@ adicionaTarefa();
 
 function corFundoTarefa() {
   const listaOrdenada = document.getElementById('lista-tarefas');
-  const color = 'rgb(128, 128, 128)';
 
   listaOrdenada.addEventListener('click', (event) => {
-    event.target.style.backgroundColor = color;
+    const tarefaSelecionada = document.querySelector('.selecionada');
+    if (event.target.className === 'tarefa') {
+      if (tarefaSelecionada !== null) {
+        tarefaSelecionada.classList.remove('selecionada');
+        event.target.classList.add('selecionada');
+      }
+      event.target.classList.add('selecionada');
+    }
   });
 }
 

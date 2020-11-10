@@ -25,3 +25,7 @@ main {
 .header .descricao {
   margin: 12px auto 30px;
 }
+
+.selecionada {
+  background-color: gray;
+}
