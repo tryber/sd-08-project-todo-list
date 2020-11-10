@@ -6,6 +6,8 @@ function clearSelection() {
   for (tarefa of listaTarefa.children) {
     tarefa.classList.remove("selected");
   }
+  btnUpArrow.disabled = true;
+  btnDownArrow.disabled = true;
 }
 
 if (localStorage.getItem("tarefas") != null) {
@@ -29,6 +31,14 @@ function adicionarTarefa(tarefaTexto) {
   tarefaItem.addEventListener("click", function (e) {
     clearSelection();
     e.target.classList.add("selected");
+    btnUpArrow.disabled = true;
+    btnDownArrow.disabled = true;
+    if (e.target.previousSibling != null) {
+      btnUpArrow.disabled = false;
+    }
+    if (e.target.nextSibling != null) {
+      btnDownArrow.disabled = false;
+    }
   });
   tarefaItem.addEventListener("dblclick", function (e) {
     let classes = e.target.classList;
@@ -87,3 +97,33 @@ btnSalvar.addEventListener("click", function () {
     localStorage.setItem(key, data[key]);
   }
 });
+
+btnUpArrow = document.getElementById("mover-cima");
+btnDownArrow = document.getElementById("mover-baixo");
+
+btnUpArrow.addEventListener("click", function () {
+  selected = document.querySelector(".selected");
+  let prev = document
+    .getElementById("lista-tarefas")
+    .replaceChild(selected, selected.previousSibling);
+  document
+    .getElementById("lista-tarefas")
+    .insertBefore(prev, selected.nextSibling);
+  if (selected.previousSibling == null) {
+    btnUpArrow.disabled = true;
+  }
+});
+
+btnDownArrow.addEventListener("click", function () {
+  selected = document.querySelector(".selected");
+  let post = document
+    .getElementById("lista-tarefas")
+    .replaceChild(selected, selected.nextSibling);
+  document.getElementById("lista-tarefas").insertBefore(post, selected);
+  if (selected.nextSibling == null) {
+    btnDownArrow.disabled = true;
+  }
+});
+
+btnUpArrow.disabled = true;
+btnDownArrow.disabled = true;
