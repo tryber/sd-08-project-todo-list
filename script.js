@@ -117,3 +117,13 @@ function moveDown() {
 
 const moveDownButton = document.getElementById('mover-baixo');
 moveDownButton.addEventListener('click', moveDown);
+
+function removeSelected() {
+  const selected = olTasks.querySelector('.selected');
+  if (selected) {
+    selected.remove();
+  }
+}
+
+const removeSelectedButton = document.getElementById('remover-selecionado')
+removeSelectedButton.addEventListener('click', removeSelected);
