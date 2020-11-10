@@ -48,7 +48,7 @@ function addList() {
     ol.id = 'lista-tarefas'
 
     for (let index = 0; index < body.length; index += 1) {
-        body[index].appendChild(ol).appendChild(li)
+        body[index].appendChild(ol);
     }
 }
 
