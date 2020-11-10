@@ -13,3 +13,8 @@ body.appendChild(divInput);
 let input = document.createElement("input");
 input.id = "texto-tarefa";
 divInput.appendChild(input);
+
+let olOrdered = document.createElement("ol");
+olOrdered.id = "lista-tarefas";
+divInput.appendChild(olOrdered);
+
