@@ -20,12 +20,14 @@ function addTarefa(text) {
   });
 }
 
-document.querySelector('#criar-tarefa').addEventListener('click', function() {
+document.querySelector('#criar-tarefa').addEventListener('click', function () {
   // Adicionar nova Tarefa
-  let textInput = document.querySelector('#texto-tarefa');
+  const textInput = document.querySelector('#texto-tarefa');
+  const texto = textInput.value;
   if (textInput === null || textInput === '') {
     return alert('Favor Preencher com alguma Tarefa.');
   }
-  addTarefa(textInput.value);
   textInput.value = '';
+  return addTarefa(texto);
+
 });
