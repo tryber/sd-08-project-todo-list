@@ -1,5 +1,4 @@
-const initialState = [];
-const savedTasks = JSON.parse(localStorage.getItem('tasks')) || initialState;
+const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 const olTasks = document.getElementById('lista-tarefas');
 
 function toggleSelected(event) {
@@ -95,9 +94,10 @@ saveTasksButton.addEventListener('click', saveTasks);
 
 function moveUp() {
   const selected = olTasks.querySelector('.selected');
-  if (selected && selected.previousElementSibling) {
-    const previous = selected.previousElementSibling;
+  if (selected && selected.previousSibling) {
+    const previous = selected.previousSibling;
     const parent = selected.parentNode;
+    console.log(`colocando ${selected.textContent} antes de ${previous.textContent}`);
     parent.insertBefore(selected, previous);
   }
 }
@@ -107,9 +107,10 @@ moveUpButton.addEventListener('click', moveUp);
 
 function moveDown() {
   const selected = olTasks.querySelector('.selected');
-  if (selected && selected.nextElementSibling) {
-    const next = selected.nextElementSibling;
+  if (selected && selected.nextSibling) {
+    const next = selected.nextSibling;
     const parent = selected.parentNode;
+    console.log(`colocando ${next.textContent} antes de ${selected.textContent}`);
     parent.insertBefore(next, selected);
   }
 }
