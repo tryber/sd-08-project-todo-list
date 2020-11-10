@@ -32,3 +32,9 @@ taskList.addEventListener('dblclick', (event) => {
     event.target.classList.add('completed');
   }
 });
+
+// Apaga todas as tarefas
+const removeAll = document.getElementById('apaga-tudo');
+removeAll.addEventListener('click', () => {
+  taskList.innerHTML = '';
+})
