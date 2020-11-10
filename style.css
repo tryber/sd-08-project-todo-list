@@ -36,7 +36,11 @@ input {
   text-decoration: line-through;
 }
 
-#criar-tarefa {
+.inputDiv {
+  line-height: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .botoes {
