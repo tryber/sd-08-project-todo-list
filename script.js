@@ -29,14 +29,6 @@ function changeBackground (e) {
 getTasks.addEventListener("dblclick", setLineThrough);
 
 function setLineThrough(e) {
-  // let allNodes = document.querySelectorAll('li').length
-
-  // for (let index = 0; index < allNodes; index += 1) {
-
-  //   document.querySelectorAll('li')[index].classList.remove('completed')
-
-  // }
-  //console.log(e.target)
 
   if (e.target.className == 'completed') {
     e.target.classList.remove('completed')
@@ -45,5 +37,16 @@ function setLineThrough(e) {
   }
 }
 
-// let colorSelected = document.getElementById(e.target.id)
-// 	colorSelected.className = "color selected"
+
+let deleteButton = document.querySelector('#apaga-tudo')
+deleteButton.addEventListener('click', deleteAllTasks);
+
+
+function deleteAllTasks () {
+
+  let elemento = document.getElementById("lista-tarefas");
+
+  while (elemento.firstChild) {
+    elemento.removeChild(elemento.firstChild);
+  }
+}
