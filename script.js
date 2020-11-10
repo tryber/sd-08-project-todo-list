@@ -82,14 +82,20 @@ function carregarLocalStorage() {
 }
 
 function moverParaCima(){
-    
+    const elementoSelecionado = document.querySelector('.colore-elemento-lista');
+    const pai = elementoSelecionado.parentNode
+    const anterior = elementoSelecionado.previousSibling;
+    if(anterior !== null) {
+        pai.insertBefore(elementoSelecionado, anterior);
+    }
+
 }
 
 function moverParaBaixo() {
     const elementoSelecionado = document.querySelector('.colore-elemento-lista');
     const pai = elementoSelecionado.parentNode
     const proximo = elementoSelecionado.nextSibling;
-    pai.insertBefore(elementoSelecionado, proximo);
+    pai.insertBefore(proximo, elementoSelecionado);
 }
 
 function removerSelecionado() {
