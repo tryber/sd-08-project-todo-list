@@ -54,7 +54,10 @@ createButton('Task');
 
 
     
-      document.getElementById('remover-finalizado').addEventListener('click', () => {
-        let object = document.querySelector('.completed');
-          document.getElementById('lista-tarefas').removeChild(object);
-      });
+      document.getElementById('remover-finalizados').addEventListener('click', () => {
+        let object = document.querySelectorAll('.completed');
+            for(i = 0; object.length; i +=1){
+                document.getElementById('lista-tarefas').removeChild(object[i]);
+            }
+          
+     });
