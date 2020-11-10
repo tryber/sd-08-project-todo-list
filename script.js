@@ -15,8 +15,6 @@ function createsTask() {
       taskListContainer.appendChild(createdTask);
       input.value = '';
 
-
-      /* PRA N DEIXAR ESSE ADDEVENTLISTENER AQUI DA PRA ADD UMA CLASSE .task A CADA TAREFA CRIADA E DEPOIS DAR UM QUERYSELECTORALL E ADICIONAR O ADDEVENTLISTENER EM OUTRA FUNÇÃO */
       createdTask.addEventListener('click', function (event) {
         let task = event.target;
         let allTasks = document.querySelectorAll('li');
@@ -52,21 +50,7 @@ function createsTask() {
 }
 createsTask();
 
-function selectTask() {
-
-  let tasks = document.querySelectorAll('li');
-
-  for (let index = 0; index < tasks.length; index += 1) {
-    task = tasks[index];
-
-    task.addEventListener('click', function (event) {
-
-
-    });
-
-  }
-
-}
+//REQUISITO 10
 
 
 
