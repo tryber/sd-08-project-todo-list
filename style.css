@@ -1,0 +1,10 @@
+body {
+  background-color: rgb(15, 163, 107);
+}
+.principal {
+  background-color: white;
+  padding: 30px;
+  width: 60%;
+  border-radius: 30px;
+  margin: 50px auto;
+}
