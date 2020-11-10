@@ -38,3 +38,15 @@ function limparLista() {
 }
 
 btnLimparLista.addEventListener("click", limparLista);
+
+let btnLimparCompletos = document.getElementById("remover-finalizados");
+
+function removerFinalizados() {
+  let finalizados = document.getElementsByClassName("completed");
+  let size = finalizados.length;
+  for (index = 0; index < size; index += 1) {
+    listaTarefa.removeChild(finalizados[0]);
+  }
+}
+
+btnLimparCompletos.addEventListener("click", removerFinalizados);
