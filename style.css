@@ -2,15 +2,18 @@
     margin: 10px;
   }
 
-h1, body {
+body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #eee;
   }
 
-p.label {
+#funcionamento {
     color: #666;
-    font-weight: 500;
     font-style: italic;
-    letter-spacing: 2px;
-    vertical-align: middle;
+  }
+  
+.input-container {
+    width: 50%;
+    height: 100px;
+    display: inline-block;
   }
