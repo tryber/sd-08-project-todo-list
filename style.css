@@ -1,0 +1,8 @@
+.button {
+  height: 50px;
+  width: 50px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
