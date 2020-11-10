@@ -17,4 +17,13 @@ btnCriarTarefa.addEventListener("click", function () {
     clearSelection();
     e.target.classList.add("selected");
   });
+  tarefaItem.addEventListener("dblclick", function (e) {
+    let classes = e.target.classList;
+    clearSelection();
+    if (classes.contains("completed")) {
+      e.target.classList.remove("completed");
+    } else {
+      e.target.classList.add("completed");
+    }
+  });
 });
