@@ -1,5 +1,3 @@
-
-
 let selButtom = document.querySelector('#criar-tarefa');
 let selInput = document.querySelector('#texto-tarefa');
 let selLista = document.querySelector('#lista-tarefas');
@@ -13,6 +11,11 @@ selButtom.addEventListener('click', function() {
 });
 
 selLista.addEventListener('click', function(event) {
-  event.target.style.background = 'rgb(128, 128, 128)';
-  selButtom.style.backgroundColor = "";
-})
+  let selected = document.querySelector('.selected');
+  if (selected != null) {
+    selected.className = '';
+  }
+  event.target.className = 'selected';
+  
+  
+});
