@@ -39,4 +39,4 @@ function completedTask(event) {
   }
 }
 
-taskList.addEventListener('dblclick', completedTask)
+taskList.addEventListener('dblclick', completedTask);
