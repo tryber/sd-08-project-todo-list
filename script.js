@@ -7,9 +7,9 @@ function createToDo() {
   createLi.addEventListener('click', (Event) => {
     let liArray = document.getElementsByTagName('li');
     for (let i = 0; i < liArray.length; i += 1) {
-      liArray[i].style.color = 'black';
+      liArray[i].style.backgroundColor = 'white';
     }
-    Event.target.style.color = 'rgb(128 , 128 , 128)';
+    Event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
   });
 
   createLi.addEventListener('dblclick', (Event) => {
