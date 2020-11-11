@@ -20,8 +20,10 @@ function setBackgroudItem(element) {
   const itens = document.getElementsByTagName('li');
   for (let i = 0; i < itens.length; i += 1) {
     itens[i].style.backgroundColor = '';
+    itens[i].classList.remove('selected');
   }
   element.style.backgroundColor = 'rgb(128, 128, 128)';
+  element.classList.add('selected');
 }
 
 function setCompletedTask(element) {
@@ -105,7 +107,25 @@ function loadTasks() {
     }
   }, 2000);
 }
-
+function moveUp() {
+  const ol = document.getElementById('lista-tarefas');
+  const list = document.getElementsByTagName('li');
+  for (let i = 0; i < list.length; i += 1) {
+    if (list[i].classList.contains('selected')) {
+      if (i === 0) {
+        return;
+      }
+      ol.insertBefore(list[i], list[i - 1]);
+    }
+  }
+}
+function actionUp() {
+  const btnUp = document.getElementById('mover-cima');
+  btnUp.addEventListener('click', function () {
+    moveUp();
+  });
+}
+actionUp();
 window.onload = function () {
   loadTasks();
   selectItem();
