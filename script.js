@@ -8,6 +8,7 @@ function addTask() {
       const li = document.createElement('li');
 
       li.innerHTML = textoDigitado;
+      li.className = 'task';
 
       ol.appendChild(li);
 
@@ -16,3 +17,15 @@ function addTask() {
 }
 
 addTask();
+
+function colorTask() {
+    const ol = document.querySelector('#lista-tarefas');
+
+    ol.addEventListener('click', function(event) {
+      if (event.target.className === 'task') {
+        event.target.style.backgroundColor = 'grey';
+      }
+    });
+}
+
+colorTask();
