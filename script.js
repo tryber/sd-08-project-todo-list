@@ -20,21 +20,40 @@ function addTasks (){
 
 addTasks();
 
-// Requisito 07
+// Requisito 07 08
 let listItem = document.querySelectorAll('#lista-tarefas');
 function changeColor(){
     
-    for (let index =0; index < listItem.length; index+=1){
+    for (let index =0; index < listItem.length; index +=1){
         listItem[index].addEventListener('click', function(event){
-            let elemetSe = document.querySelectorAll('.selected');
-            for (let x =0; x < elemetSe.length; x+=1){
-                elemetSe[x].classList.remove('selected');
+            let classSelect = document.querySelectorAll('.selected');
+            for (let x =0 ; x < classSelect.length; x +=1){
+                classSelect[x].classList.remove('selected')
             }
             event.target.classList.add('selected');
-           
         });
+
     }
 }
 
 changeColor();
 
+// Requisito 09
+
+function scratchItem (){
+    for (let index = 0; index < listItem.length; index +=1){
+        listItem[index].addEventListener('dblclick', function(event){
+            let classSelect = document.querySelectorAll('.completed');
+            for (let x =0; x < classSelect.length; x +=1){
+                classSelect[x].classList.remove('completed ')
+            }
+            event.target.classList.add('completed')
+
+        });
+
+    }
+
+
+}
+
+scratchItem();
