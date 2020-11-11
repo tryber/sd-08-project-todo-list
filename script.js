@@ -14,26 +14,18 @@ function addText () {
     captureListOl.appendChild(liTask);
     captureInput.value = '';
 };
-// requisito 7
-function color () {
-    captureListOl.addEventListener('click', grey)
-    function grey (event) {
-        event.target.className = 'color';
-      };
-};
-color ();
 
-//requisito 7 e 8 - inicialmente fiz numa função separada para os 2 requisitos, mas uni numa função para facilitar a construção
 
+//requisito 7 e 8 - 
+//inicialmente fiz numa função separada para os 2 requisitos, mas uni para facilitar a construção
 function color () {
-    const captureListOl = document.getElementById('lista-tarefas'); 
     captureListOl.addEventListener('click', colorAndHighlight);
-    
     function colorAndHighlight (event) {
+        //a ideia é quando um evento seja disparado compare as classes
         let captureGrey = document.querySelector('.color');
-       //adiciona uma classe 
         if (event.target.className === 'colorDefault') { 
             // se não têm classe vai adicionar a classe color, e se já têm a classe color vai remover e readicioná-la
+            // usei classList porque é mais indicado para adicionar/remover classes, se usasse o className ia remover todas as classes - referência teamtreehouse.com/community/difference-between-classlist-and-classname#:~:text=Using%20%22classList%22%2C%20you%20can,wipe%20out%20all%20of%20them).
             if (captureGrey === null) {
                 event.target.classList.add('color');
             } else {
@@ -46,53 +38,14 @@ function color () {
 color ();
 
 
-//requisito 9 
-
+//requisito 9
+captureListOl.addEventListener('dblclick', toHighlight);
 function toHighlight (event) {
-    //se a classe tenha o 'nome completed' vai removê-la e caso não vai adicionála
+    //se a classe tem o 'nome completed' então será removida caso não tenha ela será adicionada 
+    //usei o 'classList' para procurar a partir do clique na 'ol' se existe uma 'completed' dai a comparação é feita com o 'contains' pois ele retorna false/true 
     if (event.target.classList.contains ('completed')) {
         event.target.classList.remove ('completed'); 
     } else {
         event.target.classList.add('completed');
     }    
 }
-    captureListOl.addEventListener('dblclick', toHighlight);
-    
-
-
-
-
-
-
-   
-
-    
-
-
-
-
-
-
-
-
-
-
-/*
-//requisito 9
-//mesma lógica do exercicio 5 do dia 5.3 
-captureListOl.addEventListener('dblclick', scratched);
-function scratched (event) {
-    if (event.target.className == 'completed') {
-        event.target.className.remove('completed');
-    } else {
-        event.target.className = 'completed';
-    }
-}
-*/
-
-
-
-
-
-
-
