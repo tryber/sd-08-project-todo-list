@@ -73,3 +73,8 @@ body {
     background-color: orange;
     width: 70px;
 }
+
+#remover-selecionado {
+    background-color: red;
+    width: 70px;
+}

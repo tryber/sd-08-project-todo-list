@@ -8,6 +8,7 @@ window.onload = function () {
     const btnSaveTasksList = document.getElementById('salvar-tarefas');
     const btnMoveUpTask = document.getElementById('mover-cima');
     const btnMoveBottomTask = document.getElementById('mover-baixo');
+    const btnRemoveTaskSelected = document.getElementById('remover-selecionado');
     const olTasksList = document.getElementById('lista-tarefas');
     const listTasks = document.querySelector('.task-list');
 
@@ -19,15 +20,24 @@ window.onload = function () {
     btnSaveTasksList.addEventListener('click', saveTaskList);
     btnMoveUpTask.addEventListener('click', moveUpTask);
     btnMoveBottomTask.addEventListener('click', moveBottomTask);
+    btnRemoveTaskSelected.addEventListener('click', removeTaskSelected);
     olTasksList.addEventListener('click', setBackGroundColor);
     olTasksList.addEventListener('dblclick', setTaskCompleted);
 
     // Funções dos eventos dos objetos
+    function removeTaskSelected(event) {
+        if(document.querySelector('.selected') !== null) {            
+            document.querySelector('.selected').remove();
+        }
+    }
+
     function moveUpTask(event) {        
         const childNode = document.querySelectorAll('.task');            
         for (let index = 0; index < childNode.length; index += 1) {
             if (childNode[index].classList.contains('selected')) {
-                childNode[index].parentElement.insertBefore(childNode[index], childNode[index - 1]);
+                if (index > 0) {
+                    childNode[index].parentElement.insertBefore(childNode[index], childNode[index - 1]);
+                }
             }
         }
     }
