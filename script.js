@@ -9,3 +9,7 @@ function createButton(nome, id) {
 createButton('Criar Tarefa', 'criar-tarefa');
 createButton('Apaga Tudo', 'apaga-tudo');
 createButton('Remover Finalizados', 'remover-finalizados');
+createButton('Salvar Tarefas', 'salvar-tarefas');
+createButton('Mover para Cima', 'mover-cima');
+createButton('Mover para Baixo', 'mover-baixo');
+createButton('Remover Selecionado', 'remover-selecionado');
