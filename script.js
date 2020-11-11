@@ -1,3 +1,8 @@
+window.onload = function() {
+    loadTasks();
+}
+
+
 // CRIANDO BOTÃO PARA ADCIONAR TAREFA A LISTA
 document.querySelector('#criar-tarefa').addEventListener('click', function(){
     let listElement = document.createElement('li');
@@ -20,6 +25,7 @@ function changeBackColor(){
         });        
     
 }
+changeBackColor(); 
 
 // COLOCANDO DECORAÇAO NA TAREFA QUE JÁ FOI EXECUTADA
 function textDecoration() {    
@@ -41,6 +47,7 @@ function deleteAllTasks() {
         }
     });    
 }
+deleteAllTasks();
 
 // BOTAO REMOVER TAREFA EXECUTADA
 function removeFinishedTask() {
@@ -52,11 +59,23 @@ function removeFinishedTask() {
         }
     });
 }
+removeFinishedTask();
 
+function saveTasks (){
+    document.querySelector('#salvar-tarefas').addEventListener('click', function (){
+        localStorage.clear();
+        for (let index = 0; index < document.querySelectorAll('li').length; index +=1) {
+            localStorage.setItem(index,document.querySelectorAll('li')[index].innerHTML);
+        }
+    });
+}
+saveTasks ();
 
-
-
-
-
-    
-
+function loadTasks() {    
+    for (let index = 0; index < localStorage.length; index +=1) {
+        let newLi = document.createElement('li');
+        newLi.innerText = localStorage[index];
+        document.querySelector('#lista-tarefas').appendChild(newLi);
+        console.log(newLi[index]);
+    }        
+}
