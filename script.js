@@ -34,6 +34,16 @@ function colorTask() {
 
 colorTask();
 
-function selectedTask() {
+function completedTask() {
+    const ol = document.querySelector('#lista-tarefas');
 
+    ol.addEventListener('dblclick', function(event) {
+      if (event.target.className === 'task') {
+        event.target.className = event.target.className + ' ' + 'completed';
+      } else {
+        event.target.className = 'task';
+      }
+    });
 }
+
+completedTask();
