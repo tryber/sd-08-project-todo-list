@@ -32,7 +32,7 @@ function botao() {
 }
 botao();
 
-
+//equisito 10
  function apagar() {
     const botaoApaga = document.getElementById("apaga-tudo");
     botaoApaga.addEventListener("click", () => {
@@ -44,3 +44,13 @@ botao();
     })
 }
 apagar();
+
+//Requisito 11
+    const botaoRemove = document.getElementById("remover-finalizados");
+
+    botaoRemove.addEventListener("click", function () {
+    const completeItem = document.querySelectorAll(".completed");
+    for (let index = 0; index < completeItem.length; index++) {
+        completeItem[index].remove();
+    }
+})

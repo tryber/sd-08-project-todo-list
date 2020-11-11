@@ -14,7 +14,7 @@
     background-color: rgb(128,128,128);
 }
 
-.limpaComp {
+#remover-finalizados {
     background-color: rgba(5, 5, 236, 0.658);
     color: white;
 }
