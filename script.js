@@ -9,7 +9,7 @@ function criabotao(){
     let lastselected = null
 
     criabot.addEventListener("click", function(){
-        let textoinput = getposi2.value
+        let textoinput =getposi2.value
 
         
         let criaelista = document.createElement("li")
@@ -17,7 +17,7 @@ function criabotao(){
         
             criaelista.innerText = textoinput
 
-            getposi2.value = " "
+            getposi2.value = ""
 
             criaelista.addEventListener("click",function(event){
 
@@ -114,15 +114,6 @@ criabotaoapaga.addEventListener("click", function(event){
     // getposi1.removeChild(pegalista1)
     getposi1.innerHTML = " "
 
-   
-
-    
-    
-
-   
-
-
-
 })
 
 
@@ -143,7 +134,7 @@ criaitemlista()
 */
 
 
-function botaosalvatarefas(){
+function removetarefas(){
     let pegaposidiv = document.querySelector("#remover-finalizadosdiv")
     let criaelementbotao = document.createElement("button")
     let getposi1 = document.querySelector("#lista-tarefas")
@@ -166,17 +157,42 @@ for(let i = 0 ; i < pegalista.length ; i++)
 
         }else{
 
-          
-
 
         }
 
-
-
     })
-
-
 
 }
 
+removetarefas()
+
+
+
+function botaosalvatarefas(){
+    let pegaposidiv1 = document.querySelector("#botsalvadiv")
+    let criabotaosalva = document.createElement("button")
+    criabotaosalva.id = "salvar-tarefas"
+    criabotaosalva.innerText = "Salvar Tarefas"
+   
+
+    pegaposidiv1.appendChild(criabotaosalva)
+
+
+    criabotaosalva.addEventListener("click" , function(){
+         let pegalista2 = document.querySelectorAll("li")
+
+        for(let i = 0 ;i < pegalista2.length ;i++){
+
+          let armazena = localStorage.JSON.stringify().setItem("listaelemento1",pegalista2[i] )
+           console.log(armazena) 
+  
+        }
+
+    })
+}
+
+
 botaosalvatarefas()
+
+
+
