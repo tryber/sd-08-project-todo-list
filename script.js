@@ -12,4 +12,7 @@ header.appendChild(paragraph);
 /* ---------------------------- REQUISITO 03 ---------------------------- */
 
 const input = document.createElement('input');
+input.id = 'texto-tarefa';
 header.parentNode.insertBefore(input, header.nextSibling);
+
+/* ---------------------------- REQUISITO 04 ---------------------------- */
