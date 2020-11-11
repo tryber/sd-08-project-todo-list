@@ -15,3 +15,7 @@ lista.addEventListener('click', function (e) {
   }
   e.target.classList.add('focus-item');
 });
+
+lista.addEventListener('dblclick', function (e) {
+  e.target.classList.toggle('completed');
+});
