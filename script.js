@@ -1,6 +1,6 @@
 const getButton = document.getElementById('criar-tarefa');
 const getOrderedList = document.getElementById('lista-tarefas');
-const getTaskList = document.getElementsByClassName('task-list');
+let getTaskList = document.getElementsByClassName('task-list');
 
 function createTaskList() {
   const getInput = document.getElementById('texto-tarefa');
@@ -24,3 +24,15 @@ function selectList() {
   });
 }
 selectList();
+
+function switchLineThrough() {
+  if (getTaskList.className !== 'completed') {
+    getOrderedList.addEventListener('dblclick', (event) => {
+      for (let i = 0; i < getTaskList.length; i += 1) {
+        event.target.classList.toggle('completed');
+        getTaskList[i] = event.target;
+      }
+    });
+  }
+}
+switchLineThrough();
