@@ -1,4 +1,4 @@
-// DEFINING SELECTORS
+// DEFININES SELECTORS
 const inputTasks = document.querySelector('#texto-tarefa');
 const listTasks = document.querySelector('#lista-tarefas');
 const listItem = document.querySelectorAll('.list-item');
@@ -7,7 +7,7 @@ const cleanTasksButton = document.querySelector('#apaga-tudo');
 const removeFinishedTasksButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 
-// CREATING A NEW TASK
+// CREATES A NEW TASK
 const createNewTask = (event) => {
   event.preventDefault();
 
@@ -27,14 +27,20 @@ const createNewTask = (event) => {
 
 createTaskButton.addEventListener('click', createNewTask);
 
-// REMOVING PREVIOUS SELECTED TASK
+// REMOVES PREVIOUS SELECTED/COMPLETED TASKS
 const removeSelectedTask = () => {
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].classList.remove('selected');
   }
 };
 
-// SELECTING A SINGLE TASK
+const removeCompletedTask = () => {
+  for (let i = 0; i < listItem.length; i += 1) {
+    listItem[i].classList.remove('completed');
+  }
+};
+
+// SELECTS A SINGLE TASK
 const selectSingleTask = (event) => {
   if (event.target.className !== 'selected') {
     removeSelectedTask();
@@ -45,7 +51,7 @@ const selectSingleTask = (event) => {
 
 listTasks.addEventListener('click', selectSingleTask);
 
-// COLORIZING A SINGLE TASK
+// COLORS A SINGLE TASK
 const colorizeSelectedTask = () => {
   for (let i = 0; i < listItem.length; i += 1) {
     if (listItem[i].classList.contains('selected')) {
@@ -57,3 +63,16 @@ const colorizeSelectedTask = () => {
 };
 
 listTasks.addEventListener('click', colorizeSelectedTask);
+
+// COMPLETES A SINGLE TASK
+const completeSingleTask = (event) => {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    removeCompletedTask();
+
+    event.target.classList.add('completed');
+  }
+};
+
+listTasks.addEventListener('dblclick', completeSingleTask);
