@@ -17,33 +17,38 @@ function addTarefa() {
     })
 }
 
-function eventColor (event) {
-    const colorGray = `rgb(${128}, ${128}, ${128})`;
-    let getOl = document.getElementById('lista-tarefas');
+function eventColor (ev, value) {
     let getLi = document.querySelectorAll('.list-iten');
+    let estado = ev.target.hasAttribute('style');
+    
+    getLi.forEach((el) => el.removeAttribute('style'));
 
-    if(getOl !== event.target){
-        let estado = event.target.hasAttribute('style');
-        getLi.forEach(function (el) {
-            el.removeAttribute('style')
-            console.log(el);
-        })
-        if (!estado) {
-            event.target.style.backgroundColor = colorGray;
-        }
+    if(!estado){
+        ev.target.style.backgroundColor = value;
     }
 }
 
 //SELECIONA TAREFA
 function selectTarefa() {
     let getOl = document.querySelector('#lista-tarefas');
-    getOl.addEventListener('click', eventColor);
+    let color = `rgb(${128}, ${128}, ${128})`;
+    getOl.addEventListener('click', function(e) {
+        console.log(e.target)
+        if(e.target.classList.contains( 'list-iten' )){
+            eventColor(e, color);
+        }
+    })
+    
 }
 
 //RISCANDO TAREFA
+function tarefaCompleta() {
+    
+}
 
 
 window.onload = function () {
     addTarefa();
     selectTarefa();
+    tarefaCompleta()
 }
