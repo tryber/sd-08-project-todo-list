@@ -3,7 +3,6 @@ const btnCreateTask = document.getElementById('criar-tarefa');
 const tasksList = document.getElementById('lista-tarefas');
 const taskInput = document.getElementById('texto-tarefa');
 const colors = {
-  gray: 'rgb(128, 128, 128)',
   red: '#de3f44',
   orange: '#f4a261',
   blue: '#0081ff',
@@ -15,10 +14,8 @@ function selectTask(event) {
   const taskSelected = document.querySelector('.selected');
   if (taskSelected) {
     taskSelected.classList.remove('selected');
-    taskSelected.style.backgroundColor = '';
   }
   event.target.classList.add('selected');
-  event.target.style.backgroundColor = colors.gray;
 }
 
 // Marking tasks as completed
@@ -79,9 +76,61 @@ btnSaveTasks.addEventListener('click', function () {
   localStorage.tasksList = tasksList.innerHTML;
 });
 
+// Setting the arrows to move the tasks up and down
+btnArrowUp = document.getElementById('mover-cima');
+btnArrowDown = document.getElementById('mover-baixo');
+
+// Moving up
+function moveTaskUp() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask) {
+
+    const selectedTaskContent = selectedTask.innerHTML;
+    const previousTask = selectedTask.previousElementSibling;
+    const previousTaskContent = selectedTask.previousElementSibling.innerHTML;
+
+    previousTask.innerHTML = selectedTaskContent;
+    selectedTask.innerHTML = previousTaskContent;
+
+    selectedTask.previousElementSibling.classList.add('selected');
+
+		// Removing "selected" class from previous task
+    let twoSelected = document.querySelectorAll('.selected');
+    twoSelected[1].classList.remove('selected');
+  }
+}
+
+// Moving Down
+function moveTaskDown() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask) {
+
+    const selectedTaskContent = selectedTask.innerHTML;
+    const nextTask = selectedTask.nextElementSibling;
+    const nextTaskContent = selectedTask.nextElementSibling.innerHTML;
+
+    nextTask.innerHTML = selectedTaskContent;
+    selectedTask.innerHTML = nextTaskContent;
+
+    selectedTask.nextElementSibling.classList.add('selected');
+
+		// Removing "selected" class from previous task
+    let twoSelected = document.querySelectorAll('.selected');
+    twoSelected[0].classList.remove('selected');
+  }
+}
+
+btnArrowUp.addEventListener('click', moveTaskUp);
+btnArrowDown.addEventListener('click', moveTaskDown);
+
+
 // Coloring the buttons
-btnClearAll.style.backgroundColor = colors.red;
+btnArrowUp.style.backgroundColor = colors.orange;
+btnArrowDown.style.backgroundColor = colors.orange;
 btnClearCompleted.style.backgroundColor = colors.blue;
 btnCreateTask.style.backgroundColor = colors.green;
+btnClearAll.style.backgroundColor = colors.red;
 btnSaveTasks.style.backgroundColor = colors.green;
+
+// Coloring Background
 body.style.backgroundColor = colors.green;
