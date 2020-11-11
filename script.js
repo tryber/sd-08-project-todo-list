@@ -68,34 +68,45 @@ function removeCompleted() {
 
 deleteCompleted.addEventListener('click', removeCompleted);
 
-// Saves task list
+// Saves task list and completed status to web storage
 function saveList() {
   localStorage.clear();
   for (let i = 0; i < taskList.childElementCount; i += 1) {
     const item = taskList.children[i];
     localStorage.setItem(`${i}`, `${item.innerHTML}`);
+    localStorage.setItem(`${i}${i}`, `${item.classList.contains('completed')}`);
   }
 }
 
 saveTasks.addEventListener('click', saveList);
 
-// Adds saved items to list
+// Retrieves tasks from web storage and assigns completed status
 // Object.keys() source: https://stackoverflow.com/a/17748203/14424360
-let savedItems;
+let savedTasks;
+let completionStatus;
 
 function retrieveItems() {
-  savedItems = [];
-  for (let i = 0; i < Object.keys(localStorage).length; i += 1) {
-    savedItems.push(localStorage.getItem(i));
+  savedTasks = [];
+  completionStatus = [];
+  for (let i = 0; i < (Object.keys(localStorage).length)/2; i += 1) {
+    savedTasks.push(localStorage.getItem(`${i}`));
+    completionStatus.push(localStorage.getItem(`${i}${i}`));
+  }
+}
+
+function isComplete(status, listItem) {
+  if (status === 'true') {
+    listItem.classList.add('completed');
   }
 }
 
 function generateFromStorage() {
   if (localStorage.getItem(0)) {
     retrieveItems();
-    for (let i = 0; i < savedItems.length; i += 1) {
+    for (let i = 0; i < savedTasks.length; i += 1) {
       const listItem = document.createElement('li');
-      listItem.innerText = savedItems[i];
+      listItem.innerText = savedTasks[i];
+      isComplete(completionStatus[i], listItem);
       taskList.appendChild(listItem);
     }
   }
