@@ -1,6 +1,7 @@
 const criarTarefa = document.querySelector("#criar-tarefa");
 const apagaTudo = document.querySelector("#apaga-tudo");
 const apagarFinalizados = document.querySelector("#remover-finalizados");
+const listaStorage = document.querySelector("#lista-tarefas");
 
 function tarefa() {
   const listaDeTarefas = document.querySelector("#lista-tarefas");
@@ -62,3 +63,35 @@ function apagarFinalizadas() {
 }
 
 apagarFinalizados.addEventListener("click", apagarFinalizadas);
+
+if (typeof Storage !== undefined) {
+  window.onload = function start() {
+    if (localStorage.length > 0) apply();
+    let btn = document.querySelector("#salvar-tarefas");
+    btn.addEventListener("click", save, false);
+  };
+
+  function save() {
+    for (let i = 0; i < listaStorage.childNodes.length; i += 1) {
+      localStorage.setItem(
+        listaStorage.childNodes[i].className + " " + i,
+        listaStorage.childNodes[i].textContent
+      );
+    }
+  }
+
+  function apply() {
+    for (let i = 0; i < localStorage.length; i += 1) {
+      let lista = document.createElement("li");
+      lista.innerText =
+        localStorage.getItem(`lista ${i}`) ||
+        localStorage.getItem(`lista completed ${i}`);
+      lista.className = localStorage.getItem(`lista ${i}`)
+        ? "lista"
+        : "lista completed";
+      listaStorage.appendChild(lista);
+    }
+  }
+} else {
+  alert("Sem recursos web storage");
+}
