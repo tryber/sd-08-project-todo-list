@@ -27,16 +27,10 @@ const createNewTask = (event) => {
 
 createTaskButton.addEventListener('click', createNewTask);
 
-// REMOVES PREVIOUS SELECTED/COMPLETED TASKS
+// REMOVES PREVIOUS SELECTED TASKS
 const removeSelectedTask = () => {
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].classList.remove('selected');
-  }
-};
-
-const removeCompletedTask = () => {
-  for (let i = 0; i < listItem.length; i += 1) {
-    listItem[i].classList.remove('completed');
   }
 };
 
@@ -69,8 +63,6 @@ const completeSingleTask = (event) => {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
-    removeCompletedTask();
-
     event.target.classList.add('completed');
   }
 };
