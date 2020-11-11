@@ -102,7 +102,9 @@ function moveDown () {
 // REMOVER ITEM SELECIONADO
 function removeSelected() {
     document.querySelector('#remover-selecionado').addEventListener('click', function(){
-        document.querySelector('#lista-tarefas').removeChild(document.querySelector('.selected'));
+        if (document.querySelector('.selected') !== null) {
+            document.querySelector('#lista-tarefas').removeChild(document.querySelector('.selected'));
+        }        
     })
 }
 removeSelected();
