@@ -20,7 +20,7 @@ createButton('Remover Selecionado', 'remover-selecionado');
 function fCriarTarefa() {
 console.log('btn criar tarefa');
 let novaTarefa = document.createElement('li');
-let tarefaInput = document.getElementById('texto-tarefas').value;
+let tarefaInput = document.getElementById('texto-tarefa').value;
 novaTarefa.innerHTML = tarefaInput;
 
 document.getElementById('lista-tarefas').appendChild(novaTarefa);
