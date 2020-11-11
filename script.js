@@ -47,5 +47,5 @@ function paint() {
 paint()
 
 
-/* localStorage.clear() */
+/* //localStorage.clear() */
 
