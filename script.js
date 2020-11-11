@@ -54,3 +54,18 @@ function taskCompleted() {
 }
 
 taskCompleted();
+
+const buttonClearElement = document.createElement('button');
+buttonClearElement.id = 'apaga-tudo';
+buttonClearElement.innerHTML = 'Limpa lista';
+const footerController = document.querySelector('.footer-controller');
+footerController.appendChild(buttonClearElement);
+
+const buttonClear = document.querySelector('#apaga-tudo');
+buttonClear.addEventListener('click', function () {
+  const tasksList = document.querySelectorAll('.tarefa');
+  const listElement = document.querySelector('#lista-tarefas');
+  for (let tag of tasksList) {
+    listElement.removeChild(tag);
+  }
+});

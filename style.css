@@ -9,3 +9,7 @@
 .completed {
  text-decoration: line-through solid rgb(0, 0, 0); 
 }
+
+.footer-controller {
+  display: inline-block;
+}
