@@ -5,17 +5,6 @@ let body = document.getElementsByTagName('body');
 
 // Requisito 02
 
-function addParagraph() {
-    let paragraph = document.createElement('p');
-    paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo'
-    paragraph.id = 'funcionamento'
-    paragraph.style.fontStyle = 'italic';
-
-    for (let index = 0; index < body.length; index += 1) {
-        body[index].appendChild(paragraph)
-    }
-}
-addParagraph();
 
 // Requisito 03
 let boxText = document.createElement('input');
