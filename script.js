@@ -1,5 +1,11 @@
 localStorage.setItem('idInitial', 0)
 
+function limpar(){
+  let texto = document.getElementById('texto-tarefa')
+
+  texto.value = ''
+}
+
 function salvarTexto(){
   let texto = document.getElementById('texto-tarefa').value
   let lista = document.getElementById('lista-tarefas')
@@ -13,6 +19,7 @@ function salvarTexto(){
   newLi.innerHTML = localStorage.getItem(identificador)
 
   paint()
+  limpar()
 
 }
 
