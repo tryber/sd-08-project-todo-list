@@ -1,7 +1,6 @@
 const text = document.getElementById('texto-tarefa');
 const button = document.getElementById('criar-tarefa');
-let lastSelect = undefined;
-
+let lastSelect = null;
 
 function selectHandler(event) {
   if (lastSelect === null) {
@@ -13,11 +12,21 @@ function selectHandler(event) {
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
+function dblclick(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
 function createItem(texto) {
   const item = document.createElement('li');
   item.classList.add('list');
   item.innerHTML = texto;
   item.addEventListener('click', selectHandler);
+  item.addEventListener('dblclick', dblclick);
+  return item;
 }
 
 function addItem() {
@@ -28,41 +37,3 @@ function addItem() {
 }
 
 button.addEventListener('click', addItem);
-
-
-// function createList() {
-//   button.addEventListener('click', function () {
-//     const list = document.getElementById('lista-tarefas');
-//     const item = document.createElement('li');
-//     list.appendChild(item);
-//     item.innerHTML = text.value;
-//     text.value = '';
-//     item.classList.add('list');
-
-//     item.addEventListener('click', function (event) {
-//       if (lastSelect === undefined) {
-//         lastSelect = event.target;
-//       } else {
-//         lastSelect.style.backgroundColor = 'white';
-//         lastSelect = event.target;
-//       }
-//       event.target.style.backgroundColor = 'rgb(128,128,128)';
-//     });
-
-//     item.addEventListener('dblclick', function (event) {
-//       if (lastSelect === undefined) {
-//         lastSelect = event.target;
-//         console.log('entrou 1')
-//       } else if (lastSelect !== contains('completed')) {
-//         lastSelect.classList.add('completed');
-//         lastSelect = event.target;
-//         console.log('entrou 2')
-//       }
-//       event.target.classList.remover('completed');
-//       console.log('entrou 3')
-//     });
-//   });
-// }
-// createList();
-
-
