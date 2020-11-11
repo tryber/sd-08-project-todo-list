@@ -79,8 +79,9 @@ function desceItem(){
   list.insertBefore(itemSelecionado[0], list.childNodes[posicacaoAtual+3]);
 }
 
-function ApagarRiscados(){
-  var nos = document.getElementsByClassName("completed");
+//https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
+function apagarPorClasse(className){
+  var nos = document.getElementsByClassName(className);
   var numeroDeElementos = nos.length;
   for (let x = 0; x < numeroDeElementos; x++)
   {
@@ -90,12 +91,15 @@ function ApagarRiscados(){
   }
 }
 
+//https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
 function ApagarTodos(){
   var pai = document.getElementById("lista-tarefas");
   while (pai.firstChild) {
     pai.removeChild(pai.firstChild);
   }
 }
+
+
 
 window.onload = () => {
   let botaoAdiciona = document.getElementById("criar-tarefa");
@@ -109,10 +113,13 @@ window.onload = () => {
   botaoDesceItem.onclick = desceItem;
 
   let botaoRemoveRiscados = document.getElementById("remover-finalizados");
-  botaoRemoveRiscados.onclick = ApagarRiscados;
+  botaoRemoveRiscados.onclick = () => apagarPorClasse("completed");
 
   let botaoRemoveTodos = document.getElementById("apaga-tudo");
   botaoRemoveTodos.onclick = ApagarTodos;
+
+  let botaoRemoveSelecionados = document.getElementById("remover-selecionado");
+  botaoRemoveSelecionados.onclick = () => apagarPorClasse("selected");;
 
 }
 
