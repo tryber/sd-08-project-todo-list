@@ -15,7 +15,8 @@ function selectItem(event) {
 }
 
 function completeTask(event) {
-  event.target.classList.add('completed');
+  let task = event.target;
+  task.classList.toggle('completed');
 }
 
 function createTask(text) {
