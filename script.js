@@ -50,11 +50,13 @@ function setColor() {
     let item = document.querySelectorAll(".list-item");
     for (let i = 0; i < item.length; i++) { 
         item[i].addEventListener("click", function (event) { 
-        reverteClasses();                         
-            if (item[i].className !== "completed"){
+        reverteClasses();     
+
+            if (item[i].className === "list-item"){
                 event.target.className = 'list-item-active'; 
             }
         })
+
         item[i].addEventListener("dblclick", function (event) { 
             if (item[i].className !== "completed"){
                 event.target.className = 'completed';
@@ -80,7 +82,20 @@ function reverteClasses (){
 
     
     
-   
+//Função para apagar itens da lista
+let botaoApagaFinalizados = document.querySelector('#remover-finalizados')
+botaoApagaFinalizados.onclick = () => {
+    const listaInterna = document.querySelectorAll(".completed");
+    if (listaInterna){
+        if (confirm("\t\n Deseja apagar todos os itens completados da lista? \t\n")){            
+            while (listaInterna.firstChild) {
+                listaInterna.removeChild(listaInterna.lastChild);
+            }
+         }
+    } else {
+        alert("\t Não há itens em sua lista! \t")
+    }   
+}
     
 
         
