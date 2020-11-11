@@ -1,3 +1,5 @@
+const orderList = document.querySelector('#lista-tarefas');
+
 function addItemlist() {
     let btnAdd = document.getElementById('criar-tarefa');
     let orderList = document.querySelector('#lista-tarefas');
