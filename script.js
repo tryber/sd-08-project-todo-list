@@ -11,6 +11,7 @@ function addTasks (){
         }else{
             let li = document.createElement('li');
             li.innerText = inputTasks;
+            li.className = 'task'
             //li.className= 'listItem'
             listTasks.appendChild(li);
             document.getElementById('texto-tarefa').value= '';
@@ -43,7 +44,7 @@ changeColor();
 function scratchItem (){
     for (let index = 0; index < listItem.length; index +=1){
         listItem[index].addEventListener('dblclick', function(event){
-            
+
             if (event.target.classList.contains('completed')){
                 event.target.classList.remove('completed');
             }else{
@@ -52,8 +53,22 @@ function scratchItem (){
             
         });
     }
-
-
 }
 
 scratchItem();
+
+// Requisito 10
+
+function clearList (){
+    let button = document.querySelector('#apaga-tudo');
+    let li = document.getElementsByName('li');
+
+    button.addEventListener('click', function(event){
+     for (let x =0; x < listItem.length; x+=1){
+         listItem[x].innerText = '';
+     }
+        
+    });
+}
+
+clearList()
