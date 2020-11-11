@@ -5,3 +5,10 @@ margin-top: 50px;
 .completed {
     text-decoration: line-through;
 }
+.incompleted {
+    text-decoration: none;
+}
+
+.colorgray{
+    background-color: grey;
+}
