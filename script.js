@@ -88,18 +88,20 @@ toSaveList();
 
 function getSavedList() {
   let localSavedList = localStorage.getItem('savedList');
-  savedListItem = JSON.parse(localSavedList);
+  if (localSavedList != null) {
+    savedListItem = JSON.parse(localSavedList);
 
-  function addSavedList() {
-    for (let j = 0; j < savedListItem.length; j += 1) {
-      let aux = savedListItem[j];
-      let createLi = document.createElement('li');
-      createLi.innerHTML = aux[0];
-      createLi.className = aux[1];
-      orderedList.appendChild(createLi);
+    function addSavedList() {
+      for (let j = 0; j < savedListItem.length; j += 1) {
+        let aux = savedListItem[j];
+        let createLi = document.createElement('li');
+        createLi.innerHTML = aux[0];
+        createLi.className = aux[1];
+        orderedList.appendChild(createLi);
+      }
     }
+    addSavedList();
   }
-  addSavedList();
 }
 getSavedList();
 
