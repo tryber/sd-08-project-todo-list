@@ -46,3 +46,16 @@ function deleteList() {
 }
 
 deleteList();
+
+function deleteCompletedItens() {
+    let list = document.querySelector('#lista-tarefas');
+    let button = document.querySelector('#remover-finalizados');
+    button.addEventListener('click', function () {
+        let completed = document.getElementsByClassName('completed');
+        for (let i = completed.length - 1; i >= 0; i -= 1) {
+            list.removeChild(completed[i]);
+        }
+    })
+}
+
+deleteCompletedItens();
