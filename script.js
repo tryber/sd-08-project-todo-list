@@ -79,3 +79,25 @@ function saveTaskToLocalStorage() {
 }
 
 document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('lista')
+
+//Requisito 14 - Remover item selecionado
+let deleteSelected = document.querySelector('#remover-selecionado')
+deleteSelected.addEventListener('click', deleteSelectedtask)
+
+function deleteSelectedtask () {
+
+  const selectAllTasks = document.querySelectorAll('li')
+
+  if (typeof(Storage) !== "undefined") {
+
+    for (let index = 0; index < selectAllTasks.length; index += 1) {
+      if (selectAllTasks[index].style.backgroundColor == 'rgb(128, 128, 128)')  {
+        selectAllTasks[index].remove()
+      }
+    }
+
+   } else {
+      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+
+}
