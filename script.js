@@ -51,11 +51,10 @@ function listColor(){
 
     olColor.addEventListener("dblclick", function(event){
         if (event.target.className == "class"){
-            event.target.className = "completed";              
+            event.target.className = "completed";                          
         }else {
             event.target.className = "class"
-        }  
-            
+        }             
     })
 }
 listColor();
@@ -80,18 +79,14 @@ buttonRemove.innerHTML = "Limpar Completos";
 divInput.appendChild(buttonRemove);
 
 function listRemove(){
-
     buttonRemove.addEventListener("click", function(){
         
-        let completed = document.querySelector(".completed").className;
+        let completed = document.querySelectorAll(".completed");
 
-        if (completed == "completed"){
-            olOrdered.childNodes.innerHTML = "";
+        for(let index=0; index<completed.length; index++){
+            olOrdered.removeChild(completed[index]);
         }
-
-
-    });
-    
+    });    
 }
 listRemove();
 
