@@ -54,3 +54,14 @@ apagar();
         completeItem[index].remove();
     }
 })
+
+
+//rrequisito 14
+const botaoRemover = document.getElementById("remover-selecionado");
+
+    botaoRemover.addEventListener("click", function () {
+    const completeItem = document.querySelectorAll(".marcado");
+    for (let index = 0; index < completeItem.length; index++) {
+        completeItem[index].remove();
+    }
+})

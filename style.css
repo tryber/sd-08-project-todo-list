@@ -28,3 +28,8 @@
     background-color: green;
     color: white;
 }
+
+#remover-selecionado {
+    background-color: red;
+    color: white;
+}
