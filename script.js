@@ -41,7 +41,15 @@ function apagaTudo() {
   while (listaTarefa.firstChild) listaTarefa.removeChild(listaTarefa.firstChild);
 }
 
+function removerFinalizados() {
+  const listaCompletados = document.querySelectorAll('.completed');
+  listaCompletados.forEach((elemento, index) => {
+    listaCompletados[index].parentNode.removeChild(elemento);
+  });
+}
+
 capturaEvento('criar-tarefa', 'click', criarTarefa);
 capturaEvento('apaga-tudo', 'click', apagaTudo);
 capturaEvento('lista-tarefas', 'click', selectedItem);
 capturaEvento('lista-tarefas', 'dblclick', tarefaConcluida);
+capturaEvento('remover-finalizados', 'click', removerFinalizados);
