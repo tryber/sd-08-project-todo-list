@@ -20,7 +20,7 @@ const taskList = document.createElement('ol');
 taskList.id = 'lista-tarefas';
 document.querySelector('body').appendChild(taskList);
 
-//Cria Botão e Lista valor do imput - 5º requisito
+//Cria Botão e Lista valor do imput - 5º e 6º requisitos
 const btnCriar = document.createElement('button');
 btnCriar.id = 'criar-tarefa';
 btnCriar.innerText = 'Nova Tarefa';
@@ -36,26 +36,37 @@ function makeList(){
     document.querySelector('#lista-tarefas').appendChild(listaTarefas); //Cria lista
     
 }
-//Define backgroundcolor dos itens da Lista - 6º
+//Define backgroundcolor dos itens da Lista - 7º e 8º requisitos
 const backColorList = document.getElementById('lista-tarefas');
 backColorList.addEventListener('click', backColorPaint);
-
+//Remove style
 function rmvColorPaint(){
     const vetorLista = document.querySelectorAll('#lista');
     for(let index = 0; index < vetorLista.length; index += 1){
         vetorLista[index].style = '';
     }
-}//Remove style
-
+}
+//Aplica style
 function backColorPaint(event){
-    const vetorLista = document.querySelectorAll('#lista');
     const corLista = 'rgb(128, 128, 128)';
     rmvColorPaint();
     
     if(backColorList.style.backgroundColor != backColorList.style.backgroundColor.corLista){
         event.target.style.backgroundColor = corLista;
     }
-}//Aplica style
+}
+//Aplica tarefa concluida - 9º requisito
+const completeList = document.getElementById('lista-tarefas');
+completeList.addEventListener('dblclick', addDobleClick);
+
+function addDobleClick(event){
+    const atributo = event.target;
+    if(atributo.className != 'completed'){
+        atributo.className = 'completed';
+    }else{
+        atributo.className = '';
+    }
+}
         
    
   
