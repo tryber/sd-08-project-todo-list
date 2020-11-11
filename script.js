@@ -28,12 +28,14 @@ botaoTarefaC.addEventListener("click", moveTarefaC);
 botaoTarefaB.addEventListener("click", moveTarefaB);
 
 function adicionaTarefa() {
-  let li = document.createElement("li");
-  li.innerText = input.value;
-  li.addEventListener("click", alteraCor);
-  li.addEventListener("dblclick", riscaTarefa);
-  listaTarefas.appendChild(li);
-  input.value = "";
+  if (input.value != "") {
+    let li = document.createElement("li");
+    li.innerText = input.value;
+    li.addEventListener("click", alteraCor);
+    li.addEventListener("dblclick", riscaTarefa);
+    listaTarefas.appendChild(li);
+    input.value = "";
+  }
 }
 
 function alteraCor(event) {
