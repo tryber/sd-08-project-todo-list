@@ -1,21 +1,23 @@
-function adicionaTarefa() {
-  const caixaTexto = document.querySelector('#texto-tarefa');
-  const botaoAdiciona = document.getElementById('criar-tarefa');
-  const listaOrdenada = document.getElementById('lista-tarefas');
+const caixaTexto = document.querySelector('#texto-tarefa');
+const botaoAdiciona = document.getElementById('criar-tarefa');
+const listaOrdenada = document.getElementById('lista-tarefas');
 
-  botaoAdiciona.addEventListener('click', () => {
-    const itemLista = document.createElement('li');
-    itemLista.className = 'tarefa';
-    itemLista.innerText = caixaTexto.value;
-    listaOrdenada.appendChild(itemLista);
-    caixaTexto.value = '';
-  });
+// Refatorei com a ajuda de meu colega Paulo Simões
+function adicionaTarefa(texto) {
+  const itemLista = document.createElement('li');
+  itemLista.className = 'tarefa';
+  itemLista.innerText = texto;
+  return itemLista;
 }
 
-adicionaTarefa();
+botaoAdiciona.addEventListener('click', () => {
+  const texto = caixaTexto.value;
+  listaOrdenada.appendChild(adicionaTarefa(texto));
+  caixaTexto.value = '';
+});
+
 
 function corFundoTarefa() {
-  const listaOrdenada = document.getElementById('lista-tarefas');
   let ultimoSelecionado = null;
   listaOrdenada.addEventListener('click', (event) => {
     if (ultimoSelecionado === null) {
@@ -35,8 +37,6 @@ function corFundoTarefa() {
 corFundoTarefa();
 
 function riscarTarefa() {
-  const listaOrdenada = document.getElementById('lista-tarefas');
-
   listaOrdenada.addEventListener('dblclick', (event) => {
     if (event.target.className === 'tarefa completed' || event.target.className === 'tarefa completed selecionada') {
       event.target.classList.remove('completed');
@@ -50,7 +50,6 @@ riscarTarefa();
 
 function apagarLista() {
   const apagaLista = document.getElementById('apaga-tudo');
-  const listaOrdenada = document.getElementById('lista-tarefas');
 
   apagaLista.addEventListener('click', () => {
     // a thread do slack, https://trybecourse.slack.com/archives/C01A9A2N93R/p1605039868012200, me ajudou a fazer este requisito
@@ -63,7 +62,6 @@ apagarLista();
 
 function apagarTarefasFinalizadas() {
   const removerTarefaFinalizada = document.getElementById('remover-finalizados');
-  const listaOrdenada = document.getElementById('lista-tarefas');
 
   removerTarefaFinalizada.addEventListener('click', () => {
     const tarefasFinalizadas = document.querySelectorAll('.completed');
@@ -76,21 +74,35 @@ function apagarTarefasFinalizadas() {
 
 apagarTarefasFinalizadas();
 
+// Fiz com a ajuda do meu colega Paulo Simões
 function salvarTarefas() {
-  const salvarLista = document.querySelector('#salvar-tarefas');
-
-  salvarLista.addEventListener('click', () => {
-    // analisando o código do meu colega Paulo Simões, me deu uma ideia de como poderia fazer
-    // https://github.com/tryber/sd-08-project-todo-list/pull/36/files
-    const array = [];
-
-    const tarefas = document.querySelectorAll('.tarefa');
-    for (let i = 0; i < tarefas.length; i += 1) {
-      const tarefa = tarefas[i];
-      array.push({ tarefa: tarefa.innerText, selecionada: tarefa.classList.contains('selecionada'), completada: tarefa.classList.contains('completed') });
-    }
-    localStorage.setItem('tarefas', JSON.stringify(array));
-  });
+  const array = [];
+  const tarefas = document.querySelectorAll('.tarefa');
+  for (let i = 0; i < tarefas.length; i += 1) {
+    const tarefa = tarefas[i];
+    array.push({ atividade: tarefa.innerText, selecionada: tarefa.classList.contains('selecionada'), completada: tarefa.classList.contains('completed') });
+  }
+  localStorage.setItem('tarefas', JSON.stringify(array));
 }
 
-salvarTarefas();
+const salvarLista = document.querySelector('#salvar-tarefas');
+salvarLista.addEventListener('click', salvarTarefas);
+
+const salvo = JSON.parse(localStorage.getItem('tarefas')) || null;
+
+if (salvo !== null) {
+  for (let i = 0; i < salvo.length; i += 1) {
+    const tarefa = salvo[i];
+    const itemLista = adicionaTarefa(tarefa.atividade);
+
+    if (tarefa.selecionada) {
+      itemLista.classList.add('selecionada');
+    }
+
+    if (tarefa.completada) {
+      itemLista.classList.add('completed');
+    }
+
+    listaOrdenada.appendChild(itemLista);
+  }
+}
