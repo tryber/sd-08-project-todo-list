@@ -85,3 +85,10 @@ document.getElementById('mover-baixo').addEventListener('click', function () {
     };
   };
 });
+
+//remover selecionado
+let rmBotao = document.getElementById('remover-selecionado');
+rmBotao.addEventListener('click', function() {
+  let listaCompletos = document.querySelector('.selected');
+    listaCompletos.remove();
+});
