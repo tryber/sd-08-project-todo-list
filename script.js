@@ -12,10 +12,8 @@ function createLi () {
         let listElement = document.createElement('li');
         document.querySelector('#lista-tarefas').appendChild(listElement);
         listElement.innerHTML = document.querySelector('#texto-tarefa').value;
-        document.querySelector('#texto-tarefa').value = '';    
-        // changeBackColor();   
-        // removeFinishedTask(); 
-        // moveDown ();           
+        document.querySelector('#texto-tarefa').value = '';        
+        deleteAllTasks();           
     });
 }
 createLi();
@@ -66,6 +64,8 @@ function removeFinishedTask() {
 }
 removeFinishedTask();
 
+
+
 // SALVAR NO LOCALSTORAGE
 function saveTasks (){
     document.querySelector('#salvar-tarefas').addEventListener('click', function (){
@@ -84,15 +84,26 @@ function loadTasks(){
 deleteAllTasks();
 
 // SETA PARA CIMA 
+// function moveUp () {
+//     document.querySelector('#mover-cima').addEventListener('click', function (){    
+//         for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
+//             if (document.querySelectorAll('li')[index].classList.contains('selected')) {                
+//                 if (index > 0) {
+//                     document.querySelector('#lista-tarefas').insertBefore(document.querySelectorAll('li')[index], document.querySelectorAll('li')[index].previousElementSibling);
+//                 }                   
+//             }
+//         }                              
+//     });
+// }
+// moveUp();
+
 function moveUp () {
-    document.querySelector('#mover-cima').addEventListener('click', function (){    
-        for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
-            if (document.querySelectorAll('li')[index].classList.contains('selected')) {                
-                if (index > 0) {
-                    document.querySelector('#lista-tarefas').insertBefore(document.querySelectorAll('li')[index], document.querySelectorAll('li')[index].previousElementSibling);
-                }                   
-            }
-        }                              
+    document.querySelector('#mover-cima').addEventListener('click', function () {
+        if (document.querySelector('.selected') !== null) {
+            if (document.querySelector('.selected').previousElementSibling !== null) {
+                document.querySelector('#lista-tarefas').insertBefore(document.querySelector('.selected'), document.querySelector('.selected').previousElementSibling);
+            } 
+        }                      
     });
 }
 moveUp();
