@@ -60,22 +60,39 @@ const salvarTarefa = document.querySelector('#salvar-tarefas');
 
 function storeTasks() {
   localStorage.clear();
+
+  let oldList = [];
+  let completedList = [];
+
   for (let i = 0; i < ol.children.length; i += 1) {
-    localStorage.setItem(i, ol.children[i].innerText);
+    oldList.push(ol.children[i].innerText);
+    if (ol.children[i].classList.contains('completed')) {
+      completedList.push(i);
+    }
   }
+
+  localStorage.setItem('lista', JSON.stringify(oldList));
+  localStorage.setItem('completed', JSON.stringify(completedList));
 }
 
 salvarTarefa.addEventListener('click', storeTasks);
 
 window.onload = function () {
   if (localStorage.length !== 0) {
-    for (let i = 0; i < localStorage.length; i += 1) {
+    let cls = JSON.parse(localStorage.getItem('lista'));
+    let com = JSON.parse(localStorage.getItem('completed'));
+
+    for (let i = 0; i < cls.length; i += 1) {
       const li = document.createElement('li');
       ol.appendChild(li);
-      ol.children[ol.children.length - 1].innerText = localStorage.getItem(i);
+      ol.children[ol.children.length - 1].innerText = cls[i];
+    }
+
+    for (let i = 0; i < com.length; i += 1) {
+      ol.children[com[i]].classList.add('completed');
     }
   }
-}
+};
 
 const paraCima = document.querySelector('#mover-cima');
 const paraBaixo = document.querySelector('#mover-baixo');
