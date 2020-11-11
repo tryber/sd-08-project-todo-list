@@ -13,3 +13,29 @@
 #remover-finalizados {
     margin: 5px;
 }
+
+body {
+    background-color: #e4e8ec;
+}
+
+.main {
+    background-color: cornsilk;
+    border-radius: 2%;
+    padding: 20px;
+    width: 50%;
+    margin-top: 20px;
+    position: relative;
+    left: 200px;
+
+}
+
+button {
+    background-color: #e4e8ec;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+input {
+    border-radius: 2%;
+}
+
