@@ -56,12 +56,6 @@ botaoCompletados.addEventListener('click', function (){
   }
 })
 
-// nextElementSibling: retorna o próximo elemento.
-// previousElementSibling: retorna o elemento anterior.
-
-//elementoPai.insertBefore(novoElemento, elemento referência)
-//
-
 let botaoUp = document.querySelector("#mover-cima");
 botaoUp.addEventListener('click', function () {
 let listaTarefas = document.querySelectorAll('.tarefasLi');
@@ -101,70 +95,3 @@ let paiTarefas = document.querySelector("#lista-tarefas");
     }
   }
 })
-
-let salvar = document.querySelector("#salvar-tarefas");
- salvar.addEventListener('click', function () {   
-  let listaTarefas = document.querySelectorAll('.tarefasLi');
-  let tarefaSalva = []
-  let classe =[]
-    for (let i = 0; i < listaTarefas.length; i++ ) {
-      let element = listaTarefas[i];
-      tarefaSalva.push(element.innerHTML);
-      classe.push(element.className)
-      }
-      localStorage.setItem("tarefaSalva", JSON.stringify(tarefaSalva))      
-      localStorage.setItem("classe", JSON.stringify(classe))
- })
-
- var tarefas = document.querySelector("#lista-tarefas");
- let classeUsavel = JSON.parse(localStorage.getItem("classe"))
- let tarefaSalvaUsavel = JSON.parse(localStorage.getItem("tarefaSalva"))
- for (let i = 0; i < tarefaSalvaUsavel.length; i++ ) {
-    let tarefa = document.createElement('li');    
-    tarefas.appendChild(tarefa);
-    tarefa.innerHTML = tarefaSalvaUsavel[i];
-    tarefa.className = classeUsavel[i]
- }
-
-
-
- 
-
-
-//  tarefa.className = 'tarefasLi';
-
-
-
-//  var tarefas = document.querySelector("#lista-tarefas");
-//  let tarefaSalvaUsavel
-//  for (let i = 0; i < localStorage.tarefaSalva.length; i++ ) {
-//     let tarefa = document.createElement('li');    
-//     tarefas.appendChild(tarefa);
-//     tarefa.innerHTML = localStorage.tarefaSalva[i];
-//  }
-
-
-
-
-// let salvar = document.querySelector("#salvar-tarefas");
-//  salvar.addEventListener('click', function () {   
-//   let listaTarefas = document.querySelectorAll('.tarefasLi');
-//     for (let i = 0; i < listaTarefas.length; i++ ) {
-//       let element = listaTarefas[i];
-//       let tarefaSalva = "tarefa" + i
-//       localStorage.setItem(tarefaSalva, element.innerHTML )
-//       let classe = "classe" + i;
-//       localStorage.setItem(classe, element.className)
-//       }
-//  })
-//  var tarefas = document.querySelector("#lista-tarefas");
-//  for (let i = 0; i < localStorage.length; i++ ) {
-//     let tarefa = document.createElement('li');
-//     tarefa.className = 'tarefasLi';
-//     tarefas.appendChild(tarefa);
-//     let tarefaSalva = "tarefa" + i;
-//     let auxiliar = localStorage.getItem(tarefaSalva)
-//     tarefa.innerHTML = auxiliar;
-//  }
- 
-
