@@ -1,0 +1,15 @@
+section{
+    padding: 20px 0;
+}
+
+#options button {
+    margin-right: 20px;
+}
+
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+ol li{
+    padding: 5px 0;
+}
