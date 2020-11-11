@@ -1,6 +1,10 @@
-function addTask(task) {
+function addTask(task, className, style) {
   const ol = document.getElementById('lista-tarefas');
   const li = document.createElement('li');
+  if (className !== null) {
+    li.classList.add(className);
+    li.style.textDecoration = style;
+  }
   li.innerText = task;
   ol.appendChild(li);
 }
@@ -62,7 +66,48 @@ function removeAllCompleted() {
   });
 }
 removeAllCompleted();
+function generateListOfTasks() {
+  const taskList = document.getElementById('lista-tarefas');
+  const task = {
+    task: '',
+    completed: false,
+  };
+  const listOfTasks = [];
+  for (let i = 0; i < taskList.children.length; i += 1) {
+    const tempTask = Object.create(task);
+    tempTask.task = taskList.children[i].innerText;
+    if (taskList.children[i].classList.contains('completed')) {
+      tempTask.completed = true;
+    } else {
+      tempTask.completed = false;
+    }
+    listOfTasks.push(tempTask);
+  }
+  return listOfTasks;
+}
+
+function saveTasks() {
+  const btnSaveTasks = document.getElementById('salvar-tarefas');
+  btnSaveTasks.addEventListener('click', function () {
+    localStorage.setItem('listOfTasks', JSON.stringify(generateListOfTasks()));
+  });
+}
+saveTasks();
+
+function loadTasks() {
+  const taskList = JSON.parse(localStorage.getItem('listOfTasks'));
+  for (let i = 0; i < taskList.length; i += 1) {
+    if (taskList[i].completed === true) {
+      const style = 'line-through solid rgb(0, 0, 0)';
+      addTask(taskList[i].task, 'completed', style);
+    } else {
+      addTask(taskList[i].task);
+    }
+  }
+}
+
 window.onload = function () {
   selectItem();
   actionAddTask();
+  loadTasks();
 };
