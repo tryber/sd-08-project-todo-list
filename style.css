@@ -103,3 +103,7 @@ input {
 .selected {
   background-color: rgb(128, 128, 128);
 }
+
+.salvar-tarefas-btn {
+  padding: 0 100px;
+}
