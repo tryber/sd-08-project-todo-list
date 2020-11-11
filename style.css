@@ -1,3 +1,7 @@
 #funcionamento {
     font-style: italic;
 }
+
+.selected{
+    background-color:rgb(128, 128, 128);
+}

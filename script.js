@@ -11,7 +11,7 @@ function addTasks (){
         }else{
             let li = document.createElement('li');
             li.innerText = inputTasks;
-            li.className= 'listItem'
+            //li.className= 'listItem'
             listTasks.appendChild(li);
             document.getElementById('texto-tarefa').value= '';
         }
@@ -21,14 +21,20 @@ function addTasks (){
 addTasks();
 
 // Requisito 07
-
+let listItem = document.querySelectorAll('#lista-tarefas');
 function changeColor(){
-    let listItem = document.querySelectorAll('#lista-tarefas');
+    
     for (let index =0; index < listItem.length; index+=1){
-        listItem[index].addEventListener('click', function(event){  
-            event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+        listItem[index].addEventListener('click', function(event){
+            let elemetSe = document.querySelectorAll('.selected');
+            for (let x =0; x < elemetSe.length; x+=1){
+                elemetSe[x].classList.remove('selected');
+            }
+            event.target.classList.add('selected');
+           
         });
     }
 }
 
 changeColor();
+
