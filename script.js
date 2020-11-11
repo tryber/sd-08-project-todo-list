@@ -1,3 +1,27 @@
+window.onload = function() {
+    let storage;
+    let vetorPalavra = [''];
+    let contador = 0;
+    storage = localStorage.getItem('tasks');
+ 
+    for (index = 0; index < storage.length; index += 1) {
+        if (storage[index] === ','){
+            vetorPalavra[contador += 1];
+            vetorPalavra[contador] = '';
+        } else {
+            vetorPalavra[contador] += storage[index];
+        }
+    }
+
+    for (let index = 0; index < vetorPalavra.length; index += 1) {
+        let li = document.createElement('li');
+        let ol = document.querySelector('#lista-tarefas');
+        li.innerText = vetorPalavra[index];
+        ol.appendChild(li);
+    }
+    console.log(vetorPalavra);
+}
+
 function addTask() {
     const input = document.querySelector('#texto-tarefa');
     const botao = document.querySelector('#criar-tarefa');
@@ -75,3 +99,19 @@ function removeCompletedTask() {
 }
 
 removeCompletedTask();
+
+function saveTasks() {
+    const button = document.querySelector('#salvar-tarefas');
+
+    button.addEventListener('click', function() {
+        const li = document.querySelectorAll('.task');
+        let nome = [];
+
+        for (let index = 0; index < li.length; index += 1) {
+            nome[index] = li[index].innerText;
+        }
+        localStorage.setItem('tasks', nome);
+    });
+}
+
+saveTasks();
