@@ -13,3 +13,18 @@
 .marcado {
     background-color: rgb(128,128,128);
 }
+
+.limpaComp {
+    background-color: rgba(5, 5, 236, 0.658);
+    color: white;
+}
+
+#apaga-tudo {
+    background-color: red;
+    color: white;
+}
+
+.salvaList {
+    background-color: green;
+    color: white;
+}

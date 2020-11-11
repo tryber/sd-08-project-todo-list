@@ -33,4 +33,14 @@ function botao() {
 botao();
 
 
-
+ function apagar() {
+    const botaoApaga = document.getElementById("apaga-tudo");
+    botaoApaga.addEventListener("click", () => {
+        const lista = document.querySelectorAll("li")
+        for (let index = lista.length -1; index >= 0 ; index -= 1) {
+            console.log(lista);
+        lista[index].remove();
+        }
+    })
+}
+apagar();
