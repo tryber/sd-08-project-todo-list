@@ -6,6 +6,14 @@ window.onload = function () {
     let taskListToLoad = localStorage.getItem('taskList');
     taskList.innerHTML = taskListToLoad;
     
+    let allTaks = document.querySelectorAll('li');
+
+    if(allTaks.length < 1){}
+    else{
+        for(let i = 0; i < allTaks.length; i+= 1){
+            addListenersToListItem(allTaks[i]);
+        }
+    }
 };
 
 //Cria o header e o texto que explica
@@ -13,7 +21,8 @@ createBasics();
 buttonDeleteAll();
 buttonDeleteFinished();
 saveTasks();
-
+buttonMoveTask();
+buttonRemoveSelected();
 
 function createBasics() {
     //Cria o header
@@ -56,35 +65,38 @@ function createInput() {
         let novaLinha = document.createElement('li');
         novaLinha.innerHTML = novaTarefa;
         novaLinha.className = '';
-        lista.appendChild(novaLinha);
-
-        //Adiciona um listener a essa nova linha para que quando for clicado troque a cor de fundo
-        novaLinha.addEventListener('click', function (event) {
-            let getAllListItems = document.querySelectorAll('li');
-            for (let i = 0; i < getAllListItems.length; i += 1) {
-                getAllListItems[i].style.backgroundColor = 'white';
-            }
-            event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-        })
-
-        //Adiciona um listener a essa nova linha para que quando for clicado duas vezes o texto fique riscado
-        novaLinha.addEventListener('dblclick', function (event) {
-
-            let checkClasses = event.target.className;
-            console.log(checkClasses);
-
-            if (checkClasses == '') {
-                event.target.className = 'completed';
-            } else {
-                event.target.className = '';
-            }
-        })
+        addListenersToListItem(novaLinha);
+        lista.appendChild(novaLinha);        
 
         //Limpa o campo input
         document.querySelector('#texto-tarefa').value = '';
     })
 
     body.appendChild(button);
+}
+
+function addListenersToListItem(listItem) {
+
+    //Adiciona um listener a essa nova linha para que quando for clicado troque a cor de fundo
+    listItem.addEventListener('click', function (event) {
+        let getAllListItems = document.querySelectorAll('li');
+        for (let i = 0; i < getAllListItems.length; i += 1) {
+            getAllListItems[i].style.backgroundColor = '';
+        }
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    })
+
+    //Adiciona um listener a essa nova linha para que quando for clicado duas vezes o texto fique riscado
+    listItem.addEventListener('dblclick', function (event) {
+
+        let checkClasses = event.target.className;
+
+        if (checkClasses == '') {
+            event.target.className = 'completed';
+        } else {
+            event.target.className = '';
+        }
+    })
 }
 
 function buttonDeleteAll() {
@@ -128,8 +140,72 @@ function saveTasks() {
     button.innerHTML = 'Salvar tarefas';
 
     button.addEventListener('click', function () {
+        let getAllListItems = document.querySelectorAll('li');
+        for (let i = 0; i < getAllListItems.length; i += 1) {
+            getAllListItems[i].style.backgroundColor = '';
+        }
         let taskListToSave = document.querySelector('#lista-tarefas').innerHTML;
         localStorage.setItem('taskList', taskListToSave);
     })
     body.appendChild(button);
+}
+
+function buttonMoveTask() {
+    let buttonUp = document.createElement('button');
+    buttonUp.id = 'mover-cima';
+    buttonUp.innerHTML = 'Mover para cima';
+
+    let buttonDown = document.createElement('button');
+    buttonDown.id = 'mover-baixo';
+    buttonDown.innerHTML = 'Mover para baixo';
+
+    buttonUp.addEventListener('click', function () {
+        let getList = document.querySelector('#lista-tarefas');
+        let taskSelected = getSelected();
+        let firstChild = getList.firstChild;        
+
+        if(taskSelected == firstChild || taskSelected == null){            
+        }else{
+            let previousTask = taskSelected.previousSibling;            
+            getList.insertBefore(taskSelected, previousTask);            
+        }
+    })
+
+    body.appendChild(buttonUp);
+
+    buttonDown.addEventListener('click', function () {
+        let getList = document.querySelector('#lista-tarefas');
+        let taskSelected = getSelected();
+        let lastChild = getList.lastChild;
+
+        if(taskSelected == lastChild || taskSelected == null){        
+        }else{
+            let nextTask = taskSelected.nextSibling;            
+            getList.insertBefore(nextTask, taskSelected);            
+        }
+    })    
+    
+    body.appendChild(buttonDown);
+}
+
+function buttonRemoveSelected() {
+    let button = document.createElement('button');
+    button.id = 'remover-selecionado';
+    button.innerHTML = 'Remover selecionado';
+
+    button.addEventListener('click', function () {
+        let getList = document.querySelector('#lista-tarefas')
+        getList.removeChild(getSelected());
+    })
+
+    body.appendChild(button);
+}
+
+function getSelected(){
+    let allItems = document.querySelectorAll('li');
+    for (let i = 0; i < allItems.length; i += 1) {
+        if (allItems[i].style.backgroundColor != '') {
+            return allItems[i];
+        }
+    }
 }
