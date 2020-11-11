@@ -5,8 +5,7 @@ function insereElementoNaLista (){
     let li_ID = document.getElementById("lista-tarefas")    
     let Item = document.createElement('li')
     Item.classList.add("list-item");
-    let ultimoElemento;  
-        
+    let ultimoElemento;         
       
     //Verifica se o input text está vazio
     if (inputText !== '') {
@@ -21,7 +20,6 @@ function insereElementoNaLista (){
     setColor();
     doubleClick();
 }
-
 
 // Ao clicar no botão salva o texto na lista e apaga conteúdo do input
 document.getElementById("criar-tarefa").onclick = function(e) {
@@ -44,9 +42,7 @@ botaoApaga.onclick = () => {
     }   
 }
 
-
 //Ao clicar em um dos itens a variável recebe a classe active
-//Ao clicar duas vezes o item recebe a classe completed
 function setColor() {    
     let item = document.querySelectorAll(".list-item");
     for (let i = 0; i < item.length; i++) { 
@@ -59,29 +55,34 @@ function setColor() {
     }     
 }   
 
-
-
-
-
+//Ao dar um duplo click ele aplica a classe completed
 function doubleClick() {    
     let item = document.querySelectorAll(".list-item");
     for (let i = 0; i < item.length; i++) {   
         item[i].addEventListener("dblclick", function (event) { 
+            // if (item[i].className === ""){
+            //     event.target.classList.add('list-item'); 
+            // } else if (item[i].className === "list-item" || item[i].className === "list-item-active"){
+            //     event.target.classList.add('completed'); 
+            // }
+
+
+
             if (item[i].className === "completed"){
-                event.target.className = 'list-item';            
-            } else {
-                event.target.className = 'completed'; 
-            }
+                event.target.classList.remove('completed'); 
+                event.target.classList.add('list-item'); 
+                                         
+            } else if (item[i].className === "list-item-active"){
+                event.target.classList.remove('list-item-active'); 
+                event.target.classList.add('completed');
+
+            } else if (item[i].className === "list-item"){
+                event.target.classList.remove('list-item');
+                event.target.classList.add('completed');
+            } 
         })
     }     
 } 
-
-
-
-
-
-
-
 
 //Função para reverter classe dos itens da lista, é chamada na função serColor
 function reverteClasses (){
@@ -93,19 +94,19 @@ function reverteClasses (){
 }    
     
 //Função para apagar itens da lista
-let botaoApagaFinalizados = document.querySelector('#remover-finalizados')
-botaoApagaFinalizados.onclick = () => {
-    const listaInterna = document.querySelectorAll(".completed");
-    if (listaInterna){
-        if (confirm("\t\n Deseja apagar todos os itens completados da lista? \t\n")){            
-            while (listaInterna.firstChild) {
-                listaInterna.removeChild(listaInterna.lastChild);
-            }
-         }
-    } else {
-        alert("\t Não há itens em sua lista! \t")
-    }   
-}
+// let botaoApagaFinalizados = document.querySelector('#remover-finalizados')
+// botaoApagaFinalizados.onclick = () => {
+//     const listaInterna = document.querySelectorAll(".completed");
+//     if (listaInterna){
+//         if (confirm("\t\n Deseja apagar todos os itens completados da lista? \t\n")){            
+//             while (listaInterna.firstChild) {
+//                 listaInterna.removeChild(listaInterna.lastChild);
+//             }
+//          }
+//     } else {
+//         alert("\t Não há itens em sua lista! \t")
+//     }   
+// }
     
 
         
