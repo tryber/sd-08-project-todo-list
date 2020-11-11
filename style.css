@@ -1,3 +1,41 @@
 .completed {
-	text-decoration: line-through solid rgb(0, 0,0);
+	text-decoration: line-through solid rgb( 0 , 0 , 0 );
 }
+
+#inputs {
+	display: flex;
+	margin-bottom: 20px;
+	background-color: orange;
+	width: 300px;
+	padding: 8px;
+	border-radius: 20px;
+}
+
+input {
+	border-radius: 10px;
+}
+
+#inputs button {
+	margin-left: 20px;
+	border-radius: 50px;
+}
+
+ button {
+	margin-left: 20px;
+	border-radius: 50px;
+ }
+
+/* ol {
+	background-color: paleturquoise;
+	width: 30vw;
+
+} */
+
+ol li {
+	background-color: paleturquoise;
+	width: 25vw;
+	border-radius: 5px;
+	text-align: left;
+	padding: 2px;
+}
+
