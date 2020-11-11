@@ -8,17 +8,31 @@ buttonCreat.addEventListener('click', function() {
   document.getElementById('lista-tarefas').appendChild(task)
 });
 
-let task = document.getElementsByTagName('LI');
+
 const buttonRemove  = document.getElementById('apaga-tudo');
 buttonRemove.addEventListener('click', function () {
-console.log('Tenho ' + task.length + ' itens na lista')
-  for(let i=1; i<=task.length*2; i+=1){
-    // let apaga = ;
-    let apaga = lista.childNodes;
-    apaga[i].remove();
-    console.log(i);
+  let task = document.querySelectorAll('li');
+  for(let i=0; i<task.length; i+=1){
+    task[i].remove();
   }
 });
+
+const buttonSelected  = document.getElementById('remover-selecionado');
+buttonSelected.addEventListener('click', function () {
+  let task = document.querySelectorAll('.selected');
+  for(let i=0; i<task.length; i+=1){
+    task[i].remove();
+  }
+});
+
+const buttonCompleted  = document.getElementById('remover-finalizados');
+buttonCompleted.addEventListener('click', function () {
+  let task = document.querySelectorAll('.completed');
+  for(let i=0; i<task.length; i+=1){
+    task[i].remove();
+  }
+});
+
 
 const lista = document.getElementById('lista-tarefas')
 lista.addEventListener('click', function (event){
