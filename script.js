@@ -80,7 +80,7 @@ function addClickButton(){
 addClickButton()
 
 function limpar(){
-    clearButton.id = 'limpa-tudo'
+    clearButton.id = 'apaga-tudo'
     clearButton.innerHTML = 'Apagar Lista'
     let divPai = document.getElementById('section-one')
     divPai.appendChild(clearButton)
