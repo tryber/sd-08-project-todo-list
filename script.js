@@ -88,7 +88,7 @@ let completionStatus;
 function retrieveItems() {
   savedTasks = [];
   completionStatus = [];
-  for (let i = 0; i < (Object.keys(localStorage).length)/2; i += 1) {
+  for (let i = 0; i < (Object.keys(localStorage).length) / 2; i += 1) {
     savedTasks.push(localStorage.getItem(`${i}`));
     completionStatus.push(localStorage.getItem(`${i}${i}`));
   }
