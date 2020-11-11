@@ -1,3 +1,4 @@
+adicionaTarefa();
 function adicionaTarefa() {
   let listaOrdenada = document.getElementById('lista-tarefas')
   let buttonAdicionar = document.getElementById('criar-tarefa');
@@ -10,7 +11,6 @@ function adicionaTarefa() {
     textoTarefa.value = '';
   });
 }
-adicionaTarefa();
 
 function removeColor() {
   let listaTarefas = document.querySelector('#lista-tarefas');
@@ -20,6 +20,7 @@ function removeColor() {
   }
 }
 
+adicionaColor();
 function adicionaColor() {
   let listaTarefas = document.querySelector('#lista-tarefas');
   listaTarefas.addEventListener('click', function (event) {
@@ -27,22 +28,20 @@ function adicionaColor() {
     event.target.classList.add('selected');
   });
 }
-adicionaColor();
 
-function tarefaCompleta() {
-  let tarefas = document.querySelectorAll('.tarefas');
-  for (let i = 0; i < tarefas.length; i += 1) {
-    tarefas[i].addEventListener('dblclick', function (event) {
-      if (event.target.classList.contains('completed')) {
-        event.target.classList.remove('completed');
-      } else {
-        event.target.classList.add('completed');
-      }
-    });
-  }
-}
 tarefaCompleta();
+function tarefaCompleta() {
+  let listaTarefas = document.querySelector('#lista-tarefas');
+  listaTarefas.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  })
+}
 
+apagaTudo();
 function apagaTudo() {
   let apagaButton = document.getElementById('apaga-tudo');
   apagaButton.addEventListener('click', function () {
@@ -50,4 +49,8 @@ function apagaTudo() {
     listaTarefas.innerText = '';
   })
 }
-apagaTudo();
+
+removeCompletos();
+function removeCompletos() {
+
+}
