@@ -1,11 +1,11 @@
 // Botão Adiciona Tarefa
 function adicionaTarefa() {
     let input = document.getElementById('texto-tarefa');
-    const button = document.getElementById('criar-tarefa');
+    let button = document.getElementById('criar-tarefa');
     let ol = document.getElementById('lista-tarefas');
 
     button.addEventListener('click', function() {
-        const li = document.createElement('li');
+        let li = document.createElement('li');
         li.innerHTML = input.value;
         ol.appendChild(li); 
         input.value = '';
@@ -45,3 +45,15 @@ function completaTarefa(){
     })
 }
 completaTarefa();
+
+//Apaga Todas as Informações
+function apagaTarefa(){
+    let listas = document.getElementById('lista-tarefas');
+    let button = document.getElementById('apaga-tudo');
+    
+    button.addEventListener('click', function(){
+        listas.innerHTML = "";
+    })
+}
+
+apagaTarefa();
