@@ -1,4 +1,4 @@
-const orderList = document.querySelector('lista-tarefas');
+const orderList = document.querySelector('#lista-tarefas');
 
 
 function addItemlist() {
@@ -22,8 +22,16 @@ addItemlist();
 
 function itemSelected() {
     orderlist.addEventListener('click', function(event){
-        event.target.className = 'select';
-        event.target.style.backgoundColor = 'rgb(128,128,128)';
-    });
-}
+        const itemSelectedList = document.querySelector('.selected');
+        if (itemSelectedList === null) {
+          event.target.classList.add('selected');
+          event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        } else {
+            itemSelectedList.classList.remove('selected');
+            itemSelectedList.style.backgroundColor = '';
+          event.target.classList.add('selected');
+          event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+});
+};
 itemSelected();
