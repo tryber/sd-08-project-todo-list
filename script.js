@@ -5,6 +5,8 @@ const taskList = document.querySelector('#lista-tarefas');
 const deleteAll = document.querySelector('#apaga-tudo');
 const deleteCompleted = document.querySelector('#remover-finalizados');
 const saveTasks = document.querySelector('#salvar-tarefas');
+const moveUp = document.querySelector('#mover-cima');
+const moveDown = document.querySelector('#mover-baixo');
 
 // --------------- MODULE 01 - ADD TO LIST ---------------
 // Creates 'add to list' button functionality
@@ -119,3 +121,43 @@ function generateFromStorage() {
 }
 
 generateFromStorage();
+
+// ------------- MODULE 05 - MOVE ITEMS ---------------
+// Moves selected item up
+function upward() {
+  const allTasks = taskList.children;
+  for (let i = 0; i < allTasks.length; i += 1) {
+    if (allTasks[i].classList.contains('selected')) {
+      const selectedTask = allTasks[i];
+      const previousTask = allTasks[i - 1];
+      // Executes if there is an item before the selected one;
+      (previousTask) ? taskList.insertBefore(selectedTask, previousTask) : '';
+    }
+  }
+}
+
+moveUp.addEventListener('click', upward);
+
+// Moves selected item down
+function downward() {
+  const allTasks = taskList.children;
+  for (let i = 0; i < allTasks.length; i += 1) {
+    if (allTasks[i].classList.contains('selected')) {
+      const selectedTask = allTasks[i];
+      const nextTask = allTasks[i + 1];
+      // Executes if there is an item after the selected one;
+      (nextTask) ? taskList.insertBefore(nextTask, selectedTask) : '';
+      break;
+    }
+  }
+}
+
+moveDown.addEventListener('click', downward);
+// This was a bit hard to think of because there is no insertAfter method,
+// but I ended up solving it by moving the element next to the selected one
+// upward instead of moving the selected element downward. A break was
+// necessary to make sure the upward movement only happened once, since after
+// the first execution the function would reevaluate the 'selected' item as a
+// true condition. And execute for all other iterations until the end of the
+// loop.
+
