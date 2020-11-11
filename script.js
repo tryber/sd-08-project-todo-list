@@ -38,19 +38,27 @@ function tarefaCompleta() {
     } else {
       event.target.classList.add('completed');
     }
-  })
+  });
 }
 
 apagaTudo();
 function apagaTudo() {
   let apagaButton = document.getElementById('apaga-tudo');
   apagaButton.addEventListener('click', function () {
-    let listaTarefas = document.getElementById('lista-tarefas')
+    let listaTarefas = document.getElementById('lista-tarefas');
     listaTarefas.innerText = '';
-  })
+  });
 }
 
 removeCompletos();
 function removeCompletos() {
-
+  let removeButton = document.getElementById('remover-finalizados');
+  let listaTarefas = document.getElementById('lista-tarefas');
+  removeButton.addEventListener('click', function () {
+    let tarefas = document.querySelectorAll('.completed');
+    for (let i = 0; i < tarefas.length; i += 1) {
+      let tarefasCompletas = tarefas[i];
+      listaTarefas.removeChild(tarefasCompletas);
+    }
+  });
 }
