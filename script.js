@@ -72,3 +72,17 @@ function clearList (){
 }
 
 clearList()
+
+// Requisito 11
+
+function removefinished(){
+    let button = document.querySelector('#remover-finalizados');
+    button.addEventListener('click', function(event){
+        let finalizados = document.querySelectorAll('.completed');
+        for (let x = 0; x < finalizados.length; x+=1){
+            finalizados[x].remove()
+        }
+       });
+}
+
+removefinished();

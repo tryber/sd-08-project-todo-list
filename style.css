@@ -9,3 +9,7 @@
 .completed {
     text-decoration: line-through;
 }
+
+#remover-finalizados {
+    margin: 5px;
+}
