@@ -27,8 +27,8 @@
     let bgcor = '';
     if (event.target.style.backgroundColor === ""){
       bgcor = 'rgb(128, 128, 128)'
+      }
       
-    }
     
     event.target.style.backgroundColor = bgcor;
     } 
