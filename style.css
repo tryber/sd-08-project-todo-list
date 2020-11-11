@@ -1,6 +1,9 @@
 header {
   border: 1px solid black;
   text-align: center;
+  padding: 50px;
+  border-radius: 50px;
+  background-color: snow;
 }
 .selected {
   background-color: rgb(128, 128, 128);
@@ -13,4 +16,11 @@ header {
 }
 ol {
   text-align: left;
+}
+body {
+  background-color: rgb(86, 177, 83);
+  padding: 20px;
+}
+p {
+  font-style: oblique;
 }
