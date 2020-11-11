@@ -1,14 +1,16 @@
 // DEFINING SELECTORS
-const form = document.querySelector('#todo-list');
 const inputTasks = document.querySelector('#texto-tarefa');
 const listTasks = document.querySelector('#lista-tarefas');
 const createTask = document.querySelector('#criar-tarefa');
 const cleanTasks = document.querySelector('#apaga-tudo');
 const removeFinishedTasks = document.querySelector('#remover-finalizados');
+const saveTasks = document.querySelector('#salvar-tarefas');
 
 // EVENT LISTENERS
 const eventListeners = () => {
-  form.addEventListener('submit', createNewTask);
+  createTask.addEventListener('click', createNewTask);
+  // cleanTasks.addEventListener('click', removeAllTasks);
+  // saveTasks.addEvenetListener('click', saveAllTasks);
 }
 // CREATING A NEW TASK
 
@@ -16,12 +18,11 @@ const createNewTask = (event) => {
   event.preventDefault();
 
   if (inputTasks.value === '') {
-    alert('Por favor, adicione uma tarefa!')
+    return alert('Por favor, adicione uma tarefa!');
   }
 
-  console.log(inputTasks.value);
-
   const li = document.createElement('li');
+  li.classList.add('list-item');
 
   li.appendChild(document.createTextNode(inputTasks.value));
 
@@ -29,4 +30,3 @@ const createNewTask = (event) => {
 }
 
 eventListeners();
-
