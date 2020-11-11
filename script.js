@@ -98,8 +98,10 @@ function moveUp () {
 moveUp();
 
 function moveDown () {
-    document.querySelector('#mover-baixo').addEventListener('click', function (){        
-        document.querySelector('#lista-tarefas').insertBefore(document.querySelector('.selected').nextElementSibling, document.querySelector('.selected'))                 
+    document.querySelector('#mover-baixo').addEventListener('click', function () {
+        if (document.querySelector('.selected').nextElementSibling !== null) {
+            document.querySelector('#lista-tarefas').insertBefore(document.querySelector('.selected').nextElementSibling, document.querySelector('.selected'))  
+        }                      
     });
 }
 // moveDown ();
