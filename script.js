@@ -87,16 +87,18 @@ function moveTaskUp() {
   if (selectedTask) {
     const selectedTaskContent = selectedTask.innerHTML;
     const previousTask = selectedTask.previousElementSibling;
-    const previousTaskContent = selectedTask.previousElementSibling.innerHTML;
+    if (previousTask) {
+      const previousTaskContent = selectedTask.previousElementSibling.innerHTML;
 
-    previousTask.innerHTML = selectedTaskContent;
-    selectedTask.innerHTML = previousTaskContent;
+      previousTask.innerHTML = selectedTaskContent;
+      selectedTask.innerHTML = previousTaskContent;
 
-    selectedTask.previousElementSibling.classList.add('selected');
+      selectedTask.previousElementSibling.classList.add('selected');
 
-    // Removing "selected" class from previous task
-    let twoSelected = document.querySelectorAll('.selected');
-    twoSelected[1].classList.remove('selected');
+      // Removing "selected" class from previous task
+      let twoSelected = document.querySelectorAll('.selected');
+      twoSelected[1].classList.remove('selected');
+    }
   }
 }
 
@@ -106,16 +108,18 @@ function moveTaskDown() {
   if (selectedTask) {
     const selectedTaskContent = selectedTask.innerHTML;
     const nextTask = selectedTask.nextElementSibling;
-    const nextTaskContent = selectedTask.nextElementSibling.innerHTML;
+    if (nextTask) {
+      const nextTaskContent = selectedTask.nextElementSibling.innerHTML;
 
-    nextTask.innerHTML = selectedTaskContent;
-    selectedTask.innerHTML = nextTaskContent;
+      nextTask.innerHTML = selectedTaskContent;
+      selectedTask.innerHTML = nextTaskContent;
 
-    selectedTask.nextElementSibling.classList.add('selected');
+      selectedTask.nextElementSibling.classList.add('selected');
 
-    // Removing "selected" class from previous task
-    let twoSelected = document.querySelectorAll('.selected');
-    twoSelected[0].classList.remove('selected');
+      // Removing "selected" class from previous task
+      let twoSelected = document.querySelectorAll('.selected');
+      twoSelected[0].classList.remove('selected');
+    }
   }
 }
 
@@ -126,10 +130,10 @@ btnArrowDown.addEventListener('click', moveTaskDown);
 // Setting the button that deletes a single task
 let btnClearTask = document.getElementById('remover-selecionado');
 
-btnClearTask.addEventListener('click', function() {
-	let selectedTask = document.querySelector('.selected');
-	selectedTask.remove();
-})
+btnClearTask.addEventListener('click', function () {
+  let selectedTask = document.querySelector('.selected');
+  selectedTask.remove();
+});
 
 // Coloring the buttons
 btnArrowUp.style.backgroundColor = colors.orange;
