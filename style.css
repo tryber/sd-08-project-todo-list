@@ -12,4 +12,11 @@
     display: block;
     
 }
+.color  {
+    background-color: rgb(128, 128, 128);
+}
+
+.colorDefault {
+    background-color: rgb(255, 255, 255);
+}
 

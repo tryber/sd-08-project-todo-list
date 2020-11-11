@@ -10,23 +10,24 @@ function addText () {
     const liTask = document.createElement('li');
     //pegar o texto digitado no input e colocá-lo como texto no li
     liTask.innerText = captureInput.value;
+    liTask.className = 'colorDefault';
     captureListOl.appendChild(liTask);
     captureInput.value = '';
-    
 };
 
 //requisito 7
 //Evento onde ao se clicar na lista a cor de fundo seja alterada
 function color () {
-    const color = 'rgb(128, 128, 128)';
     captureListOl.addEventListener('click', grey)
     function grey (event) {
-        event.target.style.backgroundColor = color;
+        event.target.className = 'color';
       };
 };
-color ()
+color ();
 
 //usar o event.target
+// requisito 8
+// um novo 
 
 
 
