@@ -27,7 +27,6 @@ function completed(target) {
     ? removeSelected(target, 'completed')
     : addedSelected(target, 'completed');
 }
-
 function createElementHTML(value) {
   for (let index = 0; index < value.length; index += 1) {
     const createdLi = document.createElement('li');
@@ -50,7 +49,6 @@ function removeItemList(classElement) {
     }
   });
 }
-
 function push() {
   removeElementsAll();
   list.push(inputText.value);
@@ -64,9 +62,24 @@ function capturedElementEvents(target, event, callback) {
     callback(elementEvent);
   });
 }
+function saverList() {
+  const storageSaver = localStorage.setItem('list', list);
+}
+function loadList() {
+  const storageLoad = localStorage.getItem('list').split(',');
+  console.log(typeof storageLoad);
+  if (storageLoad) {
+    list = storageLoad;
+    return createElementHTML(list);
+  }
+  return (list = []);
+}
+
+loadList();
 capturedElementEvents('criar-tarefa', 'click', push);
 capturedElementEvents('lista-tarefas', 'click', selected);
 capturedElementEvents('lista-tarefas', 'dblclick', completed);
+capturedElementEvents('salvar-tarefas', 'click', saverList);
 capturedElementEvents('apaga-tudo', 'click', function () {
   removeElementsAll();
   list = [];
