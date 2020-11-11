@@ -23,7 +23,6 @@ function insereElementoNaLista (){
     
 }
 
-
 // Ao clicar no botão salva o texto na lista e apaga conteúdo do input
 document.getElementById("criar-tarefa").onclick = function(e) {
     insereElementoNaLista();
@@ -47,7 +46,6 @@ botaoApaga.onclick = () => {
 
 
 //Ao clicar em um dos itens a variável recebe a classe active
-
 function setColor() {    
     let item = document.querySelectorAll("li");
     for (let i = 0; i < item.length; i++) {   
@@ -60,7 +58,6 @@ function setColor() {
     }     
 }    
 
-
 //Ao clicar duas vezes o item recebe a classe completed
 function doubleClick(item) {  
         
@@ -70,10 +67,8 @@ function doubleClick(item) {
         } else {              
             event.target.className = 'list-item';
         }
-    })             
-        
+    })          
 }
-
 
 //Função para reverter classe dos itens da lista, é chamada na função serColor
 function reverteClasses (){
@@ -86,12 +81,30 @@ let itemActive = document.querySelectorAll("li");
 }
 
 
-    
-    
-   
-    
+// //Função para apagar itens selecionados da lista
 
-        
+let botaoApagaSelecionados = document.querySelector('#remover-finalizados')
+
+botaoApagaSelecionados.onclick = () => {    
+    let itensDalista = document.querySelectorAll("li")
+    let listaInterna = document.querySelector("#lista-tarefas");
+
+    if (lista.length != 0){
+        if (confirm("\t\n Deseja apagar os itens selecionados da lista? \t\n")){ 
+
+            for (let i = 0; i < itensDalista.length; i++){
+                if (itensDalista[i].className === 'completed'){
+                    listaInterna.removeChild(itensDalista[i])
+                }
+            }            
+         }
+    } else {
+        alert("\t Não há itens na lista! \t")
+    }   
+}
+
+
+
     
             
 
