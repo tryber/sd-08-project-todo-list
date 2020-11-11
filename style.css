@@ -1,3 +1,9 @@
 *{
     margin: 0;
 }
+.list-item{
+    background-color: rgb(244, 247, 247);
+}
+.list-item-active{
+    background-color: rgb(128,128,128);
+}

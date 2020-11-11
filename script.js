@@ -3,7 +3,8 @@ const lista = [];
 function insereElementoNaLista (){    
     let inputText = document.getElementById("texto-tarefa").value;    
     let li_ID = document.getElementById("lista-tarefas")    
-    let Item = document.createElement('li');
+    let Item = document.createElement('li')
+    Item.classList.add("list-item");
     let ultimoElemento;  
         
       
@@ -17,6 +18,7 @@ function insereElementoNaLista (){
     } else {
         alert("Preencha a lista com algum item!")
     }
+    setColor();
 }
 
 
@@ -40,3 +42,40 @@ botaoApaga.onclick = () => {
         alert("\t Não há itens em sua lista! \t")
     }   
 }
+
+
+//Ao clicar em um dos itens a variável "cor" recebe um numero que será verificado na função abaixo
+function setColor() {    
+    let item = document.querySelectorAll(".list-item");
+    for (let i = 0; i < item.length; i++) { 
+        item[i].addEventListener("click", function (event) { 
+            reverteClasses();                         
+        event.target.className = 'list-item-active';       
+        
+    });
+}    
+}
+
+
+//Função para reverter classe dos itens da lista, é chamada na função serColor
+function reverteClasses (){
+    let itemActive = document.querySelectorAll(".list-item-active"); 
+        for (let i = 0; i < itemActive.length; i++) {           
+            itemActive[i].classList.remove('list-item-active');
+            itemActive[i].classList.add('list-item');       
+    }
+}
+
+    
+    
+   
+    
+
+        
+    
+            
+
+
+    
+
+
