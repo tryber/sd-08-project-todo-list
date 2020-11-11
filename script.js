@@ -1,37 +1,34 @@
 // Referenciando endereços da lista de atividades e das suas filhas
-const maeTarefa = document.getElementById('lista-tarefas');
+const listaTarefas = document.getElementById('lista-tarefas');
 const textoTarefa = document.getElementById('texto-tarefa');
 
 // Referenciando endereços dos botões
-const butoomCriaTarefa = document.getElementById('criar-tarefa');
-const butoomApagaTodasAsTarefas = document.getElementById('apaga-tudo');
-const butoomRemoveTarefasFinalziadas = document.getElementById('remover-finalizados');
+const criarTarefa = document.getElementById('criar-tarefa');
+const apagaTudo = document.getElementById('apaga-tudo');
+const removerFinalziados = document.getElementById('remover-finalizados');
 
 // Criando eventos para os botões
-butoomCriaTarefa.addEventListener("click", geraTarefa);
-butoomApagaTodasAsTarefas.addEventListener("click", apagaTudo);
-butoomRemoveTarefasFinalziadas.addEventListener('click', removeFinalizados);
+criarTarefa.addEventListener("click", novasTarefas);
+apagaTudo.addEventListener("click", removeTudo);
+removerFinalziados.addEventListener('click', removeApenasFinalizados);
 
 // Funação que Gerar Novas Lista de Tarefas
-function geraTarefa(){
-  let descricaoTarefa = textoTarefa.value;
-  let novaTarefa = document.createElement('li');
+function novasTarefas() {
+  const descricaoTarefa = textoTarefa.value;
+  const novaTarefa = document.createElement('li');
+  novaTarefa.className = 'minhas-listas';
   novaTarefa.innerText = descricaoTarefa;
-  maeTarefa.appendChild(novaTarefa);
+  listaTarefas.appendChild(novaTarefa);
   textoTarefa.value = '';
-
-console.log("clicando botão cria tarefa");
+  console.log("clicando botão cria tarefa");
 }
 //Função que Apaga todas as Tarefas
-function apagaTudo(){
-  maeTarefa.innerHTML ='';
-
-console.log(" clicando apaga tudo");
+function removeTudo() {
+  listaTarefas.innerHTML = '';
+  console.log(" clicando apaga tudo");
 }
 
 //Função que Remove as Tarefas já realizadas
-function removeFinalizados(){
-  console.log('remove finalziados')
+function removeApenasFinalizados() {
+  console.log('remove finalziados');
 }
-
-
