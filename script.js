@@ -95,3 +95,28 @@ let paiTarefas = document.querySelector("#lista-tarefas");
     }
   }
 })
+
+let salvar = document.querySelector("#salvar-tarefas");
+ salvar.addEventListener('click', function () {
+  let listaTarefas = document.querySelectorAll('.tarefasLi');
+  let tarefaSalva = []
+  let classe =[]
+    for (let i = 0; i < listaTarefas.length; i++ ) {
+      let element = listaTarefas[i];
+      tarefaSalva.push(element.innerHTML);
+      classe.push(element.className)
+      }
+      localStorage.setItem("tarefaSalva", JSON.stringify(tarefaSalva))
+      localStorage.setItem("classe", JSON.stringify(classe))
+ })
+if (localStorage.length !== 0){
+  var tarefas = document.querySelector("#lista-tarefas");
+  let classeUsavel = JSON.parse(localStorage.getItem("classe"))
+  let tarefaSalvaUsavel = JSON.parse(localStorage.getItem("tarefaSalva"))
+  for (let i = 0; i < tarefaSalvaUsavel.length; i++ ) {
+      let tarefa = document.createElement('li');
+      tarefas.appendChild(tarefa);
+      tarefa.innerHTML = tarefaSalvaUsavel[i];
+      tarefa.className = classeUsavel[i]
+  }
+}
