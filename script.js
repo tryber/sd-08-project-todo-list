@@ -56,4 +56,10 @@ function capturedElementEvents(target, event, callback) {
 }
 capturedElementEvents('criar-tarefa', 'click', push);
 capturedElementEvents('lista-tarefas', 'click', selected);
+capturedElementEvents('apaga-tudo', 'click', function () {
+  removeElementsAll();
+  list = [];
+  inputText.value = '';
+  createElementHTML(list);
+});
 capturedElementEvents('lista-tarefas', 'dblclick', completed);
