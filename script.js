@@ -21,10 +21,17 @@ selLista.addEventListener('click', function (event) {
 });
 //Coloca risco de completed
 selLista.addEventListener('dblclick', function (event) {
-  let selected = document.querySelector('.completed');
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
+  };
+});
+
+//Limpa Lista
+const buttonClearList = document.querySelector('#apaga-tudo');
+buttonClearList.addEventListener('click', function(event) {
+  if (event.target.id === 'apaga-tudo') {
+    selLista.innerHTML = '';
   };
 });
