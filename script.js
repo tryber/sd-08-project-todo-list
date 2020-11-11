@@ -62,9 +62,13 @@ function listColor(){
     });
 
     olColor.addEventListener("dblclick", function(event){
-        event.target.className = "completed";                          
-                     
-    })
+        
+        if(event.target.classList.contains("completed")) {
+            event.target.classList.remove("completed");
+        }else{
+            event.target.classList.add("completed");
+        }                    
+    });
 }
 listColor();
 
