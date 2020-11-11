@@ -56,17 +56,31 @@ document.querySelector('#salvar-tarefas').addEventListener('click', function () 
 //mover para cima
 document.getElementById('mover-cima').addEventListener('click', function () {
   let tarefas = document.querySelectorAll('.lista');
-  console.log(tarefas);
   let indiceItemSelecionado;
-  //console.log(indiceItemSelecionado);
   for (let i = 0; i < tarefas.length; i++) {
-    //console.log(i);
     if (tarefas[i].classList.contains('selected')) {
-      //console.log(tarefas[i]);
       indiceItemSelecionado = i;
-      //console.log(i);
       if (i > 0) {
         tarefas[indiceItemSelecionado].parentElement.insertBefore(tarefas[indiceItemSelecionado], tarefas[indiceItemSelecionado - 1],);
+      };
+      if (i == 0) {
+        alert('Não sobe mais não Jovem :/');
+      };
+    };
+  };
+});
+
+//mover para baixo
+document.getElementById('mover-baixo').addEventListener('click', function () {
+  let tarefas = document.querySelectorAll('.lista');
+  let indiceItemSelecionado;
+  for (let i = 0; i < tarefas.length; i++) {
+    if (tarefas[i].classList.contains('selected')) {
+      indiceItemSelecionado = i;
+      if (i < tarefas.length - 1) {
+        tarefas[indiceItemSelecionado].parentElement.insertBefore(tarefas[indiceItemSelecionado + 1], tarefas[indiceItemSelecionado],);
+      } else {
+        alert('Não desce mais não Jovem :/');
       };
     };
   };
