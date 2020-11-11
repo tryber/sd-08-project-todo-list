@@ -80,9 +80,5 @@ document.addEventListener('click', (event) => {
 // Eventos dblclick
 // Torna a tarefa completa
 taskList.addEventListener('dblclick', (event) => {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
+  event.target.classList.toggle('completed');
 });

@@ -1,5 +1,12 @@
 body {
   background-color: rgb(15 , 163 , 107);
+  font-family: 'Shadows Into Light';
+  letter-spacing: 3px;
+}
+
+.funcionamento { 
+  font-size: 20px;
+  text-align: center;
 }
 
 .principal {
@@ -10,8 +17,21 @@ body {
   width: 60%;
 }
 
+.texto-tarefa {
+  height: 30px;
+  font-family: 'Open Sans';
+  padding-left: 5px;
+  font-size: 16px;
+  width: 150px;
+  transition: ease-in-out, width .35s ease-in-out;
+}
+
+.texto-tarefa:focus {
+  width: 60%;
+}
+
 .lista-tarefas {
-  margin: 10px 30px;
+  margin: 10px 30px 20px;
   padding: 0;
 }
 
@@ -25,4 +45,40 @@ body {
 
 .selected {
   background-color: gray;
+}
+
+button {
+  border-radius: 15px;
+  font-family: 'Architects Daughter';
+  letter-spacing: 2px;
+  border: 1px solid black;
+  font-weight: 600;
+  color: white;
+  padding: 5px;
+  height: 40px;
+  background-color: rgb(15 , 163 , 107);
+}
+
+button:hover {
+  border: 2px solid black;
+}
+
+.remover-selecionado, .remover-finalizados, .apagar-tudo {
+  background-color: red;
+}
+
+.save-icon {
+  width: 15px;
+  background-color: white;
+}
+
+.mover-cima, .mover-baixo, .salvar-tarefas {
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 100%;
+  width: 40px;
+}
+
+.remover-finalizados {
+  text-decoration: line-through;
 }
