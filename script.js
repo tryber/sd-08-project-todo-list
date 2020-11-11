@@ -1,25 +1,5 @@
 
-// Requisito 01
 
-let body = document.getElementsByTagName('body');
-
-// Requisito 02
-
-
-// Requisito 03
-let boxText = document.createElement('input');
-function addInput() {
-    
-    boxText.id = 'texto-tarefa';
-    boxText.type = 'text'
-    for (let index = 0; index < body.length; index += 1) {
-        body[index].appendChild(boxText);
-    }
-}
-
-addInput();
-// Função adiciona botão
-addAssignment();
 
 // Requisito 04
 
