@@ -1,6 +1,10 @@
 let listaTarefas = document.getElementById("lista-tarefas");
 let tarefas = document.getElementsByTagName("li");
 
+window.onload = function () {
+    listaTarefas.innerHTML = localStorage.getItem('listaTarefas');
+}
+
 function criaTarefa () {
     let entradaTarefa = document.getElementById("texto-tarefa");
     let itemList = document.createElement("li");
@@ -44,3 +48,60 @@ function apagaFinalizados () {
     }
 }
 document.getElementById("remover-finalizados").addEventListener("click",apagaFinalizados);
+
+function salvaLista () {
+    localStorage.setItem('listaTarefas', listaTarefas.innerHTML);
+}
+document.getElementById("salvar-tarefas").addEventListener("click",salvaLista);
+
+function moverCima () {
+    if (tarefas.length > 1){
+        for (let i=0; i<tarefas.length; i+=1){
+            if (tarefas[i].style.backgroundColor === "rgb(128, 128, 128)"){
+            var selecionado = i;
+            }
+        }
+        if (selecionado !== 0 && selecionado !== undefined) {
+            let tarefaSelecionada = tarefas[selecionado].innerText;
+            let tarefaCima = tarefas[selecionado-1].innerText;
+
+            tarefas[selecionado-1].innerText = tarefaSelecionada;
+            tarefas[selecionado-1].style.backgroundColor = "rgb(128, 128, 128)";
+            tarefas[selecionado].innerText = tarefaCima;
+            tarefas[selecionado].style.backgroundColor = "";
+        }
+    }
+}
+document.getElementById("mover-cima").addEventListener("click",moverCima);
+
+function moverBaixo () {
+    if (tarefas.length > 1){
+        for (let i=0; i<tarefas.length; i+=1){
+            if (tarefas[i].style.backgroundColor === "rgb(128, 128, 128)"){
+            var selecionado = i;
+            }
+        }
+        if (selecionado !== tarefas.length-1 && selecionado !== undefined) {
+            let tarefaSelecionada = tarefas[selecionado].innerText;
+            let tarefaBaixo = tarefas[selecionado+1].innerText;
+
+            tarefas[selecionado+1].innerText = tarefaSelecionada;
+            tarefas[selecionado+1].style.backgroundColor = "rgb(128, 128, 128)";
+            tarefas[selecionado].innerText = tarefaBaixo;
+            tarefas[selecionado].style.backgroundColor = "";
+        }
+    }
+}
+document.getElementById("mover-baixo").addEventListener("click",moverBaixo);
+
+function apagaSelecionado () {
+    for (let i=0; i<tarefas.length; i+=1){
+        if (tarefas[i].style.backgroundColor === "rgb(128, 128, 128)"){
+           var selecionado = i;
+        }
+    }
+    if (selecionado !== undefined){
+        listaTarefas.removeChild(tarefas[selecionado]);
+    }
+}
+document.getElementById("remove-selecionado").addEventListener("click",apagaSelecionado);
