@@ -8,6 +8,10 @@ function selectedItem(item) {
   item.classList.add('selected');
 }
 
+function tarefaConcluida(item) {
+  item.classList.toggle('completed');
+}
+
 function preencheItem(item, li, ol) {
   li.innerText = item;
   li.className = 'item';
@@ -35,3 +39,4 @@ function capturaEvento(elementoHTML, tipoEvento, acaoDoEvento) {
 
 capturaEvento('criar-tarefa', 'click', criarTarefa);
 capturaEvento('lista-tarefas', 'click', selectedItem);
+capturaEvento('lista-tarefas', 'dblclick', tarefaConcluida);
