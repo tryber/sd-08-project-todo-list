@@ -64,8 +64,9 @@ function clearList (){
     let li = document.getElementsByName('li');
 
     button.addEventListener('click', function(event){
-     for (let x =0; x < listItem.length; x+=1){
-         listItem[x].innerText = '';
+        let task = document.querySelectorAll('.task')
+     for (let x =0; x < task.length; x+=1){
+        task[x].remove();
      }
         
     });
