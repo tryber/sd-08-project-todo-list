@@ -1,9 +1,18 @@
 const body = document.querySelector('body');
 
+//Carrega a lista de tarefa que foi salva
+window.onload = function () {
+    let taskList = document.querySelector('#lista-tarefas');
+    let taskListToLoad = localStorage.getItem('taskList');
+    taskList.innerHTML = taskListToLoad;
+    
+};
+
 //Cria o header e o texto que explica
 createBasics();
 buttonDeleteAll();
 buttonDeleteFinished();
+saveTasks();
 
 
 function createBasics() {
@@ -39,7 +48,7 @@ function createInput() {
     button.innerHTML = 'Criar';
 
     //Adiciona ao botão a função de adicionar itens a lista e limpar o input
-    button.addEventListener('click', function(){
+    button.addEventListener('click', function () {
         let lista = document.querySelector('#lista-tarefas');
         let novaTarefa = document.querySelector('#texto-tarefa').value;
 
@@ -50,23 +59,23 @@ function createInput() {
         lista.appendChild(novaLinha);
 
         //Adiciona um listener a essa nova linha para que quando for clicado troque a cor de fundo
-        novaLinha.addEventListener('click', function(event){
+        novaLinha.addEventListener('click', function (event) {
             let getAllListItems = document.querySelectorAll('li');
-            for (let i = 0; i < getAllListItems.length; i += 1){
-                getAllListItems[i].style.backgroundColor = 'white';                
+            for (let i = 0; i < getAllListItems.length; i += 1) {
+                getAllListItems[i].style.backgroundColor = 'white';
             }
             event.target.style.backgroundColor = 'rgb(128, 128, 128)';
         })
 
         //Adiciona um listener a essa nova linha para que quando for clicado duas vezes o texto fique riscado
-        novaLinha.addEventListener('dblclick', function(event){
+        novaLinha.addEventListener('dblclick', function (event) {
 
             let checkClasses = event.target.className;
             console.log(checkClasses);
-            
-            if (checkClasses == ''){
+
+            if (checkClasses == '') {
                 event.target.className = 'completed';
-            }else{
+            } else {
                 event.target.className = '';
             }
         })
@@ -78,16 +87,16 @@ function createInput() {
     body.appendChild(button);
 }
 
-function buttonDeleteAll(){
+function buttonDeleteAll() {
     let button = document.createElement('button');
     button.id = 'apaga-tudo';
     button.innerHTML = 'Apagar tudo';
 
-    button.addEventListener('click', function(){
+    button.addEventListener('click', function () {
         let getTaskList = document.querySelector('#lista-tarefas');
         let getAllItems = document.querySelectorAll('li');
 
-        for(let i = 0; i < getAllItems.length; i+=1){
+        for (let i = 0; i < getAllItems.length; i += 1) {
             getTaskList.removeChild(getAllItems[i]);
         }
 
@@ -96,20 +105,31 @@ function buttonDeleteAll(){
     body.appendChild(button);
 }
 
-function buttonDeleteFinished(){
+function buttonDeleteFinished() {
     let button = document.createElement('button');
     button.id = 'remover-finalizados';
     button.innerHTML = 'Remover finalizados';
 
-    button.addEventListener('click', function(){
+    button.addEventListener('click', function () {
         let getTaskList = document.querySelector('#lista-tarefas');
         let getAllFinished = document.querySelectorAll('.completed');
 
-        for(let i = 0; i < getAllFinished.length; i+=1){
+        for (let i = 0; i < getAllFinished.length; i += 1) {
             getTaskList.removeChild(getAllFinished[i]);
         }
 
     })
+    body.appendChild(button);
+}
 
+function saveTasks() {
+    let button = document.createElement('button');
+    button.id = 'salvar-tarefas';
+    button.innerHTML = 'Salvar tarefas';
+
+    button.addEventListener('click', function () {
+        let taskListToSave = document.querySelector('#lista-tarefas').innerHTML;
+        localStorage.setItem('taskList', taskListToSave);
+    })
     body.appendChild(button);
 }
