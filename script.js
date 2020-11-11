@@ -13,13 +13,12 @@ buttongraber.addEventListener('click', function(){
         // if(event.target.style.backgroundColor !== 'rgb(128, 128, 128)'){
         // event.target.style.backgroundColor ='rgb(128, 128, 128)'
         // } 
-        event.target.classList.toggle('colorgray')
-                   
+        if (event.className ="colorgray"){
+            paragrafo.classList.remove('colorgray')
+            event.target.className ="colorgray"
+        }
      paragrafo.addEventListener('dblclick', function(event){
       event.target.classList.toggle("completed")
-
-        //  paragrafo.classList.add("completed")
-    
             })
   
         })
