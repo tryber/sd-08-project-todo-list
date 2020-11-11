@@ -62,11 +62,8 @@ function listColor(){
     });
 
     olColor.addEventListener("dblclick", function(event){
-        if (event.target.className == "class"){
-            event.target.className = "completed";                          
-        }else {
-            event.target.className = "class"
-        }             
+        event.target.className = "completed";                          
+                     
     })
 }
 listColor();
@@ -108,7 +105,7 @@ buttonRemoveSelect.innerHTML = "Limpar Selecionados"
 divInput.appendChild(buttonRemoveSelect);
 
 function removeSelect(){    
-    buttonRemoveSelect.addEventListener("click", function(event){
+    buttonRemoveSelect.addEventListener("click", function(){
 
         let removeSelect = document.querySelector(".class.select");
         olOrdered.removeChild(removeSelect);
@@ -116,3 +113,45 @@ function removeSelect(){
 }
 removeSelect();
 
+let buttonSave = document.createElement("button");
+buttonSave.id = "salvar-tarefas";
+buttonSave.innerHTML = "Salvar";
+divInput.appendChild(buttonSave);
+
+function saveList(){
+
+    buttonSave.addEventListener("click", function(){
+        let olList = document.querySelector("#lista-tarefas");        
+        let arrayList = []; 
+        let completed = [];      
+
+        for (let index=0; index<olList.children.length; index++){
+            arrayList.push(olList.children[index].innerHTML);
+            if(olList.children[index].classList.contains("completed")){
+                completed.push(index);
+            }            
+        }
+        localStorage.setItem("list", JSON.stringify(arrayList));  
+        localStorage.setItem("listCompleted", JSON.stringify(completed));
+    });
+}
+saveList();
+
+function recoverList(){
+
+    if(localStorage.length !== 0){
+        let list = JSON.parse(localStorage.getItem("list"));
+        let listCompleted = JSON.parse(localStorage.getItem("listCompleted"));
+    
+        for (let index=0; index<list.length; index++){
+            let li = document.createElement("li");
+            li.innerHTML = list[index];            
+            olOrdered.appendChild(li);
+        }
+
+        for (let index=0; index<listCompleted.length; index++){ 
+            olOrdered.children[listCompleted[index]].classList.add('completed');         
+        }        
+    }   
+}
+recoverList();
