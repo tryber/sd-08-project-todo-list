@@ -1,3 +1,8 @@
+function capturaEvento(elementoHTML, tipoEvento, acaoDoEvento) {
+  const elementoPai = document.getElementById(elementoHTML);
+  elementoPai.addEventListener(tipoEvento, (element) => acaoDoEvento(element.target));
+}
+
 function selectedItem(item) {
   const previousSelected = document.querySelector('.selected');
   if (previousSelected != null) {
@@ -12,31 +17,31 @@ function tarefaConcluida(item) {
   item.classList.toggle('completed');
 }
 
-function preencheItem(item, li, ol) {
+function preencheItem(item, li) {
   li.innerText = item;
   li.className = 'item';
-  li.id = `item${ol.children.length + 1}`;
   return li;
 }
 
-function criarItemLista(item) {
+function criarItemLista(tarefa) {
   const li = document.createElement('li');
   const ol = document.getElementById('lista-tarefas');
-  preencheItem(item, li, ol);
+  preencheItem(tarefa, li, ol);
   ol.appendChild(li);
 }
 
-function criarTarefa(listaTarefa) {
+function criarTarefa() {
   const input = document.getElementById('texto-tarefa');
-  criarItemLista(input.value, listaTarefa);
+  criarItemLista(input.value);
   input.value = '';
 }
 
-function capturaEvento(elementoHTML, tipoEvento, acaoDoEvento) {
-  const elementoPai = document.getElementById(elementoHTML);
-  elementoPai.addEventListener(tipoEvento, (element) => acaoDoEvento(element.target));
+function apagaTudo() {
+  const listaTarefa = document.getElementById('lista-tarefas');
+  while (listaTarefa.firstChild) listaTarefa.removeChild(listaTarefa.firstChild);
 }
 
 capturaEvento('criar-tarefa', 'click', criarTarefa);
+capturaEvento('apaga-tudo', 'click', apagaTudo);
 capturaEvento('lista-tarefas', 'click', selectedItem);
 capturaEvento('lista-tarefas', 'dblclick', tarefaConcluida);
