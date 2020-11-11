@@ -1,7 +1,11 @@
-* {
+body , header , button , input , ol , li , div , section {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  margin: 0 0 20px;
 }
 
 body {
@@ -14,10 +18,6 @@ header {
   font-size: 1.2rem;
   padding: 20px 10px;
   text-align: center;
-}
-
-h1 {
-  margin-bottom: 20px;
 }
 
 button {
@@ -38,17 +38,16 @@ button:hover {
   cursor: pointer;
 }
 
-#controls {
+.controls {
   align-items: center;
   background-color: rgba(63 , 6 , 63 , 0.733);
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   justify-content: center;
   padding: 20px 10px;
 }
 
-#controls input {
+.controls input {
   border-radius: 4px;
   border-style: none;
   font-size: 1.2rem;
@@ -56,16 +55,16 @@ button:hover {
   padding: 10px;
 }
 
-#controls input:focus {
+.controls input:focus {
   box-shadow: 0 0 5px black;
   outline: none;
 }
 
-#controls input::placeholder {
+.controls input::placeholder {
   font-size: 1.2rem;
 }
 
-#controls .buttons {
+.controls .buttons {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -79,25 +78,25 @@ button:hover {
   width: 450px;
 }
 
-#lista {
+.lista {
   padding: 20px;
 }
 
-#lista-tarefas {
+.lista ol {
   font-size: 1.2rem;
 }
 
-#lista-tarefas li {
+.lista ol li {
   list-style-position: inside;
   padding: 10px;
 }
 
-#lista-tarefas li:nth-child( even ) {
+.lista li:nth-child( even ) {
   background-color: rgba( 153 , 205 , 50 , 0.15 );
 }
 
-.selected {
-  background-color: gray ! important;
+.lista ol .selected {
+  background-color: gray;
 }
 
 .completed {
