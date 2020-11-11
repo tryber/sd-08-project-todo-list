@@ -15,8 +15,7 @@ function addText () {
     captureInput.value = '';
 };
 
-//requisito 7
-//Evento onde ao se clicar na lista a cor de fundo seja alterada
+//requisito 7 - minha ideia foi criar um evento onde clico na lista a cor de fundo é alterada, a cor cinza é chamada através do css
 function color () {
     captureListOl.addEventListener('click', grey)
     function grey (event) {
@@ -27,9 +26,23 @@ color ();
 
 //usar o event.target
 // requisito 8
-// um novo 
+
+// criar um laço 'for' para 'varrer' a lista 'colorDefault' e colocar um if para reverter a classe 
 
 
+
+
+
+//requisito 9
+//mesma lógica do exercicio 5 do dia 5.3 
+captureListOl.addEventListener('dblclick', scratched);
+function scratched (event) {
+    if (event.target.className == 'completed') {
+        event.target.className.remove('completed');
+    } else {
+        event.target.className = 'completed';
+    }
+}
 
 
 
