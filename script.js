@@ -33,6 +33,11 @@ function addTask() {
   newTask.innerText = taskInput.value;
   taskInput.value = '';
   tasksList.appendChild(newTask);
+
+  listenerForTasks();
+}
+
+function listenerForTasks() {
   const allTasks = document.querySelectorAll('.task');
   for (let task = 0; task < allTasks.length; task += 1) {
     allTasks[task].addEventListener('click', selectTask);
@@ -61,7 +66,18 @@ function removeCompleted(event) {
   }
 }
 
+// Recovering tasks from local storage
+if (localStorage.tasksList) {
+  tasksList.innerHTML = localStorage.tasksList;
+  listenerForTasks();
+}
+
+// Saving current tasks list in local storage
 const btnSaveTasks = document.getElementById('salvar-tarefas');
+
+btnSaveTasks.addEventListener('click', function () {
+  localStorage.tasksList = tasksList.innerHTML;
+});
 
 // Coloring the buttons
 btnClearAll.style.backgroundColor = colors.red;
