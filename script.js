@@ -2,7 +2,7 @@ window.onload = function() {
     loadTasks();
     deleteAllTasks();
     removeFinishedTask();
-    
+    moveDown();
 }
 
 
@@ -88,7 +88,7 @@ function moveUp () {
     document.querySelector('#mover-cima').addEventListener('click', function (){    
         for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
             if (document.querySelectorAll('li')[index].classList.contains('selected')) {                
-                if(index !== 0) {
+                if (index > 0) {
                     document.querySelector('#lista-tarefas').insertBefore(document.querySelectorAll('li')[index], document.querySelectorAll('li')[index].previousElementSibling);
                 }                   
             }
@@ -98,19 +98,11 @@ function moveUp () {
 moveUp();
 
 function moveDown () {
-    document.querySelector('#mover-baixo').addEventListener('click', function (){    
-        for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
-            if (document.querySelectorAll('li')[index].classList.contains('selected')) {  
-                console.log(document.querySelectorAll('li')[index].classList.contains('selected'));              
-                if(index !== (document.querySelectorAll('li').length - 1)) {
-                    let nextLi = document.querySelectorAll('li')[index+1];
-                    document.querySelector('#lista-tarefas').insertBefore(nextLi, document.querySelectorAll('li')[index]);
-                }                   
-            }
-        }                              
+    document.querySelector('#mover-baixo').addEventListener('click', function (){        
+        document.querySelector('#lista-tarefas').insertBefore(document.querySelector('.selected').nextElementSibling, document.querySelector('.selected'))                 
     });
 }
-moveDown ();
+// moveDown ();
 
 function removeSelected() {
     document.querySelector('#remover-selecionado').addEventListener('click', function(){
