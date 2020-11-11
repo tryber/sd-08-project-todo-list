@@ -12,7 +12,7 @@
   function nvtarefa() {
     let objcria =document.createElement('li')
     let container = inputSEl.value;
-    if (container =="") {
+    if (container ===""|| container ===null) {
       alert('Insira um valor');
     }
       else {
@@ -24,16 +24,21 @@
       };
     
   function bgli (event){
+    let todoli =document.querySelectorAll('li');
     let bgcor = '';
     if (event.target.style.backgroundColor === ""){
       bgcor = 'rgb(128, 128, 128)'
       }
-      
-    
-    event.target.style.backgroundColor = bgcor;
-    } 
+      for (i=0; i<todoli.length;i+=1){
+        todoli[i].style.backgroundColor ="";
+      };
+      event.target.style.backgroundColor = bgcor;
 
+      };
     
-    
+
    
-   //.addEventListener('click',function(event){
+    
+  
+     
+  let todoli =document.getElementsByClassName('file');
