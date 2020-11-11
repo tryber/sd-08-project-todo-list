@@ -1,5 +1,6 @@
 const criarTarefa = document.querySelector("#criar-tarefa");
 const apagaTudo = document.querySelector("#apaga-tudo");
+const apagarFinalizados = document.querySelector("#remover-finalizados");
 
 function tarefa() {
   const listaDeTarefas = document.querySelector("#lista-tarefas");
@@ -42,11 +43,22 @@ function riscado(event) {
 
 addEventListener("dblclick", riscado);
 
-function apagar() {
+function apagarTudo() {
   const lista = document.querySelector("#lista-tarefas");
   while (lista.hasChildNodes()) {
     lista.removeChild(lista.firstChild);
   }
 }
 
-apagaTudo.addEventListener("click", apagar);
+apagaTudo.addEventListener("click", apagarTudo);
+
+function apagarFinalizadas() {
+  const lista = document.querySelectorAll(".lista");
+  for (let indice = 0; indice < lista.length; indice += 1) {
+    if (lista[indice].className == "lista completed") {
+      lista[indice].remove();
+    }
+  }
+}
+
+apagarFinalizados.addEventListener("click", apagarFinalizadas);
