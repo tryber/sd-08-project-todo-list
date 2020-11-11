@@ -5,7 +5,6 @@ const paragraph = document.createElement('p');
 title.innerHTML = 'Minha Lista de Tarefas';
 paragraph.id = 'funcionamento';
 paragraph.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo';
-
 header.appendChild(title);
 header.appendChild(paragraph);
 
@@ -16,3 +15,7 @@ input.id = 'texto-tarefa';
 header.parentNode.insertBefore(input, header.nextSibling);
 
 /* ---------------------------- REQUISITO 04 ---------------------------- */
+
+const ol = document.createElement('ol');
+ol.id = 'lista-tarefas';
+input.parentNode.insertBefore(ol, input.nextSibling);
