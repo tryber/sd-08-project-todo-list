@@ -1,0 +1,89 @@
+body {
+    background-color: #40ad40;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.container {
+    background-color: white;
+    border-radius: 58px;
+    min-height: 150px;
+    padding: 4rem;
+    width: 82%;
+}
+
+.container .text-muted {
+    color: grey;
+    font-size: 1rem;
+}
+
+.container .inputNewTodo {
+    width: 125px;
+}
+
+.container .inputNewTodo:focus {
+    box-shadow: 0px 0px 2px #4887e9;
+    outline: 1px #4887e9;
+    outline-style: solid;
+}
+
+.container .button-primary {
+    outline: none;
+    color: white;
+    border: transparent;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background-color: #0087cf;
+    border-radius: 14px;
+}
+
+.container .completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.container .selected {
+    background-color: rgb(128, 128, 128);
+}
+
+.container .actions {
+    margin-top: 2rem;
+}
+
+.container .actions button {
+    margin-right: 1rem;
+}
+
+.container .buttonWarning {
+    border: transparent;
+    background-color: #90191b;
+    border-radius: 14px;
+    color: white;
+    outline: none;
+    padding: 0.3rem, 1rem;
+}
+
+.container .buttonSuccess {
+    background-color: #40ad40;
+    color: white;
+    border-radius: 14px;
+    outline: none;
+    border: transparent;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.container .buttonAlert {
+    background-color: #fc7f00;
+    color: white;
+    border-radius: 14px;
+    outline: none;
+    border: transparent;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
