@@ -7,18 +7,25 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>Minha Lista de Tarefas</header>
-    <main>
-      <p id="funcionamento">
-        Clique duas vezes em um item para marcá-lo como completo
-      </p>
-      <label for="texto-tarefa">Digite uma tarefa:</label>
-      <input type="text" name="texto-tarefa" id="texto-tarefa" />
-      <button type="button" id="criar-tarefa">Adicionar</button>
-      <ol id="lista-tarefas"></ol>
-      <button id="remover-finalizados">Apagar finalizadas</button>
-      <button id="apaga-tudo">Apagar tudo</button>
-    </main>
+    <div class="container">
+      <header>Minha Lista de Tarefas</header>
+      <main>
+        <p id="funcionamento" class="funcionamento">
+          Clique duas vezes em um item para marcá-lo como completo
+        </p>
+
+        <div class="add-task">
+          <label for="texto-tarefa">Digite uma tarefa:</label>
+          <input type="text" name="texto-tarefa" id="texto-tarefa" />
+          <button type="button" id="criar-tarefa">Adicionar</button>
+        </div>
+        <div class="tasks-container">
+          <ol id="lista-tarefas"></ol>
+        </div>
+        <button id="remover-finalizados">Apagar finalizadas</button>
+        <button id="apaga-tudo">Apagar tudo</button>
+      </main>
+    </div>
 
     <script src="script.js"></script>
   </body>
