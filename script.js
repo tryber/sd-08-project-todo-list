@@ -79,6 +79,24 @@ function desceItem(){
   list.insertBefore(itemSelecionado[0], list.childNodes[posicacaoAtual+3]);
 }
 
+function ApagarRiscados(){
+  var nos = document.getElementsByClassName("completed");
+  var numeroDeElementos = nos.length;
+  for (let x = 0; x < numeroDeElementos; x++)
+  {
+    if (nos[0].parentNode) {
+      nos[0].parentNode.removeChild(nos[0]);
+    }
+  }
+}
+
+function ApagarTodos(){
+  var pai = document.getElementById("lista-tarefas");
+  while (pai.firstChild) {
+    pai.removeChild(pai.firstChild);
+  }
+}
+
 window.onload = () => {
   let botaoAdiciona = document.getElementById("criar-tarefa");
   botaoAdiciona.onclick = adicionarItemLista;
@@ -90,6 +108,11 @@ window.onload = () => {
   let botaoDesceItem = document.getElementById("mover-baixo");
   botaoDesceItem.onclick = desceItem;
 
+  let botaoRemoveRiscados = document.getElementById("remover-finalizados");
+  botaoRemoveRiscados.onclick = ApagarRiscados;
+
+  let botaoRemoveTodos = document.getElementById("apaga-tudo");
+  botaoRemoveTodos.onclick = ApagarTodos;
 
 }
 
