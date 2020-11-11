@@ -1,13 +1,14 @@
 body {
-    background-color: #dd7411;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: white;
+    background: url(try.jpg);
+    background-size: 10%;
 }
 
 .container {
     background-color: rgb(0, 0, 0);
-    border-radius: 18px;
+    border-radius: 10px;
     min-height: 150px;
     padding: 4rem;
     width: 750px;
@@ -15,6 +16,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 15%;
+   
+  
 }
 
 .container .text-muted {
@@ -32,23 +35,21 @@ body {
     outline-style: solid;
 }
 
-.container .button-primary {
-    outline: none;
-    color: white;
-    border: transparent;
+.button-primary {
+    border-radius: 5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     padding-right: 1rem;
     padding-left: 1rem;
-    background-color: #0087cf;
-    border-radius: 14px;
 }
 
-.container .completed {
+.completed {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
-.container .selected {
+.selected {
     background-color: rgb(128, 128, 128);
 }
 
@@ -60,35 +61,44 @@ body {
     margin-right: 1rem;
 }
 
-.container .buttonWarning {
-    border: transparent;
-    background-color: #90191b;
-    border-radius: 14px;
-    color: white;
-    outline: none;
-    padding: 0.3rem, 1rem;
+#apaga-tudo{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f80404;
 }
 
-.container .buttonSuccess {
-    background-color: #40ad40;
-    color: white;
-    border-radius: 14px;
-    outline: none;
-    border: transparent;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
+#remover-finalizados{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
 }
 
-.container .buttonAlert {
-    background-color: #fc7f00;
-    color: white;
-    border-radius: 14px;
-    outline: none;
-    border: transparent;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
+#remover-selecionado{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
+}
+
+#salvar-tarefas{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
+}
+
+#mover-cima{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing; 
+    border: 1px solid #f89604;
+}
+        
+#mover-baixo{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
 }
