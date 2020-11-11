@@ -104,4 +104,4 @@ function apagaSelecionado () {
         listaTarefas.removeChild(tarefas[selecionado]);
     }
 }
-document.getElementById("remove-selecionado").addEventListener("click",apagaSelecionado);
+document.getElementById("remover-selecionado").addEventListener("click",apagaSelecionado);
