@@ -11,6 +11,7 @@ const removerFinalziados = document.getElementById('remover-finalizados');
 criarTarefa.addEventListener("click", novasTarefas);
 apagaTudo.addEventListener("click", removeTudo);
 removerFinalziados.addEventListener('click', removeApenasFinalizados);
+//listaTarefas.addEventListener('click', mudarCor);
 
 // Funação que Gerar Novas Lista de Tarefas
 function novasTarefas() {
@@ -18,6 +19,7 @@ function novasTarefas() {
   const novaTarefa = document.createElement('li');
   novaTarefa.className = 'minhas-listas';
   novaTarefa.innerText = descricaoTarefa;
+  novaTarefa.addEventListener('click',mudarCor);
   listaTarefas.appendChild(novaTarefa);
   textoTarefa.value = '';
   console.log("clicando botão cria tarefa");
@@ -30,5 +32,18 @@ function removeTudo() {
 
 //Função que Remove as Tarefas já realizadas
 function removeApenasFinalizados() {
-  console.log('remove finalziados');
+    console.log('remove finalziados');
+}
+
+//Referenciando endereço das il
+const todasTarefas = document.getElementsByClassName('minhas-listas');
+
+function mudarCor(event){
+  for(let i = 0; i <todasTarefas.length; i++) {
+    todasTarefas[i].style.backgroundColor='';
+  }
+   event.target.style.backgroundColor = "rgb(128, 128, 128)";
+
+  console.log('Clicando Alterar Cor...');
+
 }
