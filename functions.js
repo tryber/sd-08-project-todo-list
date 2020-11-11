@@ -46,11 +46,14 @@ function createListItemAuto() {
     lista.appendChild(novaTarefa);
 };
 
-// function addSavedList() {
-//   const savedList = JSON.parse(localStorage.listaSalva);
+function addSavedList() {
+  const savedList = JSON.parse(localStorage.listaSalva);
 
-//   savedList.forEach((item, index) => {
-//     createListItemAuto();
-//     document.querySelectorAll('li')[index].innerText = item;
-//   });
-// };
+  savedList.text.forEach((item, index) => {
+    createListItemAuto();
+    document.querySelectorAll('li')[index].innerText = item;
+    if (savedList.completed[index] == true) {
+      document.querySelectorAll('li')[index].classList.add('completed');
+    }
+  });
+};
