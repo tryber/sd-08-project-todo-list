@@ -29,8 +29,15 @@ function indexInParent(node) {
 }
 
 function riscarItem() {
-  event.target.classList.add("completed");
+  let temClasse = event.target.classList.contains("completed");
+  if(temClasse){
+    event.target.classList.remove("completed");
+  }
+  else{
+    event.target.classList.add("completed");
+  }
 }
+
 
 function adicionarItemLista(){
 
@@ -42,7 +49,9 @@ function adicionarItemLista(){
 
   novoItemLista.id = 'list-Item' + listItemCounter++;
   novoItemLista.onclick = selecionarItemLista;
-  novoItemLista.ondblclick = riscarItem;
+ //novoItemLista.ondblclick = riscarItem;
+  novoItemLista.addEventListener('dblclick', riscarItem);
+
   const valorTextoParaLi = document.createTextNode(valorDigitado);
 
   novoItemLista.appendChild(valorTextoParaLi);
@@ -51,10 +60,7 @@ function adicionarItemLista(){
 
 }
 
-function sobeItem(){
-  let itemSelecionado = document.getElementsByClassName("selected"); 
-  let list = document.getElementById("lista-tarefas");  
-  let posicacaoAtual = indexInParent(itemSelecionado[0]);
+function sobeItem(){clickxInParent(itemSelecionado[0]);
   list.insertBefore(itemSelecionado[0], list.childNodes[posicacaoAtual]);
 }
 
@@ -70,7 +76,8 @@ window.onload = () => {
   botaoAdiciona.onclick = adicionarItemLista;
 
   let botaoSobeItem = document.getElementById("mover-cima");
-  botaoSobeItem.onclick = sobeItem;
+  //botaoSobeItem.onclick = sobeItem;
+  botaoSobeItem.addEventListener('click', sobeItem);
 
   let botaoDesceItem = document.getElementById("mover-baixo");
   botaoDesceItem.onclick = desceItem;
