@@ -99,8 +99,10 @@ moveUp();
 
 function moveDown () {
     document.querySelector('#mover-baixo').addEventListener('click', function () {
-        if (document.querySelector('.selected').nextElementSibling !== null) {
-            document.querySelector('#lista-tarefas').insertBefore(document.querySelector('.selected').nextElementSibling, document.querySelector('.selected'))  
+        if (document.querySelector('.selected') !== null) {
+            if (document.querySelector('.selected').nextElementSibling !== null) {
+                document.querySelector('#lista-tarefas').insertBefore(document.querySelector('.selected').nextElementSibling, document.querySelector('.selected'));
+            } 
         }                      
     });
 }
