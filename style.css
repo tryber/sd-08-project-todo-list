@@ -26,26 +26,34 @@ button:hover{
     cursor: pointer;
 }
 #lista{
-    width:50%;
+    width:40%;
     /* border:1px solid rgb(233, 224, 224); */
     margin: auto;
+    
 }
 .list-item{
     background-color: rgb(244, 247, 247);
     transition: 0.5s;
+    margin-right: 45px ;
 }
 .list-item-active{
     background-color: rgb(128,128,128);
     color: rgb(255, 255, 255);
     font-weight: bold;
+    margin-right: 45px;
+    
 }
 .completed{
     text-decoration: line-through solid rgb(0,0,0);
+    border-bottom: 2px dashed rgb(9, 155, 41);
+    background-color: rgba(62, 250, 62, 0.664);
+    transition: 0.5s;
 }
 #texto-tarefa{
     width: 90%;
     border: 2px solid rgb(199, 194, 194);
     border-radius: 3px;
+    padding:5px;
 }
 li{
     border-bottom: 2px dashed rgba(255, 0, 0, 0.336);

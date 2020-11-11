@@ -5,7 +5,8 @@ function insereElementoNaLista (){
     let li_ID = document.getElementById("lista-tarefas")    
     let Item = document.createElement('li')
     Item.classList.add("list-item");
-    let ultimoElemento;         
+    let ultimoElemento;  
+        
       
     //Verifica se o input text está vazio
     if (inputText !== '') {
@@ -18,8 +19,10 @@ function insereElementoNaLista (){
         alert("Preencha a lista com algum item!")
     }
     setColor();
-    doubleClick();
+    doubleClick(Item)
+    
 }
+
 
 // Ao clicar no botão salva o texto na lista e apaga conteúdo do input
 document.getElementById("criar-tarefa").onclick = function(e) {
@@ -42,71 +45,50 @@ botaoApaga.onclick = () => {
     }   
 }
 
+
 //Ao clicar em um dos itens a variável recebe a classe active
+
 function setColor() {    
-    let item = document.querySelectorAll(".list-item");
-    for (let i = 0; i < item.length; i++) { 
-        item[i].addEventListener("click", function (event) { 
-        reverteClasses();  //Reverte todos os itens para ".list-item"
-        if (item[i].className === "list-item"){
-            event.target.className = 'list-item-active'; 
-            }
-        })    
-    }     
-}   
-
-//Ao dar um duplo click ele aplica a classe completed
-function doubleClick() {    
-    let item = document.querySelectorAll(".list-item");
+    let item = document.querySelectorAll("li");
     for (let i = 0; i < item.length; i++) {   
-        item[i].addEventListener("dblclick", function (event) { 
-            // if (item[i].className === ""){
-            //     event.target.classList.add('list-item'); 
-            // } else if (item[i].className === "list-item" || item[i].className === "list-item-active"){
-            //     event.target.classList.add('completed'); 
-            // }
-
-
-
-            if (item[i].className === "completed"){
-                event.target.classList.remove('completed'); 
-                event.target.classList.add('list-item'); 
-                                         
-            } else if (item[i].className === "list-item-active"){
-                event.target.classList.remove('list-item-active'); 
-                event.target.classList.add('completed');
-
-            } else if (item[i].className === "list-item"){
-                event.target.classList.remove('list-item');
-                event.target.classList.add('completed');
-            } 
-        })
+        item[i].addEventListener("click", function (event) { 
+        if (item[i].className !== 'completed') {
+            reverteClasses();                       
+            event.target.className = 'list-item-active';
+        }            
+        })       
     }     
-} 
+}    
+
+
+//Ao clicar duas vezes o item recebe a classe completed
+function doubleClick(item) {  
+        
+    item.addEventListener("dblclick", function (event) { 
+        if (item.className !== "completed"){                            
+            event.target.className = 'completed';
+        } else {              
+            event.target.className = 'list-item';
+        }
+    })             
+        
+}
+
 
 //Função para reverter classe dos itens da lista, é chamada na função serColor
 function reverteClasses (){
-    let itemActive = document.querySelectorAll(".list-item-active"); 
-        for (let i = 0; i < itemActive.length; i++) {           
-            itemActive[i].classList.remove('list-item-active');
-            itemActive[i].classList.add('list-item');       
-    }
-}    
+let itemActive = document.querySelectorAll("li");  
+    for (let i = 0; i < itemActive.length; i++) {         
+        if (itemActive[i].className !== "completed"){
+            itemActive[i].className = 'list-item';
+        }       
+    }        
+}
+
+
     
-//Função para apagar itens da lista
-// let botaoApagaFinalizados = document.querySelector('#remover-finalizados')
-// botaoApagaFinalizados.onclick = () => {
-//     const listaInterna = document.querySelectorAll(".completed");
-//     if (listaInterna){
-//         if (confirm("\t\n Deseja apagar todos os itens completados da lista? \t\n")){            
-//             while (listaInterna.firstChild) {
-//                 listaInterna.removeChild(listaInterna.lastChild);
-//             }
-//          }
-//     } else {
-//         alert("\t Não há itens em sua lista! \t")
-//     }   
-// }
+    
+   
     
 
         
