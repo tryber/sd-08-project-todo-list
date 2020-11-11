@@ -15,10 +15,7 @@ function botao() {
                 if (marcado !== null) {
                     marcado.classList.remove("marcado");
                 }
-
                 event.target.classList.add("marcado");
-
-            //linha.style.backgroundColor = "rgb(128, 128, 128)";
         })
 
         //Riscando texto
@@ -54,6 +51,22 @@ apagar();
         completeItem[index].remove();
     }
 })
+
+
+//Requisito 12
+    let salvando = function() {
+    const salvar = document.getElementById("salvar-tarefas");
+    salvar.addEventListener("click", function() {
+        let lista = document.getElementById("lista-tarefas").innerHTML;
+        localStorage.setItem("lista", lista);
+    })
+    }
+    salvando();
+    
+
+
+
+
 
 
 //rrequisito 14
