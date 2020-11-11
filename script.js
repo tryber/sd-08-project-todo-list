@@ -1,5 +1,6 @@
 window.onload = function() {
     loadTasks();
+    deleteAllTasks();
 }
 
 
@@ -44,7 +45,7 @@ function deleteAllTasks() {
     document.querySelector('#apaga-tudo').addEventListener('click', function(){
         for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
             document.querySelector('#lista-tarefas').removeChild(document.querySelectorAll('li')[index]);
-        }
+        }       
     });    
 }
 deleteAllTasks();
