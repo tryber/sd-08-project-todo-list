@@ -1,9 +1,9 @@
   // seletor do input
-  let inputSEl = document.getElementById("texto-tarefa");
+  const inputSEl = document.getElementById("texto-tarefa");
   // seletor do ol
-  let olsel = document.getElementById("lista-tarefas");
+  const olsel = document.getElementById("lista-tarefas");
   // seletor do btn adicionar
-  let btnsel = document.getElementById("criar-tarefa");
+  const btnsel = document.getElementById("criar-tarefa");
 
   
   // escuta o evento adicionar
@@ -18,29 +18,22 @@
       else {
     objcria.textContent =container;
     objcria.className ='file';
+    objcria.addEventListener("click", bgli);
     olsel.appendChild(objcria);
     inputSEl.value = '';}
       };
     
-   //Aqui pegamos todos os li
-   let items = document.getElementsByClassName('.file');
-   for(let i = 0; i < items.length; i++){
-    items[i].addEventListener('click',function(){
-      items[i].style.background = rgb(128, 128, 128);
-    } ); 
-
-   };
-
-   
-
-    
-    
-
-  
-  
+  function bgli (event){
+    let bgcor = '';
+    if (event.target.style.backgroundColor === ""){
+      bgcor = 'rgb(128, 128, 128)'
       
+    }
+    
+    event.target.style.backgroundColor = bgcor;
+    } 
 
     
-
-
- 
+    
+   
+   //.addEventListener('click',function(event){
