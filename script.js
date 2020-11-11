@@ -1,9 +1,35 @@
+window.onload = function(){
+
+    let list = document.getElementById('lista-tarefas');
+    let count=0;
+    do{
+        try{
+            let listLoad = JSON.parse(localStorage.getItem(`index${count}`));
+            sessionStorage.setItem('name', listLoad.conteudo);
+            sessionStorage.setItem('ok', listLoad.verifica);
+            adicionaTexto();
+            count++;
+        }catch{
+            break;
+        }  
+    }while(count > 0)
+}
+
+
 function adicionaTexto(){
 
+    let confirmaNome = sessionStorage.getItem('name');
     let texto = document.getElementById('texto-tarefa');
     let list = document.getElementById('lista-tarefas');
     let itemList = document.createElement('li');
-    itemList.innerText = texto.value;
+    if(confirmaNome != null){
+        itemList.innerText = confirmaNome;
+        if(sessionStorage.getItem('ok') == "true"){
+            itemList.className = 'completed';
+        }  
+    }else{
+        itemList.innerText = texto.value;
+    }
     //Requisito 7
     itemList.addEventListener("click", function(){
         verificaListItem();
@@ -16,6 +42,7 @@ function adicionaTexto(){
        });
     list.appendChild(itemList);
     texto.value = "";
+    sessionStorage.clear();
 }
 
 //Requisito 8
@@ -45,6 +72,22 @@ function clearSelected(){
         });
 
 }
+//Requisito 12
+function saveChanges(){
+    
+    localStorage.clear();
+    let count = 0;
+    let list = document.getElementById('lista-tarefas');
+    let itemList = document.getElementsByTagName('li');
+        Array.from(itemList).forEach(function(itemList){
+            let index = {
+                conteudo: itemList.innerText,
+                verifica: itemList.className.includes("completed")
+            };
+            localStorage.setItem(`index${count}`, JSON.stringify(index));
+            count++;
+        });
+}
 //Requisito 13
 function moveUp(){
 
@@ -54,12 +97,15 @@ function moveUp(){
     if(itemList.previousSibling.tagName != undefined){
         verificaListItem();
         itemList.previousSibling.style.backgroundColor = 'rgb(' + [128,128,128].join(',') + ')';
-        itemList.previousSibling.className = 'selected';
+        itemList.previousSibling.className += ' selected';
+        if(itemList.className.includes('completed')){
+            itemList.classList.remove('completed');
+            itemList.previousSibling.className += ' completed';
+        }
         itemList.innerText = itemList.previousSibling.innerText;
         itemList.previousSibling.innerText = item;
     }  
 }
-
 function moveDown(){
 
     let itemList = document.querySelector('.selected');
@@ -67,7 +113,11 @@ function moveDown(){
     if(itemList.nextSibling != null){
         verificaListItem();
         itemList.nextSibling.style.backgroundColor = 'rgb(' + [128,128,128].join(',') + ')';
-        itemList.nextSibling.className = 'selected';
+        itemList.nextSibling.className += ' selected';
+        if(itemList.className.includes('completed')){
+            itemList.classList.remove('completed');
+            itemList.nextSibling.className += ' completed';
+        }
         itemList.innerText = itemList.nextSibling.innerText;
         itemList.nextSibling.innerText = item;
     }
