@@ -117,7 +117,7 @@ function moveTarefas() {
         selectedItemIndex = k;
       }
     }
-    
+
     if (selectedItemIndex > 0) {
       olNodeList[selectedItemIndex].parentElement.insertBefore(olNodeList[selectedItemIndex], olNodeList[selectedItemIndex - 1]);
     } 
@@ -137,3 +137,13 @@ function moveTarefas() {
   });
 }
 moveTarefas();
+
+function deleteItem() {
+  const btnDeleteItem = document.querySelector('#remover-selecionado');
+
+  btnDeleteItem.addEventListener('click', function () {
+    let selectedItemTask = document.getElementsByClassName('selected');
+    selectedItemTask[0].parentNode.removeChild(selectedItemTask[0]);
+  });
+}
+deleteItem();
