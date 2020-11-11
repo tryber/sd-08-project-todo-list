@@ -42,7 +42,14 @@ function selectItem() {
     setBackgroudItem(event.target);
   });
 }
-
+function removeAllTasks() {
+  const btnRemoveAll = document.getElementById('apaga-tudo');
+  const taskList = document.getElementById('lista-tarefas');
+  btnRemoveAll.addEventListener('click', function () {
+    taskList.innerText = '';
+  });
+}
+removeAllTasks();
 window.onload = function () {
   selectItem();
   actionAddTask();
