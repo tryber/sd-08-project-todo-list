@@ -33,8 +33,20 @@ function makeList(){
     listaTarefas.innerText = conteudo; //Lista recebe valor do imput
     listaTarefas.id = 'lista';
     document.getElementById('texto-tarefa').value = ''; //Apaga valor do imput
-    document.querySelector('#lista-tarefas').appendChild(listaTarefas); //Cria lista
-    
+    document.querySelector('#lista-tarefas').appendChild(listaTarefas); //Cria lista 
+}
+//Cria botão apaga tudo - 10º requisito
+const apagarLista = document.getElementById('lista-tarefas');
+const vetorLista = document.querySelectorAll('#lista');
+const btnApagar = document.createElement('button');
+btnApagar.id = 'apaga-tudo';
+btnApagar.innerText = 'Apagar Lista';
+document.querySelector('body').appendChild(btnApagar);
+btnApagar.addEventListener('click', clearList);
+
+function clearList(){
+    apagarLista.textContent = '';
+    // apagarLista.innerHTML = ''; - tfunciona da mesma forma
 }
 //Define backgroundcolor dos itens da Lista - 7º e 8º requisitos
 const backColorList = document.getElementById('lista-tarefas');
