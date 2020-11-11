@@ -51,3 +51,8 @@ function removeFinalizados() {
       }
     }
   }
+
+//Salva as tarefas
+function salvaTarefas() {
+    localStorage.setItem("tarefas", listaTarefas.innerHTML);
+  }
