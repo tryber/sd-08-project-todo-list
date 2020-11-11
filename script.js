@@ -1,5 +1,6 @@
 const getButtonCreateTask = document.getElementById('criar-tarefa');
 const getButtonClearAll = document.getElementById('apaga-tudo');
+const getButtonRemoveFinished = document.getElementById('remover-finalizados');
 const getOrderedList = document.getElementById('lista-tarefas');
 const getTaskList = document.getElementsByClassName('task-list');
 const getInput = document.getElementById('texto-tarefa');
@@ -33,4 +34,11 @@ function toggleCompleted(event) {
 
 getButtonClearAll.addEventListener('click', () => {
   getOrderedList.innerHTML = '';
+});
+
+getButtonRemoveFinished.addEventListener('click', () => {
+  let completedTask = document.getElementsByClassName('completed');
+  for (let i = completedTask.length - 1; i >= 0; i -= 1) {
+    completedTask[i].remove();
+  }
 });

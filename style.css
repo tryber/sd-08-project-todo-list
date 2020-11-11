@@ -67,6 +67,18 @@ input {
   width: 170px;
 }
 
+.remove-finished {
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(29 , 53 , 87);
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 270px;
+}
+
 .ordered-list {
   list-style-position: inside;
 }
