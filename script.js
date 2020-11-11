@@ -15,25 +15,27 @@ function addText () {
     captureInput.value = '';
 };
 
-//requisito 7 - minha ideia foi criar um evento onde clico na lista a cor de fundo é alterada, a cor cinza é chamada através do css
+//requisito 7 e 8 - inicialmente fiz numa função separada para os 2 requisitos, mas uni numa função para facilitar a construção
+
 function color () {
     const captureListOl = document.getElementById('lista-tarefas'); 
-    captureListOl.addEventListener('click', function (event) {
+    captureListOl.addEventListener('click', colorAndHighlight);
+    
+    function colorAndHighlight (event) {
         let captureGrey = document.querySelector('.color');
-       
-        
+       //adiciona uma classe 
         if (event.target.className === 'colorDefault') { 
+            // se não têm classe vai adicionar a classe color, e se já têm a classe color vai remover e readicioná-la
             if (captureGrey === null) {
                 event.target.classList.add('color');
             } else {
                 captureGrey.classList.remove('color');
                 event.target.classList.add('color');
             }
-    
         }
-      })
+      }
     }
-      color ();
+color ();
 
 
 
