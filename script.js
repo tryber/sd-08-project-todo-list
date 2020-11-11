@@ -14,6 +14,14 @@ function addText () {
     captureListOl.appendChild(liTask);
     captureInput.value = '';
 };
+// requisito 7
+function color () {
+    captureListOl.addEventListener('click', grey)
+    function grey (event) {
+        event.target.className = 'color';
+      };
+};
+color ();
 
 //requisito 7 e 8 - inicialmente fiz numa função separada para os 2 requisitos, mas uni numa função para facilitar a construção
 
@@ -36,6 +44,20 @@ function color () {
       }
     }
 color ();
+
+
+//requisito 9 
+
+function toHighlight (event) {
+    //se a classe tenha o 'nome completed' vai removê-la e caso não vai adicionála
+    if (event.target.classList.contains ('completed')) {
+        event.target.classList.remove ('completed'); 
+    } else {
+        event.target.classList.add('completed');
+    }    
+}
+    captureListOl.addEventListener('dblclick', toHighlight);
+    
 
 
 
