@@ -53,6 +53,18 @@ function paint() {
 }
 paint()
 
+function completed(){
+  let listItem = document.querySelectorAll('.item')
+
+  for(i = 0; i < listItem.length; i++) {
+    listItem[i].addEventListener('dblclick', (event)=>{
+
+      event.target.classList.toggle('completed')
+    })
+  }
+}
+completed()
+
 function apagarTudo(){
   localStorage.clear()
   document.location.reload()
