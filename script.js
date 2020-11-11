@@ -57,16 +57,36 @@ deleteFinish.addEventListener('click', deleteFinishedTasks)
 
 function deleteFinishedTasks () {
 
-  let allNodes = document.querySelectorAll('li').length
+  let allNodes = document.getElementsByTagName('li').length
+
+  
 
   for (let index = 0; index < allNodes; index += 1) {
 
-    if (document.querySelectorAll('li')[index].className == 'completed') {
-      console.log("ops")
+    let tst = document.getElementsByTagName('li')[index].getAttribute('class')
 
+    if ( tst == "completed") {
       let ops = document.querySelectorAll('li')[index]
-
       ops.parentNode.removeChild(ops)
+      allNodes = document.getElementsByTagName('li').length
     }
   }
  }
+
+
+//  function deleteFinishedTasks () {
+//   let allNodes = document.querySelectorAll('li').length
+
+//   let list = document.getElementById('lista-tarefas');
+
+//   for (let index = 0; index < allNodes; index += 1) {
+    
+    
+//     let kombi = document.querySelector('.completed')
+//     console.log("ops")
+//     if(kombi.className == 'completed'){
+//       console.log("ops2")
+//       kombi.parentNode.removeChild(kombi);
+//     }
+//   }
+//  }
