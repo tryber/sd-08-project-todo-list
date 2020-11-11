@@ -1,6 +1,6 @@
 const getButton = document.getElementById('criar-tarefa');
 const getOrderedList = document.getElementById('lista-tarefas');
-let getTaskList = document.getElementsByClassName('task-list');
+const getTaskList = document.getElementsByClassName('task-list');
 
 function createTaskList() {
   const getInput = document.getElementById('texto-tarefa');
