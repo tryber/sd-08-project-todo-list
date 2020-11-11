@@ -74,14 +74,16 @@ function apagarTarefasFinalizadas() {
 apagarTarefasFinalizadas();
 
 function salvarTarefas() {
-  const salvarTarefas = document.querySelector('#salvar-tarefas');
+  const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
 
-  salvarTarefas.addEventListener('click', () => {
+  botaoSalvarTarefas.addEventListener('click', () => {
     const tarefas = document.querySelectorAll('.tarefa');
-
-    localStorage.setItem('tarefas', JSON.stringify(tarefas))
+    for (let i = 0; i < tarefas.length; i += 1) {
+      const tarefa = tarefas[i];
+      localStorage.setItem('tarefas', JSON.stringify(tarefa));
+    }
     localStorage.getItem('tarefas');
-  })
+  });
 }
 
 salvarTarefas();
