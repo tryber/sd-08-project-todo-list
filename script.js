@@ -30,9 +30,15 @@ input.parentNode.insertBefore(button, input.nextSibling);
 
 button.addEventListener('click', function () {
     const li = document.createElement('li');
+    // li.style.backgroundColor = 'white';
+    li.classList.add('task');
     li.innerHTML = input.value;
     input.value = '';
     ol.appendChild(li);
 })
 
 /* ---------------------------- REQUISITO 07 ---------------------------- */
+
+ol.addEventListener('click', function (event) {
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+})
