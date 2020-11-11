@@ -21,11 +21,14 @@ function corFundoTarefa() {
     if (ultimoSelecionado === null) {
       ultimoSelecionado = event.target;
       event.target.style.backgroundColor = 'gray';
+      event.target.classList.add('selecionada');
     } else {
       ultimoSelecionado.style.backgroundColor = 'initial';
+      ultimoSelecionado.classList.remove('selecionada');
       ultimoSelecionado = event.target;
     }
     event.target.style.backgroundColor = 'gray';
+    event.target.classList.add('selecionada');
   });
 }
 
@@ -35,7 +38,7 @@ function riscarTarefa() {
   const listaOrdenada = document.getElementById('lista-tarefas');
 
   listaOrdenada.addEventListener('dblclick', (event) => {
-    if (event.target.className === 'tarefa completed') {
+    if (event.target.className === 'tarefa completed' || event.target.className === 'tarefa completed selecionada') {
       event.target.classList.remove('completed');
     } else {
       event.target.classList.add('completed');
@@ -74,15 +77,19 @@ function apagarTarefasFinalizadas() {
 apagarTarefasFinalizadas();
 
 function salvarTarefas() {
-  const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
+  const salvarLista = document.querySelector('#salvar-tarefas');
 
-  botaoSalvarTarefas.addEventListener('click', () => {
+  salvarLista.addEventListener('click', () => {
+    // analisando o código do meu colega Paulo Simões, me deu uma ideia de como poderia fazer
+    // https://github.com/tryber/sd-08-project-todo-list/pull/36/files
+    const array = [];
+
     const tarefas = document.querySelectorAll('.tarefa');
     for (let i = 0; i < tarefas.length; i += 1) {
       const tarefa = tarefas[i];
-      localStorage.setItem('tarefas', JSON.stringify(tarefa));
+      array.push({ tarefa: tarefa.innerText, selecionada: tarefa.classList.contains('selecionada'), completada: tarefa.classList.contains('completed') });
     }
-    localStorage.getItem('tarefas');
+    localStorage.setItem('tarefas', JSON.stringify(array));
   });
 }
 
