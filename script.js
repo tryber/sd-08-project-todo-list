@@ -112,7 +112,7 @@ function moveTarefas() {
 
   upBtn.addEventListener('click', function () {
     let olNodeList = document.querySelectorAll(".tarefa");
-    let selectedItemIndex;
+    let selectedItemIndex = 0;
     
     for (let k = 0; k < olNodeList.length; k +=1) {
       if (olNodeList[k].classList.contains('selected')) {
@@ -127,7 +127,7 @@ function moveTarefas() {
 
   downBtn.addEventListener('click', function() {
     let olNodeList = document.querySelectorAll(".tarefa");
-    let selectedItemIndex;
+    let selectedItemIndex = 0;
 
     for (let k = 0; k < olNodeList.length; k +=1) {
       if (olNodeList[k].classList.contains('selected')) {
