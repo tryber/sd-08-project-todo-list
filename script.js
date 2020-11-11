@@ -8,13 +8,14 @@ buttonCreat.addEventListener('click', function() {
   document.getElementById('lista-tarefas').appendChild(task)
 });
 
-let task = document.getElementsByTagName('li');
+let task = document.getElementsByTagName('LI');
 const buttonRemove  = document.getElementById('apaga-tudo');
 buttonRemove.addEventListener('click', function () {
 console.log('Tenho ' + task.length + ' itens na lista')
-  for(let i=0; i<task.length; i+=1){
+  for(let i=1; i<=task.length*2; i+=1){
     // let apaga = ;
-    task[i].remove();
+    let apaga = lista.childNodes;
+    apaga[i].remove();
     console.log(i);
   }
 });
@@ -25,21 +26,23 @@ lista.addEventListener('click', function (event){
   console.log(selectedItem.length)
   if( event.target.tagName === 'LI'){
     if( selectedItem.length >= 1 ){
-      selectedItem[0].className = "";
+      if(selectedItem[0].className === "completed selected"){
+        selectedItem[0].className = "completed";
+      }else {
+       selectedItem[0].className = "";
+    }}
+    if(event.target.className==="completed"){
+      event.target.className = 'completed selected';
+    } else {
+      event.target.className = 'selected';
     }
-    event.target.className = 'selected';
   }
 });
 
 const complet = document.getElementById('lista-tarefas')
 complet.addEventListener('dblclick', function (event){
-  let selectedItem = document.getElementsByClassName('selected')
-  console.log(selectedItem.length)
   if ( event.target.tagName === 'LI'){
-    if ( selectedItem.length >= 1 ){
-      selectedItem[0].className = "";
-    }
-    if ( event.target.className ==='completed'  ){
+    if ( event.target.className === 'completed selected'  ){
       event.target.className = "";
     } else {
       event.target.className = 'completed';
