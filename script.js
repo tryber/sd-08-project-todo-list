@@ -41,12 +41,21 @@ function addListTodo(){
 addListTodo();
 
 let olColor = document.querySelector("#lista-tarefas");
+let removeOl = olColor.childNodes;
+
+function removeListColor(){
+    for(let index=0; index<removeOl.length; index++){
+        if(removeOl[index].style.backgroundColor == "rgb(128, 128, 128)"){
+            removeOl[index].style.backgroundColor = "white";
+        }
+    }
+}
 
 function listColor(){
-
-    olColor.addEventListener("click", function(event){
-        event.target.style.backgroundColor = "rgb(128, 128, 128)";       
-
+    olColor.addEventListener("click", function(event){          
+        removeListColor();            
+        
+        event.target.style.backgroundColor = "rgb(128, 128, 128)";        
     });
 
     olColor.addEventListener("dblclick", function(event){
