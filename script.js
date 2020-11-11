@@ -113,14 +113,14 @@ function posi() {
 }
 
 function moveDown() {
-  let position = posi();
+  const position = posi();
 
   if (position === undefined) {
-    return alert('nenhum item selecionado');
+    return;
   }
 
   if (position + 1 === ol.children.length) {
-    return alert('impossível mover para baixo');
+    return;
   }
 
   const text1 = ol.children[position].innerText;
@@ -141,14 +141,14 @@ function moveDown() {
 paraBaixo.addEventListener('click', moveDown);
 
 function moveUp() {
-  let position = posi();
+  const position = posi();
 
   if (position === undefined) {
-    return alert('nenhum item selecionado');
+    return;
   }
 
   if (position - 1 < 0) {
-    return alert('impossível mover para cima');
+    return;
   }
 
   const text1 = ol.children[position].innerText;
@@ -169,7 +169,7 @@ function moveUp() {
 paraCima.addEventListener('click', moveUp);
 
 // Requisito 13
-const removeSelected = document.querySelector('#remover-selecionado')
+const removeSelected = document.querySelector('#remover-selecionado');
 
 function removeSelectedChild() {
   for (let i = 0; i < ol.children.length; i += 1) {
