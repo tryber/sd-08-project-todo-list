@@ -76,10 +76,10 @@ function salvaTarefas() {
 function moveTarefaC() {
   let elemento = document.querySelector(".selected");
   //listaTarefas.insertBefore(elemento, elemento.previousSibling);
-  elemento.previousSibling && elemento.previousSibling.insertAdjacentElement("beforebegin", elemento);
+  elemento && elemento.previousSibling && elemento.previousSibling.insertAdjacentElement("beforebegin", elemento);
 }
 
 function moveTarefaB() {
   let elemento = document.querySelector(".selected");
-  elemento.nextSibling && elemento.nextSibling.insertAdjacentElement("afterend", elemento);
+  elemento && elemento.nextSibling && elemento.nextSibling.insertAdjacentElement("afterend", elemento);
 }
