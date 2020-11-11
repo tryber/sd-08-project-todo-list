@@ -30,8 +30,17 @@ selLista.addEventListener('dblclick', function (event) {
 
 //Limpa Lista
 const buttonClearList = document.querySelector('#apaga-tudo');
-buttonClearList.addEventListener('click', function(event) {
+buttonClearList.addEventListener('click', function (event) {
   if (event.target.id === 'apaga-tudo') {
     selLista.innerHTML = '';
   };
+});
+
+//Remove finalizados
+document.getElementById("remover-finalizados").addEventListener("click", function () {
+  let listaCompletos = document.querySelectorAll(".completed");
+
+  for (let i = 0; i < listaCompletos.length; i += 1) {
+    document.getElementById("lista-tarefas").removeChild(listaCompletos[i]);
+  }
 });
