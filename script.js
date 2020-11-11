@@ -131,3 +131,42 @@ function criaitemlista(){
 criaitemlista()
 
 */
+
+
+function botaosalvatarefas(){
+    let pegaposidiv = document.querySelector("#remover-finalizadosdiv")
+    let criaelementbotao = document.createElement("button")
+    let getposi1 = document.querySelector("#lista-tarefas")
+    criaelementbotao.id = "remover-finalizados"
+    criaelementbotao.innerText = "Remover Finalizados"
+
+    pegaposidiv.appendChild(criaelementbotao)
+   
+
+// pega a lista depois de clicar e atribui valor a ela
+    criaelementbotao.addEventListener("click",function(event){ 
+        let pegalista = document.querySelectorAll("li")
+        
+//  passa em cada um dos elementos do array e verifica se possui a classe e deleta se tiver
+for(let i = 0 ; i < pegalista.length ; i++)
+
+        if(pegalista[i].className === "completed"){
+            getposi1.removeChild(pegalista[i])
+            
+
+        }else{
+
+            console.log("elementos nao finalizados")
+
+
+        }
+
+
+
+    })
+
+
+
+}
+
+botaosalvatarefas()
