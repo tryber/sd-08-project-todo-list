@@ -101,17 +101,27 @@ hightlightelement()
 function botaoapaga(){
 
 let getposi4 = document.querySelector("#botaoapaga")
-let getposi5 = document.getElementsByClassName("li")
+
 let criabotaoapaga = document.createElement("button")
 criabotaoapaga.id = "apaga-tudo"
 criabotaoapaga.innerText = "Apagar tudo"
 getposi4.appendChild(criabotaoapaga)
 
-criabotaoapaga.addEventListener("click", function(){
+criabotaoapaga.addEventListener("click", function(event){
+    let pegalista1 = document.querySelector("li")
+    let getposi1 = document.querySelector("#lista-tarefas")
+    console.log(getposi1)
+    // getposi1.removeChild(pegalista1)
+    getposi1.innerHTML = " "
 
    
 
-getposi5.length = 0
+    
+    
+
+   
+
+
 
 })
 
@@ -156,7 +166,7 @@ for(let i = 0 ; i < pegalista.length ; i++)
 
         }else{
 
-            console.log("elementos nao finalizados")
+          
 
 
         }
