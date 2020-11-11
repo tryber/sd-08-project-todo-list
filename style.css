@@ -95,7 +95,7 @@ li:hover {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
-#apaga-tudo , #remover-finalizados{
+#apaga-tudo , #remover-finalizados, #salvar-tarefas{
     width: 80px;
     height: 30px;
     border: none;
@@ -121,4 +121,22 @@ li:hover {
 #remover-finalizados:hover {
     cursor: pointer;
     background-color: rgb(119, 103, 103);
+}
+
+#remover-finalizados:focus{
+    outline: none;
+}
+
+#salvar-tarefas {
+    background-color: rgba(124, 154, 196, 0.877);
+}
+
+#salvar-tarefas:hover {
+    cursor: pointer;
+    background-color: rgb(59, 59, 184);
+    color: whitesmoke;
+}
+
+#salvar-tarefas:focus {
+    outline: none;
 }
