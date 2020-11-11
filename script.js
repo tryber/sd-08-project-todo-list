@@ -22,10 +22,18 @@ function colorTask() {
     const ol = document.querySelector('#lista-tarefas');
 
     ol.addEventListener('click', function(event) {
+    const li = document.querySelectorAll('.task');
       if (event.target.className === 'task') {
+        for (let index = 0; index < li.length; index += 1){
+            li[index].style.backgroundColor = 'white';
+        }
         event.target.style.backgroundColor = 'grey';
       }
     });
 }
 
 colorTask();
+
+function selectedTask() {
+
+}
