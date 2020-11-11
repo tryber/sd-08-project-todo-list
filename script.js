@@ -1,12 +1,11 @@
 // DEFININES SELECTORS
 const inputTasks = document.querySelector('#texto-tarefa');
 const listTasks = document.querySelector('#lista-tarefas');
-const listItem = document.querySelectorAll('.list-item');
 const createTaskButton = document.querySelector('#criar-tarefa');
-const cleanTasksButton = document.querySelector('#apaga-tudo');
+const deleteTasksButton = document.querySelector('#apaga-tudo');
 const removeFinishedTasksButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
-let listItemArray = [];
+const listItemArray = [];
 
 // CREATES A NEW TASK
 const createNewTask = () => {
@@ -21,10 +20,10 @@ const createNewTask = () => {
 
   listItemArray.push(li);
 
-  listTasks.appendChild(li);
-
   inputTasks.value = '';
-}
+
+  return listTasks.appendChild(li);
+};
 
 createTaskButton.addEventListener('click', createNewTask);
 
@@ -69,3 +68,12 @@ const completeSingleTask = (event) => {
 };
 
 listTasks.addEventListener('dblclick', completeSingleTask);
+
+// DELETE ALL LIST ITEMS
+const deleteListItems = () => {
+  while (listTasks.hasChildNodes()) {
+    listTasks.removeChild(listTasks.firstChild);
+  }
+};
+
+deleteTasksButton.addEventListener('click', deleteListItems);
