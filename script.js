@@ -1,4 +1,4 @@
-// ELEMENT DEFINITIONS
+// --------------- ELEMENT DEFINITIONS ---------------
 const taskInput = document.querySelector('#texto-tarefa');
 const addTask = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
@@ -6,6 +6,7 @@ const deleteAll = document.querySelector('#apaga-tudo');
 const deleteCompleted = document.querySelector('#remover-finalizados');
 const saveTasks = document.querySelector('#salvar-tarefas');
 
+// --------------- MODULE 01 - ADD TO LIST ---------------
 // Creates 'add to list' button functionality
 function createListItem() {
   const listItem = document.createElement('li');
@@ -16,6 +17,7 @@ function createListItem() {
 
 addTask.addEventListener('click', createListItem);
 
+// --------------- MODULE 02 - ITEM SELECTORS ---------------
 // Adds BG color only to the to selected element
 function removeColor() {
   const allTasks = taskList.children;
@@ -46,6 +48,7 @@ function completedTask(event) {
 
 taskList.addEventListener('dblclick', completedTask);
 
+// --------------- MODULE 03 - DELETE TASKS ---------------
 // Deletes all tasks
 function removeTasks() {
   while (taskList.lastChild) {
@@ -68,7 +71,8 @@ function removeCompleted() {
 
 deleteCompleted.addEventListener('click', removeCompleted);
 
-// Saves task list and completed status to web storage
+// --------------- MODULE 04 - SAVE AND RETRIEVE ---------------
+// Stores each list items' innerHTML and completed status
 function saveList() {
   localStorage.clear();
   for (let i = 0; i < taskList.childElementCount; i += 1) {
@@ -80,8 +84,7 @@ function saveList() {
 
 saveTasks.addEventListener('click', saveList);
 
-// Retrieves tasks from web storage and assigns completed status
-// Object.keys() source: https://stackoverflow.com/a/17748203/14424360
+// Retrieves innerHTML and completion status and stores them in dedicated arrays
 let savedTasks;
 let completionStatus;
 
@@ -93,13 +96,16 @@ function retrieveItems() {
     completionStatus.push(localStorage.getItem(`${i}${i}`));
   }
 }
+// Object.keys() source: https://stackoverflow.com/a/17748203/14424360
 
+// Checks completion status of given list item based on retrieved info
 function isComplete(status, listItem) {
   if (status === 'true') {
     listItem.classList.add('completed');
   }
 }
 
+// Rebuilds list from stored data 
 function generateFromStorage() {
   if (localStorage.getItem(0)) {
     retrieveItems();
