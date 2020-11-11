@@ -1,6 +1,10 @@
 const text = document.getElementById('texto-tarefa');
 const button = document.getElementById('criar-tarefa');
+const deleteAll = document.querySelector('#apaga-tudo');
+const list = document.getElementById('lista-tarefas');
+const itens = document.getElementsByTagName('li');
 let lastSelect = null;
+let cont = 0;
 
 function selectHandler(event) {
   if (lastSelect === null) {
@@ -30,10 +34,20 @@ function createItem(texto) {
 }
 
 function addItem() {
-  const list = document.getElementById('lista-tarefas');
   const item = createItem(text.value);
   list.appendChild(item);
   text.value = '';
+  if (cont === 0) {
+    deleteAll.style.display = 'inline';
+    cont = 1;
+  }
+}
+
+function deleteList() {
+  for (let i = itens.length-1; i >= 0; i -= 1) {
+    list.removeChild(itens[i]);
+  }
 }
 
 button.addEventListener('click', addItem);
+deleteAll.addEventListener('click', deleteList);
