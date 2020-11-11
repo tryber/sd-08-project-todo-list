@@ -1,7 +1,8 @@
 const listaPai = document.querySelectorAll('#lista-tarefas');
 const botaoAdd = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
-const botaoRem = document.querySelector('#apaga-tudo')
+const botaoRem = document.querySelector('#apaga-tudo');
+
 
 
 
@@ -19,7 +20,6 @@ function selected(event) {
     for (let i = 0; i < lista.length; i += 1) {
       lista[i].classList.remove('selected');
       event.target.classList.add('selected');
-      lista[i] = event.target;
     }
   }
   
@@ -33,5 +33,16 @@ function selected(event) {
 
 botaoRem.addEventListener('click', function(){
     listaPai[0].innerHTML = '';
+})
+
+
+const botaoFin = document.querySelector('#remover-finalizados');
+
+
+botaoFin.addEventListener('click', function(){
+    let finalizados = document.querySelectorAll('.completed');
+    for(let i = 0; i < finalizados.length; i +=1){
+        finalizados[i].remove();
+    }
 })
 
