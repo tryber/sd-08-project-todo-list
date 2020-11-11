@@ -56,15 +56,39 @@ document.addEventListener('dblclick', function (clique) {
 }, false);
 
 
-//Funçao para limpar lista com o botão apagaTudo.
-function limpaLista () {
-  let lista = document.getElementById('lista-tarefas');
-  let filhos = document.getElementsByClassName('elemento-lista');
-  for (i = filhos.length; i >= filhos.length; i -= 1) {
-    lista.removeChild(filhos[i - 1]);
-  }  
-}
-
 //Implementação do botão Limpar.
 let apagaTudo = document.getElementById('apaga-tudo');
-apagaTudo.addEventListener('click', limpaLista)
+apagaTudo.addEventListener('click', limpaLista);
+
+
+//Funçao para limpar lista com o botão apagaTudo.
+function limpaLista () {
+  let ol = document.getElementById('lista-tarefas');
+  let filhos = document.getElementById('lista-tarefas').childNodes;
+  for (i = filhos.length; i >= filhos.length; i -= 1) {
+    if (ol.children[i - 1]) {
+      ol.removeChild(filhos[i - 1]);
+    }
+  }
+}
+
+
+//implementação do botão Remover Finalizados.
+let apagaFinalizados = document.getElementById('remover-finalizados');
+apagaFinalizados.addEventListener('click', removeFinalizados);
+
+
+//Função para remover finalizados.
+function removeFinalizados () {
+  let completados = document.querySelectorAll('.completed');
+  let ol = document.getElementById('lista-tarefas');
+  if (completados.length > 0) {
+    for (i = 0; i < completados.length; i += 1) {
+      if (completados[i]) {
+        ol.removeChild(completados[i]);
+      }
+    }
+  } else {
+    alert('Não tem tarefas completadas.');
+  }
+}
