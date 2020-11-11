@@ -105,9 +105,9 @@ function loadTasks() {
     }
   }
 }
+loadTasks();
 
 window.onload = function () {
-  //loadTasks();
   selectItem();
   actionAddTask();
 };
