@@ -26,6 +26,8 @@ const createNewTask = (event) => {
 
   li.appendChild(document.createTextNode(inputTasks.value));
 
+  inputTasks.value = '';
+
   listTasks.appendChild(li);
 }
 
