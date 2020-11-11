@@ -82,18 +82,37 @@ let itemActive = document.querySelectorAll("li");
 
 
 // //Função para apagar itens selecionados da lista
-
 let botaoApagaSelecionados = document.querySelector('#remover-finalizados')
-
 botaoApagaSelecionados.onclick = () => {    
     let itensDalista = document.querySelectorAll("li")
     let listaInterna = document.querySelector("#lista-tarefas");
 
     if (lista.length != 0){
-        if (confirm("\t\n Deseja apagar os itens selecionados da lista? \t\n")){ 
+        if (confirm("\t\n Deseja apagar as tarefas selecionadas? \t\n")){ 
 
             for (let i = 0; i < itensDalista.length; i++){
                 if (itensDalista[i].className === 'completed'){
+                    listaInterna.removeChild(itensDalista[i])
+                }
+            }            
+         }
+    } else {
+        alert("\t Não há itens na lista! \t")
+    }   
+}
+
+
+
+//Apaga tarefa selecionada
+let botaoApagaTarefaSelecionada = document.querySelector('#remover-selecionado')
+botaoApagaTarefaSelecionada.onclick = () => {    
+    let itensDalista = document.querySelectorAll("li")
+    let listaInterna = document.querySelector("#lista-tarefas");
+    if (lista.length != 0){
+        if (confirm("\t\n Deseja apagar a tarefa? \t\n")){ 
+
+            for (let i = 0; i < itensDalista.length; i++){
+                if (itensDalista[i].className === 'list-item-active'){
                     listaInterna.removeChild(itensDalista[i])
                 }
             }            
