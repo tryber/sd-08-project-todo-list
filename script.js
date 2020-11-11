@@ -27,10 +27,10 @@ function adicionaTarefa() {
 }
 
 function alteraCor(event) {
-  event.target.classList.toggle("selected");
   for(tarefa of tarefas) {
-    tarefa != event.target && tarefa.classList.remove("selected");
+    tarefa.classList.remove("selected");
   }
+  event.target.classList.add("selected");
 }
 
 function riscaTarefa(event) {
@@ -54,7 +54,7 @@ function apagaFinalizados() {
 
 function apagaTarefa() {
   for(tarefa of tarefas) {
-    tarefa.classList.contains("selected") && listaTarefas.removeChild(tarefa);
+    tarefa.classList.contains("selected") && tarefa.remove();
   }
 }
 
