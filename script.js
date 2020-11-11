@@ -102,3 +102,38 @@ function getSavedList() {
   addSavedList();
 }
 getSavedList();
+
+function moveTarefas() {
+  const upBtn = document.querySelector('#mover-cima');
+  const downBtn = document.querySelector('#mover-baixo');
+  
+
+  upBtn.addEventListener('click', function () {
+    let olNodeList = document.querySelectorAll(".tarefa");
+    let selectedItemIndex;
+    
+    for (let k = 0; k < olNodeList.length; k +=1) {
+      if (olNodeList[k].classList.contains('selected')) {
+        selectedItemIndex = k;
+      }
+    }
+    
+    if (selectedItemIndex > 0) {
+      olNodeList[selectedItemIndex].parentElement.insertBefore(olNodeList[selectedItemIndex], olNodeList[selectedItemIndex - 1]);
+    } 
+  });
+
+  downBtn.addEventListener('click', function() {
+    let olNodeList = document.querySelectorAll(".tarefa");
+    let selectedItemIndex;
+
+    for (let k = 0; k < olNodeList.length; k +=1) {
+      if (olNodeList[k].classList.contains('selected')) {
+        selectedItemIndex = k;
+      }
+    }
+
+    olNodeList[selectedItemIndex].parentElement.insertBefore(olNodeList[selectedItemIndex], olNodeList[selectedItemIndex + 2]);
+  });
+}
+moveTarefas();
