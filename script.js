@@ -43,19 +43,22 @@ addListTodo();
 let olColor = document.querySelector("#lista-tarefas");
 let removeOl = olColor.childNodes;
 
-function removeListColor(){
+function removeList(){
     for(let index=0; index<removeOl.length; index++){
-        if(removeOl[index].style.backgroundColor == "rgb(128, 128, 128)"){
+        if(removeOl[index].style.backgroundColor == "rgb(128, 128, 128)" && 
+            removeOl[index].className == "class select"){
             removeOl[index].style.backgroundColor = "white";
+            removeOl[index].className = "class";
         }
     }
 }
 
 function listColor(){
     olColor.addEventListener("click", function(event){          
-        removeListColor();            
+        removeList();            
         
-        event.target.style.backgroundColor = "rgb(128, 128, 128)";        
+        event.target.style.backgroundColor = "rgb(128, 128, 128)"; 
+        event.target.className += " select"       
     });
 
     olColor.addEventListener("dblclick", function(event){
@@ -84,7 +87,7 @@ listClear();
 
 let buttonRemove = document.createElement("button");
 buttonRemove.id = "remover-finalizados";
-buttonRemove.innerHTML = "Limpar Completos";
+buttonRemove.innerHTML = "Limpar Finalizados";
 divInput.appendChild(buttonRemove);
 
 function listRemove(){
@@ -98,4 +101,20 @@ function listRemove(){
     });    
 }
 listRemove();
+
+let buttonRemoveSelect = document.createElement("button");
+buttonRemoveSelect.id = "remover-selecionado";
+buttonRemoveSelect.innerHTML = "Limpar Selecionados"
+divInput.appendChild(buttonRemoveSelect);
+
+
+function removeSelect(){
+    let removeOl = olColor.childNodes;
+    buttonRemoveSelect.addEventListener("click", function(event){
+
+
+
+    });
+}
+
 
