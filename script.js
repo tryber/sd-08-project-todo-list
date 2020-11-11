@@ -17,6 +17,7 @@ function addTarefa() {
     })
 }
 
+//SELECIONA TAREFA
 function eventColor (ev, value) {
     let getLi = document.querySelectorAll('.list-iten');
     let estado = ev.target.hasAttribute('style');
@@ -28,7 +29,6 @@ function eventColor (ev, value) {
     }
 }
 
-//SELECIONA TAREFA
 function selectTarefa() {
     let getOl = document.querySelector('#lista-tarefas');
     let color = `rgb(${128}, ${128}, ${128})`;
@@ -38,17 +38,29 @@ function selectTarefa() {
             eventColor(e, color);
         }
     })
-    
 }
 
 //RISCANDO TAREFA
+function changeCompleted (el) {
+    if(el.target.classList.contains('completed')){
+        el.target.classList.remove('completed');
+    }else{
+        el.target.classList.add('completed');
+    }
+}
+
 function tarefaCompleta() {
-    
+    let getOl = document.querySelector('#lista-tarefas');
+    getOl.addEventListener('dblclick', function(e) {
+        if (e.target.classList.contains( 'list-iten' )) {
+            changeCompleted(e);
+        }
+    })
 }
 
 
 window.onload = function () {
     addTarefa();
     selectTarefa();
-    tarefaCompleta()
+    tarefaCompleta();
 }
