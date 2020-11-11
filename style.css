@@ -1,4 +1,4 @@
-body , button , div , em , footer , header , h1 , input , li , main , ol {
+body , button , div , footer , header , input , main , ol {
   box-sizing: border-box;
   border: none;
   color: azure;
@@ -25,6 +25,7 @@ header , main , footer {
 
 h1 {
   font-size: 40px;
+  padding: 0;
 }
 
 input , button {
