@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,900;1,300;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+body {
+    background-color: green;
+}
+
+#main {
+    width: 11 00px;
+    background-color: #fff;
+    margin: 50px;
+    padding: 30px;
+    border-radius: 45px;
+}
+
+#funcionamento {
+    color: grey;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+#criar-tarefa {
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    padding: 5px 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    
+}
+
+#criar-tarefa:hover {
+    background-color: deepskyblue;
+}
+
+#lista-tarefas {
+    margin-left: 40px;
+}
+
+li {
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+#remover-selecionado {
+    background-color: cadetblue;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    padding: 5px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#remover-selecionado:hover {
+    background-color: rgb(171, 203, 204);
+}
+
+#apaga-tudo {
+    background-color: chocolate;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    padding: 5px 20px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#apaga-tudo:hover {
+    background-color: rgb(241, 144, 74);
+} 
+
+#remover-finalizados {
+    background-color: brown;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    padding: 5px 20px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#remover-finalizados:hover {
+    background-color: rgb(202, 90, 90);
+}
