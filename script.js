@@ -107,7 +107,7 @@ function isComplete(status, listItem) {
   }
 }
 
-// Rebuilds list from stored data 
+// Rebuilds list from stored data
 function generateFromStorage() {
   if (localStorage.getItem(0)) {
     retrieveItems();
@@ -128,7 +128,7 @@ function upward(list, i) {
   if (list[i].classList.contains('selected')) {
     const selectedTask = list[i];
     const previousTask = list[i - 1];
-    (previousTask) ? taskList.insertBefore(selectedTask, previousTask) : '';
+    (previousTask) ? taskList.insertBefore(selectedTask, previousTask) : null;
     return true;
   }
 }
@@ -138,7 +138,7 @@ function downward(list, i) {
   if (list[i].classList.contains('selected')) {
     const selectedTask = list[i];
     const nextTask = list[i + 1];
-    (nextTask) ? taskList.insertBefore(nextTask, selectedTask) : '';
+    (nextTask) ? taskList.insertBefore(nextTask, selectedTask) : null;
     return true;
   }  
 }
@@ -162,4 +162,3 @@ function moveItem(direction) {
 
 moveUp.addEventListener('click', () => moveItem(upward));
 moveDown.addEventListener('click', () => moveItem(downward));
-
