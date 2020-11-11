@@ -38,6 +38,7 @@ let lastselected = null
 let selectLI = document.getElementsByTagName('li')
 let doubleSelected = null
 let clearButton = document.createElement('button')
+let clearSelected = document.createElement('button')
 
 function createButton(){
     button.id = 'criar-tarefa'
@@ -95,3 +96,21 @@ function limparEvent(){
     })
 }
 limparEvent()
+
+function limparSelectedButton(){
+    clearSelected.id = 'remover-finalizados'
+    clearSelected.innerHTML = 'Remover Finalizados'
+    let divPai = document.getElementById('section-one')
+    divPai.appendChild(clearSelected)
+}
+limparSelectedButton()
+
+function limparSelected(){
+    clearSelected.addEventListener('click', function(){
+        let completed = document.querySelectorAll('.completed')
+        for(i = 0; i < completed.length; i += 1){
+            completed[i].remove()
+        }
+    })
+}
+limparSelected()
