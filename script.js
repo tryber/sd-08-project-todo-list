@@ -8,6 +8,11 @@ function atualizaValor(input) {
 };
 
 
+function toggleSelected(event) {
+    event.target.classList.toggle('selected');
+};
+
+
 // Cria um elemento 'li' para o input e adiciona o elemento ao pai 'ol' on click
 
 const buttonCriarTarefa = document.getElementById('criar-tarefa');
@@ -15,8 +20,10 @@ const buttonCriarTarefa = document.getElementById('criar-tarefa');
 buttonCriarTarefa.addEventListener('click', criarTarefa);
 
 function criarTarefa() {
-	const tarefaElement = document.createElement('li');
-	tarefaElement.textContent = campoInput.textContent;
+    const tarefaElement = document.createElement('li');
+    tarefaElement.className = 'tarefa';
+    tarefaElement.textContent = campoInput.textContent;
+    tarefaElement.addEventListener('click', toggleSelected)
 	const listaTarefasContainer = document.getElementById('lista-tarefas');
 	listaTarefasContainer.appendChild(tarefaElement);
 	document.getElementById('texto-tarefa').value='';

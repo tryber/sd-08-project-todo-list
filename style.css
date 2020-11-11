@@ -1,0 +1,7 @@
+.tarefa:hover {
+    background-color: rgb(160, 115, 190);
+}
+
+.selected {
+    background-color: rgb(128,128,128);
+}
