@@ -5,7 +5,6 @@ function createTask() {
     button.addEventListener('click', function () {
         let newLi = document.createElement('li');
         newLi.innerText = input.value;
-        newLi.className = 'task';
         list.appendChild(newLi);
         input.value = '';
     })
@@ -18,32 +17,22 @@ function selecting() {
     list.addEventListener('click', function(event) {
         let selected = document.querySelector('.selected');
         if (selected !== null) {
-            selected.className = 'task';
-        } if (event.target.className === 'task') {
-            event.target.className = 'selected';
+            selected.classList.remove('selected');
         }
+        event.target.classList.add('selected');
     })
 }
 
 function completing() {
     let list = document.querySelector('#lista-tarefas');
-    list.addEventListener('click', function (event) {
-        if (event.target.className === 'selected') {
-            event.target.className = 'completed';
+    list.addEventListener('dblclick', function (event) {
+        if (event.target.classList.contains('completed')) {
+            event.target.classList.remove('completed');
+        } else {
+        event.target.classList.add('completed');
         }
     })
 }
 
 completing();
-
-function notComplete() {
-    let list = document.querySelector('#lista-tarefas');
-    list.addEventListener('dblclick', function (event) {
-        if (event.target.className === 'completed') {
-            event.target.className = 'task';
-        }
-    })
-}
-
-notComplete();
 selecting();
