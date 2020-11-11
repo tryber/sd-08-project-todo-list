@@ -42,7 +42,7 @@ button.addEventListener('click', function () {
 
 ol.addEventListener('click', function (event) {
     const listItem = document.querySelectorAll('.task');
-    console.log(listItem);
+    // console.log(listItem);
     for (let i = 0; i < listItem.length; i += 1) {
         listItem[i].style.backgroundColor = 'white';
     }
