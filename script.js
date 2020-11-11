@@ -4,7 +4,7 @@ function addTaskToList() {
   const addBtn = document.getElementById('criar-tarefa');
 
   function resetInput() {
-    document.querySelector("#texto-tarefa").value = '';
+    document.querySelector('#texto-tarefa').value = '';
   }
 
   function addTask() {
@@ -16,7 +16,6 @@ function addTaskToList() {
     resetInput();
   }
   addBtn.addEventListener('click', addTask);
-
 }
 addTaskToList();
 
@@ -91,7 +90,7 @@ function getSavedList() {
   const localSavedList = localStorage.getItem('savedList');
 
   if (localSavedList != null) {
-    let savedListItem = JSON.parse(localSavedList);
+    const savedListItem = JSON.parse(localSavedList);
 
     function addSavedList() {
       for (let j = 0; j < savedListItem.length; j += 1) {
@@ -114,33 +113,33 @@ function moveTarefas() {
 
   upBtn.addEventListener('click', function () {
     const olNodeList = document.querySelectorAll('.tarefa');
-    let selIndex = 0;
+    let sel = 0;
 
     if (document.querySelector('.selected') != null) {
       for (let k = 0; k < olNodeList.length; k += 1) {
         if (olNodeList[k].classList.contains('selected')) {
-          selIndex = k;
+          sel = k;
         }
       }
 
-      if (selIndex > 0) {
-        olNodeList[selIndex].parentElement.insertBefore(olNodeList[selIndex], olNodeList[selIndex - 1]);
+      if (sel > 0) {
+        olNodeList[sel].parentElement.insertBefore(olNodeList[sel], olNodeList[sel - 1]);
       }
     }
   });
 
   downBtn.addEventListener('click', function () {
     const olNodeList = document.querySelectorAll('.tarefa');
-    let selIndex = 0;
+    let sel = 0;
 
     if (document.querySelector('.selected') != null) {
       for (let k = 0; k < olNodeList.length; k += 1) {
         if (olNodeList[k].classList.contains('selected')) {
-          selIndex = k;
+          sel = k;
         }
       }
 
-      olNodeList[selIndex].parentElement.insertBefore(olNodeList[selIndex], olNodeList[selIndex + 2]);
+      olNodeList[sel].parentElement.insertBefore(olNodeList[sel], olNodeList[sel + 2]);
     }
   });
 }
