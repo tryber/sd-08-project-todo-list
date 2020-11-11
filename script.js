@@ -87,7 +87,7 @@ function ApagarTodos() {
     pai.removeChild(pai.firstChild);
   }
 }
-
+//https://pt.stackoverflow.com/questions/433534/existe-a-possibilidade-de-salvar-um-objeto-usado-localstorage-do-navegador
 function salvaLista() {
   let array = []
   let lista = document.getElementsByTagName("li")
