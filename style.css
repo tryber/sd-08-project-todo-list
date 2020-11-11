@@ -1,25 +1,34 @@
-body , button , div , footer , header , input , main , ol {
+body,
+button,
+div,
+footer,
+header,
+input,
+main,
+ol {
   box-sizing: border-box;
   border: none;
   color: azure;
-  font-family: "Indie Flower", cursive;
+  font-family: 'Indie Flower', cursive;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: rgb( 5 , 5 , 50 );
+  background-color: rgb(5, 5, 50);
 }
 
 .app-container {
-  background-color: rgb( 10 , 36 , 78 );
+  background-color: rgb(10, 36, 78);
   border-radius: 25px;
   margin: 20px auto 20px;
   width: 70%;
 }
 
-header , main , footer {
-  margin: 10px 30px 10px;
+header,
+main,
+footer {
+  margin: 10px 30px;
   padding-bottom: 10px;
 }
 
@@ -28,8 +37,9 @@ h1 {
   padding: 0;
 }
 
-input , button {
-  background-color: rgb( 5 , 5 , 50 );
+input,
+button {
+  background-color: rgb(5, 5, 50);
   border-radius: 10px;
   font-size: 16px;
   padding: 4px 10px;
@@ -42,7 +52,7 @@ button {
 
 button:hover {
   background-color: azure;
-  color: rgb( 5 , 5 , 50 );
+  color: rgb(5, 5, 50);
 }
 
 li {
@@ -51,9 +61,9 @@ li {
 }
 
 .selected {
-  background-color: rgb( 128 , 128 , 128 );
+  background-color: gray;
 }
 
 .completed {
-  text-decoration: line-through solid rgb( 0 , 0 , 0 );
+  text-decoration: line-through solid black;
 }

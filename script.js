@@ -1,5 +1,4 @@
-//Funções Auxiliares
-function createListItemManual() {
+function createListItemManually() {
   const input = document.querySelector('#texto-tarefa');
   if (input.value !== '') {
     const lista = document.querySelector('#lista-tarefas');
@@ -24,7 +23,7 @@ function createListItemManual() {
   }
 }
 
-function createListItemAuto() {
+function createListItemAutomatically() {
   const lista = document.querySelector('#lista-tarefas');
   const novaTarefa = document.createElement('li');
 
@@ -47,15 +46,14 @@ function addSavedList() {
   const savedList = JSON.parse(localStorage.listaSalva);
 
   savedList.text.forEach((item, index) => {
-    createListItemAuto();
+    createListItemAutomatically();
     document.querySelectorAll('li')[index].innerText = item;
-    if (savedList.completed[index] == true) {
+    if (savedList.completed[index] === true) {
       document.querySelectorAll('li')[index].classList.add('completed');
     }
   });
 }
 
-//Main Code
 window.onload = () => {
   if (localStorage.listaSalva !== undefined) {
     addSavedList();
@@ -64,10 +62,10 @@ window.onload = () => {
 
 document
   .querySelector('#criar-tarefa')
-  .addEventListener('click', createListItemManual);
+  .addEventListener('click', createListItemManually);
 document
   .querySelector('#texto-tarefa')
-  .addEventListener('change', createListItemManual);
+  .addEventListener('change', createListItemManually);
 
 document.querySelector('#apaga-tudo').addEventListener('click', () => {
   const listItems = document.querySelectorAll('li');
@@ -111,10 +109,7 @@ document.querySelector('#mover-cima').addEventListener('click', () => {
   const selected = document.querySelector('.selected');
   if (selected !== null) {
     if (selected.previousElementSibling !== null) {
-      selected.previousElementSibling.insertAdjacentElement(
-        'beforebegin',
-        selected
-      );
+      selected.previousElementSibling.insertAdjacentElement('beforebegin', selected);
     }
   }
 });
