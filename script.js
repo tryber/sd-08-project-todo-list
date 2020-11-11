@@ -61,3 +61,17 @@ function removeTask() {
 }
 
 removeTask();
+
+function removeCompletedTask() {
+    const ol = document.querySelector('#lista-tarefas');
+    const button = document.querySelector('#remover-finalizados');
+
+    button.addEventListener('click', function() {
+        const li = document.querySelectorAll('.completed');
+        for (let index = 0; index < li.length; index += 1) {
+            ol.removeChild(li[index]);
+        }
+    });
+}
+
+removeCompletedTask();
