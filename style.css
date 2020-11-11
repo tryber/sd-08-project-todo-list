@@ -1,7 +1,7 @@
 body {
   align-items: center;
-  background-color: #7DC383;
-  color: #222;
+  background-color: #7dc383;
+  color: #222222;
   display: flex;
   flex-direction: column;
   font-family: Montserrat, sans-serif;
@@ -14,7 +14,7 @@ body {
 }
 
 .main-body {
-  background-color: #FFF1BC;
+  background-color: #fff1bc;
   border-radius: 25px;
   padding: 50px;
 }
@@ -28,21 +28,20 @@ header h1 {
 }
 
 input {
-  caret-color: #ED7912;
   font-family: Montserrat, sans-serif;
   padding: 5px 10px;
   transition: 0.2s all ease;
 }
 
 input:focus {
-  outline-color: #ED7912;
+  outline-color: #ed7912;
 }
 
 .btn-add {
-  background-color: #ED7912;
+  background-color: #ed7912;
   border-radius: 50px;
   border: none;
-  color: #FFF1BC;
+  color: #fff1bc;
   cursor: pointer;
   font-size: 25px;
   height: 50px;
@@ -52,10 +51,14 @@ input:focus {
 }
 
 .btn-add:hover {
-  background-color: #FD9932;
+  background-color: #fd9932;
 }
 
 .btn-add:focus {
-  background-color: #ED7912;
+  background-color: #ed7912;
   outline: none;
+}
+
+.focus-item {
+  background-color: rgb(128, 128, 128);
 }
