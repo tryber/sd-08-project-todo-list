@@ -19,8 +19,13 @@ createButton('Remover Selecionado', 'remover-selecionado');
 
 function fCriarTarefa() {
 console.log('btn criar tarefa');
-}
+let novaTarefa = document.createElement('li');
+let tarefaInput = document.getElementById('texto-tarefas').value;
+novaTarefa.innerHTML = tarefaInput;
 
+document.getElementById('lista-tarefas').appendChild(novaTarefa);
+}
+//input conhecimento retirado do vídeo (https://www.youtube.com/watch?v=ZGMJqxIkAb0)
 function fApagaTudo() {
 console.log('btn apaga tudo');
 }
