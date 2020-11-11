@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Lista de Tarefas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
-    <main>
-        <div id="input-text" class="input-text">
-            <label for="texto-tarefa"></label>
-            <input type="text" name="texto-tarefa" id="texto-tarefa">
-            <button id="criar-tarefa">Inserir Tarefa</button>
-        </div>
-    </main>
-
-<script src='script.js'></script>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  </header>
+  <main>
+    <div id="input-text" class="input-text">
+      <form>
+        <label for="texto-tarefa">Insira a tarefa: </label>
+        <input type="text" name="texto-tarefa" id="texto-tarefa"/>
+      </form>
+      <button type="button" id="criar-tarefa">Inserir Tarefa</button>
+    </div>
+    <div class="tarefas" id="tarefas">
+      <ol id="lista-tarefas"></ol>
+    </div>
+  </main>
+  <script src='script.js'></script>
 </body>
 </html>
