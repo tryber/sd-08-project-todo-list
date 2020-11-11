@@ -1,0 +1,50 @@
+body {
+  background: linear-gradient(rgb(83 , 58 , 196) , rgb(38 , 123 , 126));
+  background-attachment: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  background: rgba(255 , 255 , 255 , 0.63);
+  border-radius: 30px;
+  padding: 10px 40px 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.input-section label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+input {
+  max-width: 100%;
+  width: 400px;
+}
+
+.list-section {
+  background: white;
+  border-radius: 8px;
+  line-height: 25px;
+}
+
+.selected {
+  font-weight: 700;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.controller-section div {
+  margin-bottom: 10px;
+}
+
+footer {
+  color: white;
+  font-size: 0.85em;
+  text-align: center;
+}
