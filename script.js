@@ -6,7 +6,13 @@
 var listItemCounter = 0;
 
 function selecionarItemLista(){
-  event.target.classList.add("selected");  
+
+  const itensSelecionados = document.getElementsByClassName("selected");
+  
+  for(let itemSelecionado of itensSelecionados){
+    itemSelecionado.classList.remove("selected");
+  };
+  event.target.classList.add("selected");
  
 }
 
@@ -14,14 +20,16 @@ function adicionarItemLista(){
 
   const novoItemTexto = document.getElementById("texto-tarefa");
   let valorDigitado = novoItemTexto.value;
-  const lista = document.getElementById("lista-tarefas");
+
+  const listaOL = document.getElementById("lista-tarefas");
   const novoItemLista = document.createElement("li")
 
   novoItemLista.id = 'list-Item' + listItemCounter++;
   novoItemLista.onclick = selecionarItemLista;
+  const valorTextoParaLi = document.createTextNode(valorDigitado);
 
-  novoItemLista.appendChild(document.createTextNode(valorDigitado));
-  lista.appendChild(novoItemLista);
+  novoItemLista.appendChild(valorTextoParaLi);
+  listaOL.appendChild(novoItemLista);
   novoItemTexto.value = "";
 
 }
