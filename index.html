@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
     <title>To Do List Project</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Minha Lista de Tarefas</h1>
+      <h1>Minha Lista de Tarefas</h1>
     </header>
     <main>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        <input id="texto-tarefa" type="text">
-        <ol id="lista-tarefas"></ol>
+      <div class="input-container">
+        <input id="texto-tarefa" type="text" placeholder="Digite a tarefa" />
         <button id="criar-tarefa">Criar Tarefa</button>
-        <button id="mover-cima">▲</button>
-        <button id="mover-baixo">▼</button>
+        <p id="funcionamento">
+            <em>Clique duas vezes em um item para marcá-lo como completo</em>
+        </p>
+      </div>
+      <div class="task-container">
+        <div class="buttons-containerA">
+            <button id="mover-cima">▲</button>
+            <button id="mover-baixo">▼</button>
+            <button id="salvar-tarefas">Salvar</button>
+          </div>
+          <ol id="lista-tarefas"></ol>
+      </div>
+      <div class="buttons-containerB">
         <button id="remover-selecionado">Remover Selecionado</button>
         <button id="remover-finalizados">Remover Finalizados</button>
-        <button id="salvar-tarefas">Salvar</button>
-        <button id="apaga-tudo">Apaga Tudo</button>
+        <button id="apaga-tudo">Apagar Tudo</button>
+      </div>
     </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
