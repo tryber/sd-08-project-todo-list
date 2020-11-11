@@ -13,7 +13,7 @@ body{
 
 .container {
     width: 700px;
-    height: auto;
+    min-height: 230px;
     background-color: #ffffff;
     margin-top: 80px;
     margin-left: auto;
@@ -24,6 +24,11 @@ body{
 header {
     margin: 5px;
     font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+    max-width: 450px;
 }
 
 #funcionamento {
@@ -58,7 +63,7 @@ header {
     margin-left: 15px;
 }
 
-#criar-tarefa:focus {
+#criar-tarefa:focus , #apaga-tudo {
     outline: none
 }
 
@@ -74,14 +79,36 @@ header {
 }
 
 li {
-    margin-bottom: 5px;
+    margin: 5px;
+    border-radius: 3px;
+    height: 1.6em;
+    padding: 4px;
 }
 
 li:hover {
     cursor: pointer;
     background-color: rgba(236, 229, 229, 0.87);
+    border-radius: 3px;
 }
 
 .completed {
     text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#apaga-tudo {
+    width: 80px;
+    height: 30px;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 4px;
+    color: rgba(46, 46, 46, 0.904);
+    background-color: rgba(201, 60, 60, 0.774);
+    position: relative;
+    margin: 30px 10px 40px 15px;
+}
+
+#apaga-tudo:hover {
+    cursor: pointer;
+    background-color: rgba(231, 44, 44, 0.884);
+    color: rgb(0, 0, 0);
 }

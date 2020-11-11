@@ -58,9 +58,19 @@ function tarefaCompleta() {
     })
 }
 
+function clearAll() {
+    let getLista = document.querySelector('#lista-tarefas');
+    let getButton = document.querySelector('#apaga-tudo');
+    
+    getButton.addEventListener('click', () => {
+        let getItens = document.querySelectorAll('.list-iten');
+        getItens.forEach((e) => getLista.removeChild(e))
+    })
+}
 
 window.onload = function () {
     addTarefa();
     selectTarefa();
     tarefaCompleta();
+    clearAll()
 }
