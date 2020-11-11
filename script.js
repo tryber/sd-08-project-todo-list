@@ -37,6 +37,7 @@ let input = document.getElementById('texto-tarefa')
 let lastselected = null
 let selectLI = document.getElementsByTagName('li')
 let doubleSelected = null
+let clearButton = document.createElement('button')
 
 function createButton(){
     button.id = 'criar-tarefa'
@@ -46,6 +47,7 @@ function createButton(){
 }
 createButton()
 
+
 function addClickButton(){
     button.addEventListener('click',function(){
         let createLI = document.createElement('li')
@@ -54,7 +56,7 @@ function addClickButton(){
                 event.target.classList.remove('completed');
               } else {
                 event.target.classList.add('completed');
-              }
+              }//https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
         })
         createLI.addEventListener('click', function corFundo(event){
             if(lastselected === null){
@@ -76,3 +78,20 @@ function addClickButton(){
 }
 addClickButton()
 
+function limpar(){
+    clearButton.id = 'limpa-tudo'
+    clearButton.innerHTML = 'Apagar Lista'
+    let divPai = document.getElementById('section-one')
+    divPai.appendChild(clearButton)
+}
+limpar()
+
+function limparEvent(){
+    clearButton.addEventListener('click', function(){
+        let itens = document.getElementById('lista-tarefas')
+        while (itens.hasChildNodes()) {  
+            itens.removeChild(itens.firstChild);
+          }//https://www.w3schools.com/jsref/met_node_removechild.asp
+    })
+}
+limparEvent()
