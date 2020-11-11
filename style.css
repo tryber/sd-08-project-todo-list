@@ -1,6 +1,7 @@
 body {
-  background: greenyellow;
-  color: rgb(51 , 51 , 51);
+  background: rgb(104 , 163 , 15);
+  border: none;
+  border-radius: 0;
   margin: 0;
   padding: 0;
 }
@@ -9,27 +10,89 @@ main {
   background: white;
   border-radius: 10px;
   margin: 50px auto;
-  max-width: 900px;
+  max-width: 750px;
   padding: 70px;
 }
 
 .header {
+  color: rgb(46 , 155 , 95);
   margin: auto;
   max-width: 900px;
 }
 
 .header .titulo {
   margin: 0;
+  text-align: center;
 }
 
 .header .descricao {
-  margin: 12px auto 30px;
+  color: rgb(12 , 122 , 12);
+  margin: 18px auto 32px;
+  text-align: center;
 }
 
-.selecionada {
-  background-color: gray;
+.insercao-tarefa {
+  text-align: center;
+}
+
+.caixa-texto {
+  background-color: rgb(38 , 197 , 109);
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 2px;
+  text-align: center;
+}
+
+.botoes-container {
+  align-content: space-between;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.botoes {
+  background-color: rgb(31 , 201 , 31);
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 3px;
+}
+
+.botoes + .botoes {
+  margin-left: 10px;
+}
+
+.botoes:hover {
+  color: rgb(245 , 245 , 36);
+}
+
+.caixa-texto:focus , .botoes:focus {
+  color: rgb(245 , 245 , 36);
+  outline: none;
+}
+
+.lista-ordenada {
+  display: flex;
+  justify-content: center;
+}
+
+.tarefas-lista {
+  margin: 35px 0;
+}
+
+.tarefa {
+  color: rgb(46 , 155 , 95);
+  font-size: 18px;
+  line-height: 26px;
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+.selecionada {
+  background-color: gray;
 }
