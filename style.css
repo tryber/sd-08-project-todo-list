@@ -37,6 +37,7 @@ button:hover{
 .list-item-active{
     background-color: rgb(128,128,128);
     color: rgb(255, 255, 255);
+    font-weight: bold;
 }
 .completed{
     text-decoration: line-through solid rgb(0, 0, 0);

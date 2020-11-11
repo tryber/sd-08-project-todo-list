@@ -19,6 +19,7 @@ function insereElementoNaLista (){
         alert("Preencha a lista com algum item!")
     }
     setColor();
+    doubleClick();
 }
 
 
@@ -50,22 +51,34 @@ function setColor() {
     let item = document.querySelectorAll(".list-item");
     for (let i = 0; i < item.length; i++) { 
         item[i].addEventListener("click", function (event) { 
-        reverteClasses();     
-
-            if (item[i].className === "list-item"){
-                event.target.className = 'list-item-active'; 
+        reverteClasses();  //Reverte todos os itens para ".list-item"
+        if (item[i].className === "list-item"){
+            event.target.className = 'list-item-active'; 
             }
-        })
+        })    
+    }     
+}   
 
+
+
+
+
+function doubleClick() {    
+    let item = document.querySelectorAll(".list-item");
+    for (let i = 0; i < item.length; i++) {   
         item[i].addEventListener("dblclick", function (event) { 
-            if (item[i].className !== "completed"){
-                event.target.className = 'completed';
+            if (item[i].className === "completed"){
+                event.target.className = 'list-item';            
             } else {
-                event.target.className = 'list-item';
+                event.target.className = 'completed'; 
             }
         })
     }     
-}    
+} 
+
+
+
+
 
 
 
@@ -77,10 +90,7 @@ function reverteClasses (){
             itemActive[i].classList.remove('list-item-active');
             itemActive[i].classList.add('list-item');       
     }
-}
-
-
-    
+}    
     
 //Função para apagar itens da lista
 let botaoApagaFinalizados = document.querySelector('#remover-finalizados')
