@@ -37,17 +37,24 @@ window.onload = () => {
   
   document.querySelector('#mover-baixo').addEventListener('click', () => {
     const selected = document.querySelector('.selected');
-    if (selected.nextElementSibling != null) {
-      selected.nextElementSibling.insertAdjacentElement('afterend', selected);
+    if (selected != null) {
+      if (selected.nextElementSibling != null) {
+        selected.nextElementSibling.insertAdjacentElement('afterend', selected);
+      }
     }
   });
   
   document.querySelector('#mover-cima').addEventListener('click', () => {
     const selected = document.querySelector('.selected');
-    if (selected.previousElementSibling != null) {
-      selected.previousElementSibling.insertAdjacentElement('beforebegin', selected);
+    if (selected != null) {
+      if (selected.previousElementSibling != null) {
+        selected.previousElementSibling.insertAdjacentElement('beforebegin', selected);
+      }
     }
   });
   
+  document.querySelector('#remover-selecionado').addEventListener('click', () => {
+    document.querySelector('.selected').remove();
+  });
 }
 
