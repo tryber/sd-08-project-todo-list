@@ -72,3 +72,16 @@ function apagarTarefasFinalizadas() {
 }
 
 apagarTarefasFinalizadas();
+
+function salvarTarefas() {
+  const salvarTarefas = document.querySelector('#salvar-tarefas');
+
+  salvarTarefas.addEventListener('click', () => {
+    const tarefas = document.querySelectorAll('.tarefa');
+
+    localStorage.setItem('tarefas', JSON.stringify(tarefas))
+    localStorage.getItem('tarefas');
+  })
+}
+
+salvarTarefas();

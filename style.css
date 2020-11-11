@@ -84,15 +84,11 @@ main {
 }
 
 .tarefa {
-  color: rgb(46 , 155 , 95);
+  color: rgb(42 , 216 , 120);
   font-size: 18px;
   line-height: 26px;
 }
 
 .completed {
   text-decoration: line-through solid black;
-}
-
-.selecionada {
-  background-color: gray;
 }
