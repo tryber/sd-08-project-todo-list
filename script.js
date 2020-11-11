@@ -93,6 +93,7 @@ function moveUp(){
 
     let list = document.getElementById('lista-tarefas');
     let itemList = document.querySelector('.selected');
+    if (itemList == null){return}
     let item = itemList.innerText;
     if(itemList.previousSibling.tagName != undefined){
         verificaListItem();
@@ -109,6 +110,7 @@ function moveUp(){
 function moveDown(){
 
     let itemList = document.querySelector('.selected');
+    if (itemList == null){return}
     let item = itemList.innerText;
     if(itemList.nextSibling != null){
         verificaListItem();
