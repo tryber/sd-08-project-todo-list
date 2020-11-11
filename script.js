@@ -44,18 +44,7 @@ function adicionarItemLista(){
   const novoItemTexto = document.getElementById("texto-tarefa");
   let valorDigitado = novoItemTexto.value;
 
-  const listaOL = document.getElementById("lista-tarefas");
-  const novoItemLista = document.createElement("li")
-
-  novoItemLista.id = 'list-Item' + listItemCounter++;
-  novoItemLista.onclick = selecionarItemLista;
- //novoItemLista.ondblclick = riscarItem;
-  novoItemLista.addEventListener('dblclick', riscarItem);
-
-  const valorTextoParaLi = document.createTextNode(valorDigitado);
-
-  novoItemLista.appendChild(valorTextoParaLi);
-  listaOL.appendChild(novoItemLista);
+  criarLi(valorDigitado);
   novoItemTexto.value = "";
 
 }
@@ -92,14 +81,49 @@ function apagarPorClasse(className){
 }
 
 //https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
-function ApagarTodos(){
+function ApagarTodos() {
   var pai = document.getElementById("lista-tarefas");
   while (pai.firstChild) {
     pai.removeChild(pai.firstChild);
   }
 }
 
+function salvaLista() {
+  let array = []
+  let lista = document.getElementsByTagName("li")
+  for(let elementos of lista) {
+    array.push(elementos.textContent);
+  }
+  localStorage.setItem("dados", array);
+}
 
+function carregarLista() {
+  //Busca array do storaged
+  let dadosTexto = localStorage.getItem("dados")
+  //Roda para cada elemento do array criando o li igual la ejcima
+  if(dadosTexto === null)
+    return;
+
+  let dados = dadosTexto.split(",");
+
+  for (let dado of dados){
+    criarLi(dado);
+  }
+}
+
+function criarLi(conteudo){
+  const listaOL = document.getElementById("lista-tarefas");
+  const novoItemLista = document.createElement("li")
+
+  novoItemLista.id = 'list-Item' + listItemCounter++;
+  novoItemLista.onclick = selecionarItemLista;
+  novoItemLista.addEventListener('dblclick', riscarItem);
+
+  const valorTextoParaLi = document.createTextNode(conteudo);
+
+  novoItemLista.appendChild(valorTextoParaLi);
+  listaOL.appendChild(novoItemLista);
+}
 
 window.onload = () => {
   let botaoAdiciona = document.getElementById("criar-tarefa");
@@ -119,7 +143,12 @@ window.onload = () => {
   botaoRemoveTodos.onclick = ApagarTodos;
 
   let botaoRemoveSelecionados = document.getElementById("remover-selecionado");
-  botaoRemoveSelecionados.onclick = () => apagarPorClasse("selected");;
+  botaoRemoveSelecionados.onclick = () => apagarPorClasse("selected");
+
+  let botaoSalvaLista = document.getElementById("salva-lista");
+  botaoSalvaLista.onclick = salvaLista;
+  
+  carregarLista();
 
 }
 
