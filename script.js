@@ -2,6 +2,8 @@ const body = document.querySelector('body');
 
 //Cria o header e o texto que explica
 createBasics();
+buttonDeleteAll();
+buttonDeleteFinished();
 
 
 function createBasics() {
@@ -71,6 +73,42 @@ function createInput() {
 
         //Limpa o campo input
         document.querySelector('#texto-tarefa').value = '';
+    })
+
+    body.appendChild(button);
+}
+
+function buttonDeleteAll(){
+    let button = document.createElement('button');
+    button.id = 'apaga-tudo';
+    button.innerHTML = 'Apagar tudo';
+
+    button.addEventListener('click', function(){
+        let getTaskList = document.querySelector('#lista-tarefas');
+        let getAllItems = document.querySelectorAll('li');
+
+        for(let i = 0; i < getAllItems.length; i+=1){
+            getTaskList.removeChild(getAllItems[i]);
+        }
+
+    })
+
+    body.appendChild(button);
+}
+
+function buttonDeleteFinished(){
+    let button = document.createElement('button');
+    button.id = 'remover-finalizados';
+    button.innerHTML = 'Remover finalizados';
+
+    button.addEventListener('click', function(){
+        let getTaskList = document.querySelector('#lista-tarefas');
+        let getAllFinished = document.querySelectorAll('.completed');
+
+        for(let i = 0; i < getAllFinished.length; i+=1){
+            getTaskList.removeChild(getAllFinished[i]);
+        }
+
     })
 
     body.appendChild(button);
