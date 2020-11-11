@@ -85,3 +85,8 @@ capturedElementEvents('remover-finalizados', 'click', function () {
   removeElementsAll();
   createElementHTML(list);
 });
+capturedElementEvents('remover-selecionado', 'click', function () {
+  removeItemList('selected');
+  removeElementsAll();
+  createElementHTML(list);
+});
