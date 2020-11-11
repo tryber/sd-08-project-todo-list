@@ -77,6 +77,7 @@ btnSaveTasks.addEventListener('click', function () {
 });
 
 // Setting the arrows to move the tasks up and down
+// -----------------------------------------------------------------
 btnArrowUp = document.getElementById('mover-cima');
 btnArrowDown = document.getElementById('mover-baixo');
 
@@ -84,7 +85,6 @@ btnArrowDown = document.getElementById('mover-baixo');
 function moveTaskUp() {
   const selectedTask = document.querySelector('.selected');
   if (selectedTask) {
-
     const selectedTaskContent = selectedTask.innerHTML;
     const previousTask = selectedTask.previousElementSibling;
     const previousTaskContent = selectedTask.previousElementSibling.innerHTML;
@@ -94,7 +94,7 @@ function moveTaskUp() {
 
     selectedTask.previousElementSibling.classList.add('selected');
 
-		// Removing "selected" class from previous task
+    // Removing "selected" class from previous task
     let twoSelected = document.querySelectorAll('.selected');
     twoSelected[1].classList.remove('selected');
   }
@@ -104,7 +104,6 @@ function moveTaskUp() {
 function moveTaskDown() {
   const selectedTask = document.querySelector('.selected');
   if (selectedTask) {
-
     const selectedTaskContent = selectedTask.innerHTML;
     const nextTask = selectedTask.nextElementSibling;
     const nextTaskContent = selectedTask.nextElementSibling.innerHTML;
@@ -114,7 +113,7 @@ function moveTaskDown() {
 
     selectedTask.nextElementSibling.classList.add('selected');
 
-		// Removing "selected" class from previous task
+    // Removing "selected" class from previous task
     let twoSelected = document.querySelectorAll('.selected');
     twoSelected[0].classList.remove('selected');
   }
@@ -122,11 +121,20 @@ function moveTaskDown() {
 
 btnArrowUp.addEventListener('click', moveTaskUp);
 btnArrowDown.addEventListener('click', moveTaskDown);
+// ------------------------------------------------------------------------
 
+// Setting the button that deletes a single task
+let btnClearTask = document.getElementById('remover-selecionado');
+
+btnClearTask.addEventListener('click', function() {
+	let selectedTask = document.querySelector('.selected');
+	selectedTask.remove();
+})
 
 // Coloring the buttons
 btnArrowUp.style.backgroundColor = colors.orange;
 btnArrowDown.style.backgroundColor = colors.orange;
+btnClearTask.style.backgroundColor = colors.red;
 btnClearCompleted.style.backgroundColor = colors.blue;
 btnCreateTask.style.backgroundColor = colors.green;
 btnClearAll.style.backgroundColor = colors.red;
