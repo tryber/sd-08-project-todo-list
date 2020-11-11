@@ -17,22 +17,26 @@
     }
       else {
     objcria.textContent =container;
-    objcria.className= 'file';
+    objcria.className ='file';
     olsel.appendChild(objcria);
     inputSEl.value = '';}
       };
     
    //Aqui pegamos todos os li
    let items = document.getElementsByClassName('.file');
+   for(let i = 0; i < items.length; i++){
+    items[i].addEventListener('click',function(){
+      items[i].style.background = rgb(128, 128, 128);
+    } ); 
+
+   };
+
+   
+
+    
+    
+
   
-  //Depois no loop adicionamos o evento para cada elemento
-  for(let i = 0; i < items.length; i++)
-  items[i].addEventListener('click', mudabg);
-
-    function mudabg(){
-    items.style.background-color: white;
-
-  };
   
       
 
