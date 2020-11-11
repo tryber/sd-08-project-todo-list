@@ -24,7 +24,13 @@ let tarefaInput = document.getElementById('texto-tarefa').value;
 novaTarefa.innerHTML = tarefaInput;
 
 document.getElementById('lista-tarefas').appendChild(novaTarefa);
+fLimparImput();
 }
+
+function fLimparImput(){
+    tarefaInput = document.getElementById('texto-tarefa').value='';
+}
+
 //input conhecimento retirado do vídeo (https://www.youtube.com/watch?v=ZGMJqxIkAb0)
 function fApagaTudo() {
 console.log('btn apaga tudo');
