@@ -68,3 +68,37 @@ function deleteCompletedTasks() {
   });
 };
 deleteCompletedTasks();
+
+function toSaveList() {
+  const saveBtn = document.querySelector('#salvar-tarefas');
+  
+  saveBtn.addEventListener('click', function () {
+    let listItems = document.getElementsByTagName('li');
+    let savedList = [];
+    for (let i = 0; i < listItems.length; i += 1) {
+      let savedListItem = [];
+      savedListItem.push(listItems[i].innerHTML, listItems[i].className);
+      savedList.push(savedListItem);
+    }
+    
+    localStorage.setItem('savedList', JSON.stringify(savedList));
+  });
+}
+toSaveList();
+
+function getSavedList() {
+  let localSavedList = localStorage.getItem('savedList');
+  savedListItem = JSON.parse(localSavedList);
+
+  function addSavedList() {
+    for (let j = 0; j < savedListItem.length; j += 1) {
+      let aux = savedListItem[j];
+      let createLi = document.createElement('li');
+      createLi.innerHTML = aux[0];
+      createLi.className = aux[1];
+      orderedList.appendChild(createLi);
+    }
+  }
+  addSavedList();
+}
+getSavedList();
