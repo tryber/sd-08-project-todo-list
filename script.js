@@ -24,15 +24,14 @@ botaoApagaT.addEventListener("click", apagaTudo);
 botaoApagaF.addEventListener("click", apagaFinalizados);
 botaoApaga.addEventListener("click", apagaTarefa);
 botaoSalva.addEventListener("click", salvaTarefas);
-botaoTarefaC.addEventListener("click", moveUpTask);
-botaoTarefaB.addEventListener("click", moveBottomTask);
+botaoTarefaC.addEventListener("click", moveTarefaC);
+botaoTarefaB.addEventListener("click", moveTarefaB);
 
 function adicionaTarefa() {
   let li = document.createElement("li");
   li.innerText = input.value;
   li.addEventListener("click", alteraCor);
   li.addEventListener("dblclick", riscaTarefa);
-  li.classList.add("task");
   listaTarefas.appendChild(li);
   input.value = "";
 }
@@ -46,7 +45,8 @@ function alteraCor(event) {
 }
 
 function riscaTarefa(event) {
-  event.target.classList.toggle("completed");
+  let elemento = event.target;
+  elemento.classList.contains("completed") ? elemento.classList.remove("completed") : elemento.classList.add("completed");
 }
 
 function apagaTudo() {
@@ -85,23 +85,3 @@ function moveTarefaB() {
   elemento && elemento.nextSibling && elemento.nextSibling.insertAdjacentElement("afterend", elemento);
 }
 
-function moveUpTask(event) {
-  const childNode = document.querySelectorAll('.task');
-  for (let index = 0; index < childNode.length; index += 1) {
-      if (childNode[index].classList.contains('selected')) {
-          if (index > 0) {
-              childNode[index].parentElement.insertBefore(childNode[index], childNode[index - 1]);
-          }
-      }
-  }
-}
-function moveBottomTask(event) {
-  const childNode = document.querySelectorAll('.task');
-  for (let index = 0; index < childNode.length; index += 1) {
-      if (childNode[index].classList.contains('selected')) {
-      if (index + 1 < childNode.length) {
-          childNode[index + 1].parentElement.insertBefore(childNode[index + 1], childNode[index]);
-          }
-      }
-  }
-}
