@@ -12,6 +12,7 @@ header.appendChild(paragraph);
 
 const input = document.createElement('input');
 input.id = 'texto-tarefa';
+input.placeholder = 'Digite uma tarefa aqui';
 header.parentNode.insertBefore(input, header.nextSibling);
 
 /* ---------------------------- REQUISITO 04 ---------------------------- */
@@ -19,3 +20,19 @@ header.parentNode.insertBefore(input, header.nextSibling);
 const ol = document.createElement('ol');
 ol.id = 'lista-tarefas';
 input.parentNode.insertBefore(ol, input.nextSibling);
+
+/* ---------------------------- REQUISITO 05 e 06 ---------------------------- */
+
+const button = document.createElement('button');
+button.id = 'criar-tarefa';
+button.innerHTML = 'Adicionar tarefa';
+input.parentNode.insertBefore(button, input.nextSibling);
+
+button.addEventListener('click', function () {
+    const li = document.createElement('li');
+    li.innerHTML = input.value;
+    input.value = '';
+    ol.appendChild(li);
+})
+
+/* ---------------------------- REQUISITO 07 ---------------------------- */
