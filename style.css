@@ -64,6 +64,11 @@ li {
   text-align: left;
   cursor: pointer;
   user-select: none;
+  line-height: 30px;
+}
+
+li:hover {
+  background-color: rgb(197, 197, 197);
 }
 
 .container {
