@@ -1,8 +1,12 @@
-label {
+.input-section label {
   display: block;
   margin-bottom: 15px;
 }
 
 .completed {
   text-decoration: line-through;
+}
+
+.controller-section div {
+  margin-bottom: 10px;
 }

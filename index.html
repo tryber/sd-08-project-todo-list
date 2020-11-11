@@ -13,25 +13,30 @@
   </header>
 
   <!-- Input section -->
-  <section>
+  <section class="input-section">
     <label id="funcionamento" for="tarefa">Clique duas vezes em um item para marcá-lo como completo</label>
     <input type="text" name="tarefa" id="texto-tarefa">
-    <button id="criar-tarefa">Criar tarefa</button>
+    <button id="criar-tarefa">Criar tarefa</button> <button id="salvar-tarefas">Salvar lista</button>
   </section>
 
   <!-- List section -->
-  <section>
+  <section class="list-section">
     <ol id="lista-tarefas">
     </ol>
   </section>
 
   <!-- Controller section -->
-  <section>
-    <button id="apaga-tudo">Apagar todas as tarefas</button>
-    <button id="remover-finalizados">Apagar tarefas concluídas</button>
-    <button id="salvar-tarefas">Salvar lista</button><br><br>
-    <button id="mover-cima">⬆</button>
-    <button id="mover-baixo">⬇</button>
+  <section class="controller-section">
+    <div>
+      <label for="mover">Mover tarefas: </label>
+      <button id="mover-cima" name="mover">⬆</button>
+      <button id="mover-baixo" name="mover">⬇</button>
+    </div>
+    <div>
+      <button id="apaga-tudo">Apagar todas as tarefas</button>
+      <button id="remover-finalizados">Apagar tarefas concluídas</button>
+      <button id="remover-selecionado">Apagar tarefa selecionada</button>
+    </div>
   </section>
 </body>
 <script src="script.js"></script>

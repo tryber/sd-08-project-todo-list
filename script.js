@@ -4,6 +4,7 @@ const addTask = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const deleteAll = document.querySelector('#apaga-tudo');
 const deleteCompleted = document.querySelector('#remover-finalizados');
+const deleteSelected = document.querySelector('#remover-selecionado')
 const saveTasks = document.querySelector('#salvar-tarefas');
 const moveUp = document.querySelector('#mover-cima');
 const moveDown = document.querySelector('#mover-baixo');
@@ -72,6 +73,19 @@ function removeCompleted() {
 }
 
 deleteCompleted.addEventListener('click', removeCompleted);
+
+// Deletes selected task
+function removeSelected() {
+  for (let i = 0; i < taskList.childElementCount; i += 1) {
+    const item = taskList.children[i];
+    if (item.classList.contains('selected')) {
+      taskList.removeChild(item);
+      break;
+    }
+  }
+}
+
+deleteSelected.addEventListener('click', removeSelected);
 
 // --------------- MODULE 04 - SAVE AND RETRIEVE ---------------
 // Stores each list items' innerHTML and completed status
