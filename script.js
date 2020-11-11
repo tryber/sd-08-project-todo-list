@@ -13,6 +13,7 @@ function adicionaTarefa() {
 }
 adicionaTarefa();
 
+
 //Altera Cor da Lista
 function alteraCor() {
     let lista = document.getElementById('lista-tarefas');
@@ -31,3 +32,16 @@ function alteraCor() {
 }
 alteraCor();
 
+
+//Marca Tarefas Concluídas
+function completaTarefa(){
+    let listaOrdenada = document.getElementById('lista-tarefas');
+    listaOrdenada.addEventListener('dblclick', function(evento){
+        if (evento.target.className == "completed"){
+            evento.target.classList.remove('completed');
+        }else{
+            evento.target.classList.add('completed');
+        }
+    })
+}
+completaTarefa();
