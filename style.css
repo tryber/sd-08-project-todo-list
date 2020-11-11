@@ -1,0 +1,35 @@
+.bloco {
+    display: inline-block;
+}
+
+#funcionamento {
+    text-decoration: italic;
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.marcado {
+    background-color: rgb(128,128,128);
+}
+
+#remover-finalizados {
+    background-color: rgba(5, 5, 236, 0.658);
+    color: white;
+}
+
+#apaga-tudo {
+    background-color: red;
+    color: white;
+}
+
+#salvar-tarefas {
+    background-color: green;
+    color: white;
+}
+
+#remover-selecionado {
+    background-color: red;
+    color: white;
+}
