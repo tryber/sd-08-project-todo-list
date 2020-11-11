@@ -2,18 +2,6 @@
 // Requisito 01
 
 let body = document.getElementsByTagName('body');
-function addHeader() {
-    let header = document.createElement('header');
-    let h3 = document.createElement('h3');
-    h3.innerText = 'Minha Lista de Tarefas';
-    
-
-    for (let index = 0; index < body.length; index += 1) {
-        body[index].appendChild(header).appendChild(h3);
-    }
-}
-
-addHeader();
 
 // Requisito 02
 
@@ -82,13 +70,16 @@ function addAssignment(){
             document.getElementById('texto-tarefa').value= '';
         }
 
-        // Requisito 07
+        // Requisito 08
 
         li.addEventListener('click', function(event){
-            event.target.style.backgroundColor = 'rgb(128,128,128)';
+          if (li.value !== null){
+              
+            event.target.style.backgroundColor = '';
+          }
+          event.target.style.backgroundColor = 'rgb(128,128,128)';
         });
+
     });
 }
-
-
 
