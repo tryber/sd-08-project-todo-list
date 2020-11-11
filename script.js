@@ -145,7 +145,7 @@ window.onload = () => {
   let botaoRemoveSelecionados = document.getElementById("remover-selecionado");
   botaoRemoveSelecionados.onclick = () => apagarPorClasse("selected");
 
-  let botaoSalvaLista = document.getElementById("salva-lista");
+  let botaoSalvaLista = document.getElementById("salvar-tarefas");
   botaoSalvaLista.onclick = salvaLista;
   
   carregarLista();
