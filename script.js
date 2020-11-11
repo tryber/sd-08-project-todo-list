@@ -107,7 +107,7 @@ function loadTasks() {
 }
 
 window.onload = function () {
+  loadTasks();
   selectItem();
   actionAddTask();
-  loadTasks();
 };
