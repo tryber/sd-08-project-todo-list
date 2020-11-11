@@ -28,6 +28,10 @@ function indexInParent(node) {
   return -1;
 }
 
+function riscarItem() {
+  event.target.classList.add("completed");
+}
+
 function adicionarItemLista(){
 
   const novoItemTexto = document.getElementById("texto-tarefa");
@@ -38,6 +42,7 @@ function adicionarItemLista(){
 
   novoItemLista.id = 'list-Item' + listItemCounter++;
   novoItemLista.onclick = selecionarItemLista;
+  novoItemLista.ondblclick = riscarItem;
   const valorTextoParaLi = document.createTextNode(valorDigitado);
 
   novoItemLista.appendChild(valorTextoParaLi);
