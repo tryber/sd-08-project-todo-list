@@ -30,15 +30,21 @@ input.parentNode.insertBefore(button, input.nextSibling);
 
 button.addEventListener('click', function () {
     const li = document.createElement('li');
-    // li.style.backgroundColor = 'white';
     li.classList.add('task');
     li.innerHTML = input.value;
-    input.value = '';
     ol.appendChild(li);
+    input.value = '';
 })
 
 /* ---------------------------- REQUISITO 07 ---------------------------- */
 
+
+
 ol.addEventListener('click', function (event) {
+    const listItem = document.querySelectorAll('.task');
+    console.log(listItem);
+    for (let i = 0; i < listItem.length; i += 1) {
+        listItem[i].style.backgroundColor = 'white';
+    }
     event.target.style.backgroundColor = 'rgb(128,128,128)';
 })
