@@ -39,14 +39,13 @@ function adicionaTarefa() {
 function alteraCor(event) {
   let elemento = event.target;
   for (tarefa of tarefas) {
-    tarefa != elemento && tarefa.classList.remove("selected");
+    tarefa.classList.remove("selected");
   }
-  elemento.classList.contains("selected") ? elemento.classList.remove("selected") : elemento.classList.add("selected");
+  elemento.classList.add("selected");
 }
 
 function riscaTarefa(event) {
-  let elemento = event.target;
-  elemento.classList.contains("completed") ? elemento.classList.remove("completed") : elemento.classList.add("completed");
+  event.target.classList.toggle("completed");
 }
 
 function apagaTudo() {
