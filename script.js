@@ -13,7 +13,7 @@ function adcLista (){
 //Botão para adicionar elemento a lista.
 let tarefaParaAdc = document.getElementById('texto-tarefa');
 let btnAdc = document.getElementById('criar-tarefa');
-btnAdc.addEventListener('click', adcLista)
+btnAdc.addEventListener('click', adcLista);
 
 
 //Função para alterar o fundo de elemento da lista.
@@ -45,7 +45,7 @@ function riscaLinha (li) {
     elementList.style.removeProperty('text-decoration')
   } else {
     elementList.classList.add('completed');
-    elementList.style.textDecoration = 'line-through'
+    elementList.style.textDecoration = 'line-through';
   }
 }
 
@@ -103,15 +103,10 @@ salvaItens.addEventListener('click', salva);
 //Função para salvar itens no localstorage.
 function salva () {
   let listaParaSalvar = document.getElementById('lista-tarefas').children;
-  (console.log(listaParaSalvar));
   for (i = 0; i < listaParaSalvar.length; i += 1) {
-    localStorage.setItem('li' + [i], listaParaSalvar[i].outerHTML)
-  }
-  
-  
-  
+    localStorage.setItem('li' + [i], listaParaSalvar[i].outerHTML);
+  }  
 }
-
 
 //Função para recuperar dados do localStorage.
 function recLocalStorage () {
@@ -119,5 +114,84 @@ function recLocalStorage () {
   for (i = 0; i < localStorage.length; i += 1) {
     let li = localStorage.getItem('li' + [i]);
     ol.innerHTML += li;
+  }
+}
+
+//implementação do botão mover para cima.
+let btnCima = document.getElementById('mover-cima');
+btnCima.addEventListener('click', moveCima);
+
+//Função para mover elemento de lista para cima.
+function moveCima () {
+  let ol = document.getElementById('lista-tarefas');
+  let selecionado = document.getElementsByClassName('elemento-cinza');
+  let lista = document.getElementById('lista-tarefas').childNodes;
+  let listaArray = Array.from(lista);
+  let listaSelecionado = ''
+  if (selecionado.length != 0) {
+    if (listaArray[0].classList.contains('elemento-cinza')) {
+      alert('Elemento não pode subir mais.');
+    } else {
+      for (i = 1; i < listaArray.length; i += 1) {
+        if (listaArray[i].classList.contains('elemento-cinza')) {
+          listaSelecionado = listaArray[i];
+          listaArray.splice([i], 1);
+          listaArray.splice([i - 1], 0, listaSelecionado);
+        }
+      }
+      for (i = 0; i < listaArray.length; i +=1) {
+        ol.appendChild(listaArray[i]);
+      }
+    }
+  }
+}
+
+//implementação do botão mover para baixo.
+let btnBaixo = document.getElementById('mover-baixo');
+btnBaixo.addEventListener('click', moveBaixo);
+
+//Função para mover elemento de lista para baixo.
+function moveBaixo () {
+  let ol = document.getElementById('lista-tarefas');
+  let selecionado = document.getElementsByClassName('elemento-cinza');
+  let lista = document.getElementById('lista-tarefas').childNodes;
+  let listaArray = Array.from(lista);
+  let listaSelecionado = ''
+  if (selecionado.length != 0) {
+    if (listaArray[listaArray.length - 1].classList.contains('elemento-cinza')) {
+      alert('Elemento não pode descer mais.');
+    } else {
+      for (i = 0; i < listaArray.length; i += 1) {
+        if (listaArray[i].classList.contains('elemento-cinza')) {
+          listaSelecionado = listaArray[i];
+          listaArray.splice([i], 1);
+          listaArray.splice([i + 1], 0, listaSelecionado);
+          break;
+        } 
+      }
+      for (i = 0; i < listaArray.length; i +=1) {
+        ol.appendChild(listaArray[i]);
+      }
+    }
+  }
+}
+
+//implementação do botão Remover Selecionado.
+let apagaSelecionado = document.getElementById('remover-selecionado');
+apagaSelecionado.addEventListener('click', removeSelecionado);
+
+
+//Função para remover finalizados.
+function removeSelecionado () {
+  let selecionado = document.querySelectorAll('.elemento-cinza');
+  let ol = document.getElementById('lista-tarefas');
+  if (selecionado.length > 0) {
+    for (i = 0; i < selecionado.length; i += 1) {
+      if (selecionado[i]) {
+        ol.removeChild(selecionado[i]);
+      }
+    }
+  } else {
+    alert('Não tem tarefas selecionada.');
   }
 }
