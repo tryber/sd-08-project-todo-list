@@ -105,7 +105,9 @@ function loadTasks() {
     }
   }
 }
-loadTasks();
+setTimeout(function () {
+  loadTasks();
+}, 1000);
 
 window.onload = function () {
   selectItem();
