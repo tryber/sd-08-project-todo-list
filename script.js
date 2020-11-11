@@ -17,22 +17,43 @@ function addText () {
 
 //requisito 7 - minha ideia foi criar um evento onde clico na lista a cor de fundo é alterada, a cor cinza é chamada através do css
 function color () {
-    captureListOl.addEventListener('click', grey)
-    function grey (event) {
-        event.target.className = 'color';
-      };
-};
-color ();
+    const captureListOl = document.getElementById('lista-tarefas'); 
+    captureListOl.addEventListener('click', function (event) {
+        let captureGrey = document.querySelector('.color');
+       
+        
+        if (event.target.className === 'colorDefault') { 
+            if (captureGrey === null) {
+                event.target.classList.add('color');
+            } else {
+                captureGrey.classList.remove('color');
+                event.target.classList.add('color');
+            }
+    
+        }
+      })
+    }
+      color ();
 
-//usar o event.target
-// requisito 8
-
-// criar um laço 'for' para 'varrer' a lista 'colorDefault' e colocar um if para reverter a classe 
 
 
 
 
 
+   
+
+    
+
+
+
+
+
+
+
+
+
+
+/*
 //requisito 9
 //mesma lógica do exercicio 5 do dia 5.3 
 captureListOl.addEventListener('dblclick', scratched);
@@ -43,6 +64,7 @@ function scratched (event) {
         event.target.className = 'completed';
     }
 }
+*/
 
 
 
