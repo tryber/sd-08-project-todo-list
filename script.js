@@ -63,7 +63,7 @@ function capturedElementEvents(target, event, callback) {
   });
 }
 function saverList() {
-  const storageSaver = localStorage.setItem('list', list);
+  localStorage.setItem('list', list);
 }
 function loadList() {
   const storageLoad = localStorage.getItem('list');
