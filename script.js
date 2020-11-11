@@ -108,13 +108,12 @@ buttonRemoveSelect.innerHTML = "Limpar Selecionados"
 divInput.appendChild(buttonRemoveSelect);
 
 
-function removeSelect(){
-    let removeOl = olColor.childNodes;
+function removeSelect(){    
     buttonRemoveSelect.addEventListener("click", function(event){
 
-
-
+        let removeSelect = document.querySelector(".class.select");
+        olOrdered.removeChild(removeSelect);
     });
 }
-
+removeSelect();
 
