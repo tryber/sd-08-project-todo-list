@@ -3,10 +3,7 @@ margin-top: 50px;
 
 }
 .completed {
-    text-decoration: line-through;
-}
-.incompleted {
-    text-decoration: none;
+    text-decoration:line-through solid rgb(0, 0, 0)
 }
 
 .colorgray{
