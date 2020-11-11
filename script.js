@@ -66,10 +66,9 @@ function saverList() {
   const storageSaver = localStorage.setItem('list', list);
 }
 function loadList() {
-  const storageLoad = localStorage.getItem('list').split(',');
-  console.log(typeof storageLoad);
+  const storageLoad = localStorage.getItem('list');
   if (storageLoad) {
-    list = storageLoad;
+    list = storageLoad.split(',');
     return createElementHTML(list);
   }
   return (list = []);
