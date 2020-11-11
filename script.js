@@ -18,7 +18,7 @@ function addItemlist() {
 addItemlist();
 
 function itemSelected() {
-    orderlist.addEventListener('click', function(event){
+    orderList.addEventListener('click', function(event){
         const itemSelectedList = document.querySelector('.selected');
         if (itemSelectedList === null) {
           event.target.classList.add('selected');
