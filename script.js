@@ -2,6 +2,8 @@ const criarTarefa = document.querySelector("#criar-tarefa");
 const apagaTudo = document.querySelector("#apaga-tudo");
 const apagarFinalizados = document.querySelector("#remover-finalizados");
 const listaStorage = document.querySelector("#lista-tarefas");
+const btnCima = document.querySelector("#mover-cima");
+const btnBaixo = document.querySelector("#mover-baixo");
 
 function tarefa() {
   const listaDeTarefas = document.querySelector("#lista-tarefas");
@@ -95,3 +97,54 @@ if (typeof Storage !== undefined) {
 } else {
   alert("Sem recursos web storage");
 }
+
+function moverCima () {
+  const lista = document.querySelectorAll(".lista");
+  for (let indice = 0; indice < lista.length; indice += 1) {
+    if (lista[indice].style.backgroundColor == 'rgb(128, 128, 128)') {
+      if(lista[indice] == lista[0]) {
+        lista[indice] = lista[0].innerText;
+      } else {
+        let auxClass = lista[indice].className;
+        lista[indice].className = lista[indice - 1].className;
+        lista[indice - 1].className = auxClass;
+
+        let auxCor = lista[indice].style.backgroundColor;
+        lista[indice].style.backgroundColor = lista[indice - 1].style.backgroundColor;
+        lista[indice - 1].style.backgroundColor = auxCor;
+
+        let aux = lista[indice].innerText;
+        lista[indice].innerText = lista[indice - 1].innerText;
+        lista[indice - 1].innerText = aux;        
+      }
+    }
+  }
+}
+
+
+btnCima.addEventListener('click', moverCima);
+
+function moverBaixo () {
+  const lista = document.querySelectorAll(".lista");
+  for (let indice = 0; indice < lista.length; indice += 1) {
+    if (lista[indice].style.backgroundColor == 'rgb(128, 128, 128)') {
+      if(lista[indice] == lista[lista.length]) {
+        lista[indice] = lista[lista.length].innerText;
+      } else {
+        let auxClass = lista[indice].className;
+        lista[indice].className = lista[indice + 1].className;
+        lista[indice + 1].className = auxClass;
+
+        let auxCor = lista[indice].style.backgroundColor;
+        lista[indice].style.backgroundColor = lista[indice + 1].style.backgroundColor;
+        lista[indice + 1].style.backgroundColor = auxCor;
+
+        let aux = lista[indice].innerText;
+        lista[indice].innerText = lista[indice + 1].innerText;
+        lista[indice + 1].innerText = aux;
+      }
+    }
+  }
+}
+
+btnBaixo.addEventListener('click', moverBaixo);
