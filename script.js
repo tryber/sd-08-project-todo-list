@@ -1,4 +1,4 @@
-lista = JSON.parse(localStorage.getItem("lista"));
+//lista = JSON.parse(localStorage.getItem("lista"));
 
 let texto_tarefa_cxa = document.querySelector('#texto-tarefa');
 let criar_tarefa_btn = document.querySelector('#criar-tarefa');
@@ -12,7 +12,7 @@ apaga_tudo_btn.addEventListener('click', apagaLista);
 remover_finalizados_btn.addEventListener('click', apagaFinalizados);
 salvar_tarefas_btn.addEventListener('click', salvarLista);
 
-recuperaLista();
+//recuperaLista();
 
 function criaTarefa() { // Função que adiciona uma nova tarefa na lista
     let tarefa = document.createElement('li');
@@ -53,7 +53,7 @@ function salvarLista() { // Mantém a lista salva ao fechar e abrir o navegador
     localStorage.setItem('lista', JSON.stringify(listaSalva));
 }
 
-function recuperaLista() { // Função que recupera a lista de tarefas salvas
+/*function recuperaLista() { // Função que recupera a lista de tarefas salvas
     if (lista != '') {
         for (tarefa of lista) {
             let tarefa_li = document.createElement('li');
@@ -63,4 +63,4 @@ function recuperaLista() { // Função que recupera a lista de tarefas salvas
             tarefa_li.addEventListener('dblclick', concluiTarefa);
         }
     }
-}
+}*/
