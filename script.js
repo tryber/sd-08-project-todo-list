@@ -1,5 +1,3 @@
-//lista = JSON.parse(localStorage.getItem("lista"));
-
 let texto_tarefa_cxa = document.querySelector('#texto-tarefa');
 let criar_tarefa_btn = document.querySelector('#criar-tarefa');
 let lista_tarefas_ol = document.querySelector('#lista-tarefas');
@@ -12,10 +10,7 @@ let posSelecionado = null;
 criar_tarefa_btn.addEventListener('click', criaTarefa);
 apaga_tudo_btn.addEventListener('click', apagaLista);
 remover_finalizados_btn.addEventListener('click', apagaFinalizados);
-//salvar_tarefas_btn.addEventListener('click', salvarLista);
 remover_selecionado_btn.addEventListener('click', apagaSelecionado);
-
-//recuperaLista();
 
 function criaTarefa() { // Função que adiciona uma nova tarefa na lista
     let tarefa = document.createElement('li');
@@ -48,28 +43,6 @@ function apagaFinalizados() { // Apaga da lista os itens já concluidos
     let concluidos = document.querySelectorAll('.completed');
     for (tarefa of concluidos) { lista_tarefas_ol.removeChild(tarefa); }
 }
-
-/*function salvarLista() { // Mantém a lista salva ao fechar e abrir o navegador
-    let listaSalva = [];
-    for (tarefa of document.querySelectorAll('li')) {
-        console.log(tarefa);
-        listaSalva.push(tarefa.innerText);
-        console.log(listaSalva);
-    }
-    localStorage.setItem('lista', JSON.stringify(listaSalva));
-}*/
-
-/*function recuperaLista() { // Função que recupera a lista de tarefas salvas
-    if (lista != '') {
-        for (tarefa of lista) {
-            let tarefa_li = document.createElement('li');
-            tarefa_li.innerText = tarefa;
-            lista_tarefas_ol.appendChild(tarefa_li);
-            tarefa_li.addEventListener('click', alteraCor);
-            tarefa_li.addEventListener('dblclick', concluiTarefa);
-        }
-    }
-}*/
 
 function apagaSelecionado() {
     lista_tarefas_ol.removeChild(posSelecionado);
