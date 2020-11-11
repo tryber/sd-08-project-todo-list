@@ -4,10 +4,10 @@ const tasksList = document.getElementById('lista-tarefas');
 const taskInput = document.getElementById('texto-tarefa');
 const colors = {
   gray: 'rgb(128, 128, 128)',
-  red: '#e76f51',
+  red: '#de3f44',
   orange: '#f4a261',
-  blue: '#4a8fe7',
-  green: '#63bb66',
+  blue: '#0081ff',
+  green: '#1ca345',
 };
 
 // Selecting the clicked task and deselecting the other ones
@@ -61,8 +61,11 @@ function removeCompleted(event) {
   }
 }
 
+const btnSaveTasks = document.getElementById('salvar-tarefas');
+
 // Coloring the buttons
 btnClearAll.style.backgroundColor = colors.red;
 btnClearCompleted.style.backgroundColor = colors.blue;
 btnCreateTask.style.backgroundColor = colors.green;
+btnSaveTasks.style.backgroundColor = colors.green;
 body.style.backgroundColor = colors.green;

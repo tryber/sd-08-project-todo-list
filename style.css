@@ -16,20 +16,25 @@ body {
 button {
   padding: 10px 10px;
   color: white;
-  border-radius: 8px;
-  border: outset;
+  border-radius: 5px;
+  border: none;
   outline: none;
   font-size: medium;
+  font-weight: bold;
+  margin-top: 5px;
+  box-shadow: 1px 1px 2px gray;
+
 }
 
 button:hover {
-  filter: brightness(130%);
-  filter: contrast(150%);
+  filter: brightness(125%);
+  filter: contrast(130%);
 }
 
 button:active {
-  border: inset;
-  filter: contrast(95%);
+  box-shadow: inset 2px 2px 3px gray;
+  filter: brightness(150%);
+  filter: contrast(160%);
 }
 
 header {
@@ -74,6 +79,9 @@ li {
 
 input {
   margin-top: 10px;
-  height: 30px;
+  height: 35px;
   font-size: medium;
+  border: 2px solid gray;
+  border-radius: 5px;
+  outline: none;
 }
