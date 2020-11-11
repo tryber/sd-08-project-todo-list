@@ -14,33 +14,22 @@ botaoAdd.addEventListener('click',function adicionarTarefas(){
 });
 
 const lista = document.getElementsByClassName('lis');
-//deu certo
-// for( let index = 0; index < listaPai.length; index +=1){
-//     listaPai[index].addEventListener('click', function(event){
-//         const target = event.target;
-//         event.target.style.backgroundColor = 'rgb(128,128,128)';
-        
-//     })
 
-// }
-
-// quase la
-// listaPai[0].addEventListener('dblclick', function(event){
-//     for(const key of lista){
-//         event.target.classList.add('completed');
-//     }
-// });
-
-
-
-listaPai[0].addEventListener('click', function(event){
-    if(event.target.className === 'lis'){
-        for(let index = 0; index < lista.length; index +=1){
-            lista[index].className = 'lis'
-        }
-        event.target.classList.add('selected')
+function selected(event) {
+    for (let i = 0; i < lista.length; i += 1) {
+      lista[i].classList.remove('selected');
+      event.target.classList.add('selected');
+      lista[i] = event.target;
     }
-});
+  }
+  
+  function completed(event) {
+    event.target.classList.toggle('completed');
+  }
+
+  listaPai[0].addEventListener('click', selected);
+  listaPai[0].addEventListener('dblclick', completed);
+
 
 botaoRem.addEventListener('click', function(){
     listaPai[0].innerHTML = '';
