@@ -56,12 +56,10 @@ function removeAllTasks() {
 removeAllTasks();
 function removeAllCompleted() {
   const btnRemoveCompleted = document.getElementById('remover-finalizados');
-  const taskList = document.getElementById('lista-tarefas');
   btnRemoveCompleted.addEventListener('click', function () {
-    for (let i = 0; i < taskList.children.length; i += 1) {
-      if (taskList.children[i].classList.contains('completed')) {
-        taskList.children[i].remove();
-      }
+    const taskList = document.getElementsByClassName('completed');
+    while (taskList.length > 0) {
+      taskList[0].remove();
     }
   });
 }
@@ -96,20 +94,20 @@ saveTasks();
 
 function loadTasks() {
   const taskList = JSON.parse(localStorage.getItem('listOfTasks'));
-  for (let i = 0; i < taskList.length; i += 1) {
-    if (taskList[i].completed === true) {
-      const style = 'line-through solid rgb(0, 0, 0)';
-      addTask(taskList[i].task, 'completed', style);
-    } else {
-      addTask(taskList[i].task);
+  setTimeout(function () {
+    for (let i = 0; i < taskList.length; i += 1) {
+      if (taskList[i].completed === true) {
+        const style = 'line-through solid rgb(0, 0, 0)';
+        addTask(taskList[i].task, 'completed', style);
+      } else {
+        addTask(taskList[i].task);
+      }
     }
-  }
+  }, 2000);
 }
-setTimeout(function () {
-  loadTasks();
-}, 1000);
 
 window.onload = function () {
+  loadTasks();
   selectItem();
   actionAddTask();
 };
