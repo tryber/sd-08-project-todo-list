@@ -53,6 +53,10 @@ function paint() {
 }
 paint()
 
+function apagarTudo(){
+  localStorage.clear()
+  document.location.reload()
+}
 
 /* //localStorage.clear() */
 
