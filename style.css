@@ -1,10 +1,10 @@
 body {
   background-color: rgb(15 , 163 , 107);
-  font-family: 'Shadows Into Light';
+  font-family: Shadows Into Light , sans-serif;
   letter-spacing: 3px;
 }
 
-.funcionamento { 
+.funcionamento {
   font-size: 20px;
   text-align: center;
 }
@@ -18,12 +18,12 @@ body {
 }
 
 .texto-tarefa {
-  height: 30px;
-  font-family: 'Open Sans';
-  padding-left: 5px;
+  font-family: Open Sans , sans-serif;
   font-size: 16px;
+  height: 30px;
+  padding-left: 5px;
+  transition: ease-in-out , width 0.35s ease-in-out;
   width: 150px;
-  transition: ease-in-out, width .35s ease-in-out;
 }
 
 .texto-tarefa:focus {
@@ -39,44 +39,44 @@ body {
   list-style-position: inside;
 }
 
-.completed {
-  text-decoration: line-through solid black;
-}
-
 .selected {
   background-color: gray;
 }
 
+.completed {
+  text-decoration: line-through solid black;
+}
+
 button {
-  border-radius: 15px;
-  font-family: 'Architects Daughter';
-  letter-spacing: 2px;
-  border: 1px solid black;
-  font-weight: 600;
-  color: white;
-  padding: 5px;
-  height: 40px;
   background-color: rgb(15 , 163 , 107);
+  border: 1px solid black;
+  border-radius: 15px;
+  color: white;
+  font-family: Architects Daughter , sans-serif;
+  font-weight: 600;
+  height: 40px;
+  letter-spacing: 2px;
+  padding: 5px;
 }
 
 button:hover {
   border: 2px solid black;
 }
 
-.remover-selecionado, .remover-finalizados, .apagar-tudo {
-  background-color: red;
-}
-
 .save-icon {
-  width: 15px;
   background-color: white;
+  width: 15px;
 }
 
-.mover-cima, .mover-baixo, .salvar-tarefas {
-  font-size: 20px;
-  font-weight: bold;
+.mover-cima , .mover-baixo , .salvar-tarefas {
   border-radius: 100%;
+  font-size: 20px;
+  font-weight: 600;
   width: 40px;
+}
+
+.remover-selecionado , .remover-finalizados , .apagar-tudo {
+  background-color: red;
 }
 
 .remover-finalizados {
