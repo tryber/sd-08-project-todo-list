@@ -1,6 +1,7 @@
 const listaPai = document.querySelectorAll('#lista-tarefas');
 const botaoAdd = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
+const botaoRem = document.querySelector('#apaga-tudo')
 
 
 
@@ -37,14 +38,11 @@ listaPai[0].addEventListener('click', function(event){
         for(let index = 0; index < lista.length; index +=1){
             lista[index].className = 'lis'
         }
-        event.target.className = 'lis selected'
+        event.target.classList.add('selected')
     }
 });
 
-listaPai[0].addEventListener('dblclick', function(event){
-    for(let i = 0; i < lista.length; i+=1){
-        event.target.classList.add('completed');
-    }
-    
+botaoRem.addEventListener('click', function(){
+    listaPai[0].innerHTML = '';
 })
 
