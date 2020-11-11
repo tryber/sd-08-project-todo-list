@@ -1,13 +1,3 @@
-window.onload = function () {
-  const listaDeTarefas = document.getElementById('lista-tarefas');
-
-  for (let index = 0; index < localStorage.length; index += 1) {
-    const li = document.createElement('li');
-    li.innerText = localStorage.getItem(index);
-    listaDeTarefas.append(li);
-  }
-};
-
 const btnAdd = document.getElementById('criar-tarefa');
 const btnRemove = document.getElementById('apaga-tudo');
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
@@ -67,6 +57,8 @@ function apagaTudo() {
   for (let index = 0; index < itensLista.length; index += 1) {
     listaDeTarefas.lastElementChild.remove();
   }
+
+  localStorage.clear()
 }
 
 function removerFinalizados() {
@@ -89,11 +81,28 @@ function removerSelecionado() {
   }
 }
 
+function getStorage() {
+  const listaDeTarefas = document.getElementById('lista-tarefas');
+
+  for (let index = 0; index < localStorage.length; index += 2) {
+    let pos = index + 1
+    const li = document.createElement('li');
+    li.innerText = localStorage.getItem(index);
+    li.className = localStorage.getItem(pos);
+    li.addEventListener('click', selecionaTarefa);
+    li.addEventListener('dblclick', completaTarefa);
+    listaDeTarefas.append(li);
+  }
+};
+
 function salvaTarefas() {
   const itensLista = document.querySelectorAll('li');
 
   for (let index = 0; index < itensLista.length; index += 1) {
-    localStorage.setItem(index, itensLista[index].innerText);
+    let  index2 = index * 2
+    let pos = index2 + 1
+    localStorage.setItem(index2, itensLista[index].innerText);
+    localStorage.setItem(pos, itensLista[index].className);
   }
 }
 
@@ -136,3 +145,5 @@ btnRemove.addEventListener('click', apagaTudo);
 btnRemoveCompleted.addEventListener('click', removerFinalizados);
 btnRemoveSelected.addEventListener('click', removerSelecionado);
 btnSave.addEventListener('click', salvaTarefas);
+
+getStorage()
