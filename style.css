@@ -54,6 +54,10 @@ input {
   width: 160px;
 }
 
+.ordered-list {
+  list-style-position: inside;
+}
+
 .task-list {
   color: white;
   font-family: Poppins, sans-serif;
@@ -64,5 +68,5 @@ input {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid rgb(0 , 0 , 0);
 }
