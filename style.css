@@ -56,5 +56,10 @@ input {
 }
 
 .task-list {
+  color: #ffffff;
   font-family: Poppins;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
 }

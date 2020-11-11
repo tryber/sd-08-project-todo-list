@@ -1,5 +1,6 @@
 const getButton = document.getElementById('criar-tarefa');
 const getOrderedList = document.getElementById('lista-tarefas');
+const getTaskList = document.getElementsByClassName('task-list');
 
 function createTaskList() {
   const getInput = document.getElementById('texto-tarefa');
@@ -13,10 +14,13 @@ function createTaskList() {
 }
 createTaskList();
 
-function setGrayColor() {
-  let getList = document.getElementById('lista-tarefas');
-  getList.addEventListener('click', (event) => {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+function selectList() {
+  getOrderedList.addEventListener('click', (event) => {
+    for (let i = 0; i < getTaskList.length; i += 1) {
+      getTaskList[i].classList.remove('selected');
+      event.target.classList.add('selected');
+      getTaskList[i] = event.target;
+    }
   });
 }
-setGrayColor();
+selectList();
