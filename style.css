@@ -1,5 +1,103 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Ubuntu, sans-serif;
+}
+
+header {
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 5px;
+  padding: 10px 20px;
+}
+
+button:focus {
+  box-shadow: 0 0 5px black;
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#controls {
+  align-items: center;
+  background-color: rgba(63 , 6 , 63 , 0.733);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 10px;
+}
+
+#controls input {
+  border-radius: 4px;
+  border-style: none;
+  font-size: 1.2rem;
+  height: 42px;
+  padding: 10px;
+}
+
+#controls input:focus {
+  box-shadow: 0 0 5px black;
+  outline: none;
+}
+
+#controls input::placeholder {
+  font-size: 1.2rem;
+}
+
+#controls .buttons {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button-group , .input-group {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 450px;
+}
+
+#lista {
+  padding: 20px;
+}
+
+#lista-tarefas {
+  font-size: 1.2rem;
+}
+
+#lista-tarefas li {
+  list-style-position: inside;
+  padding: 10px;
+}
+
+#lista-tarefas li:nth-child( even ) {
+  background-color: rgba( 153 , 205 , 50 , 0.15 );
+}
+
 .selected {
-  background-color: gray;
+  background-color: gray ! important;
 }
 
 .completed {

@@ -41,9 +41,11 @@ const createTaskButton = document.getElementById('criar-tarefa');
 
 function createTaskHandler() {
   const taskDescription = taskTextInput.value;
-  const task = createTask({ description: taskDescription });
-  olTasks.appendChild(task);
-  taskTextInput.value = '';
+  if (taskDescription) {
+    const task = createTask({ description: taskDescription });
+    olTasks.appendChild(task);
+    taskTextInput.value = '';
+  }
 }
 
 taskTextInput.addEventListener('keydown', function (event) {
