@@ -68,9 +68,22 @@ function clearAll() {
     })
 }
 
+function removeFinish() {
+    let getLista = document.querySelector('#lista-tarefas');
+    let getButton = document.querySelector('#remover-finalizados');
+
+    getButton.addEventListener('click', () => {
+        let getLi = document.querySelectorAll('.completed');
+        console.log(getLi);
+        getLi.forEach((e) => getLista.removeChild(e));
+    })
+
+}
+
 window.onload = function () {
     addTarefa();
     selectTarefa();
     tarefaCompleta();
-    clearAll()
+    clearAll();
+    removeFinish();
 }

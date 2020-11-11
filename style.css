@@ -95,7 +95,7 @@ li:hover {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
-#apaga-tudo {
+#apaga-tudo , #remover-finalizados{
     width: 80px;
     height: 30px;
     border: none;
@@ -111,4 +111,14 @@ li:hover {
     cursor: pointer;
     background-color: rgba(231, 44, 44, 0.884);
     color: rgb(0, 0, 0);
+}
+
+#remover-finalizados {
+    background-color: black;
+    color: white;
+}
+
+#remover-finalizados:hover {
+    cursor: pointer;
+    background-color: rgb(119, 103, 103);
 }
