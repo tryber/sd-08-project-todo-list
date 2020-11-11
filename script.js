@@ -43,14 +43,14 @@ changeColor();
 function scratchItem (){
     for (let index = 0; index < listItem.length; index +=1){
         listItem[index].addEventListener('dblclick', function(event){
-            let classSelect = document.querySelectorAll('.completed');
-            for (let x =0; x < classSelect.length; x +=1){
-                classSelect[x].classList.remove('completed ')
+            
+            if (event.target.classList.contains('completed')){
+                event.target.classList.remove('completed');
+            }else{
+                event.target.classList.add('completed');
             }
-            event.target.classList.add('completed')
-
+            
         });
-
     }
 
 
