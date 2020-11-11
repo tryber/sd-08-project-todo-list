@@ -63,11 +63,6 @@ button:hover {
   border: 2px solid black;
 }
 
-.save-icon {
-  background-color: white;
-  width: 15px;
-}
-
 .mover-cima , .mover-baixo , .salvar-tarefas {
   border-radius: 100%;
   font-size: 20px;
