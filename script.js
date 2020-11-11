@@ -4,6 +4,13 @@ const button = document.getElementById('criar-tarefa');
 const colorLi = 'rgb(128,128,128)';
 let list = [];
 
+function removeItem(element) {
+  const equal = (el) => el === element;
+  const position = list.findIndex(equal);
+  list.splice(position, 1);
+  console.log(list);
+}
+
 function backgroundColor(target, color) {
   target.style.backgroundColor = color;
 }
@@ -46,7 +53,7 @@ function removeItemList(classElement) {
   elementTarget.forEach((element) => {
     let elementEvent = element.innerText;
     if (element.className.includes(classElement)) {
-      console.log(elementEvent);
+      removeItem(elementEvent);
     }
   });
 }
