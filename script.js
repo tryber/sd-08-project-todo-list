@@ -1,4 +1,5 @@
 window.onload = () => {
+  
   if (localStorage.listaSalva != undefined) {
     addSavedList();
   }

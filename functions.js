@@ -7,18 +7,22 @@ function createListItemManual() {
     novaTarefa.innerText = input.value;
     novaTarefa.addEventListener('click', () => {
       const selecteds = document.querySelectorAll('.selected');
-      if (novaTarefa.classList.contains('selected')) {
-        novaTarefa.classList.remove('selected');
-      } else if (selecteds.length > 0) {
-        selecteds[0].classList.remove('selected');
-        novaTarefa.classList.add('selected');
-      } else {
-        novaTarefa.classList.add('selected');
-      }
+      // if (novaTarefa.classList.contains('selected')) {
+      //   novaTarefa.classList.remove('selected');
+      // } else if (selecteds.length > 0) {
+      //   selecteds[0].classList.remove('selected');
+      //   novaTarefa.classList.add('selected');
+      // } else {
+      //   novaTarefa.classList.add('selected');
+      // }
+      selecteds.forEach(item => { item.classList.remove('selected') });
+      novaTarefa.classList.add('selected');
     });
+
     novaTarefa.addEventListener('dblclick', () => {
       novaTarefa.classList.toggle('completed');
     });
+    
     lista.appendChild(novaTarefa);
 
     input.value = '';
@@ -31,18 +35,14 @@ function createListItemAuto() {
 
     novaTarefa.addEventListener('click', () => {
       const selecteds = document.querySelectorAll('.selected');
-      if (novaTarefa.classList.contains('selected')) {
-        novaTarefa.classList.remove('selected');
-      } else if (selecteds.length > 0) {
-        selecteds[0].classList.remove('selected');
-        novaTarefa.classList.add('selected');
-      } else {
-        novaTarefa.classList.add('selected');
-      }
+      selecteds.forEach(item => { item.classList.remove('selected') });
+      novaTarefa.classList.add('selected');
     });
+
     novaTarefa.addEventListener('dblclick', () => {
       novaTarefa.classList.toggle('completed');
     });
+
     lista.appendChild(novaTarefa);
 };
 
