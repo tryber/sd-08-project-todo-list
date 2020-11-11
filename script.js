@@ -2,7 +2,15 @@ window.onload = function () {
   for (let index = 0; index < localStorage.length; index += 1) {
     let createTaskItem = document.createElement("li");
     taskList.appendChild(createTaskItem);
-    createTaskItem.innerText = localStorage.getItem(index);
+    let stringChecker = localStorage.getItem(index);
+    let lastPosition = stringChecker.length-1;
+    if (stringChecker[lastPosition] == "*") {
+      createTaskItem.innerText = stringChecker.slice(0, -1);
+      createTaskItem.style.textDecoration = "line-through";
+      createTaskItem.className = "completed";
+    } else {
+    createTaskItem.innerText = stringChecker;
+  }
   }
 };
 
@@ -102,6 +110,10 @@ saveButton.addEventListener("click", function () {
   localStorage.clear();
   let taskItem = document.querySelectorAll("li");
   for (let index = 0; index < taskItem.length; index += 1) {
+    if (taskItem[index].className == "completed") {
+      localStorage.setItem(localStorage.length, taskItem[index].innerText+'*');
+    } else {
     localStorage.setItem(localStorage.length, taskItem[index].innerText);
+  }
   }
 });
