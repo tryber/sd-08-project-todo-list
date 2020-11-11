@@ -11,10 +11,10 @@ function createList() {
     item.innerHTML = text.value;
     text.value = '';
     item.classList.add('list');
-    item.addEventListener('click', function(event){
-      if(lastSelect === null){
+    item.addEventListener('click', function (event) {
+      if (lastSelect === null) {
         lastSelect = event.target;
-      }else{
+      } else {
         lastSelect.style.backgroundColor = 'white';
         lastSelect = event.target;
       }
@@ -23,24 +23,3 @@ function createList() {
   });
 }
 createList();
-
-// function colocarFundo(event) {
-//   event.style.backgroundColor = 'rgb(128,128,128)';
-// }
-
-// function selectList() {
-//   const orderedList = document.getElementById('lista-tarefas');
-
-//   orderedList.addEventListener('click', function (event) {
-//     const oList = document.getElementsByClassName('select');
-//     console.log(oList);
-//     // if (event.target.className === 'select') {
-//     //   if(oList != null){
-//     //     oList.classList.remove('select')
-//     //   }
-//     //   event.target.classList.add('select');
-//     // }
-//   });
-// }
-
-// selectList();
