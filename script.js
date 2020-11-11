@@ -24,11 +24,13 @@ const lista = document.getElementsByClassName('lis');
 // }
 
 // quase la
-// listaPai[0].addEventListener('click', function(event){
+// listaPai[0].addEventListener('dblclick', function(event){
 //     for(const key of lista){
-//         event.target.classList.add('selected');
+//         event.target.classList.add('completed');
 //     }
 // });
+
+
 
 listaPai[0].addEventListener('click', function(event){
     if(event.target.className === 'lis'){
@@ -39,5 +41,10 @@ listaPai[0].addEventListener('click', function(event){
     }
 });
 
-
+listaPai[0].addEventListener('dblclick', function(event){
+    for(let i = 0; i < lista.length; i+=1){
+        event.target.classList.add('completed');
+    }
+    
+})
 
