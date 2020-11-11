@@ -1,7 +1,23 @@
-const getButton = document.getElementById('criar-tarefa');
+const getButtonCreateTask = document.getElementById('criar-tarefa');
+const getButtonClearAll = document.getElementById('apaga-tudo');
 const getOrderedList = document.getElementById('lista-tarefas');
 const getTaskList = document.getElementsByClassName('task-list');
 const getInput = document.getElementById('texto-tarefa');
+
+function createTaskList() {
+  const createList = document.createElement('li');
+  createList.innerText = getInput.value;
+  createList.className = 'task-list';
+  createList.addEventListener('dblclick', toggleCompleted);
+  createList.addEventListener('click', toggleSelected);
+  return createList;
+}
+
+getButtonCreateTask.addEventListener('click', () => {
+  const li = createTaskList();
+  getOrderedList.appendChild(li);
+  getInput.value = '';
+});
 
 function toggleSelected(event) {
   for (let i = 0; i < getTaskList.length; i += 1) {
@@ -15,17 +31,6 @@ function toggleCompleted(event) {
   event.target.classList.toggle('completed');
 }
 
-function createTaskList() {
-  const createList = document.createElement('li');
-  createList.innerText = getInput.value;
-  createList.className = 'task-list';
-  createList.addEventListener('dblclick', toggleCompleted);
-  createList.addEventListener('click', toggleSelected);
-  return createList;
-}
-
-getButton.addEventListener('click', () => {
-  const li = createTaskList();
-  getOrderedList.appendChild(li);
-  getInput.value = '';
+getButtonClearAll.addEventListener('click', () => {
+  getOrderedList.innerHTML = '';
 });
