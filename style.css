@@ -63,6 +63,7 @@ main p {
 li {
   text-align: left;
   cursor: pointer;
+  user-select: none;
 }
 
 .container {
