@@ -37,10 +37,11 @@ function adicionaTarefa() {
 }
 
 function alteraCor(event) {
-  for(tarefa of tarefas) {
-    tarefa.classList.remove("selected");
+  let elemento = event.target;
+  for (tarefa of tarefas) {
+    tarefa != elemento && tarefa.classList.remove("selected");
   }
-  event.target.classList.add("selected");
+  elemento.classList.contains("selected") ? elemento.classList.remove("selected") : elemento.classList.add("selected");
 }
 
 function riscaTarefa(event) {
@@ -53,8 +54,8 @@ function apagaTudo() {
 
 function apagaFinalizados() {
   let flag = tarefas.length;
-  for(index = 0; index < flag; index++) {
-    if(tarefas[index].classList.contains("completed")) {
+  for (index = 0; index < flag; index++) {
+    if (tarefas[index].classList.contains("completed")) {
       listaTarefas.removeChild(tarefas[index]);
       index--;
       flag--;
@@ -63,7 +64,7 @@ function apagaFinalizados() {
 }
 
 function apagaTarefa() {
-  for(tarefa of tarefas) {
+  for (tarefa of tarefas) {
     tarefa.classList.contains("selected") && tarefa.remove();
   }
 }
