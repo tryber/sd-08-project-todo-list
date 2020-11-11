@@ -6,11 +6,10 @@ const createTaskButton = document.querySelector('#criar-tarefa');
 const cleanTasksButton = document.querySelector('#apaga-tudo');
 const removeFinishedTasksButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
+let listItemArray = [];
 
 // CREATES A NEW TASK
-const createNewTask = (event) => {
-  event.preventDefault();
-
+const createNewTask = () => {
   if (inputTasks.value === '') {
     return alert('Por favor, adicione uma tarefa!');
   }
@@ -20,17 +19,19 @@ const createNewTask = (event) => {
 
   li.appendChild(document.createTextNode(inputTasks.value));
 
-  inputTasks.value = '';
+  listItemArray.push(li);
 
-  return listTasks.appendChild(li);
+  listTasks.appendChild(li);
+
+  inputTasks.value = '';
 }
 
 createTaskButton.addEventListener('click', createNewTask);
 
 // REMOVES PREVIOUS SELECTED TASKS
 const removeSelectedTask = () => {
-  for (let i = 0; i < listItem.length; i += 1) {
-    listItem[i].classList.remove('selected');
+  for (let i = 0; i < listItemArray.length; i += 1) {
+    listItemArray[i].classList.remove('selected');
   }
 };
 
@@ -47,11 +48,11 @@ listTasks.addEventListener('click', selectSingleTask);
 
 // COLORS A SINGLE TASK
 const colorizeSelectedTask = () => {
-  for (let i = 0; i < listItem.length; i += 1) {
-    if (listItem[i].classList.contains('selected')) {
-      listItem[i].style.backgroundColor = 'rgb(128,128,128)';
+  for (let i = 0; i < listItemArray.length; i += 1) {
+    if (listItemArray[i].classList.contains('selected')) {
+      listItemArray[i].style.backgroundColor = 'rgb(128,128,128)';
     } else {
-      listItem[i].style.backgroundColor = '';
+      listItemArray[i].style.backgroundColor = '';
     }
   }
 };
