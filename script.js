@@ -44,3 +44,15 @@ function riscarTarefa() {
 }
 
 riscarTarefa();
+
+function apagarLista() {
+  const apagaLista = document.getElementById('apaga-tudo');
+  const listaOrdenada = document.getElementById('lista-tarefas');
+
+  apagaLista.addEventListener('click', () => {
+    // a thread do slack, https://trybecourse.slack.com/archives/C01A9A2N93R/p1605039868012200, me ajudou a fazer este requisito
+    listaOrdenada.innerHTML = '';
+  });
+}
+
+apagarLista();
