@@ -28,9 +28,9 @@ header h1 {
 }
 
 input {
-  padding: 5px 10px;
-  font-family: Montserrat, sans-serif;
   caret-color: #ED7912;
+  font-family: Montserrat, sans-serif;
+  padding: 5px 10px;
   transition: 0.2s all ease;
 }
 
@@ -39,16 +39,16 @@ input:focus {
 }
 
 .btn-add {
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
   background-color: #ED7912;
-  transition: 0.2s all ease;
-  color: #FFF1BC;
-  border: none;
-  font-size: 25px;
   border-radius: 50px;
+  border: none;
+  color: #FFF1BC;
+  cursor: pointer;
+  font-size: 25px;
+  height: 50px;
   transform: translateY(3px);
+  transition: 0.2s all ease;
+  width: 50px;
 }
 
 .btn-add:hover {
@@ -56,6 +56,6 @@ input:focus {
 }
 
 .btn-add:focus {
-  outline: none;
   background-color: #ED7912;
+  outline: none;
 }
