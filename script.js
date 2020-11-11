@@ -60,12 +60,6 @@ function completed(){
     listItem[i].addEventListener('dblclick', (event)=>{
 
       event.target.classList.toggle('completed')
-      if(event.target.style.textDecoration === 'line-through solid rgb(0, 0, 0)'){
-        event.target.style.textDecoration = 'none'
-      }else{
-        event.target.style.textDecoration= "line-through solid rgb(0, 0, 0)"
-      }
-
     })
   }
 }
