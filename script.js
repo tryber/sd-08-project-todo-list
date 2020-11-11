@@ -1,26 +1,19 @@
 const inputText = document.getElementById('texto-tarefa');
 const todoList = document.getElementById('lista-tarefas');
-const button = document.getElementById('criar-tarefa');
-const colorLi = 'rgb(128,128,128)';
 let list = [];
 
 function removeItem(element) {
   const equal = (el) => el === element;
   const position = list.findIndex(equal);
   list.splice(position, 1);
-  console.log(list);
 }
-
-function backgroundColor(target, color) {
-  target.style.backgroundColor = color;
+function removeSelected(target, classElement) {
+  return target.classList.remove(classElement);
 }
 function removeSelectedAll(classElement) {
   document.querySelectorAll('li').forEach((element) => {
     removeSelected(element, classElement);
   });
-}
-function removeSelected(target, classElement) {
-  return target.classList.remove(classElement);
 }
 function addedSelected(target, classElement) {
   target.classList.add(classElement);
@@ -37,7 +30,7 @@ function completed(target) {
 
 function createElementHTML(value) {
   for (let index = 0; index < value.length; index += 1) {
-    let createdLi = document.createElement('li');
+    const createdLi = document.createElement('li');
     createdLi.innerText = value[index];
     todoList.appendChild(createdLi);
   }
@@ -51,7 +44,7 @@ function removeElementsAll() {
 function removeItemList(classElement) {
   const elementTarget = document.querySelectorAll('li');
   elementTarget.forEach((element) => {
-    let elementEvent = element.innerText;
+    const elementEvent = element.innerText;
     if (element.className.includes(classElement)) {
       removeItem(elementEvent);
     }
