@@ -5,7 +5,6 @@ window.onload = function() {
     moveDown();
 }
 
-
 // CRIANDO BOTÃO PARA ADCIONAR TAREFA A LISTA
 function createLi () {
     document.querySelector('#criar-tarefa').addEventListener('click', function(){
@@ -45,12 +44,11 @@ textDecoration();
 // BOTAO APAGA TUDO
 function deleteAllTasks() {
     document.querySelector('#apaga-tudo').addEventListener('click', function(){
-        for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
-            document.querySelector('#lista-tarefas').removeChild(document.querySelectorAll('li')[index]);
-        }       
+        while (document.querySelector('#lista-tarefas').firstChild) {
+            document.querySelector('#lista-tarefas').removeChild(document.querySelector('#lista-tarefas').firstChild);
+        }     
     });    
 }
-deleteAllTasks();
 
 // BOTAO REMOVER TAREFA EXECUTADA
 function removeFinishedTask() {
@@ -63,8 +61,6 @@ function removeFinishedTask() {
     });
 }
 removeFinishedTask();
-
-
 
 // SALVAR NO LOCALSTORAGE
 function saveTasks (){
@@ -80,23 +76,7 @@ function loadTasks(){
     document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('list')
 }
 
-
-deleteAllTasks();
-
 // SETA PARA CIMA 
-// function moveUp () {
-//     document.querySelector('#mover-cima').addEventListener('click', function (){    
-//         for (let index = 0; index < document.querySelectorAll('li').length; index+=1) {
-//             if (document.querySelectorAll('li')[index].classList.contains('selected')) {                
-//                 if (index > 0) {
-//                     document.querySelector('#lista-tarefas').insertBefore(document.querySelectorAll('li')[index], document.querySelectorAll('li')[index].previousElementSibling);
-//                 }                   
-//             }
-//         }                              
-//     });
-// }
-// moveUp();
-
 function moveUp () {
     document.querySelector('#mover-cima').addEventListener('click', function () {
         if (document.querySelector('.selected') !== null) {
@@ -108,6 +88,7 @@ function moveUp () {
 }
 moveUp();
 
+// SETA PARA BAIXO
 function moveDown () {
     document.querySelector('#mover-baixo').addEventListener('click', function () {
         if (document.querySelector('.selected') !== null) {
@@ -117,8 +98,8 @@ function moveDown () {
         }                      
     });
 }
-// moveDown ();
 
+// REMOVER ITEM SELECIONADO
 function removeSelected() {
     document.querySelector('#remover-selecionado').addEventListener('click', function(){
         document.querySelector('#lista-tarefas').removeChild(document.querySelector('.selected'));
