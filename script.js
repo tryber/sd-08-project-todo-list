@@ -61,21 +61,17 @@ function removeFinishedTask() {
 }
 removeFinishedTask();
 
+
 function saveTasks (){
     document.querySelector('#salvar-tarefas').addEventListener('click', function (){
-        localStorage.clear();
-        for (let index = 0; index < document.querySelectorAll('li').length; index +=1) {
-            localStorage.setItem(index,document.querySelectorAll('li')[index].innerHTML);
-        }
+        localStorage.clear();        
+        localStorage.setItem('list', (document.querySelector('#lista-tarefas').innerHTML));
     });
 }
 saveTasks ();
 
-function loadTasks() {    
-    for (let index = 0; index < localStorage.length; index +=1) {
-        let newLi = document.createElement('li');
-        newLi.innerText = localStorage[index];
-        document.querySelector('#lista-tarefas').appendChild(newLi);
-        console.log(newLi[index]);
-    }        
+function loadTasks(){
+    document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('list')
 }
+
+
