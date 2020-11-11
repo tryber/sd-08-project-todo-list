@@ -10,30 +10,38 @@ function addTarefa() {
         } else {
             let newLi = document.createElement('li');
             newLi.innerText = getText.value;
+            newLi.className = 'list-iten'
             getLista.appendChild(newLi);
             getText.value = '';
         }
     })
 }
 
-
-
-function selectTarefa() {
-    let getOl = document.getElementById('lista-tarefas');
+function eventColor (event) {
     const colorGray = `rgb(${128}, ${128}, ${128})`;
-    getOl.addEventListener('mouseenter', function (event) {
-        let getLi = document.querySelectorAll('li');
-        for (let i = 0; i < getLi.length; i += 1) {
-            getLi[i].addEventListener('click', function(event) {
-                event.target.style.background = colorGray;
-                getLi.forEach(function(e, index, arr) {
-                    e.removeAttribute('style')
-                });
-                event.target.style.backgroundColor = colorGray;
-            })
+    let getOl = document.getElementById('lista-tarefas');
+    let getLi = document.querySelectorAll('.list-iten');
+
+    if(getOl !== event.target){
+        let estado = event.target.hasAttribute('style');
+        getLi.forEach(function (el) {
+            el.removeAttribute('style')
+            console.log(el);
+        })
+        if (!estado) {
+            event.target.style.backgroundColor = colorGray;
         }
-    })
+    }
 }
+
+//SELECIONA TAREFA
+function selectTarefa() {
+    let getOl = document.querySelector('#lista-tarefas');
+    getOl.addEventListener('click', eventColor);
+}
+
+//RISCANDO TAREFA
+
 
 window.onload = function () {
     addTarefa();
