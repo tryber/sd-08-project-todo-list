@@ -1,8 +1,8 @@
-const list = [];
 const inputText = document.getElementById('texto-tarefa');
 const todoList = document.getElementById('lista-tarefas');
 const button = document.getElementById('criar-tarefa');
 const colorLi = 'rgb(128,128,128)';
+let list = [];
 
 function backgroundColor(target, color) {
   target.style.backgroundColor = color;
@@ -41,6 +41,16 @@ function removeElementsAll() {
     element.remove();
   });
 }
+function removeItemList(classElement) {
+  const elementTarget = document.querySelectorAll('li');
+  elementTarget.forEach((element) => {
+    let elementEvent = element.innerText;
+    if (element.className.includes(classElement)) {
+      console.log(elementEvent);
+    }
+  });
+}
+
 function push() {
   removeElementsAll();
   list.push(inputText.value);
@@ -56,10 +66,15 @@ function capturedElementEvents(target, event, callback) {
 }
 capturedElementEvents('criar-tarefa', 'click', push);
 capturedElementEvents('lista-tarefas', 'click', selected);
+capturedElementEvents('lista-tarefas', 'dblclick', completed);
 capturedElementEvents('apaga-tudo', 'click', function () {
   removeElementsAll();
   list = [];
   inputText.value = '';
   createElementHTML(list);
 });
-capturedElementEvents('lista-tarefas', 'dblclick', completed);
+capturedElementEvents('remover-finalizados', 'click', function () {
+  removeItemList('completed');
+  removeElementsAll();
+  createElementHTML(list);
+});
