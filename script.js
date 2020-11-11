@@ -107,7 +107,6 @@ buttonRemoveSelect.id = "remover-selecionado";
 buttonRemoveSelect.innerHTML = "Limpar Selecionados"
 divInput.appendChild(buttonRemoveSelect);
 
-
 function removeSelect(){    
     buttonRemoveSelect.addEventListener("click", function(event){
 
