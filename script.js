@@ -50,6 +50,18 @@ function removeAllTasks() {
   });
 }
 removeAllTasks();
+function removeAllCompleted() {
+  const btnRemoveCompleted = document.getElementById('remover-finalizados');
+  const taskList = document.getElementById('lista-tarefas');
+  btnRemoveCompleted.addEventListener('click', function () {
+    for (let i = 0; i < taskList.children.length; i += 1) {
+      if (taskList.children[i].classList.contains('completed')) {
+        taskList.children[i].remove();
+      }
+    }
+  });
+}
+removeAllCompleted();
 window.onload = function () {
   selectItem();
   actionAddTask();
