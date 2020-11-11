@@ -11,6 +11,7 @@ function addTasks (){
         }else{
             let li = document.createElement('li');
             li.innerText = inputTasks;
+            li.className= 'listItem'
             listTasks.appendChild(li);
             document.getElementById('texto-tarefa').value= '';
         }
@@ -18,3 +19,16 @@ function addTasks (){
 }
 
 addTasks();
+
+// Requisito 07
+
+function changeColor(){
+    let listItem = document.querySelectorAll('#lista-tarefas');
+    for (let index =0; index < listItem.length; index+=1){
+        listItem[index].addEventListener('click', function(event){  
+            event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+        });
+    }
+}
+
+changeColor();
