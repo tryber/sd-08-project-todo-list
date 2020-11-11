@@ -113,15 +113,18 @@ function moveTarefas() {
   upBtn.addEventListener('click', function () {
     let olNodeList = document.querySelectorAll(".tarefa");
     let selectedItemIndex = 0;
-    
-    for (let k = 0; k < olNodeList.length; k +=1) {
-      if (olNodeList[k].classList.contains('selected')) {
-        selectedItemIndex = k;
-      }
-    }
 
-    if (selectedItemIndex > 0) {
-      olNodeList[selectedItemIndex].parentElement.insertBefore(olNodeList[selectedItemIndex], olNodeList[selectedItemIndex - 1]);
+     if (document.querySelector('.selected') != null) {
+      for (let k = 0; k < olNodeList.length; k +=1) {
+     
+        if (olNodeList[k].classList.contains('selected')) {
+          selectedItemIndex = k;
+        }
+      }
+
+      if (selectedItemIndex > 0) {
+        olNodeList[selectedItemIndex].parentElement.insertBefore(olNodeList[selectedItemIndex], olNodeList[selectedItemIndex - 1]);
+      } 
     } 
   });
 
@@ -129,13 +132,15 @@ function moveTarefas() {
     let olNodeList = document.querySelectorAll(".tarefa");
     let selectedItemIndex = 0;
 
-    for (let k = 0; k < olNodeList.length; k +=1) {
-      if (olNodeList[k].classList.contains('selected')) {
-        selectedItemIndex = k;
+    if (document.querySelector('.selected') != null) {
+      for (let k = 0; k < olNodeList.length; k +=1) {
+        if (olNodeList[k].classList.contains('selected')) {
+          selectedItemIndex = k;
+        }
       }
-    }
 
-    olNodeList[selectedItemIndex].parentElement.insertBefore(olNodeList[selectedItemIndex], olNodeList[selectedItemIndex + 2]);
+      olNodeList[selectedItemIndex].parentElement.insertBefore(olNodeList[selectedItemIndex], olNodeList[selectedItemIndex + 2]);
+    }
   });
 }
 moveTarefas();
