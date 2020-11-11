@@ -1,3 +1,4 @@
+//Recebe uma valor no campo de texto e cria uma tarefa.
 function createList(){
     let button = document.getElementById('criar-tarefa');
     let ol = document.getElementById('lista-tarefas');
@@ -11,6 +12,7 @@ function createList(){
 }
 createList();
 
+//Adiciona evento que ao clicar em um item da lista, colore o fundo do alvo clicado.
 function tintList(){
     let ol = document.getElementById('lista-tarefas');
     ol.addEventListener('click', function(e){   
@@ -33,6 +35,8 @@ tintList();
 }
 selected();*/
 
+//Adiciona evento que ao clicar duas vezes, risca a tarefa indicando que está completa, também faz o processo reverso.
+//O conteúdo utilizado para resolver a questão foi retirado do site :https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
 function doneTask(){
     let ol = document.getElementById('lista-tarefas');
     ol.addEventListener('dblclick', function(e){
@@ -46,3 +50,15 @@ function doneTask(){
 
 doneTask();
 
+//Adiciona funcionalidade a um botão que remove todos os elementos da lista.
+//Os conteúdos usados para esse exercício foram aprendidos no seguinte site : https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild 
+function removeList(){
+    let button = document.getElementById('apaga-tudo');
+    var elementsOl = document.getElementById('lista-tarefas');
+    while (elementsOl.firstChild){
+        elementsOl.removeChild(elementsOl.firstChild)
+    }
+    button.addEventListener('click', removeList);
+}
+
+removeList();
