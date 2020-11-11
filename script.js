@@ -44,17 +44,28 @@ botaoApaga.onclick = () => {
 }
 
 
-//Ao clicar em um dos itens a variável "cor" recebe um numero que será verificado na função abaixo
+//Ao clicar em um dos itens a variável recebe a classe active
+//Ao clicar duas vezes o item recebe a classe completed
 function setColor() {    
     let item = document.querySelectorAll(".list-item");
     for (let i = 0; i < item.length; i++) { 
         item[i].addEventListener("click", function (event) { 
-            reverteClasses();                         
-        event.target.className = 'list-item-active';       
-        
-    });
+        reverteClasses();                         
+            if (item[i].className !== "completed"){
+                event.target.className = 'list-item-active'; 
+            }
+        })
+        item[i].addEventListener("dblclick", function (event) { 
+            if (item[i].className !== "completed"){
+                event.target.className = 'completed';
+            } else {
+                event.target.className = 'list-item';
+            }
+        })
+    }     
 }    
-}
+
+
 
 
 //Função para reverter classe dos itens da lista, é chamada na função serColor
@@ -65,6 +76,7 @@ function reverteClasses (){
             itemActive[i].classList.add('list-item');       
     }
 }
+
 
     
     
