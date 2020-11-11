@@ -102,20 +102,25 @@ window.onload = function () {
 const paraCima = document.querySelector('#mover-cima');
 const paraBaixo = document.querySelector('#mover-baixo');
 
-function moveDown() {
+function posi() {
   let position;
   for (let i = 0; i < ol.children.length; i += 1) {
     if (ol.children[i].classList.contains('selected')) {
       position = i;
     }
   }
+  return position;
+}
+
+function moveDown() {
+  let position = posi();
 
   if (position === undefined) {
-    return alert('nenhum item selecionado')
+    return alert('nenhum item selecionado');
   }
 
   if (position + 1 === ol.children.length) {
-    return alert('impossível mover para baixo')
+    return alert('impossível mover para baixo');
   }
 
   const text1 = ol.children[position].innerText;
@@ -136,19 +141,14 @@ function moveDown() {
 paraBaixo.addEventListener('click', moveDown);
 
 function moveUp() {
-  let position;
-  for (let i = 0; i < ol.children.length; i += 1) {
-    if (ol.children[i].classList.contains('selected')) {
-      position = i;
-    }
-  }
+  let position = posi();
 
   if (position === undefined) {
-    return alert('nenhum item selecionado')
+    return alert('nenhum item selecionado');
   }
 
   if (position - 1 < 0) {
-    return alert('impossível mover para cima')
+    return alert('impossível mover para cima');
   }
 
   const text1 = ol.children[position].innerText;
@@ -167,3 +167,16 @@ function moveUp() {
 }
 
 paraCima.addEventListener('click', moveUp);
+
+// Requisito 13
+const removeSelected = document.querySelector('#remover-selecionado')
+
+function removeSelectedChild() {
+  for (let i = 0; i < ol.children.length; i += 1) {
+    if (ol.children[i].classList.contains('selected')) {
+      ol.removeChild(ol.children[i]);
+    }
+  }
+}
+
+removeSelected.addEventListener('click', removeSelectedChild);
