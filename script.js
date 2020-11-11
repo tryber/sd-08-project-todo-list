@@ -28,21 +28,19 @@ botaoTarefaC.addEventListener("click", moveTarefaC);
 botaoTarefaB.addEventListener("click", moveTarefaB);
 
 function adicionaTarefa() {
-  if (input.value != "") {
-    let li = document.createElement("li");
-    li.innerText = input.value;
-    li.addEventListener("click", alteraCor);
-    li.addEventListener("dblclick", riscaTarefa);
-    listaTarefas.appendChild(li);
-    input.value = "";
-  }
+  let li = document.createElement("li");
+  li.innerText = input.value;
+  li.addEventListener("click", alteraCor);
+  li.addEventListener("dblclick", riscaTarefa);
+  listaTarefas.appendChild(li);
+  input.value = "";
 }
 
 function alteraCor(event) {
-  event.target.classList.toggle("selected");
-  for (tarefa of tarefas) {
-    tarefa != event.target && tarefa.classList.remove("selected");
+  for(tarefa of tarefas) {
+    tarefa.classList.remove("selected");
   }
+  event.target.classList.add("selected");
 }
 
 function riscaTarefa(event) {
@@ -55,8 +53,8 @@ function apagaTudo() {
 
 function apagaFinalizados() {
   let flag = tarefas.length;
-  for (index = 0; index < flag; index++) {
-    if (tarefas[index].classList.contains("completed")) {
+  for(index = 0; index < flag; index++) {
+    if(tarefas[index].classList.contains("completed")) {
       listaTarefas.removeChild(tarefas[index]);
       index--;
       flag--;
@@ -65,8 +63,8 @@ function apagaFinalizados() {
 }
 
 function apagaTarefa() {
-  for (tarefa of tarefas) {
-    tarefa.classList.contains("selected") && listaTarefas.removeChild(tarefa);
+  for(tarefa of tarefas) {
+    tarefa.classList.contains("selected") && tarefa.remove();
   }
 }
 
@@ -84,6 +82,3 @@ function moveTarefaB() {
   let elemento = document.querySelector(".selected");
   elemento.nextSibling && elemento.nextSibling.insertAdjacentElement("afterend", elemento);
 }
-
-
-
