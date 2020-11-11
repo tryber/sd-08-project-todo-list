@@ -26,12 +26,16 @@ divInput.appendChild(button);
 
 function addListTodo(){
     button.addEventListener("click", function(){
-        let valueInput = input.value;
-        let liOrdered = document.createElement("li");
-        liOrdered.innerHTML = valueInput;
-        liOrdered.className = "class";
-        olOrdered.appendChild(liOrdered);
-        input.value = "";
+        if(input.value !== ""){
+            let valueInput = input.value;
+            let liOrdered = document.createElement("li");
+            liOrdered.innerHTML = valueInput;
+            liOrdered.className = "class";
+            olOrdered.appendChild(liOrdered);
+            input.value = "";
+        }else{
+            alert("Favor inserir uma tarefa!");
+        }        
     });
 }
 addListTodo();
