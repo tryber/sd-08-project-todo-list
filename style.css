@@ -13,3 +13,8 @@
 .footer-controller {
   display: inline-block;
 }
+
+.botao-controle {
+  padding: 10px;
+  margin-right: 20px;
+}

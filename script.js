@@ -35,7 +35,6 @@ taskColor();
 
 function clearColorTask() {
   const listTask = document.querySelectorAll('.tarefa');
-  console.log(listTask)
   for (let tag of listTask) {
     tag.style.backgroundColor = 'white';
   }
@@ -55,17 +54,53 @@ function taskCompleted() {
 
 taskCompleted();
 
-const buttonClearElement = document.createElement('button');
-buttonClearElement.id = 'apaga-tudo';
-buttonClearElement.innerHTML = 'Limpa lista';
-const footerController = document.querySelector('.footer-controller');
-footerController.appendChild(buttonClearElement);
 
-const buttonClear = document.querySelector('#apaga-tudo');
-buttonClear.addEventListener('click', function () {
-  const tasksList = document.querySelectorAll('.tarefa');
-  const listElement = document.querySelector('#lista-tarefas');
-  for (let tag of tasksList) {
-    listElement.removeChild(tag);
-  }
-});
+function createButtonClearList() {
+  const buttonClearElement = document.createElement('button');
+  buttonClearElement.id = 'apaga-tudo';
+  buttonClearElement.innerHTML = 'Limpar Lista';
+  buttonClearElement.className = 'botao-controle';
+  const footerController = document.querySelector('.footer-controller');
+  footerController.appendChild(buttonClearElement);
+}
+
+createButtonClearList();
+
+function eventClearList() {
+  const buttonClear = document.querySelector('#apaga-tudo');
+  buttonClear.addEventListener('click', function () {
+    const tasksList = document.querySelectorAll('.tarefa');
+    const listElement = document.querySelector('#lista-tarefas');
+    for (let tag of tasksList) {
+      listElement.removeChild(tag);
+    }
+  });
+}
+
+eventClearList();
+
+function createButtonRemoveSolved() {
+  const buttonRemoveSolvedElement = document.createElement('button');
+  buttonRemoveSolvedElement.id = 'remover-finalizados';
+  buttonRemoveSolvedElement.innerHTML = 'Limpar completos';
+  buttonRemoveSolvedElement.className = 'botao-controle';
+  const footerController = document.querySelector('.footer-controller');
+  footerController.appendChild(buttonRemoveSolvedElement);
+}
+
+createButtonRemoveSolved();
+
+function eventRemoveSolved() {
+  const buttonRemoveSolved = document.querySelector('#remover-finalizados');
+  buttonRemoveSolved.addEventListener('click', function () {
+    const tasksCompletedList = document.querySelectorAll('.completed');
+    console.log(tasksCompletedList);
+    const listElement = document.querySelector('#lista-tarefas');
+    for (let tag of tasksCompletedList) {
+      listElement.removeChild(tag);
+    }
+  });
+}
+
+eventRemoveSolved();
+
