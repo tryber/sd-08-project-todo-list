@@ -1,0 +1,12 @@
+.listaelement{
+    display: block;
+}
+#texto-tarefa{
+    display: inline-block;
+}
+#botao{
+    display: inline-block;
+}
+.completed{
+    text-decoration:line-through 
+}
