@@ -56,3 +56,19 @@ function apagarLista() {
 }
 
 apagarLista();
+
+
+function apagarTarefasFinalizadas() {
+  const removerTarefaFinalizada = document.getElementById('remover-finalizados');
+  const listaOrdenada = document.getElementById('lista-tarefas');
+
+  removerTarefaFinalizada.addEventListener('click', () => {
+    const tarefasFinalizadas = document.querySelectorAll('.completed');
+    for (let i = 0; i < tarefasFinalizadas.length; i += 1) {
+      const tarefaFinalizada = tarefasFinalizadas[i];
+      listaOrdenada.removeChild(tarefaFinalizada);
+    }
+  });
+}
+
+apagarTarefasFinalizadas();
