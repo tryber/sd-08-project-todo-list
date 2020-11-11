@@ -2,6 +2,7 @@ const button = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
 
+// Requisito 05
 function adicionarLi() {
   if (input.value !== '') {
     const li = document.createElement('li');
@@ -13,17 +14,17 @@ function adicionarLi() {
 
 button.addEventListener('click', adicionarLi);
 
+// Requisito 07
 function selectLi(event) {
   for (let i = 0; i < ol.children.length; i += 1) {
     ol.children[i].classList.remove('selected');
-    //ol.children[i].style.backgroundColor = 'white';
   }
-  //event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   event.target.classList.add('selected');
 }
 
 ol.addEventListener('click', selectLi);
 
+// Requisito 09
 function completed(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
@@ -34,6 +35,7 @@ function completed(event) {
 
 ol.addEventListener('dblclick', completed);
 
+// Requisito 10
 const erase = document.querySelector('#apaga-tudo');
 
 function eraseAll() {
@@ -44,6 +46,7 @@ function eraseAll() {
 
 erase.addEventListener('click', eraseAll);
 
+// Requisito 11
 const eraseCompleted = document.querySelector('#remover-finalizados');
 
 function eraseAllCompleted() {
@@ -56,13 +59,14 @@ function eraseAllCompleted() {
 
 eraseCompleted.addEventListener('click', eraseAllCompleted);
 
+// Requisito 12
 const salvarTarefa = document.querySelector('#salvar-tarefas');
 
 function storeTasks() {
   localStorage.clear();
 
-  let oldList = [];
-  let completedList = [];
+  const oldList = [];
+  const completedList = [];
 
   for (let i = 0; i < ol.children.length; i += 1) {
     oldList.push(ol.children[i].innerText);
@@ -79,8 +83,8 @@ salvarTarefa.addEventListener('click', storeTasks);
 
 window.onload = function () {
   if (localStorage.length !== 0) {
-    let cls = JSON.parse(localStorage.getItem('lista'));
-    let com = JSON.parse(localStorage.getItem('completed'));
+    const cls = JSON.parse(localStorage.getItem('lista'));
+    const com = JSON.parse(localStorage.getItem('completed'));
 
     for (let i = 0; i < cls.length; i += 1) {
       const li = document.createElement('li');
@@ -94,6 +98,7 @@ window.onload = function () {
   }
 };
 
+// Requisito 13
 const paraCima = document.querySelector('#mover-cima');
 const paraBaixo = document.querySelector('#mover-baixo');
 
@@ -103,6 +108,14 @@ function moveDown() {
     if (ol.children[i].classList.contains('selected')) {
       position = i;
     }
+  }
+
+  if (position === undefined) {
+    return alert('nenhum item selecionado')
+  }
+
+  if (position + 1 === ol.children.length) {
+    return alert('impossível mover para baixo')
   }
 
   const text1 = ol.children[position].innerText;
@@ -128,6 +141,14 @@ function moveUp() {
     if (ol.children[i].classList.contains('selected')) {
       position = i;
     }
+  }
+
+  if (position === undefined) {
+    return alert('nenhum item selecionado')
+  }
+
+  if (position - 1 < 0) {
+    return alert('impossível mover para cima')
   }
 
   const text1 = ol.children[position].innerText;

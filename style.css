@@ -5,3 +5,7 @@
 .selected {
   background-color: gray;
 }
+
+.move {
+  width: 15px;
+}
