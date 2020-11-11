@@ -63,7 +63,7 @@ apagar();
     }
     salvando();
     
-
+    let recuperar = document.getElementById("lista-tarefas").innerHTML = localStorage.getItem("lista");
 
 
 
