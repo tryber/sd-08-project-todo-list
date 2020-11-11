@@ -36,3 +36,13 @@ function completing() {
 
 completing();
 selecting();
+
+function deleteList() {
+    let list = document.querySelector('#lista-tarefas');
+    let button = document.querySelector('#apaga-tudo');
+    button.addEventListener('click', function (){
+        list.innerHTML = '';
+    })
+}
+
+deleteList();
