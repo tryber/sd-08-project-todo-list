@@ -1,3 +1,5 @@
+window.onload = recLocalStorage;
+
 //Função para adicionar elemento a lista e apagar o que está dentro do input.
 function adcLista (){
   let elementoLista = document.createElement('li');
@@ -90,5 +92,32 @@ function removeFinalizados () {
     }
   } else {
     alert('Não tem tarefas completadas.');
+  }
+}
+
+
+//implementação do botão salvar.
+let salvaItens = document.getElementById('salvar-tarefas');
+salvaItens.addEventListener('click', salva);
+
+//Função para salvar itens no localstorage.
+function salva () {
+  let listaParaSalvar = document.getElementById('lista-tarefas').children;
+  (console.log(listaParaSalvar));
+  for (i = 0; i < listaParaSalvar.length; i += 1) {
+    localStorage.setItem('li' + [i], listaParaSalvar[i].outerHTML)
+  }
+  
+  
+  
+}
+
+
+//Função para recuperar dados do localStorage.
+function recLocalStorage () {
+  let ol = document.getElementById('lista-tarefas');
+  for (i = 0; i < localStorage.length; i += 1) {
+    let li = localStorage.getItem('li' + [i]);
+    ol.innerHTML += li;
   }
 }
