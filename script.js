@@ -22,8 +22,8 @@ function indexInParent(node) {
   var children = node.parentNode.childNodes;
   var num = 0;
   for (var i=0; i<children.length; i++) {
-       if (children[i]==node) return num;
-       if (children[i].nodeType==1) num++;
+      if (children[i]==node) return num;
+      if (children[i].nodeType==1) num++;
   }
   return -1;
 }
@@ -60,12 +60,20 @@ function adicionarItemLista(){
 
 }
 
-function sobeItem(){clickxInParent(itemSelecionado[0]);
+function sobeItem(){
+  let itemSelecionado = document.getElementsByClassName("selected"); 
+  if(itemSelecionado.length === 0)
+    return;
+
+  let list = document.getElementById("lista-tarefas");  
+  let posicacaoAtual = indexInParent(itemSelecionado[0]);
   list.insertBefore(itemSelecionado[0], list.childNodes[posicacaoAtual]);
 }
 
 function desceItem(){
   let itemSelecionado = document.getElementsByClassName("selected"); 
+  if(itemSelecionado.length === 0)
+    return;
   let list = document.getElementById("lista-tarefas");  
   let posicacaoAtual = indexInParent(itemSelecionado[0]);
   list.insertBefore(itemSelecionado[0], list.childNodes[posicacaoAtual+3]);
