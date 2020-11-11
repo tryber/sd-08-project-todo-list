@@ -20,6 +20,7 @@ function salvarTexto(){
 
   paint()
   limpar()
+  completed()
 
 }
 
@@ -65,10 +66,27 @@ function completed(){
 }
 completed()
 
+function removerCompletados(){
+  let listItem = document.querySelectorAll('.item')
+
+  console.log('removendo')
+  for(i = 0; i < listItem.length; i++) {
+
+    if(listItem[i].className === 'item completed'){
+      listItem[i].remove()
+      localStorage.removeItem(i + 1)
+
+    }else{
+      console.log('nem vem')
+    }
+  }
+
+}
+
 function apagarTudo(){
   localStorage.clear()
   document.location.reload()
 }
 
-/* //localStorage.clear() */
+/* localStorage.clear() */
 
