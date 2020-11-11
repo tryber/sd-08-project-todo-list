@@ -2,25 +2,26 @@ const listaOrdenadaTarefas = document.getElementById('lista-tarefas');
 const button = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
 
-button.addEventListener('click',function evento() {
+    
+button.addEventListener('click', criaLi);
+
+function criaLi () {
     let tarefaInserida = document.createElement('li')
     tarefaInserida.className = 'tarefa';
     tarefaInserida.innerHTML = input.value;
     input.value = '';
-
     listaOrdenadaTarefas.appendChild(tarefaInserida);
-});
+    tarefaInserida.addEventListener('click', corFundoLista)
+      
+}
 
-
-
-
-// let listaCriada = document.getElementsByClassName('li');
-// listaCriada.addEventListener('click',function evento() {
-//     // let target = evento.target;
-   
-//     console.log('hi');
-// });
-
+function corFundoLista(Event) {
+    Event.target.style.backgroundColor = 'rgb(128,128,128)';
+    // event é o click
+    // target é o elemento html que aconteceu o evento.
+    // console.log(Event.target);
+    // event.target = <li></li> 
+}
 
 
 
