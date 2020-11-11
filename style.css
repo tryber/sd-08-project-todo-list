@@ -1,12 +1,12 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  display: flex;
+  font-family: Roboto, sans-serif;
+  font-size: large;
+  font-weight: 400;
+  justify-content: center;
   margin: 0;
   padding: 0;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  font-size: large;
-  font-weight: 400;
 }
 
 .completed {
@@ -18,24 +18,24 @@ button {
   color: white;
   border-radius: 5px;
   border: none;
-  outline: none;
   font-size: medium;
   font-weight: bold;
   margin-top: 5px;
   box-shadow: 1px 1px 2px gray;
   height: 45px;
+}
 
+button:focus {
+  outline: none;
 }
 
 button:hover {
-  filter: brightness(125%);
   filter: contrast(130%);
 }
 
 button:active {
   box-shadow: inset 2px 2px 3px gray;
-  filter: brightness(150%);
-  filter: contrast(160%);
+  filter: contrast(115%);
 }
 
 header {
@@ -46,7 +46,6 @@ header {
 .add-task {
   display: flex;
   flex-direction: column;
-
 }
 
 .funcionamento {
@@ -86,19 +85,19 @@ li:hover {
 }
 
 .arrow-btn {
- padding: 0 15px;
- width: 70px;
+  padding: 0 15px;
+  width: 70px;
 }
 .arrow-img {
   width: 22px;
 }
 
 input {
-  margin-top: 10px;
-  height: 35px;
-  font-size: medium;
   border: 2px solid gray;
   border-radius: 5px;
+  font-size: medium;
+  height: 35px;
+  margin-top: 10px;
   outline: none;
 }
 
