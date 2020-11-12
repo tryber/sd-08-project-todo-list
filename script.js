@@ -1,3 +1,5 @@
+let tarefaSelecionada;
+
 function createButton(nome, id) {
   let btn = document.createElement('button');
   btn.innerHTML = nome;
@@ -23,6 +25,8 @@ function fCriarTarefa() {
   novaTarefa.className = 'classeTarefa';
   novaTarefa.innerHTML = tarefaInput;
   
+  novaTarefa.addEventListener('click', umCliqueTarefa);
+
   //ID elementos:
   let ol = document.getElementById('lista-tarefas');
   tarefaId = ol.childElementCount;  
@@ -47,12 +51,15 @@ function fApagaTudo() {
 }
 
 function umCliqueTarefa () {
-  
+  idTarefa = this.id
+  let tarefa = document.getElementById(idTarefa);
+  tarefa.style.backgroundColor = "rgb(128,128,128)";
 }
 
 
 function fRemoverFinalizados() {
   console.log('btn remove finalizados');
+  
 }
 
 
