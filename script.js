@@ -6,6 +6,7 @@ const buttonRemoveFin = document.getElementById('remover-finalizados');
 const buttonRemoveSel = document.getElementById('remover-selecionado');
 const buttonUp = document.getElementById('mover-cima');
 const buttonDown = document.getElementById('mover-baixo');
+const buttonSave = document.getElementById('salvar-tarefas');
 
 function SwapTo(label, a, b) {
   if (label === 'mover-cima' && a.previousElementSibling) {
@@ -79,3 +80,23 @@ buttonRemoveSel.addEventListener('click', function () {
     focused[0].remove();
   }
 });
+
+buttonSave.addEventListener('click', function () {
+  const itens = document.getElementsByTagName('li');
+  let toLocal = [];
+
+  for (let i = 0; i < itens.length; i += 1) {
+    toLocal.push(itens[i].innerText);
+  }
+  localStorage.setItem('list', JSON.stringify(toLocal));
+});
+
+window.onload = function () {
+  const clientLista = JSON.parse(localStorage.getItem('list'));
+  console.log(clientLista);
+  for (let i = 0; i < clientLista.length; i += 1) {
+    const itemFromLocal = document.createElement('li');
+    itemFromLocal.innerText = clientLista[i];
+    lista.appendChild(itemFromLocal);
+  }
+};
