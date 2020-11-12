@@ -38,8 +38,8 @@ input:focus {
 }
 
 button {
-  border-radius: 50px;
   border: none;
+  border-radius: 50px;
   cursor: pointer;
   font-size: 25px;
   margin: 0 10px;
@@ -65,15 +65,15 @@ button {
 }
 
 .focus-item {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
 }
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid black;
 }
 
 .btn-apaga {
-  background-color: rgb(255 , 85 , 68);
+  background-color: rgb(56 , 145 , 100);
   color: rgb(255 , 241 , 188);
   font-size: 18px;
   padding: 0 20px;
@@ -81,15 +81,22 @@ button {
 }
 
 .btn-apaga:focus {
-  background-color: rgb(255 , 85 , 68);
+  background-color: rgb(56 , 145 , 100);
   outline: none;
 }
 
 .btn-apaga:hover {
-  background-color: rgb(255 , 117 , 100);
+  background-color: rgb(88 , 177 , 132);
 }
 
 ol li {
   font-size: 18px;
   font-weight: 300;
+}
+
+.center-align {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
