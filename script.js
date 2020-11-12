@@ -35,11 +35,9 @@ function removeElementsAll() {
   });
 }
 function removeItemList(classElement) {
-  const elementTarget = document.querySelectorAll('li');
-  elementTarget.forEach((element) => {
-    const elementEvent = element.innerText;
-    if (element.className.includes(classElement)) {
-      removeItem(elementEvent);
+  document.querySelectorAll('li').forEach((element) => {
+    if (element.classList.contains(classElement)) {
+      element.remove();
     }
   });
 }
@@ -77,9 +75,7 @@ capturedElementEvents('mover-baixo', 'click', false);
 capturedElementEvents('apaga-tudo', 'click', removeElementsAll);
 capturedElementEvents('remover-finalizados', 'click', function () {
   removeItemList('completed');
-  resetElementsHTML();
 });
 capturedElementEvents('remover-selecionado', 'click', function () {
   removeItemList('selected');
-  resetElementsHTML();
 });
