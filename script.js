@@ -17,26 +17,33 @@ function removeSelectedAll(classElement) {
 function addedSelected(target, classElement) {
   target.classList.add(classElement);
 }
-function selected(target) {
-  removeSelectedAll('selected');
-  addedSelected(target, 'selected');
-  document.querySelectorAll('li').forEach((element, index) => {
-    if (element.className.includes('selected')) selectedCurrent = index;
-  });
+function selected(elementEvent) {
+  if (document.getElementsByClassName('selected')[0] != null) {
+    document.getElementsByClassName('selected')[0].classList.remove('selected');
+  }
+  elementEvent.classList.add('selected');
 }
-function completed(target) {
-  return target.className.includes('completed')
-    ? removeSelected(target, 'completed')
-    : addedSelected(target, 'completed');
-}
-function createElementHTML(value) {
-  for (let index = 0; index < value.length; index += 1) {
-    const createdLi = document.createElement('li');
-    createdLi.innerText = value[index];
-    todoList.appendChild(createdLi);
-    if (index === selectedCurrent) createdLi.className = 'selected';
+function completed(elementEvent) {
+  if (elementEvent.classList.contains('completed')) {
+    elementEvent.classList.remove('completed');
+  } else {
+    elementEvent.classList.add('completed');
   }
 }
+function createElementHTML() {
+  const createdLi = document.createElement('li');
+  createdLi.innerText = inputText.value;
+  localeListTasks.appendChild(createdLi);
+  inputText.value = '';
+
+  createdLi.addEventListener('dblclick', function () {
+    completed(createdLi);
+  });
+  createdLi.addEventListener('click', function () {
+    selected(createdLi);
+  });
+}
+
 function removeElementsAll() {
   const elementTarget = document.querySelectorAll('li');
   elementTarget.forEach((element) => {
@@ -77,22 +84,9 @@ function resetElementsHTML() {
   removeElementsAll();
   createElementHTML(list);
 }
-function push() {
-  const item = document.createElement('li');
-  item.innerText = inputText.value;
-  localeListTasks.appendChild(item);
-  inputText.value = null;
-
-  item.addEventListener('dblclick', function () {
-    completedItem(item);
-  });
-  item.addEventListener('click', function () {
-    selectedItem(item);
-  });
-}
 
 loadList();
-capturedElementEvents('criar-tarefa', 'click', push);
+capturedElementEvents('criar-tarefa', 'click', createElementHTML);
 capturedElementEvents('lista-tarefas', 'click', selected);
 capturedElementEvents('lista-tarefas', 'dblclick', completed);
 capturedElementEvents('salvar-tarefas', 'click', saverList);
