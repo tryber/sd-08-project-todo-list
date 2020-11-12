@@ -4,9 +4,9 @@ function listTask() {
 
   function createTask() {
     let inputText = document.querySelector("#texto-tarefa");
-    let olTaks = document.querySelector("#lista-tarefas");
+    let olTask = document.getElementById("lista-tarefas");
     let liTask = document.createElement("li");
-    olTaks.appendChild(liTask);
+    olTask.appendChild(liTask);
     liTask.innerText = inputText.value;
     inputText.value = "";
     liTask.addEventListener("click", changeColor);
@@ -31,3 +31,12 @@ function completedTask(event) {
     element.classList.add("completed");
   }
 }
+
+function createAll() {
+  let buttonClear = document.getElementById("apaga-tudo");
+  let olTask = document.getElementById("lista-tarefas");
+  buttonClear.addEventListener("click", function () {
+    olTask.innerHTML = "";
+  });
+}
+createAll();
