@@ -13,14 +13,16 @@
   </header>
   <main id="main-container">
     <div id="input-text" class="input-text">
-      <form>
+      <form id="task-form">
         <label for="texto-tarefa">Insira a tarefa: </label>
-        <input type="text" name="texto-tarefa" id="texto-tarefa"/>
+        <input type="text" class="texto-tarefa" name="texto-tarefa" id="texto-tarefa"/>
       </form>
       <div class="form-controls" id="form-controls">
         <button type="button" id="criar-tarefa">Inserir Tarefa</button>
         <button type="button" id="apaga-tudo">Apaga Tudo</button>
         <button type="button" id="remover-finalizados">Remover Finalizado(s)</button>
+        <button type="button" id="remover-selecionado">Remover Selecionado</button>
+        <button type="button" id="salvar-tarefas">Salvar Tarefas</button>
       </div>
     </div>
     <div class="tarefas" id="tarefas">
