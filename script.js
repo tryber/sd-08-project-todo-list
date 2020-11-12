@@ -1,3 +1,5 @@
+window.onload = loadList;
+
 // Requisito 05 - Deve haver um botão com id="criar-tarefa" e ao clicar nesse botão,
 // um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo.
 // Requisito 06 - Os itens da lista de tarefas devem ser ordenados por ordem de criação.
@@ -21,13 +23,13 @@ addTask();
 function addTaskColor() {
   let lista = document.querySelector('#lista-tarefas');
   lista.addEventListener('click', function(event){
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
     // Requisito 08 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo.
-    for(let i = 0; i < lista.children.length; i += 1) {
-      if(event.target !== lista.children[i]) {
-        lista.children[i].style.backgroundColor = 'white';
+    for(let index = 0; index < lista.children.length; index += 1) {
+      if(lista.children[index].className === 'selected') {
+        lista.children[index].classList.remove('selected');
       }
     }
+    event.target.className = 'selected';
   });
 }
 addTaskColor();
@@ -100,8 +102,6 @@ function loadList() {
   }
 }
 
-window.onload = loadList;
-
 function clearListLocalStorage() {
     let itemRemove = 'Item1';
     let indexRemove = 1;
@@ -111,3 +111,33 @@ function clearListLocalStorage() {
       itemRemove = 'Item' + indexRemove;
     }
 }
+
+// Requisito 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo",
+// que permitam mover o item selecionado para cima ou para baixo na lista de tarefas.
+function moveUp() {
+  let lista = document.querySelector('#lista-tarefas');
+  let btnMoveUp = document.querySelector('#mover-cima');
+  btnMoveUp.addEventListener('click', function() {
+    let itemSelected = document.querySelectorAll('.selected');
+    if(itemSelected[0].previousElementSibling !== null) {
+      let previousItem = itemSelected[0].previousElementSibling.outerHTML;
+      itemSelected[0].previousElementSibling.outerHTML = itemSelected[0].outerHTML;
+      itemSelected[0].outerHTML = previousItem;
+    }
+  });
+}
+moveUp();
+
+function moveDown() {
+  let lista = document.querySelector('#lista-tarefas');
+  let btnMoveDown = document.querySelector('#mover-baixo');
+  btnMoveDown.addEventListener('click', function() {
+    let itemSelected = document.querySelectorAll('.selected');
+    if(itemSelected[0].nextElementSibling !== null) {
+      let nextItem = itemSelected[0].nextElementSibling.outerHTML;
+      itemSelected[0].nextElementSibling.outerHTML = itemSelected[0].outerHTML;
+      itemSelected[0].outerHTML = nextItem;
+    }
+  });
+}
+moveDown();
