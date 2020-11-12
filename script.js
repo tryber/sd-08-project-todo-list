@@ -4,6 +4,7 @@ const listTasks = document.querySelector('#lista-tarefas');
 const listItem = document.querySelectorAll('.list-item');
 const createTaskButton = document.querySelector('#criar-tarefa');
 const deleteTasksButton = document.querySelector('#apaga-tudo');
+const deleteSelectedTasksButton = document.querySelector('#remover-selecionado');
 const deleteFinishedTasksButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 const listItemsArray = [];
@@ -78,6 +79,17 @@ const deleteListItems = () => {
 };
 
 deleteTasksButton.addEventListener('click', deleteListItems);
+
+// DELETE ONLY SELECTED ITEMS
+const deleteSelectedItems = () => {
+  for (let i = 0; i < listItemsArray.length; i += 1) {
+    if (listItemsArray[i].classList.contains('selected')) {
+      listItemsArray[i].remove();
+    }
+  }
+}
+
+deleteSelectedTasksButton.addEventListener('click', deleteSelectedItems);
 
 // DELETE ONLY FINISHED ITEMS
 const deleteFinishedItems = () => {
