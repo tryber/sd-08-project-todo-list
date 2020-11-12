@@ -22,6 +22,7 @@ function dblclick(event) {
   } else {
     event.target.classList.add('completed');
   }
+  event.target.cl('completed');
 }
 
 function createItem(texto) {
@@ -44,7 +45,7 @@ function addItem() {
 }
 
 function deleteList() {
-  for (let i = itens.length-1; i >= 0; i -= 1) {
+  for (let index = itens.length - 1; index >= 0; index -= 1) {
     list.removeChild(itens[i]);
     cont = 0;
     deleteAll.style.display = 'none';
