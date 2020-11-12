@@ -2,6 +2,7 @@ const addButton = document.querySelector('#criar-tarefa'); //botao
 const inputText = document.querySelector('#texto-tarefa');//onde digita o texto
 const taskList = document.querySelector('#lista-tarefas');//ol
 let liSelected = null;
+const removeButton = document.querySelector('#apaga-tudo');
 
 addButton.addEventListener('click', sendText);
 
@@ -31,6 +32,13 @@ function taskCompleted (event) {
         event.target.classList.add('completed');
     }
 };
+
+removeButton.addEventListener('click', removeTasks);
+function removeTasks () {
+   taskList.innerText = '';
+    
+};
+
 
 
 
