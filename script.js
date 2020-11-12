@@ -96,3 +96,13 @@ for (let index = 0; index < listaSalva.length; index += 1) {
 
   listaOrdenada.appendChild(itemLista);
 }
+
+function apagarTarefaSelecionada() {
+  const tarefaSelecionada = document.querySelector('.selecionada');
+
+  tarefaSelecionada.remove();
+}
+
+const removerTarefaSelecionada = document.getElementById('remover-selecionado');
+
+removerTarefaSelecionada.addEventListener('click', apagarTarefaSelecionada);
