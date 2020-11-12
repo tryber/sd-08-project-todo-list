@@ -1,7 +1,7 @@
 body {
   align-items: center;
-  background-color: rgb(126, 196, 132);
-  color: rgb(34, 34, 34);
+  background-color: rgb(126 , 196 , 132);
+  color: rgb(34 , 34 , 34);
   display: flex;
   flex-direction: column;
   font-family: Montserrat, sans-serif;
@@ -14,7 +14,7 @@ body {
 }
 
 .main-body {
-  background-color: rgb(255, 241, 188);
+  background-color: rgb(255 , 241 , 188);
   border-radius: 25px;
   padding: 50px;
 }
@@ -34,7 +34,7 @@ input {
 }
 
 input:focus {
-  outline-color: rgb(237, 121, 18);
+  outline-color: rgb(237 , 121 , 18);
 }
 
 button {
@@ -49,23 +49,23 @@ button {
 }
 
 .btn-add {
-  background-color: rgb(237, 121, 18);
-  color: #fff1bc;
-  transition: 0.2s all ease;
+  background-color: rgb(237 , 121 , 18);
+  color: rgb(255 , 241 , 188);
   transform: translateY(3px);
+  transition: 0.2s all ease;
 }
 
 .btn-add:hover {
-  background-color: rgb(253, 153, 50);
+  background-color: rgb(253 , 153 , 50);
 }
 
 .btn-add:focus {
-  background-color: rgb(237, 120, 18);
+  background-color: rgb(237 , 120 , 18);
   outline: none;
 }
 
 .focus-item {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(128 , 128 , 128);
 }
 
 .completed {
@@ -73,20 +73,20 @@ button {
 }
 
 .btn-apaga {
-  background-color: #FF5544;
-  color: #FFF1BC;
+  background-color: rgb(255 , 85 , 68);
+  color: rgb(255 , 241 , 188);
   font-size: 18px;
   padding: 0 20px;
   text-transform: uppercase;
 }
 
 .btn-apaga:focus {
-  background-color: #FF5544;
+  background-color: rgb(255 , 85 , 68);
   outline: none;
 }
 
 .btn-apaga:hover {
-  background-color: #FF7564;
+  background-color: rgb(255 , 117 , 100);
 }
 
 ol li {
