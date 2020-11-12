@@ -36,6 +36,7 @@ function createElementHTML(value) {
     const createdLi = document.createElement('li');
     createdLi.innerText = value[index];
     todoList.appendChild(createdLi);
+    if (index === selectedCurrent) createdLi.className = 'selected';
   }
 }
 function removeElementsAll() {
@@ -65,9 +66,11 @@ function saverList() {
   localStorage.setItem('selected', selectedCurrent);
 }
 function loadList() {
-  const storageLoad = localStorage.getItem('list');
-  if (storageLoad) {
-    list = storageLoad.split(',');
+  const storageLoadLi = localStorage.getItem('list');
+  const storageLoadSelected = localStorage.getItem('list');
+  if (storageLoadLi) {
+    list = storageLoadLi.split(',');
+    selectedCurrent = storageLoadSelected;
     return createElementHTML(list);
   }
   return (list = []);
