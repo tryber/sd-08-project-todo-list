@@ -37,17 +37,22 @@ input:focus {
   outline-color: rgb(237, 121, 18);
 }
 
-.btn-add {
-  background-color: rgb(237, 121, 18);
+button {
   border-radius: 50px;
   border: none;
-  color: rgb(255, 241, 188);
   cursor: pointer;
   font-size: 25px;
-  height: 50px;
-  transform: translateY(3px);
+  margin: 0 10px;
+  min-height: 50px;
+  min-width: 50px;
   transition: 0.2s all ease;
-  width: 50px;
+}
+
+.btn-add {
+  background-color: rgb(237, 121, 18);
+  color: #fff1bc;
+  transition: 0.2s all ease;
+  transform: translateY(3px);
 }
 
 .btn-add:hover {
@@ -65,4 +70,26 @@ input:focus {
 
 .completed {
   text-decoration: line-through;
+}
+
+.btn-apaga {
+  background-color: #FF5544;
+  color: #FFF1BC;
+  font-size: 18px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+.btn-apaga:focus {
+  background-color: #FF5544;
+  outline: none;
+}
+
+.btn-apaga:hover {
+  background-color: #FF7564;
+}
+
+ol li {
+  font-size: 18px;
+  font-weight: 300;
 }
