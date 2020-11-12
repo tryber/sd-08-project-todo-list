@@ -1,0 +1,44 @@
+.completed
+{
+    text-decoration: line-through solid rgb(0,0,0);
+}
+
+#header
+{
+    margin: 30px 0px 10px 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
+#funcionamento
+{
+    margin: 20px 20px 0px 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+}
+
+#texto-tarefa
+{
+    margin: 10px 0px 0px 30px;
+    width: 80px;
+    height: 15px;
+}
+
+#criar-tarefa
+{
+    margin: 0px 0px 0px 0px;
+    width: 50px;
+    height: 20px;
+}
+#apaga-tudo
+{
+    margin: 6px 0px 0px 0px;
+    height: 20px;
+}
+
+#remover-finalizados
+{
+    position: absolute;
+    height: 20px;
+    margin: 10px 0px 0px 0px;
+}

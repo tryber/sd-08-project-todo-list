@@ -1,17 +1,61 @@
 
 let elementAdd = document.getElementById("criar-tarefa");
 
+
 elementAdd.addEventListener("click", function()
 {
-    let getInput = document.getElementById("texto-tarefa");
     let lineAdd = document.createElement("li");
-    let getIdOl = document.getElementById("lista-tarefas");
+    let getInput = document.getElementById("texto-tarefa"); // input
+    let newText = document.createTextNode(getInput.value); // value do input
+    let getIdOl = document.getElementById("lista-tarefas"); // OK
 
-    let newText = document.createTextNode(getInput.value);
-    lineAdd.appendChild(newText);
-    getIdOl.appendChild(lineAdd);
-    getInput.value = "";
 
+    lineAdd.appendChild(newText);                           // input.value vira filho do li
+    lineAdd.classList.add("lines");
+
+
+    getIdOl.appendChild(lineAdd);                           //linhas viram filho de ol
+
+
+    lineAdd.addEventListener("click", color);
+    lineAdd.addEventListener("dblclick", completed);
+
+    getInput.value = "";            // esvazia input depois de pegar valor
+})
+
+function color(event)
+{
+    let findLi = document.getElementsByTagName("li");
+        event.target.style.backgroundColor = "rgb(128,128,128)";
+
+}
+
+function completed(event)
+{
+    event.target.classList.add("completed");
+}
+
+let getClear = document.getElementsByTagName("li");
+let buttonClear = document.getElementById("apaga-tudo");
+
+buttonClear.addEventListener("click", function()
+{
+    for(let l = getClear.length -1; l >= 0; l -= 1)
+    {
+        getClear[l].remove();
+    }
+
+})
+
+let getClearFinalizados = document.getElementById("remover-finalizados");
+let finalizados = document.getElementsByClassName("completed");
+
+getClearFinalizados.addEventListener("click", function()
+{
+    for(let l of finalizados)
+    {
+        l.remove();
+    }
 })
 
 
@@ -28,17 +72,13 @@ elementAdd.addEventListener("click", function()
 
 
 
-
-
-
-
 //
 //
 //
 //
-//
-//
-//
+// https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/button
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
+// https://developer.mozilla.org/pt-BR/docs/Web/Events
 // https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/input
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Element/addEventListener
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement
