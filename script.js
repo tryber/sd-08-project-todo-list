@@ -9,7 +9,6 @@ const deleteFinishedTasksButton = document.querySelector('#remover-finalizados')
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 const movesUpButton = document.querySelector('#mover-cima');
 const movesDownButton = document.querySelector('#mover-baixo');
-const allListItems = listTasks.children;
 
 // CREATES A NEW TASK
 const createNewTask = () => {
@@ -20,7 +19,7 @@ const createNewTask = () => {
   const li = document.createElement('li');
   li.classList.add('list-item');
 
-  li.appendChild(document.createTextNode(inputTasks.value));
+  li.innerText = inputTasks.value;
 
   inputTasks.value = '';
 
@@ -126,12 +125,12 @@ saveTasksButton.addEventListener('click', updateLocalStorage);
 
 // MOVES UP A LIST ITEM
 const movesUpListItem = () => {
-  const selectedItem = document.querySelector('.selected');
+  const listItem = document.querySelectorAll('.list-item');
 
-  for (let i = 0; i < allListItems.length; i += 1) {
-    if (allListItems[i] === selectedItem) {
+  for (let i = 0; i < listItem.length; i += 1) {
+    if (listItem[i].classList.contains('selected')) {
       if (i !== 0) {
-        listTasks.insertBefore(allListItems[i], allListItems[i - 1]);
+        listTasks.insertBefore(listItem[i],listItem[i - 1]);
       }
     }
   }
@@ -141,16 +140,15 @@ movesUpButton.addEventListener('click', movesUpListItem);
 
 // MOVES DOWN A LIST ITEM
 const movesDownListItem = () => {
-  const selectedItem = document.querySelector('.selected');
+  const listItem = document.querySelectorAll('.list-item');
 
-  for (let i = 0; i < allListItems.length; i += 1) {
-    if (allListItems[i] === selectedItem) {
-      if (i !== allListItems.length - 1) {
-        listTasks.insertBefore(allListItems[i + 1], allListItems[i]);
+  for (let i = 0; i < listItem.length; i += 1) {
+    if (listItem[i].classList.contains('selected')) {
+      if (i !== listItem.length - 1) {
+        listTasks.insertBefore(listItem[i + 1],listItem[i]);
       }
     }
   }
 };
 
 movesDownButton.addEventListener('click', movesDownListItem);
-
