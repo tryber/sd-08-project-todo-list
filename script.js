@@ -1,22 +1,6 @@
 const inputText = document.getElementById('texto-tarefa');
 const localeListTasks = document.getElementById('lista-tarefas');
 
-function removeItem(element) {
-  const equal = (el) => el === element;
-  const position = list.findIndex(equal);
-  list.splice(position, 1);
-}
-function removeSelected(target, classElement) {
-  return target.classList.remove(classElement);
-}
-function removeSelectedAll(classElement) {
-  document.querySelectorAll('li').forEach((element) => {
-    removeSelected(element, classElement);
-  });
-}
-function addedSelected(target, classElement) {
-  target.classList.add(classElement);
-}
 function selected(elementEvent) {
   if (document.getElementsByClassName('selected')[0] != null) {
     document.getElementsByClassName('selected')[0].classList.remove('selected');
@@ -87,8 +71,6 @@ function resetElementsHTML() {
 
 loadList();
 capturedElementEvents('criar-tarefa', 'click', createElementHTML);
-capturedElementEvents('lista-tarefas', 'click', selected);
-capturedElementEvents('lista-tarefas', 'dblclick', completed);
 capturedElementEvents('salvar-tarefas', 'click', saverList);
 capturedElementEvents('mover-cima', 'click', false);
 capturedElementEvents('mover-baixo', 'click', false);
