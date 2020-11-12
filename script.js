@@ -80,7 +80,7 @@ const salvarLista = document.querySelector('#salvar-tarefas');
 salvarLista.addEventListener('click', salvarTarefas);
 
 // Fiz com a ajuda do meu colega Paulo Simões
-const listaSalva = JSON.parse(localStorage.getItem('tarefas')) || null;
+const listaSalva = JSON.parse(localStorage.getItem('tarefas')) || [];
 
 for (let index = 0; index < listaSalva.length; index += 1) {
   const tarefa = listaSalva[index];
