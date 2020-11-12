@@ -1,6 +1,7 @@
 const inputText = document.getElementById('texto-tarefa');
 const todoList = document.getElementById('lista-tarefas');
 let list = [];
+let selectedCurrent = 0;
 
 function removeItem(element) {
   const equal = (el) => el === element;
@@ -21,6 +22,9 @@ function addedSelected(target, classElement) {
 function selected(target) {
   removeSelectedAll('selected');
   addedSelected(target, 'selected');
+  document.querySelectorAll('li').forEach((element, index) => {
+    if (element.className.includes('selected')) selectedCurrent = index;
+  });
 }
 function completed(target) {
   return target.className.includes('completed')
@@ -58,6 +62,7 @@ function capturedElementEvents(target, event, callback) {
 }
 function saverList() {
   localStorage.setItem('list', list);
+  localStorage.setItem('selected', selectedCurrent);
 }
 function loadList() {
   const storageLoad = localStorage.getItem('list');
