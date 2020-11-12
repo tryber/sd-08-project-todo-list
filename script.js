@@ -100,12 +100,6 @@ const deleteFinishedItems = () => {
 
 deleteFinishedTasksButton.addEventListener('click', deleteFinishedItems);
 
-// SAVE LIST ITEMS IN THE LOCAL STORAGE
-const storeListItems = () => {
-  localStorage.setItem('tasks', JSON.stringify(savedItemsArray));
-}
-
-
 // LOAD LOCAL STORAGE
 const loadLocalStorage = () => {
   const savedTasks = JSON.parse(localStorage.getItem('tasks'));
@@ -117,13 +111,11 @@ const loadLocalStorage = () => {
       completeSingleTask(event);
     });
   }
-
-  return;
 };
 
 loadLocalStorage();
 
-// UPDATE LOCAL STORAGE
+// SAVE LIST ITEMS IN THE LOCAL STORAGE AND UPDATES THEM IF NECESSARY
 const updateLocalStorage = () => {
   localStorage.clear();
 
@@ -131,4 +123,3 @@ const updateLocalStorage = () => {
 };
 
 saveTasksButton.addEventListener('click', updateLocalStorage);
-
