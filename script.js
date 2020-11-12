@@ -63,3 +63,18 @@ ol.parentNode.insertBefore(buttonClear, ol.nextSibling);
 buttonClear.addEventListener('click', function (event) {
     ol.innerHTML = '';
 })
+
+/* ---------------------------- REQUISITO 11 ---------------------------- */
+
+const buttonClearFinished = document.createElement('button');
+buttonClearFinished.id = 'remover-finalizados';
+buttonClearFinished.innerHTML = 'Limpar tarefas finalizadas';
+buttonClear.parentNode.insertBefore(buttonClearFinished, buttonClear.nextSibling);
+
+buttonClearFinished.addEventListener('click', function (event) {
+    const taskFinished = document.querySelectorAll('.completed');
+
+    for (let i = 0; i < taskFinished.length; i += 1) {
+        taskFinished[i].remove();
+    }
+})
