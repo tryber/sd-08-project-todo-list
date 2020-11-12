@@ -1,14 +1,15 @@
 const caixaTexto = document.querySelector('#texto-tarefa');
-const botaoAdiciona = document.getElementById('criar-tarefa');
 const listaOrdenada = document.getElementById('lista-tarefas');
 
-// Refatorei com a ajuda de meu colega Paulo Simões
 function adicionaTarefa(texto) {
+  // Refatorei com a ajuda de meu colega Paulo Simões
   const itemLista = document.createElement('li');
   itemLista.className = 'tarefa';
   itemLista.innerText = texto;
   return itemLista;
 }
+
+const botaoAdiciona = document.getElementById('criar-tarefa');
 
 botaoAdiciona.addEventListener('click', () => {
   const texto = caixaTexto.value;
@@ -17,92 +18,81 @@ botaoAdiciona.addEventListener('click', () => {
 });
 
 
-function corFundoTarefa() {
-  let ultimoSelecionado = null;
-  listaOrdenada.addEventListener('click', (event) => {
-    if (ultimoSelecionado === null) {
-      ultimoSelecionado = event.target;
-      event.target.style.backgroundColor = 'gray';
-      event.target.classList.add('selecionada');
-    } else {
-      ultimoSelecionado.style.backgroundColor = 'initial';
-      ultimoSelecionado.classList.remove('selecionada');
-      ultimoSelecionado = event.target;
+function corFundoTarefa(event) {
+  const tarefaSelecionada = listaOrdenada.querySelector('.selecionada');
+
+  if (tarefaSelecionada !== null) {
+    if (tarefaSelecionada !== event.target) {
+      tarefaSelecionada.classList.remove('selecionada');
     }
-    event.target.style.backgroundColor = 'gray';
-    event.target.classList.add('selecionada');
-  });
+  }
+  event.target.classList.add('selecionada');
 }
 
-corFundoTarefa();
+listaOrdenada.addEventListener('click', corFundoTarefa);
 
-function riscarTarefa() {
-  listaOrdenada.addEventListener('dblclick', (event) => {
-    if (event.target.className === 'tarefa completed' || event.target.className === 'tarefa completed selecionada') {
-      event.target.classList.remove('completed');
-    } else {
-      event.target.classList.add('completed');
-    }
-  });
+function riscarTarefa(event) {
+  if (event.target.className === 'tarefa completed' || event.target.className === 'tarefa completed selecionada') {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
 }
 
-riscarTarefa();
+listaOrdenada.addEventListener('dblclick', riscarTarefa);
 
 function apagarLista() {
-  const apagaLista = document.getElementById('apaga-tudo');
-
-  apagaLista.addEventListener('click', () => {
-    // a thread do slack, https://trybecourse.slack.com/archives/C01A9A2N93R/p1605039868012200, me ajudou a fazer este requisito
-    listaOrdenada.innerHTML = '';
-  });
+  // a thread do slack, https://trybecourse.slack.com/archives/C01A9A2N93R/p1605039868012200, me ajudou a fazer este requisito
+  listaOrdenada.innerHTML = '';
 }
 
-apagarLista();
+const apagaLista = document.getElementById('apaga-tudo');
 
+apagaLista.addEventListener('click', apagarLista);
 
 function apagarTarefasFinalizadas() {
-  const removerTarefaFinalizada = document.getElementById('remover-finalizados');
-
-  removerTarefaFinalizada.addEventListener('click', () => {
-    const tarefasFinalizadas = document.querySelectorAll('.completed');
-    for (let i = 0; i < tarefasFinalizadas.length; i += 1) {
-      const tarefaFinalizada = tarefasFinalizadas[i];
-      listaOrdenada.removeChild(tarefaFinalizada);
-    }
-  });
+  const tarefasFinalizadas = document.querySelectorAll('.completed');
+  for (let index = 0; index < tarefasFinalizadas.length; index += 1) {
+    const tarefaFinalizada = tarefasFinalizadas[index];
+    tarefaFinalizada.remove();
+  }
 }
 
-apagarTarefasFinalizadas();
+const removerTarefaFinalizada = document.getElementById('remover-finalizados');
 
-// Fiz com a ajuda do meu colega Paulo Simões
+removerTarefaFinalizada.addEventListener('click', apagarTarefasFinalizadas);
+
+// analisando o código do meu colega Paulo Simões, tive um insight de como poderia ser feito, https://github.com/tryber/sd-08-project-todo-list/pull/36/files
 function salvarTarefas() {
   const array = [];
   const tarefas = document.querySelectorAll('.tarefa');
-  for (let i = 0; i < tarefas.length; i += 1) {
-    const tarefa = tarefas[i];
+
+  for (let index = 0; index < tarefas.length; index += 1) {
+    const tarefa = tarefas[index];
     array.push({ atividade: tarefa.innerText, selecionada: tarefa.classList.contains('selecionada'), completada: tarefa.classList.contains('completed') });
   }
+
   localStorage.setItem('tarefas', JSON.stringify(array));
 }
 
 const salvarLista = document.querySelector('#salvar-tarefas');
+
 salvarLista.addEventListener('click', salvarTarefas);
 
-const salvo = JSON.parse(localStorage.getItem('tarefas')) || null;
+// Fiz com a ajuda do meu colega Paulo Simões
+const listaSalva = JSON.parse(localStorage.getItem('tarefas')) || null;
 
-if (salvo !== null) {
-  for (let i = 0; i < salvo.length; i += 1) {
-    const tarefa = salvo[i];
-    const itemLista = adicionaTarefa(tarefa.atividade);
+for (let index = 0; index < listaSalva.length; index += 1) {
+  const tarefa = listaSalva[index];
+  const itemLista = adicionaTarefa(tarefa.atividade);
 
-    if (tarefa.selecionada) {
-      itemLista.classList.add('selecionada');
-    }
-
-    if (tarefa.completada) {
-      itemLista.classList.add('completed');
-    }
-
-    listaOrdenada.appendChild(itemLista);
+  if (tarefa.selecionada) {
+    itemLista.classList.add('selecionada');
   }
+
+  if (tarefa.completada) {
+    itemLista.classList.add('completed');
+  }
+
+  listaOrdenada.appendChild(itemLista);
 }

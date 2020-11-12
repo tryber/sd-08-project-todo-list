@@ -92,3 +92,7 @@ main {
 .completed {
   text-decoration: line-through solid black;
 }
+
+.selecionada {
+  background-color: gray;
+}
