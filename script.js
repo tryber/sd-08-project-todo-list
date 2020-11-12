@@ -178,3 +178,23 @@ function moveDown() {
 }
 
 moveDown();
+
+function removeSeleted() {
+    const button = document.querySelector('#remover-selecionado');
+
+    button.addEventListener('click', function() {
+        let li = document.querySelectorAll('.task');
+        let ol = document.querySelector('#lista-tarefas');
+        let position = '';
+        for (index = 0; index < li.length; index += 1) {
+            if (li[index].style.backgroundColor === 'grey') {
+                position = index;
+            }
+        }
+        if (position !== '') {
+            ol.removeChild(li[position]);
+        }
+    });
+}
+
+removeSeleted();
