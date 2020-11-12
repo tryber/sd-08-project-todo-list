@@ -16,12 +16,20 @@ window.onload = function () {
   lista.addEventListener('click', function (event) {
     for (let index = 0; index < taskList.length; index += 1) {
       if (taskList[index].classList.contains('selected') == true) {
-        taskList[index].className = 'item-list';
+        taskList[index].classList.remove('selected');
       }
       event.target.classList.add('selected');
     }
+  });
+  // Add a clase completed aos itens
+  lista.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed') == false) {
+      event.target.classList.add('completed');
+    } else {
+      event.target.classList.remove('completed');
+    }
   })
-}
+};
 
   
 
