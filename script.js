@@ -1,3 +1,10 @@
+window.onload = function () {
+  if(localStorage.taskList) {
+    const tasksCompletedList = document.querySelector('#lista-tarefas');
+    tasksCompletedList.innerHTML = localStorage.taskList;
+  }
+}
+
 function addTask() {
   const buttonAddTask = document.querySelector('#criar-tarefa');
   buttonAddTask.addEventListener('click', function () {
@@ -54,36 +61,12 @@ function taskCompleted() {
 
 taskCompleted();
 
-
-function createButtonClearList() {
-  const buttonClearElement = document.createElement('button');
-  buttonClearElement.id = 'apaga-tudo';
-  buttonClearElement.innerHTML = 'Limpar Lista';
-  buttonClearElement.className = 'botao-controle';
-  const footerController = document.querySelector('.footer-controller');
-  footerController.appendChild(buttonClearElement);
-}
-
-createButtonClearList();
-
-function eventClearList() {
-  const buttonClear = document.querySelector('#apaga-tudo');
-  buttonClear.addEventListener('click', function () {
-    const tasksList = document.querySelectorAll('.tarefa');
-    const listElement = document.querySelector('#lista-tarefas');
-    for (let tag of tasksList) {
-      listElement.removeChild(tag);
-    }
-  });
-}
-
-eventClearList();
-
 function createButtonRemoveSolved() {
   const buttonRemoveSolvedElement = document.createElement('button');
   buttonRemoveSolvedElement.id = 'remover-finalizados';
-  buttonRemoveSolvedElement.innerHTML = 'Limpar completos';
+  buttonRemoveSolvedElement.innerHTML = 'Limpar Completos';
   buttonRemoveSolvedElement.className = 'botao-controle';
+  buttonRemoveSolvedElement.style.backgroundColor = 'rgb(0, 174, 255)';
   const footerController = document.querySelector('.footer-controller');
   footerController.appendChild(buttonRemoveSolvedElement);
 }
@@ -104,3 +87,50 @@ function eventRemoveSolved() {
 
 eventRemoveSolved();
 
+function createButtonClearList() {
+  const buttonClearElement = document.createElement('button');
+  buttonClearElement.id = 'apaga-tudo';
+  buttonClearElement.innerHTML = 'Limpar Lista';
+  buttonClearElement.className = 'botao-controle';
+  buttonClearElement.style.backgroundColor = 'rgb(150, 0, 0)';
+  const footerController = document.querySelector('.footer-controller');
+  footerController.appendChild(buttonClearElement);
+}
+
+createButtonClearList();
+
+function eventClearList() {
+  const buttonClear = document.querySelector('#apaga-tudo');
+  buttonClear.addEventListener('click', function () {
+    const tasksList = document.querySelectorAll('.tarefa');
+    const listElement = document.querySelector('#lista-tarefas');
+    for (let tag of tasksList) {
+      listElement.removeChild(tag);
+    }
+  });
+}
+
+eventClearList();
+
+function createButtonSaveTask() {
+  const buttonSaveTaskElement = document.createElement('button');
+  buttonSaveTaskElement.id = 'salvar-tarefas';
+  buttonSaveTaskElement.innerHTML = 'Salvar Lista';
+  buttonSaveTaskElement.className = 'botao-controle';
+  buttonSaveTaskElement.style.backgroundColor = 'rgb(0, 194, 120)';
+  const footerController = document.querySelector('.footer-controller');
+  footerController.appendChild(buttonSaveTaskElement);
+}
+
+createButtonSaveTask();
+
+function eventSaveTask() {
+  const buttonSaveTask = document.querySelector('#salvar-tarefas');
+  buttonSaveTask.addEventListener('click', function () {
+    const tasksCompletedList = document.querySelector('#lista-tarefas');
+    localStorage.setItem('taskList', tasksCompletedList.innerHTML);
+    console.log(localStorage.taskList);
+  });
+}
+
+eventSaveTask();
