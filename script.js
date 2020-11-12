@@ -19,7 +19,7 @@ function SwapTo(label, a, b) {
 }
 
 function FindPath(path) {
-  if(path[0].id !== '') {
+  if (path[0].id !== '') {
     return path[0].id;
   }
   return path[1].id;
@@ -28,14 +28,12 @@ function FindPath(path) {
 function Swap(e) {
   const itens = document.getElementsByTagName('li');
   let itemToSwap;
-  let nextItem; 
+  let nextItem;
 
-  for (let i = 0; i < itens.length; i += 1) {
-    if(itens[i].classList.contains('focus-item')) {
+  for (let i = 0; i < itens.length - 1; i += 1) {
+    if (itens[i].classList.contains('focus-item')) {
       itemToSwap = itens[i];
-      if (i < itens.length - 1) {
-        nextItem = itens[i + 1];
-      }
+      nextItem = itens[i + 1];
     }
   }
 
@@ -83,7 +81,7 @@ buttonRemoveSel.addEventListener('click', function () {
 
 buttonSave.addEventListener('click', function () {
   const itens = document.getElementsByTagName('li');
-  let toLocal = [];
+  const toLocal = [];
 
   for (let i = 0; i < itens.length; i += 1) {
     toLocal.push(itens[i].innerText);
@@ -93,10 +91,11 @@ buttonSave.addEventListener('click', function () {
 
 window.onload = function () {
   const clientLista = JSON.parse(localStorage.getItem('list'));
-  console.log(clientLista);
-  for (let i = 0; i < clientLista.length; i += 1) {
-    const itemFromLocal = document.createElement('li');
-    itemFromLocal.innerText = clientLista[i];
-    lista.appendChild(itemFromLocal);
+  if(clientLista) {
+    for (let i = 0; i < clientLista.length; i += 1) {
+      const itemFromLocal = document.createElement('li');
+      itemFromLocal.innerText = clientLista[i];
+      lista.appendChild(itemFromLocal);
+    }
   }
 };
