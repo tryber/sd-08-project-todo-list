@@ -19,6 +19,7 @@
     objcria.textContent =container;
     objcria.className ='file';
     objcria.addEventListener("click", bgli);
+    objcria.addEventListener("dbleclick", sobrelist);
     olsel.appendChild(objcria);
     inputSEl.value = '';}
       };
@@ -36,9 +37,15 @@
 
       };
     
+      // põe listra na li
+   function sobrelist(){
+    let todolis =document.querySelectorAll('li');
+    for (i=0; i<todolis.length;i+=1){
+      todolis[i].className ="Completed";
+    };
+   }
 
-   
     
   
      
-  let todoli =document.getElementsByClassName('file');
+ // let todoli =document.getElementsByClassName('file');
