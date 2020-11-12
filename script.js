@@ -22,11 +22,14 @@ createButton('Remover Selecionado', 'remover-selecionado');
 function fCriarTarefa() {
   let novaTarefa = document.createElement('li');
   let tarefaInput = document.getElementById('texto-tarefa').value;
+
+  //verificação valor em branco.
+  if (tarefaInput === "") {
+    alert('Favor digitar uma tarefa!');
+  } else {
   novaTarefa.className = 'classeTarefa';
   novaTarefa.innerHTML = tarefaInput;
   
-  novaTarefa.addEventListener('click', umCliqueTarefa);
-
   //ID elementos:
   let ol = document.getElementById('lista-tarefas');
   tarefaId = ol.childElementCount;  
@@ -34,7 +37,10 @@ function fCriarTarefa() {
    
   document.getElementById('lista-tarefas').appendChild(novaTarefa);
 
+  novaTarefa.addEventListener('click', umCliqueTarefa);
+
   fLimparImput();
+  }
 }
 
 function fLimparImput(){
@@ -51,9 +57,23 @@ function fApagaTudo() {
 }
 
 function umCliqueTarefa () {
-  idTarefa = this.id
-  let tarefa = document.getElementById(idTarefa);
-  tarefa.style.backgroundColor = "rgb(128,128,128)";
+  idTarefa = this.id;
+  let tarefaAtual = document.getElementById(idTarefa);
+  let todasTarefas = document.querySelectorAll('classeTarefas');
+  let corPadrao = 'white';
+  let corselecao = 'rgb(128,128,128)';
+  console.log(todasTarefas);
+
+  
+
+  for (let index = 0; index < todasTarefas.length; index += 1) {
+    todasTarefas[index].style.backgroundColor = corPadrao; 
+    console.log(todasTarefas[index]);  
+  }
+ 
+  tarefaAtual.style.backgroundColor = corselecao;
+
+
 }
 
 
