@@ -8,8 +8,13 @@ function createList() {
         let newText = text.value;
         listChildsElement.innerText = newText;
         text.value = "";
+        listChildsElement.addEventListener('click', function () {
+            listChildsElement.style.backgroundColor = 'rgb(128,128,128)';
 
-
+        });
     });
 }
+
 createList();
+
+
