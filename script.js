@@ -11,16 +11,16 @@ function createList() {
         listChildrenElement.innerText = newText;
         text.value = "";
         listChildrenElement.addEventListener('click', elementColor);
-            listChildrenElement.style.backgroundColor = 'rgb(128,128,128)';
+
     });
 }
 
 createList();
 
 // fiz o código com a ajuda do colega Leandro Piasseta
-function elementColor(event){
+function elementColor(event) {
     let itemsList = document.querySelectorAll('li');
-    for(let i = 0;i < itemsList.length; i +=1) {
+    for (let i = 0; i < itemsList.length; i += 1) {
         itemsList[i].style.backgroundColor = '';
     }
     event.target.style.backgroundColor = 'rgb(128,128,128)';
