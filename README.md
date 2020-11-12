@@ -115,20 +115,20 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 
 ## Requisitos Obrigatórios:
 
-### 1 - Sua lista deve possuir o título "Minha Lista de Tarefas" em uma tag `<header>`. Esse título não varia de acordo com o conteúdo da lista. _Não confunda esse título com o título da página, que deve aparecer dentro da tag `head`_.
+/### 1 - Sua lista deve possuir o título "Minha Lista de Tarefas" em uma tag `<header>`. Esse título não varia de acordo com o conteúdo da lista. _Não confunda esse título com o título da página, que deve aparecer dentro da tag `head`_.
+/##### As seguintes verificações serão feitas:
+
+/- Será verificado se sua página possui uma tag `header` com o conteúdo `Minha Lista de Tarefas`
+
+/### 2 - Abaixo do título deve haver um pequeno e discreto parágrafo com `id="funcionamento"` e com o texto "Clique duas vezes em um item para marcá-lo como completo" explicando o funcionamento da lista para o usuário.
+/##### As seguintes verificações serão feitas:
+
+/- Será verificado que existe na sua página um elemento com o id `funcionamento` com o conteúdo `Clique duas vezes em um item para marcá-lo como completo`
+
+/### 3 - Deve haver um `input` com o `id="texto-tarefa"` onde o usuário poderá digitar o nome do item que deseja adicionar à lista.
 ##### As seguintes verificações serão feitas:
 
-- Será verificado se sua página possui uma tag `header` com o conteúdo `Minha Lista de Tarefas`
-
-### 2 - Abaixo do título deve haver um pequeno e discreto parágrafo com `id="funcionamento"` e com o texto "Clique duas vezes em um item para marcá-lo como completo" explicando o funcionamento da lista para o usuário.
-##### As seguintes verificações serão feitas:
-
-- Será verificado que existe na sua página um elemento com o id `funcionamento` com o conteúdo `Clique duas vezes em um item para marcá-lo como completo`
-
-### 3 - Deve haver um `input` com o `id="texto-tarefa"` onde o usuário poderá digitar o nome do item que deseja adicionar à lista.
-##### As seguintes verificações serão feitas:
-
-- Será verificada a existência de um elemento do tipo `input` com o id `texto-tarefa`.
+/- Será verificada a existência de um elemento do tipo `input` com o id `texto-tarefa`.
 
 ### 4 - Deve haver uma lista ordenada de tarefas com o `id="lista-tarefas"`.
 ##### As seguintes verificações serão feitas:
