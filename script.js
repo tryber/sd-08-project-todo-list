@@ -9,7 +9,7 @@ const deleteFinishedTasksButton = document.querySelector('#remover-finalizados')
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 const movesUpButton = document.querySelector('#mover-cima');
 const movesDownButton = document.querySelector('#mover-baixo');
-const listItemsArray = [];
+const allListItems = listTasks.children;
 
 // CREATES A NEW TASK
 const createNewTask = () => {
@@ -22,8 +22,6 @@ const createNewTask = () => {
 
   li.appendChild(document.createTextNode(inputTasks.value));
 
-  listItemsArray.push(li);
-
   inputTasks.value = '';
 
   return listTasks.appendChild(li);
@@ -33,8 +31,8 @@ createTaskButton.addEventListener('click', createNewTask);
 
 // REMOVES PREVIOUS SELECTED TASKS
 const removeSelectedTask = () => {
-  for (let i = 0; i < listItemsArray.length; i += 1) {
-    listItemsArray[i].classList.remove('selected');
+  for (let i = 0; i < allListItems.length; i += 1) {
+    allListItems[i].classList.remove('selected');
   }
 };
 
@@ -51,11 +49,11 @@ listTasks.addEventListener('click', selectSingleTask);
 
 // COLORS A SINGLE TASK
 const colorizeSelectedTask = () => {
-  for (let i = 0; i < listItemsArray.length; i += 1) {
-    if (listItemsArray[i].classList.contains('selected')) {
-      listItemsArray[i].style.backgroundColor = 'rgb(128,128,128)';
+  for (let i = 0; i < allListItems.length; i += 1) {
+    if (allListItems[i].classList.contains('selected')) {
+      allListItems[i].style.backgroundColor = 'rgb(128,128,128)';
     } else {
-      listItemsArray[i].style.backgroundColor = '';
+      allListItems[i].style.backgroundColor = '';
     }
   }
 };
@@ -82,9 +80,9 @@ deleteTasksButton.addEventListener('click', deleteListItems);
 
 // DELETE ONLY THE SELECTED ITEM
 const deleteSelectedItems = () => {
-  for (let i = 0; i < listItemsArray.length; i += 1) {
-    if (listItemsArray[i].classList.contains('selected')) {
-      listItemsArray[i].remove();
+  for (let i = 0; i < allListItems.length; i += 1) {
+    if (allListItems[i].classList.contains('selected')) {
+      allListItems[i].remove();
     }
   }
 };
@@ -93,9 +91,9 @@ deleteSelectedTasksButton.addEventListener('click', deleteSelectedItems);
 
 // DELETE ONLY FINISHED ITEMS
 const deleteFinishedItems = () => {
-  for (let i = 0; i < listItemsArray.length; i += 1) {
-    if (listItemsArray[i].classList.contains('completed')) {
-      listItemsArray[i].remove();
+  for (let i = 0; i < allListItems.length; i += 1) {
+    if (allListItems[i].classList.contains('completed')) {
+      allListItems[i].remove();
     }
   }
 };
@@ -130,10 +128,10 @@ saveTasksButton.addEventListener('click', updateLocalStorage);
 const movesUpListItem = () => {
   const selectedItem = document.querySelector(".selected");
 
-  for (let i = 0; i < listItemsArray.length; i++) {
-    if (listItemsArray[i] === selectedItem) {
+  for (let i = 0; i < allListItems.length; i += 1) {
+    if (allListItems[i] === selectedItem) {
       if (i !== 0) {
-        listItemsArray[i] = listTasks.insertBefore(listItemsArray[i], listItemsArray[i - 1]);
+        listTasks.insertBefore(allListItems[i], allListItems[i - 1]);
       }
     }
   }
@@ -145,10 +143,10 @@ movesUpButton.addEventListener('click', movesUpListItem);
 const movesDownListItem = () => {
   const selectedItem = document.querySelector(".selected");
 
-  for (let i = 0; i < listItemsArray.length; i++) {
-    if (listItemsArray[i] === selectedItem) {
-      if (i !== listItemsArray.length - 1) {
-        listItemsArray[i + 1] = listTasks.insertBefore(listItemsArray[i + 1], listItemsArray[i]);
+  for (let i = 0; i < allListItems.length; i += 1) {
+    if (allListItems[i] === selectedItem) {
+      if (i !== allListItems.length - 1) {
+        listTasks.insertBefore(allListItems[i + 1], allListItems[i]);
       }
     }
   }
