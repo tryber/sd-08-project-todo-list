@@ -106,7 +106,7 @@ input:focus {
 }
 
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
 }
 
 .salvar-tarefas-btn {
