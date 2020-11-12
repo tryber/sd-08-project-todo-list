@@ -14,19 +14,19 @@ body {
 }
 
 button {
-  padding: 10px 10px;
-  color: white;
-  border-radius: 5px;
   border: none;
-  font-size: medium;
-  font-weight: bold;
-  margin-top: 5px;
+  border-radius: 5px;
   box-shadow: 1px 1px 2px gray;
+  color: white;
+  font-size: medium;
+  font-weight: 700;
   height: 45px;
+  margin-top: 5px;
+  padding: 10px;
 }
 
 button:focus {
-  outline: none;
+  outline: rgba(255 , 255 , 255 , 0);
 }
 
 button:hover {
@@ -61,10 +61,10 @@ main p {
 }
 
 li {
-  text-align: left;
   cursor: pointer;
-  user-select: none;
   line-height: 30px;
+  text-align: left;
+  user-select: none;
 }
 
 li:hover {
@@ -72,22 +72,23 @@ li:hover {
 }
 
 .container {
-  background-color: white;
-  width: 460px;
-  padding: 20px 20px;
-  margin: 20px 20px 20px;
-  border-radius: 15px;
   align-items: center;
-  justify-content: center;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 5px 10px 20px black;
   display: flex;
   flex-direction: column;
-  box-shadow: 5px 10px 20px black;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  width: 460px;
 }
 
 .arrow-btn {
   padding: 0 15px;
   width: 70px;
 }
+
 .arrow-img {
   width: 22px;
 }
@@ -98,11 +99,14 @@ input {
   font-size: medium;
   height: 35px;
   margin-top: 10px;
-  outline: none;
+}
+
+input:focus {
+  outline: rgba(255 , 255 , 255 , 0);
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(128 , 128 , 128);
 }
 
 .salvar-tarefas-btn {
