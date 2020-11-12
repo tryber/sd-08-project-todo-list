@@ -1,9 +1,9 @@
 function createButton(nome, id) {
-    let btn = document.createElement('button');
-    btn.innerHTML = nome;
-    btn.id = id;
+  let btn = document.createElement('button');
+  btn.innerHTML = nome;
+  btn.id = id;
 
-    document.getElementById('button-container').appendChild(btn);    
+  document.getElementById('button-container').appendChild(btn);    
 }
 
 createButton('Criar Tarefa', 'criar-tarefa');
@@ -18,29 +18,43 @@ createButton('Mover para Baixo', 'mover-baixo');
 createButton('Remover Selecionado', 'remover-selecionado');
 
 function fCriarTarefa() {
-    let novaTarefa = document.createElement('li');
-    let tarefaInput = document.getElementById('texto-tarefa').value;
-    novaTarefa.innerHTML = tarefaInput;
+  let novaTarefa = document.createElement('li');
+  let tarefaInput = document.getElementById('texto-tarefa').value;
+  novaTarefa.className = 'classeTarefa';
+  novaTarefa.innerHTML = tarefaInput;
+  
+  //ID elementos:
+  let ol = document.getElementById('lista-tarefas');
+  tarefaId = ol.childElementCount;  
+  novaTarefa.id = tarefaId;
+   
+  document.getElementById('lista-tarefas').appendChild(novaTarefa);
 
-    document.getElementById('lista-tarefas').appendChild(novaTarefa);
-fLimparImput();
+  fLimparImput();
 }
 
 function fLimparImput(){
-    tarefaInput = document.getElementById('texto-tarefa').value='';
+  tarefaInput = document.getElementById('texto-tarefa').value='';
 }
-//input conhecimento retirado do vídeo (https://www.youtube.com/watch?v=ZGMJqxIkAb0)
 
 function fApagaTudo() {
-    let tarefa = document.querySelectorAll('li');
-    for (index of tarefa) {
-        let listaOl = document.querySelector('#lista-tarefas');
-        console.log(listaOl);
-        listaOl.removeChild(index);
-    }
+  let tarefa = document.querySelectorAll('li');
+  for (index of tarefa) {
+      let listaOl = document.querySelector('#lista-tarefas');
+      console.log(listaOl);
+      listaOl.removeChild(index);
+  }
 }
+
+function umCliqueTarefa () {
+  
+}
+
 
 function fRemoverFinalizados() {
-console.log('btn remove finalizados');
+  console.log('btn remove finalizados');
 }
 
+
+
+//Conhecimento aprendido nos sites: (https://www.w3schools.com/jsref/prop_element_childelementcount.asp),((https://www.youtube.com/watch?v=ZGMJqxIkAb0))
