@@ -144,3 +144,18 @@ function moveDown() {
   });
 }
 moveDown();
+
+// Requisito 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado.
+function removeSelected() {
+  let lista = document.querySelector('#lista-tarefas');
+  let btnRemoveSelected = document.querySelector('#remover-selecionado');
+  btnRemoveSelected.addEventListener('click', function() {
+    for(let index = 0; index < lista.children.length; index += 1) {
+      if(lista.children[index].classList.contains('selected')) {
+        lista.removeChild(lista.children[index]);
+        index -= 1;
+      }
+    }
+  });
+}
+removeSelected();
