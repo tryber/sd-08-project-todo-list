@@ -2,6 +2,9 @@ const receberTarefa = document.getElementById('texto-tarefa');
 const btnCriar = document.getElementById('criar-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
 const tarefaAlvo = document.getElementById('lista-tarefas');
+const btnApagaLista = document.getElementById('apaga-tudo');
+const btnApagaCompleted = document.getElementById('remover-finalizados');
+
 
 function criarItemLista () {
   if (receberTarefa.value.length > 0) {
@@ -41,3 +44,21 @@ function classeCompleted (evt) {
 }
 
 tarefaAlvo.addEventListener('dblclick', classeCompleted);
+
+function apagarLista() {
+  let tamanhoLista = document.getElementsByTagName('ol')[0].children.length;
+  for(let index = 0; index < tamanhoLista; index += 1) {
+    document.getElementsByTagName('ol')[0].lastChild.remove()
+  }
+}
+
+btnApagaLista.addEventListener('click', apagarLista);
+
+function apagarCompleted () {
+  let tamanhoLista = document.getElementsByClassName('completed').length;
+  for(let index = 0; index < tamanhoLista; index += 1) {
+    document.getElementsByClassName('completed')[0].outerHTML= '';
+  }
+}
+
+btnApagaCompleted.addEventListener('click', apagarCompleted);
