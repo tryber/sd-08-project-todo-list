@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="main-body">
+
+    <header>
+
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+
+    <article>
+
+      <input type="text" id="texto-tarefa">
+      <button class="btn-add" id="criar-tarefa">+</button>
+      <button class="btn-apaga" id="apaga-tudo">Apagar Todos</button>
+      <button class="btn-apaga" id="remover-finalizados">Apagar Finalizados</button>
+    </article>
+    <article>
+
+      <ol id="lista-tarefas"></ol>
+    </article>
+    <article class="center-align">
+
+      <button id="mover-cima" class="btn-apaga"><span class="material-icons">arrow_drop_up</span></button>
+      <button class="btn-apaga" id="remover-selecionado">Apagar Selecionado</button>
+      <button id="mover-baixo" class="btn-apaga"><span class="material-icons">arrow_drop_down</span></button>
+    </article>
+    <article class="center-align">
+
+      <button class="btn-apaga" id="salvar-tarefas">Salvar Lista</button>
+    </article>
+  </div>
+</body>
+</html>

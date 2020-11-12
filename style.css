@@ -1,0 +1,103 @@
+body {
+  align-items: center;
+  background-color: rgb(126 , 196 , 132);
+  color: rgb(34 , 34 , 34);
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat, sans-serif;
+  font-size: 25px;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.main-body {
+  background-color: rgb(255 , 241 , 188);
+  border-radius: 25px;
+  padding: 50px;
+}
+
+h1 {
+  font-family: Lobster, cursive;
+  font-size: 75px;
+  font-weight: 300;
+  margin: 0;
+  text-align: center;
+}
+
+input {
+  font-family: Montserrat, sans-serif;
+  padding: 5px 10px;
+  transition: 0.2s all ease;
+}
+
+input:focus {
+  outline-color: rgb(237 , 121 , 18);
+}
+
+button {
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 25px;
+  margin: 0 10px;
+  min-height: 50px;
+  min-width: 50px;
+  transition: 0.2s all ease;
+}
+
+.btn-add {
+  background-color: rgb(237 , 121 , 18);
+  color: rgb(255 , 241 , 188);
+  transform: translateY(3px);
+  transition: 0.2s all ease;
+}
+
+.btn-add:hover {
+  background-color: rgb(253 , 153 , 50);
+}
+
+.btn-add:focus {
+  background-color: rgb(237 , 120 , 18);
+  outline: none;
+}
+
+.focus-item {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.btn-apaga {
+  background-color: rgb(56 , 145 , 100);
+  color: rgb(255 , 241 , 188);
+  font-size: 18px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+.btn-apaga:focus {
+  background-color: rgb(56 , 145 , 100);
+  outline: none;
+}
+
+.btn-apaga:hover {
+  background-color: rgb(88 , 177 , 132);
+}
+
+ol li {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 25px;
+}
+
+.center-align {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
