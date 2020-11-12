@@ -117,11 +117,13 @@ function moveUp() {
   let lista = document.querySelector('#lista-tarefas');
   let btnMoveUp = document.querySelector('#mover-cima');
   btnMoveUp.addEventListener('click', function() {
-    let itemSelected = document.querySelectorAll('.selected');
-    if(itemSelected[0].previousElementSibling !== null) {
-      let previousItem = itemSelected[0].previousElementSibling.outerHTML;
-      itemSelected[0].previousElementSibling.outerHTML = itemSelected[0].outerHTML;
-      itemSelected[0].outerHTML = previousItem;
+    if(document.querySelector('.selected')) {
+      let itemSelected = document.querySelectorAll('.selected');
+      if(itemSelected[0].previousElementSibling !== null) {
+        let previousItem = itemSelected[0].previousElementSibling.outerHTML;
+        itemSelected[0].previousElementSibling.outerHTML = itemSelected[0].outerHTML;
+        itemSelected[0].outerHTML = previousItem;
+      }
     }
   });
 }
@@ -131,11 +133,13 @@ function moveDown() {
   let lista = document.querySelector('#lista-tarefas');
   let btnMoveDown = document.querySelector('#mover-baixo');
   btnMoveDown.addEventListener('click', function() {
-    let itemSelected = document.querySelectorAll('.selected');
-    if(itemSelected[0].nextElementSibling !== null) {
-      let nextItem = itemSelected[0].nextElementSibling.outerHTML;
-      itemSelected[0].nextElementSibling.outerHTML = itemSelected[0].outerHTML;
-      itemSelected[0].outerHTML = nextItem;
+    if(document.querySelector('.selected')) {
+      let itemSelected = document.querySelectorAll('.selected');
+      if(itemSelected[0].nextElementSibling !== null) {
+        let nextItem = itemSelected[0].nextElementSibling.outerHTML;
+        itemSelected[0].nextElementSibling.outerHTML = itemSelected[0].outerHTML;
+        itemSelected[0].outerHTML = nextItem;
+      }
     }
   });
 }
