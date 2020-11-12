@@ -129,7 +129,7 @@ function moverBaixo () {
   for (let indice = 0; indice < lista.length; indice += 1) {
     if (lista[indice].style.backgroundColor == 'rgb(128, 128, 128)') {
       if(lista[indice] == lista[lista.length - 1]) {
-        lista[indice] = lista[lista.length].innerText;
+        lista[indice] = lista[lista.length - 1].innerText;
       } else {
         let auxClass = lista[indice].className;
         lista[indice].className = lista[indice + 1].className;
