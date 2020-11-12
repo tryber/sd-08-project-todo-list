@@ -9,6 +9,7 @@ const deleteFinishedTasksButton = document.querySelector('#remover-finalizados')
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 const movesUpButton = document.querySelector('#mover-cima');
 const movesDownButton = document.querySelector('#mover-baixo');
+const allListItems = listTasks.children;
 
 // CREATES A NEW TASK
 const createNewTask = () => {
