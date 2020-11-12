@@ -83,9 +83,8 @@ function removeFinish() {
 function save() {
     let getButton = document.querySelector('#salvar-tarefas');
     getButton.addEventListener('click', () => {
-        localStorage.clear();
         let getLista = document.querySelectorAll('.list-iten');
-        getLista.forEach( (e, key) => {
+        getLista.forEach((e, key) => {
             let date = [];
             date.push(e.classList);
             date.push(e.innerText);
@@ -97,8 +96,8 @@ function save() {
 //CARREGA TAREFAS SALVA
 function loadingDate() {
     let getLista = document.querySelector('#lista-tarefas');
-    if (localStorage.length > 0){
-        for(let i = 0; i < localStorage.length; i += 1){
+    if (localStorage.length > 0) {
+        for (let i = 0; i < localStorage.length; i += 1) {
             let li = document.createElement('li')
             let dates = localStorage.getItem(i);
             let arrayDate = dates.split(',');
@@ -109,6 +108,33 @@ function loadingDate() {
     } else {
         alert('NENHUMA TAREFA ENCONTRADA!');
     }
+}
+
+function buttonMoveUp() {
+    let getButtonUp = document.querySelector('#mover-cima');
+    let getOl = document.querySelector('#lista-tarefas');
+    getButtonUp.addEventListener('click', () => {
+        let getLi = document.querySelectorAll('.list-iten')        
+        getLi.forEach((e, key) => {
+            if (e.hasAttribute('style') && key !== 0) {
+                getOl.insertBefore(e, getLi[key - 1]);
+            }
+        })
+    }) 
+}
+
+function buttonMoveDn() {
+    let getButtonUp = document.querySelector('#mover-baixo');
+    let getOl = document.querySelector('#lista-tarefas');
+    getButtonUp.addEventListener('click', () => {
+        let getLi = document.querySelectorAll('.list-iten')
+        let tamanhoLista = getLi.length;
+        getLi.forEach((e, key) => {
+            if (e.hasAttribute('style') && key !== tamanhoLista - 1) {
+                getOl.insertBefore(getLi[key + 1], e);
+            }
+        })
+    }) 
 }
 
 
@@ -122,4 +148,6 @@ window.onload = function () {
     removeFinish();
     save();
     loadingDate();
+    buttonMoveUp();
+    buttonMoveDn();
 }

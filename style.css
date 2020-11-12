@@ -83,6 +83,7 @@ li {
     border-radius: 3px;
     height: 1.6em;
     padding: 4px;
+    position: relative;
 }
 
 li:hover {
@@ -95,7 +96,7 @@ li:hover {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
-#apaga-tudo , #remover-finalizados, #salvar-tarefas{
+button {
     width: 80px;
     height: 30px;
     border: none;
@@ -139,4 +140,20 @@ li:hover {
 
 #salvar-tarefas:focus {
     outline: none;
+}
+
+#mover-cima , #mover-baixo{
+    font-size: 20px;
+    padding: 2px;
+    width: 40px;
+    background-color: orangered;
+}
+
+#mover-cima:focus , #mover-baixo:focus {
+    outline: none;
+}
+
+#mover-cima:hover , #mover-baixo:hover {
+    cursor: pointer;
+    background-color: rgba(255, 68, 0, 0.795);
 }
