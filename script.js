@@ -34,7 +34,7 @@ button.addEventListener('click', function () {
     li.innerHTML = input.value;
     ol.appendChild(li);
     input.value = '';
-})
+});
 
 /* ---------------------------- REQUISITO 07 e 08 ---------------------------- */
 
@@ -45,13 +45,13 @@ ol.addEventListener('click', function (event) {
         listItem[i].style.backgroundColor = 'white';
     }
     event.target.style.backgroundColor = 'rgb(128,128,128)';
-})
+});
 
 /* ---------------------------- REQUISITO 09 ---------------------------- */
 
 ol.addEventListener('dblclick', function (event) {
     event.target.classList.toggle('completed');
-})
+});
 
 /* ---------------------------- REQUISITO 10 ---------------------------- */
 
@@ -62,7 +62,7 @@ ol.parentNode.insertBefore(buttonClear, ol.nextSibling);
 
 buttonClear.addEventListener('click', function (event) {
     ol.innerHTML = '';
-})
+});
 
 /* ---------------------------- REQUISITO 11 ---------------------------- */
 
@@ -77,4 +77,16 @@ buttonClearFinished.addEventListener('click', function (event) {
     for (let i = 0; i < taskFinished.length; i += 1) {
         taskFinished[i].remove();
     }
+});
+
+/* ---------------------------- REQUISITO 12 ---------------------------- */
+
+const buttonSaveTask = document.createElement('button');
+buttonSaveTask.id = 'salvar-tarefas';
+buttonSaveTask.innerHTML = 'Salvar tarefas';
+buttonClearFinished.parentNode.insertBefore(buttonSaveTask, buttonClearFinished.nextSibling);
+
+buttonSaveTask.addEventListener('click', function (event) {
+    localStorage.setItem('listTaskFinished', ol.innerHTML);
 })
+ol.innerHTML = localStorage.getItem('listTaskFinished');

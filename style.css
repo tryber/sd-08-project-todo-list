@@ -1,3 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .completed {
     text-decoration: line-through solid rgb(0,0,0);
+}
+
+body {
+    background-color: rgb(210,180,140);
+    text-align: center;
+}
+
+header {
+    margin: 200px 0px 50px 0px;
+}
+
+h1{
+    font-size: 40px;
+    font-family: 'Comfortaa', cursive;
+}
+
+button {
+    font-size: 20px;
+    margin-left: 10px;
+    font-family: 'Comfortaa', cursive;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+ol {
+    list-style: none;
+}
+
+li {
+    width: 300px;
+    border: 1px solid rgb(0,0,0);
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-family: 'Comfortaa', cursive;
+    padding: 5px;
+}
+
+#funcionamento {
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: 'Comfortaa', cursive;
+}
+
+#texto-tarefa{
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-family: 'Comfortaa', cursive;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#criar-tarefa {
+    background-color: rgb(50,205,50);
+    cursor: pointer;
+}
+
+#apaga-tudo {
+    background-color: rgb(178,34,34);
+    cursor: pointer;
+}
+
+#remover-finalizados{
+    background-color: rgb(178,34,34);
+    cursor: pointer;
+}
+
+#salvar-tarefas {
+    background-color: rgb(169,169,169);
+    cursor: pointer;
 }
