@@ -126,12 +126,12 @@ saveTasksButton.addEventListener('click', updateLocalStorage);
 
 // MOVES UP A LIST ITEM
 const movesUpListItem = () => {
-  const listItem = document.querySelectorAll('.list-item');
+  const listItems = document.querySelectorAll('.list-item');
 
-  for (let i = 0; i < listItem.length; i += 1) {
-    if (listItem[i].classList.contains('selected')) {
+  for (let i = 0; i < listItems.length; i += 1) {
+    if (listItems[i].classList.contains('selected')) {
       if (i !== 0) {
-        listTasks.insertBefore(listItem[i],listItem[i - 1]);
+        listTasks.insertBefore(listItems[i], listItems[i - 1]);
       }
     }
   }
@@ -141,12 +141,12 @@ movesUpButton.addEventListener('click', movesUpListItem);
 
 // MOVES DOWN A LIST ITEM
 const movesDownListItem = () => {
-  const listItem = document.querySelectorAll('.list-item');
+  const listItems = document.querySelectorAll('.list-item');
 
-  for (let i = 0; i < listItem.length; i += 1) {
-    if (listItem[i].classList.contains('selected')) {
-      if (i !== listItem.length - 1) {
-        listTasks.insertBefore(listItem[i + 1],listItem[i]);
+  for (let i = 0; i < listItems.length; i += 1) {
+    if (listItems[i].classList.contains('selected')) {
+      if (i !== listItems.length - 1) {
+        listTasks.insertBefore(listItems[i + 1], listItems[i]);
       }
     }
   }
