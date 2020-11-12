@@ -38,15 +38,11 @@ let task = event.target;
 task.classList.toggle('completed');
 });
 
+
 clearButton.addEventListener('click', function(event){
     let taskList = document.getElementById('lista-tarefas');
-    console.log(taskList)
-    for (let index = 0; index < taskList; i+=1){
-        let child = taskList[i]
-        if(taskList.contains(taskList[i])){
-            taskList.removeChild('li');
-        }
-    }
+    do {
+        taskList.removeChild(taskList.lastChild)
+    } while (taskList.firstChild)
 })
-
 //Botão limpar (pesquisar do while para remover remove childs)
