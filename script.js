@@ -52,3 +52,14 @@ ol.addEventListener('click', function (event) {
 ol.addEventListener('dblclick', function (event) {
     event.target.classList.toggle('completed');
 })
+
+/* ---------------------------- REQUISITO 10 ---------------------------- */
+
+const buttonClear = document.createElement('button');
+buttonClear.id = 'apaga-tudo';
+buttonClear.innerHTML = 'Limpar tarefas';
+ol.parentNode.insertBefore(buttonClear, ol.nextSibling);
+
+buttonClear.addEventListener('click', function (event) {
+    ol.innerHTML = '';
+})
