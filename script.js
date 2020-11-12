@@ -74,11 +74,7 @@ capturedElementEvents('criar-tarefa', 'click', createElementHTML);
 capturedElementEvents('salvar-tarefas', 'click', saverList);
 capturedElementEvents('mover-cima', 'click', false);
 capturedElementEvents('mover-baixo', 'click', false);
-capturedElementEvents('apaga-tudo', 'click', function () {
-  list = [];
-  inputText.value = '';
-  resetElementsHTML();
-});
+capturedElementEvents('apaga-tudo', 'click', removeElementsAll);
 capturedElementEvents('remover-finalizados', 'click', function () {
   removeItemList('completed');
   resetElementsHTML();
