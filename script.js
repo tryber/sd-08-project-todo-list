@@ -3,23 +3,24 @@ window.onload = function() {
     let vetorPalavra = [''];
     let contador = 0;
     storage = localStorage.getItem('tasks');
- 
-    for (index = 0; index < storage.length; index += 1) {
-        if (storage[index] === ','){
-            vetorPalavra[contador += 1];
-            vetorPalavra[contador] = '';
-        } else {
-            vetorPalavra[contador] += storage[index];
+    
+    if (storage !== null) {
+        for (index = 0; index < storage.length; index += 1) {
+            if (storage[index] === ','){
+                vetorPalavra[contador += 1];
+                vetorPalavra[contador] = '';
+            } else {
+                vetorPalavra[contador] += storage[index];
+            }
+        }
+    
+        for (let index = 0; index < vetorPalavra.length; index += 1) {
+            let li = document.createElement('li');
+            let ol = document.querySelector('#lista-tarefas');
+            li.innerText = vetorPalavra[index];
+            ol.appendChild(li);
         }
     }
-
-    for (let index = 0; index < vetorPalavra.length; index += 1) {
-        let li = document.createElement('li');
-        let ol = document.querySelector('#lista-tarefas');
-        li.innerText = vetorPalavra[index];
-        ol.appendChild(li);
-    }
-    console.log(vetorPalavra);
 }
 
 function addTask() {
