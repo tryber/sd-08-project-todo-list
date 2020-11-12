@@ -1,23 +1,20 @@
 window.onload = function() {
-    let storage;
-    let vetorPalavra = [''];
-    let contador = 0;
-    storage = localStorage.getItem('tasks');
+    let nameTask;
+    let arrayTask;
+    let nameClass;
+    let arrayClass;
+    nameTask = localStorage.getItem('task');
+    nameClass = localStorage.getItem('class');
+
+    if (nameTask !== null && nameClass !== null) {
+        arrayTask = nameTask.split(',');
+        arrayClass = nameClass.split(',');
+        for (index = 0; index < arrayTask.length; index += 1) {
+            const li = document.createElement('li');
+            const ol = document.querySelector('#lista-tarefas');
+            li.innerText = arrayTask[index];
+            li.className = arrayClass[index];
     
-    if (storage !== null) {
-        for (index = 0; index < storage.length; index += 1) {
-            if (storage[index] === ','){
-                vetorPalavra[contador += 1];
-                vetorPalavra[contador] = '';
-            } else {
-                vetorPalavra[contador] += storage[index];
-            }
-        }
-    
-        for (let index = 0; index < vetorPalavra.length; index += 1) {
-            let li = document.createElement('li');
-            let ol = document.querySelector('#lista-tarefas');
-            li.innerText = vetorPalavra[index];
             ol.appendChild(li);
         }
     }
@@ -106,12 +103,15 @@ function saveTasks() {
 
     button.addEventListener('click', function() {
         const li = document.querySelectorAll('.task');
-        let nome = [];
+        let nameTask = [];
+        let nameClass = [];
 
         for (let index = 0; index < li.length; index += 1) {
-            nome[index] = li[index].innerText;
+            nameTask[index] = li[index].innerText;
+            nameClass[index] = li[index].className;
         }
-        localStorage.setItem('tasks', nome);
+        localStorage.setItem('task', nameTask);
+        localStorage.setItem('class', nameClass);
     });
 }
 
