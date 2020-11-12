@@ -77,6 +77,7 @@ deleteCompletedTasks();
 function saveList() {
   btnSave = document.querySelector('#salvar-tarefas');
   btnSave.addEventListener('click', function() {
+    clearListLocalStorage();
     let lista = document.querySelector('#lista-tarefas');
     for(let i = 1; i <  lista.children.length + 1; i += 1) {
       let key = "Item" + i;
@@ -89,14 +90,24 @@ saveList();
 
 function loadList() {
   let lista = document.querySelector('#lista-tarefas');
-  let condition = 'Item1';
-  let n = 1;
-  while(localStorage.getItem(condition)) {
-    let storage = localStorage.getItem(condition);
+  let itemAdd = 'Item1';
+  let indexAdd = 1;
+  while(localStorage.getItem(itemAdd)) {
+    let storage = localStorage.getItem(itemAdd);
     lista.innerHTML += storage;
-    n += 1;
-    condition = 'Item' + n;
+    indexAdd += 1;
+    itemAdd = 'Item' + indexAdd;
   }
 }
 
 window.onload = loadList;
+
+function clearListLocalStorage() {
+    let itemRemove = 'Item1';
+    let indexRemove = 1;
+    while(localStorage.getItem(itemRemove)) {
+      localStorage.removeItem(itemRemove);
+      indexRemove += 1;
+      itemRemove = 'Item' + indexRemove;
+    }
+}
