@@ -45,7 +45,7 @@ function colorTask() {
 
     ol.addEventListener('click', function(event) {
     const li = document.querySelectorAll('.task');
-      if (event.target.className === 'task') {
+      if (event.target.className === 'task' || event.target.className === 'task completed') {
         for (let index = 0; index < li.length; index += 1){
             li[index].style.backgroundColor = 'white';
         }
@@ -116,3 +116,63 @@ function saveTasks() {
 }
 
 saveTasks();
+
+function moveUp() {
+    const button = document.querySelector('#mover-cima');
+    let position;
+    let liText;
+    let liClass;
+
+    button.addEventListener('click', function(event) {
+        let li = document.querySelectorAll('.task');
+        for (index = 0; index < li.length; index += 1) {
+            if (li[index].style.backgroundColor === 'grey') {
+                position = index;
+            }
+        }
+        if (position !== 0) {
+           liText = li[position].innerText;
+           liClass = li[position].className;
+
+           li[position].innerText = li[position -1].innerText;
+           li[position].className = li[position -1].className;
+           li[position].style.backgroundColor = 'white';
+
+           li[position - 1].innerText = liText;
+           li[position - 1].className = liClass;
+           li[position - 1].style.backgroundColor = 'grey';
+        }
+    });
+}
+
+moveUp();
+
+function moveDown() {
+    const button = document.querySelector('#mover-baixo');
+    let position;
+    let liText;
+    let liClass;
+
+    button.addEventListener('click', function(event) {
+        let li = document.querySelectorAll('.task');
+        for (index = 0; index < li.length; index += 1) {
+            if (li[index].style.backgroundColor === 'grey') {
+                position = index;
+            }
+        }
+        if (position !== li.length - 1) {
+           liText = li[position].innerText;
+           liClass = li[position].className;
+
+           li[position].innerText = li[position + 1].innerText;
+           li[position].className = li[position + 1].className;
+           li[position].style.backgroundColor = 'white';
+
+           li[position + 1].innerText = liText;
+           li[position + 1].className = liClass;
+           li[position + 1].style.backgroundColor = 'grey';
+        }
+    });
+}
+
+moveDown();
