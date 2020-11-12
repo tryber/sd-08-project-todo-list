@@ -18,22 +18,26 @@ createButton('Mover para Baixo', 'mover-baixo');
 createButton('Remover Selecionado', 'remover-selecionado');
 
 function fCriarTarefa() {
-console.log('btn criar tarefa');
-let novaTarefa = document.createElement('li');
-let tarefaInput = document.getElementById('texto-tarefa').value;
-novaTarefa.innerHTML = tarefaInput;
+    let novaTarefa = document.createElement('li');
+    let tarefaInput = document.getElementById('texto-tarefa').value;
+    novaTarefa.innerHTML = tarefaInput;
 
-document.getElementById('lista-tarefas').appendChild(novaTarefa);
+    document.getElementById('lista-tarefas').appendChild(novaTarefa);
 fLimparImput();
 }
 
 function fLimparImput(){
     tarefaInput = document.getElementById('texto-tarefa').value='';
 }
-
 //input conhecimento retirado do vídeo (https://www.youtube.com/watch?v=ZGMJqxIkAb0)
+
 function fApagaTudo() {
-console.log('btn apaga tudo');
+    let tarefa = document.querySelectorAll('li');
+    for (index of tarefa) {
+        let listaOl = document.querySelector('#lista-tarefas');
+        console.log(listaOl);
+        listaOl.removeChild(index);
+    }
 }
 
 function fRemoverFinalizados() {
