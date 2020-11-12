@@ -9,10 +9,17 @@ function createTasks() {
     let newText = boxText.value;
     listChilds.innerText = newText;
     boxText.value = "";
-    listChilds.addEventListener("click",function(){
-        listChilds.style.backgroundColor = "rgb(128, 128, 128)";
+    listChilds.addEventListener("click",changeColor);
     });
-  });
-}
+  }
 createTasks();
+
+function changeColor(event){
+    listItem = document.querySelectorAll("li");
+    for(let i=0;i < listItem.length; i+=1){
+        listItem[i].style.backgroundColor = "";
+    }
+    event.target.style.backgroundColor = "rgb(128,128,128)";
+}
+
 
