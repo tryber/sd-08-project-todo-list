@@ -128,7 +128,7 @@ function moverBaixo () {
   const lista = document.querySelectorAll(".lista");
   for (let indice = 0; indice < lista.length; indice += 1) {
     if (lista[indice].style.backgroundColor == 'rgb(128, 128, 128)') {
-      if(lista[indice] == lista[lista.length]) {
+      if(lista[indice] == lista[lista.length - 1]) {
         lista[indice] = lista[lista.length].innerText;
       } else {
         let auxClass = lista[indice].className;
@@ -142,6 +142,9 @@ function moverBaixo () {
         let aux = lista[indice].innerText;
         lista[indice].innerText = lista[indice + 1].innerText;
         lista[indice + 1].innerText = aux;
+
+        break;
+
       }
     }
   }
