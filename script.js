@@ -55,16 +55,14 @@ function fApagaTudo() {
       listaOl.removeChild(index);
   }
 }
-
+//seleciona cor cinza apenas no elemento clicado.
 function umCliqueTarefa () {
   idTarefa = this.id;
   let tarefaAtual = document.getElementById(idTarefa);
-  let todasTarefas = document.querySelectorAll('classeTarefas');
+  let todasTarefas = document.getElementsByClassName('classeTarefa');
   let corPadrao = 'white';
   let corselecao = 'rgb(128,128,128)';
   console.log(todasTarefas);
-
-  
 
   for (let index = 0; index < todasTarefas.length; index += 1) {
     todasTarefas[index].style.backgroundColor = corPadrao; 
@@ -72,8 +70,6 @@ function umCliqueTarefa () {
   }
  
   tarefaAtual.style.backgroundColor = corselecao;
-
-
 }
 
 
