@@ -9,6 +9,9 @@ function listTask() {
     olTaks.appendChild(liTask);
     liTask.innerText = inputText.value;
     inputText.value = "";
+    liTask.addEventListener("click", function () {
+      liTask.style.backgroundColor = "rgb(128,128,128)";
+    });
   }
 }
 listTask();
