@@ -11,6 +11,7 @@ function addTask() {
     let li = document.createElement('li');
     li.innerHTML = textBox.value;
     lista.appendChild(li);
+    lista.nex
     textBox.value = '';
   });
 }
@@ -51,10 +52,6 @@ function deleteList() {
   btnApaga.addEventListener('click', function () {
     let lista = document.querySelector('#lista-tarefas');
     lista.innerHTML = '';
-    // let indice = lista.children.length;
-    // for(let i = 0; i < indice; i += 1) {
-    //   lista.removeChild(lista.lastElementChild);
-    // }
   });
 }
 deleteList();
@@ -73,3 +70,33 @@ function deleteCompletedTasks() {
   });
 }
 deleteCompletedTasks();
+
+// Requisito 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista.
+// Se você fechar e reabrir a página, a lista deve continuar no estado em que estava.
+
+function saveList() {
+  btnSave = document.querySelector('#salvar-tarefas');
+  btnSave.addEventListener('click', function() {
+    let lista = document.querySelector('#lista-tarefas');
+    for(let i = 1; i <  lista.children.length + 1; i += 1) {
+      let key = "Item" + i;
+      let value = lista.children[i-1].outerHTML;
+      localStorage.setItem(key, value);
+    }
+  });
+}
+saveList();
+
+function loadList() {
+  let lista = document.querySelector('#lista-tarefas');
+  let condition = 'Item1';
+  let n = 1;
+  while(localStorage.getItem(condition)) {
+    let storage = localStorage.getItem(condition);
+    lista.innerHTML += storage;
+    n += 1;
+    condition = 'Item' + n;
+  }
+}
+
+window.onload = loadList;
