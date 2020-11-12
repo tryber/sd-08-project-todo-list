@@ -17,12 +17,7 @@ function selectHandler(event) {
 }
 
 function dblclick(event) {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
-  event.target.cl('completed');
+  event.target.classList.toggle('completed');
 }
 
 function createItem(texto) {
