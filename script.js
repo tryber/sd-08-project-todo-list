@@ -3,6 +3,7 @@ const itemInput = document.getElementById('texto-tarefa');
 const buttonAddItem = document.getElementById('criar-tarefa');
 const buttonRemoveAll = document.getElementById('apaga-tudo');
 const buttonRemoveFin = document.getElementById('remover-finalizados');
+const buttonRemoveSel = document.getElementById('remover-selecionado');
 const buttonUp = document.getElementById('mover-cima');
 const buttonDown = document.getElementById('mover-baixo');
 
@@ -71,3 +72,10 @@ buttonRemoveFin.addEventListener('click', function () {
 
 buttonUp.addEventListener('click', Swap);
 buttonDown.addEventListener('click', Swap);
+
+buttonRemoveSel.addEventListener('click', function () {
+  const focused = document.getElementsByClassName('focus-item');
+  if (focused.length > 0) {
+    focused[0].remove();
+  }
+});
