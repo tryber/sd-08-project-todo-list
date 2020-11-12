@@ -1,11 +1,12 @@
 // DEFININES SELECTORS
 const inputTasks = document.querySelector('#texto-tarefa');
 const listTasks = document.querySelector('#lista-tarefas');
+const listItem = document.querySelectorAll('.list-item');
 const createTaskButton = document.querySelector('#criar-tarefa');
 const deleteTasksButton = document.querySelector('#apaga-tudo');
-const removeFinishedTasksButton = document.querySelector('#remover-finalizados');
+const deleteFinishedTasksButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
-const listItemArray = [];
+const listItemsArray = [];
 
 // CREATES A NEW TASK
 const createNewTask = () => {
@@ -18,7 +19,7 @@ const createNewTask = () => {
 
   li.appendChild(document.createTextNode(inputTasks.value));
 
-  listItemArray.push(li);
+  listItemsArray.push(li);
 
   inputTasks.value = '';
 
@@ -29,8 +30,8 @@ createTaskButton.addEventListener('click', createNewTask);
 
 // REMOVES PREVIOUS SELECTED TASKS
 const removeSelectedTask = () => {
-  for (let i = 0; i < listItemArray.length; i += 1) {
-    listItemArray[i].classList.remove('selected');
+  for (let i = 0; i < listItemsArray.length; i += 1) {
+    listItemsArray[i].classList.remove('selected');
   }
 };
 
@@ -47,18 +48,18 @@ listTasks.addEventListener('click', selectSingleTask);
 
 // COLORS A SINGLE TASK
 const colorizeSelectedTask = () => {
-  for (let i = 0; i < listItemArray.length; i += 1) {
-    if (listItemArray[i].classList.contains('selected')) {
-      listItemArray[i].style.backgroundColor = 'rgb(128,128,128)';
+  for (let i = 0; i < listItemsArray.length; i += 1) {
+    if (listItemsArray[i].classList.contains('selected')) {
+      listItemsArray[i].style.backgroundColor = 'rgb(128,128,128)';
     } else {
-      listItemArray[i].style.backgroundColor = '';
+      listItemsArray[i].style.backgroundColor = '';
     }
   }
 };
 
 listTasks.addEventListener('click', colorizeSelectedTask);
 
-// COMPLETES A SINGLE TASK
+// COMPLETES A SINGLE TASK (MARKING WITH A LINE-THROUGH)
 const completeSingleTask = (event) => {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
@@ -77,3 +78,15 @@ const deleteListItems = () => {
 };
 
 deleteTasksButton.addEventListener('click', deleteListItems);
+
+// DELETE ONLY FINISHED ITEMS
+const deleteFinishedItems = () => {
+  for (let i = 0; i < listItemsArray.length; i += 1) {
+    if (listItemsArray[i].classList.contains('completed')) {
+      listItemsArray[i].remove();
+    }
+  }
+}
+
+deleteFinishedTasksButton.addEventListener('click', deleteFinishedItems);
+
