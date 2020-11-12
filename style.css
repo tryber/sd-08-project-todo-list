@@ -1,0 +1,114 @@
+body {
+  display: flex;
+  font-family: Roboto, sans-serif;
+  font-size: large;
+  font-weight: 400;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px gray;
+  color: white;
+  font-size: medium;
+  font-weight: 700;
+  height: 45px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+button:focus {
+  outline: rgba(255 , 255 , 255 , 0);
+}
+
+button:hover {
+  filter: contrast(130%);
+}
+
+button:active {
+  box-shadow: inset 2px 2px 3px gray;
+  filter: contrast(115%);
+}
+
+header {
+  font-size: larger;
+  text-align: center;
+}
+
+.add-task {
+  display: flex;
+  flex-direction: column;
+}
+
+.funcionamento {
+  font-size: 0.8em;
+}
+
+.tasks-container {
+  min-height: 150px;
+}
+
+main p {
+  font-size: medium;
+}
+
+li {
+  cursor: pointer;
+  line-height: 30px;
+  text-align: left;
+  user-select: none;
+}
+
+li:hover {
+  filter: contrast(50%);
+}
+
+.container {
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 5px 10px 20px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  width: 460px;
+}
+
+.arrow-btn {
+  padding: 0 15px;
+  width: 70px;
+}
+
+.arrow-img {
+  width: 22px;
+}
+
+input {
+  border: 2px solid gray;
+  border-radius: 5px;
+  font-size: medium;
+  height: 35px;
+  margin-top: 10px;
+}
+
+input:focus {
+  outline: rgba(255 , 255 , 255 , 0);
+}
+
+.selected {
+  background-color: gray;
+}
+
+.salvar-tarefas-btn {
+  padding: 0 100px;
+}
