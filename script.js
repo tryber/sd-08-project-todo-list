@@ -19,11 +19,10 @@ function createElementHTML() {
   createdLi.innerText = inputText.value;
   localeListTasks.appendChild(createdLi);
   inputText.value = '';
-
-  createdLi.addEventListener('dblclick', function () {
+  createdLi.addEventListener('dblclick', () => {
     completed(createdLi);
   });
-  createdLi.addEventListener('click', function () {
+  createdLi.addEventListener('click', () => {
     selected(createdLi);
   });
 }
@@ -57,12 +56,32 @@ function loadList() {
     localeListTasks.innerHTML = storageLoad;
   }
 }
+function moveUpper() {
+  const itemS = document.querySelector('.selected');
+  if (itemS) {
+    if (itemS.previousElementSibling) {
+      itemS.parentNode.insertBefore(itemS, itemS.previousElementSibling);
+    } else {
+      alert('Não é possível mover esta tarefa para cima');
+    }
+  }
+}
+function moveDown() {
+  const itemS = document.querySelector('.selected');
+  if (itemS) {
+    if (itemS.nextElementSibling) {
+      itemS.parentNode.insertBefore(itemS.nextElementSibling, itemS);
+    } else {
+      alert('Não é possível mover esta tarefa para baixo');
+    }
+  }
+}
 
 loadList();
 capturedElementEvents('criar-tarefa', 'click', createElementHTML);
 capturedElementEvents('salvar-tarefas', 'click', saverList);
-capturedElementEvents('mover-cima', 'click', false);
-capturedElementEvents('mover-baixo', 'click', false);
+capturedElementEvents('mover-cima', 'click', moveUpper);
+capturedElementEvents('mover-baixo', 'click', moveDown);
 capturedElementEvents('apaga-tudo', 'click', removeElementsAll);
 capturedElementEvents('remover-finalizados', 'click', function () {
   removeItemList('completed');
