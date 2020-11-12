@@ -38,24 +38,27 @@
       };
     
       // põe listra na li
-   function sobrelist(){
-    let todolis =document.querySelectorAll('li');
+   function sobrelist(event){
+    let todolis =document.getElementsByName('li');
     for (i=0; i<todolis.length;i+=1){
-      todolis[i].className ="Completed";
+      event.target[i].className ="Completed";
     };
    }
 
    
 
 
-   let listapagli = document.getElementById('apaga-tudo').addEventListener('click',funcApagao);
+   document.getElementById('apaga-tudo').addEventListener('click',funcApagao);
+  
   function funcApagao (){
-    for(let index of listapagli)
-   
-   
+    let lisDel =document.querySelectorAll('.file');
+    for(let i =0;i < lisDel.length;i+=1);
+   document.removeChild('lisDel[i]');
+    
   };
 
-    
+    /**/
   
-     
- 
+ //for (i=0; i<list.length;i+=1){
+    // document.body.removeChild(event.target[i]);
+    //}
