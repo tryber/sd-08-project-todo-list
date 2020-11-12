@@ -45,7 +45,17 @@
     };
    }
 
+   
+
+
+   let listapagli = document.getElementById('apaga-tudo').addEventListener('click',funcApagao);
+  function funcApagao (){
+    for(let index of listapagli)
+   
+   
+  };
+
     
   
      
- // let todoli =document.getElementsByClassName('file');
+ 
