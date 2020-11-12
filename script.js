@@ -25,15 +25,29 @@ elementAdd.addEventListener("click", function()
 
 function color(event)
 {
-    let findLi = document.getElementsByTagName("li");
-        event.target.style.backgroundColor = "rgb(128,128,128)";
-
+    for(let l of document.getElementsByClassName("lines"))
+    {
+        if(l.style.backgroundColor = "rgb(128,128,128)")
+            l.style.backgroundColor = null;
+    }
+    event.target.style.backgroundColor = "rgb(128,128,128)";
 }
 
 function completed(event)
 {
-    event.target.classList.add("completed");
+    let target = event.target;
+    if(target.classList.contains("completed"))
+        target.classList.remove("completed");
+    else
+        target.classList.add("completed");
 }
+
+
+
+
+
+
+
 
 let getClear = document.getElementsByTagName("li");
 let buttonClear = document.getElementById("apaga-tudo");
