@@ -7,6 +7,8 @@ const deleteTasksButton = document.querySelector('#apaga-tudo');
 const deleteSelectedTasksButton = document.querySelector('#remover-selecionado');
 const deleteFinishedTasksButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
+const movesUpButton = document.querySelector('#mover-cima');
+const movesDownButton = document.querySelector('#mover-baixo');
 const listItemsArray = [];
 
 // CREATES A NEW TASK
@@ -123,3 +125,34 @@ const updateLocalStorage = () => {
 };
 
 saveTasksButton.addEventListener('click', updateLocalStorage);
+
+// MOVES UP A LIST ITEM
+const movesUpListItem = () => {
+  const selectedItem = document.querySelector(".selected");
+
+  for (let i = 0; i < listItemsArray.length; i++) {
+    if (listItemsArray[i] === selectedItem) {
+      if (i !== 0) {
+        listItemsArray[i] = listTasks.insertBefore(listItemsArray[i], listItemsArray[i - 1]);
+      }
+    }
+  }
+};
+
+movesUpButton.addEventListener('click', movesUpListItem);
+
+// MOVES DOWN A LIST ITEM
+const movesDownListItem = () => {
+  const selectedItem = document.querySelector(".selected");
+
+  for (let i = 0; i < listItemsArray.length; i++) {
+    if (listItemsArray[i] === selectedItem) {
+      if (i !== listItemsArray.length - 1) {
+        listItemsArray[i + 1] = listTasks.insertBefore(listItemsArray[i + 1], listItemsArray[i]);
+      }
+    }
+  }
+};
+
+movesDownButton.addEventListener('click', movesDownListItem);
+
