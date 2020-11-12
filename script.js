@@ -4,6 +4,7 @@ const apagarFinalizados = document.querySelector("#remover-finalizados");
 const listaStorage = document.querySelector("#lista-tarefas");
 const btnCima = document.querySelector("#mover-cima");
 const btnBaixo = document.querySelector("#mover-baixo");
+const apagarSelecionado = document.querySelector("#remover-selecionado");
 
 function tarefa() {
   const listaDeTarefas = document.querySelector("#lista-tarefas");
@@ -151,3 +152,14 @@ function moverBaixo () {
 }
 
 btnBaixo.addEventListener('click', moverBaixo);
+
+function removerSelecionado () {
+  const lista = document.querySelectorAll(".lista");
+  for (let indice = 0; indice < lista.length; indice += 1) {
+    if (lista[indice].style.backgroundColor == "rgb(128, 128, 128)") {
+      lista[indice].remove();
+    }
+  }
+}
+
+apagarSelecionado.addEventListener('click', removerSelecionado);
