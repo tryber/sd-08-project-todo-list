@@ -36,15 +36,19 @@ button.addEventListener('click', function () {
     input.value = '';
 })
 
-/* ---------------------------- REQUISITO 07 ---------------------------- */
-
-
+/* ---------------------------- REQUISITO 07 e 08 ---------------------------- */
 
 ol.addEventListener('click', function (event) {
     const listItem = document.querySelectorAll('.task');
-    // console.log(listItem);
+
     for (let i = 0; i < listItem.length; i += 1) {
         listItem[i].style.backgroundColor = 'white';
     }
     event.target.style.backgroundColor = 'rgb(128,128,128)';
+})
+
+/* ---------------------------- REQUISITO 09 ---------------------------- */
+
+ol.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed');
 })
