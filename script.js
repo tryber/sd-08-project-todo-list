@@ -54,7 +54,7 @@ function preencheItem(item, li) {
 
 function criarItemLista(tarefa) {
   const li = document.createElement('li');
-  preencheItem(tarefa, li, listaTarefa);
+  preencheItem(tarefa, li);
   listaTarefa.appendChild(li);
 }
 
