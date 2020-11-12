@@ -19,12 +19,26 @@ function capturaEvento(elementoHTML, tipoEvento, acaoDoEvento) {
 function itemSelecionado(item) {
   const preSelecionado = document.querySelector('.selected');
   if (preSelecionado != null) {
-    preSelecionado.style.backgroundColor = '';
     preSelecionado.classList.remove('selected');
   }
-  item.style.backgroundColor = 'rgb(128, 128, 128)';
-  item.classList.add('selected');
+  item.classList.toggle('selected');
   salvaStorage();
+}
+
+function moverCima() {
+  const preSelecionado = document.querySelector('.selected');
+  if (preSelecionado !== null && preSelecionado.previousElementSibling) {
+    const preSelecionadoAnterior = preSelecionado.previousElementSibling;
+    listaTarefa.insertBefore(preSelecionado, preSelecionadoAnterior);
+  }
+}
+
+function moverBaixo() {
+  const preSelecionado = document.querySelector('.selected');
+  if (preSelecionado !== null && preSelecionado.nextElementSibling) {
+    const preSelecionadoProximo = preSelecionado.nextElementSibling;
+    listaTarefa.insertBefore(preSelecionado, preSelecionadoProximo.nextElementSibling);
+  }
 }
 
 function tarefaConcluida(item) {
@@ -45,9 +59,9 @@ function criarItemLista(tarefa) {
 }
 
 function criarTarefa() {
-  const input = document.getElementById('texto-tarefa');
-  criarItemLista(input.value);
-  input.value = '';
+  const campoTarefa = document.getElementById('texto-tarefa');
+  criarItemLista(campoTarefa.value);
+  campoTarefa.value = '';
   salvaStorage();
 }
 
@@ -77,6 +91,8 @@ capturaEvento('lista-tarefas', 'dblclick', tarefaConcluida);
 capturaEvento('remover-finalizados', 'click', removerFinalizados);
 capturaEvento('remover-selecionado', 'click', removeSelecionado);
 capturaEvento('salvar-tarefas', 'click', salvaStorage);
+capturaEvento('mover-cima', 'click', moverCima);
+capturaEvento('mover-baixo', 'click', moverBaixo);
 
 window.onload = () => {
   carregaStorage();

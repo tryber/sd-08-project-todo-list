@@ -13,3 +13,7 @@
 .texto-tarefa {
   width: 40em;
 }
+
+.selected {
+  background-color: gray;
+}
