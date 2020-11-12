@@ -27,7 +27,6 @@ function createElementHTML() {
     selected(createdLi);
   });
 }
-
 function removeElementsAll() {
   const elementTarget = document.querySelectorAll('li');
   elementTarget.forEach((element) => {
@@ -49,22 +48,14 @@ function capturedElementEvents(target, event, callback) {
   });
 }
 function saverList() {
-  localStorage.setItem('list', list);
-  localStorage.setItem('selected', selectedCurrent);
+  localStorage.clear();
+  localStorage.setItem('tasksList', localeListTasks.innerHTML);
 }
 function loadList() {
-  const storageLoadLi = localStorage.getItem('list');
-  const storageLoadSelected = localStorage.getItem('list');
-  if (storageLoadLi) {
-    list = storageLoadLi.split(',');
-    selectedCurrent = storageLoadSelected;
-    return createElementHTML(list);
+  const storageLoad = localStorage.getItem('tasksList');
+  if (storageLoad) {
+    localeListTasks.innerHTML = storageLoad;
   }
-  return (list = []);
-}
-function resetElementsHTML() {
-  removeElementsAll();
-  createElementHTML(list);
 }
 
 loadList();
