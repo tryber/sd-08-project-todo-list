@@ -8,7 +8,6 @@ const deleteSelectedTasksButton = document.querySelector('#remover-selecionado')
 const deleteFinishedTasksButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 const listItemsArray = [];
-let savedItemsArray = [];
 
 // CREATES A NEW TASK
 const createNewTask = () => {
@@ -22,8 +21,6 @@ const createNewTask = () => {
   li.appendChild(document.createTextNode(inputTasks.value));
 
   listItemsArray.push(li);
-
-  savedItemsArray.push(inputTasks.value);
 
   inputTasks.value = '';
 
@@ -108,26 +105,30 @@ const storeListItems = () => {
   localStorage.setItem('tasks', JSON.stringify(savedItemsArray));
 }
 
-saveTasksButton.addEventListener('click', storeListItems);
 
-// LOAD SAVED LIST ITEMS
-const loadListItems = () => {
-  savedItemsArray = JSON.parse(localStorage.getItem('tasks'));
+// LOAD LOCAL STORAGE
+const loadLocalStorage = () => {
+  const savedTasks = JSON.parse(localStorage.getItem('tasks'));
 
-  if (savedItemsArray !== null) {
-    savedItemsArray.forEach((item) => {
-      const li = document.createElement('li');
-      li.classList.add('list-item');
+  if (savedTasks !== '') {
+    listTasks.innerHTML = savedTasks;
 
-      li.appendChild(document.createTextNode(item));
-
-      listItemsArray.push(li);
-
-      listTasks.appendChild(li);
-    })
+    listItem.forEach((event) => {
+      completeSingleTask(event);
+    });
   }
 
-  savedItemsArray = [];
+  return;
 };
 
-loadListItems();
+loadLocalStorage();
+
+// UPDATE LOCAL STORAGE
+const updateLocalStorage = () => {
+  localStorage.clear();
+
+  localStorage.setItem('tasks', JSON.stringify(listTasks.innerHTML));
+};
+
+saveTasksButton.addEventListener('click', updateLocalStorage);
+
