@@ -1,5 +1,7 @@
 let taskButton = document.getElementById('criar-tarefa');
+let clearButton = document.getElementById('apaga-tudo');
 let tasksListed = document.getElementsByTagName('li');
+let listOfTasks = document.getElementById('lista-tarefas');
 
 
 taskButton.addEventListener('click', function(event){
@@ -27,15 +29,24 @@ for(let i = 0; i < selectedTasks.length; i+=1){ //For loop interno que percorre 
 task.classList.toggle('taskSelected');
 })
 
-for (let i = 0; i< tasksListed.length; i+=1 ){ // For loop que percorre as li's criadas
-    let taskListed = tasksListed[i];
-    taskListed.addEventListener('dblclick', function(event){
-    let task = event.target;
-    task.classList.toggle('completed')
-    })
-}
 }
 });
 
+
+listOfTasks.addEventListener('dblclick', function(event){
+let task = event.target;
+task.classList.toggle('completed');
+});
+
+clearButton.addEventListener('click', function(event){
+    let taskList = document.getElementById('lista-tarefas');
+    console.log(taskList)
+    for (let index = 0; index < taskList; i+=1){
+        let child = taskList[i]
+        if(taskList.contains(taskList[i])){
+            taskList.removeChild('li');
+        }
+    }
+})
 
 //Botão limpar (pesquisar do while para remover remove childs)
