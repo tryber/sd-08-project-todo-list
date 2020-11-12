@@ -3,9 +3,9 @@ let botao = document.getElementById('criar-tarefa');
 let localTexto = document.getElementById('texto-tarefa');
 
     
-botao.addEventListener('click', criaLi);
+botao.addEventListener('click', apagaTudo);
 
-function criaLi () {
+function apagaTudo () {
     let tarefaInserida = document.createElement('li')
     tarefaInserida.className = 'tarefa';
     tarefaInserida.innerHTML = localTexto.value;
@@ -27,8 +27,19 @@ function corFundoLista(Event) {
     // event é o click
     // target é o elemento html que aconteceu o evento.
     // console.log(Event.target);
-   
 }
+
+
+let botaoApaga = document.getElementById('apaga-tudo');
+
+botaoApaga.addEventListener('click', function apagaTudo () {
+    listaOrdenadaTarefas.innerHTML = ''; 
+});
+
+
+
+
+
 
 
 // console.log(input);
