@@ -7,6 +7,7 @@ const btnApagaCompleted = document.getElementById('remover-finalizados');
 const btnSalvarTarefas = document.getElementById('salvar-tarefas');
 const btnMoverBaixo = document.getElementById('mover-baixo');
 const btnMoverCima = document.getElementById('mover-cima');
+const btnApagarSelecionado = document.getElementById('remover-selecionado');
 
 
 function criarItemLista() {
@@ -63,12 +64,12 @@ function apagarCompleted() {
   for (let index = 0; index < tamanhoLista; index += 1) {
     document.getElementsByClassName('completed')[0].outerHTML= '';
   }
-  localStorage.clear();
 }
 
 btnApagaCompleted.addEventListener('click', apagarCompleted);
 
 function salvarTarefas() {
+  localStorage.clear();
   for (let index = 0; index < document.getElementsByClassName("tarefa").length; index += 1) {
     const valor = document.getElementsByClassName("tarefa")[index].innerText;
     localStorage.setItem(index, valor);
@@ -125,3 +126,12 @@ function moverCima() {
 }
 
 btnMoverCima.addEventListener('click', moverCima);
+
+function apagarSelecionado() {
+  const tamanhoLista = document.getElementsByClassName('selecionado').length;
+  for (let index = 0; index < tamanhoLista; index += 1) {
+    document.getElementsByClassName('selecionado')[0].outerHTML= '';
+  }
+}
+
+btnApagarSelecionado.addEventListener('click', apagarSelecionado);
