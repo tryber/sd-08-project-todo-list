@@ -1,7 +1,5 @@
 const inputText = document.getElementById('texto-tarefa');
-const todoList = document.getElementById('lista-tarefas');
-let list = [];
-let selectedCurrent = 0;
+const localeListTasks = document.getElementById('lista-tarefas');
 
 function removeItem(element) {
   const equal = (el) => el === element;
@@ -80,9 +78,17 @@ function resetElementsHTML() {
   createElementHTML(list);
 }
 function push() {
-  list.push(inputText.value);
-  inputText.value = '';
-  resetElementsHTML();
+  const item = document.createElement('li');
+  item.innerText = inputText.value;
+  localeListTasks.appendChild(item);
+  inputText.value = null;
+
+  item.addEventListener('dblclick', function () {
+    completedItem(item);
+  });
+  item.addEventListener('click', function () {
+    selectedItem(item);
+  });
 }
 
 loadList();
