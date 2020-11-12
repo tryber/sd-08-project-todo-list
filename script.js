@@ -65,11 +65,7 @@ listTasks.addEventListener('click', colorizeSelectedTask);
 
 // COMPLETES A SINGLE TASK (MARKING WITH A LINE-THROUGH)
 const completeSingleTask = (event) => {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
+  event.target.classList.toggle('completed');
 };
 
 listTasks.addEventListener('dblclick', completeSingleTask);
@@ -135,4 +131,3 @@ const loadListItems = () => {
 };
 
 loadListItems();
-
