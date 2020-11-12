@@ -91,10 +91,10 @@ deleteSelectedTasksButton.addEventListener('click', deleteSelectedItems);
 
 // DELETE ONLY FINISHED ITEMS
 const deleteFinishedItems = () => {
-  for (let i = 0; i < allListItems.length; i += 1) {
-    if (allListItems[i].classList.contains('completed')) {
-      allListItems[i].remove();
-    }
+  const completedItems = document.querySelectorAll('.completed');
+
+  for (let i = 0; i < completedItems.length; i += 1) {
+    completedItems[i].parentElement.removeChild(completedItems[i]);
   }
 };
 
@@ -126,7 +126,7 @@ saveTasksButton.addEventListener('click', updateLocalStorage);
 
 // MOVES UP A LIST ITEM
 const movesUpListItem = () => {
-  const selectedItem = document.querySelector(".selected");
+  const selectedItem = document.querySelector('.selected');
 
   for (let i = 0; i < allListItems.length; i += 1) {
     if (allListItems[i] === selectedItem) {
@@ -141,7 +141,7 @@ movesUpButton.addEventListener('click', movesUpListItem);
 
 // MOVES DOWN A LIST ITEM
 const movesDownListItem = () => {
-  const selectedItem = document.querySelector(".selected");
+  const selectedItem = document.querySelector('.selected');
 
   for (let i = 0; i < allListItems.length; i += 1) {
     if (allListItems[i] === selectedItem) {
