@@ -46,7 +46,7 @@ function addItem() {
 
 function deleteList() {
   for (let index = itens.length - 1; index >= 0; index -= 1) {
-    list.removeChild(itens[i]);
+    list.removeChild(itens[index]);
     cont = 0;
     deleteAll.style.display = 'none';
   }
