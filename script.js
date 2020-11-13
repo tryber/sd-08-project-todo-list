@@ -48,8 +48,7 @@ function riscarTarefa() {
   });
 }
 riscarTarefa();
-// Na função abaixo não se utilizou o index como normalmente (ex. finalizados[index]), pois,
-// Cada vez que remove uma criança, o length diminui, e isso meio que quebra o código.
+
 function removerFinalizadas() {
   btnRmvFinished.addEventListener('click', function () {
     let finalizados = document.getElementsByClassName('completed');
@@ -59,6 +58,9 @@ function removerFinalizadas() {
   });
 }
 removerFinalizadas();
+// Na função acima não se utilizou o index como normalmente (finalizados[index]), pois,
+// Cada vez que remove uma 'criança', o length diminui, e isso meio que quebra o código
+// Se utilizar o [index].
 
 function highLightSelected() {
   let taskListChildren = taskList.children;
@@ -76,6 +78,17 @@ function highLightSelected() {
   });
 }
 highLightSelected();
+
+function removeSelected() {
+  btnRmvSelected.addEventListener('click', function () {
+    for (let index = 0; index < taskList.children.length; index += 1) {
+      if (taskList.children[index].classList.contains('selected') === true) {
+        taskList.removeChild(taskList.children[index]);
+      }
+    }
+  });
+}
+removeSelected();
 
 function moverCima() {
   btnUp.addEventListener('click', function () {
