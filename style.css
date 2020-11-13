@@ -4,3 +4,60 @@
 .selected {
   background-color: rgb(128,128,128);
 }
+
+body {
+  background-color: rgb(240, 239, 230);
+}
+
+#container {
+  background-color: white;
+  width: 60%;
+  border-radius: 15px;
+  border: 1px solid black;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  margin-top: 60px;
+  margin-left: 40px;
+}
+
+.symbols {
+  background-color: rgb(151, 112, 4);
+  border-radius: 100%;
+}
+
+#remover-finalizados {
+  text-decoration: line-through;
+}
+
+.saveAdd {
+  background-color:rgb(12, 114, 18);
+}
+
+button {
+  font-size: 15px;
+  border-radius: 15px;
+  color: white;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.clear {
+  background-color: rgb(202, 27, 27);
+  
+}
+
+#criar-tarefa:focus {
+
+  border: 10px blue groove;
+}
+
+li {
+  border: 1px solid rgb(189, 186, 186);
+  width: fit-content;
+  padding: 3px;
+  border-radius: 5px;
+  margin: 2px;
+}

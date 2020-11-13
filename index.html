@@ -6,22 +6,24 @@
   <title>To do List</title>
 </head>
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  </header>
-  <section>
-    <input type="text" id="texto-tarefa">
-    <button id="criar-tarefa">Adicionar</button>
-    <ol id="lista-tarefas"></ol>
-    </ol>
-    <button id="salvar-tarefas">Salvar</button>
-    <button id="apaga-tudo">Limpar Lista</button>
-    <button id="remover-finalizados">Remover tarefas completadas</button>
-    <button id="remover-selecionado">Remover tarefa selecionada</button>
-    <button id="mover-cima">Mover para cima</button>
-    <button id="mover-baixo">Mover para baixo</button>
-  </section>
+  <div id="container">
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+    <section>
+      <input type="text" id="texto-tarefa">
+      <button id="criar-tarefa" class="saveAdd">Adicionar</button>
+      <ol id="lista-tarefas"></ol>
+      </ol>
+      <button id="remover-selecionado" class="symbols">	&#128465;</button>
+      <button id="mover-cima" class="symbols">&uArr;</button>
+      <button id="mover-baixo" class="symbols">&dArr;</button>
+      <button id="apaga-tudo" class="clear">Limpar Lista</button>
+      <button id="remover-finalizados" class="clear">Limpar concluídos</button>
+      <button id="salvar-tarefas" class="saveAdd">Salvar</button>
+    </section>
+</div>
 
   <script src="script.js"></script>
 </body>
