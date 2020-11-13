@@ -42,13 +42,6 @@ function completed(event)
         target.classList.add("completed");
 }
 
-
-
-
-
-
-
-
 let getClear = document.getElementsByTagName("li");
 let buttonClear = document.getElementById("apaga-tudo");
 
@@ -61,14 +54,14 @@ buttonClear.addEventListener("click", function()
 
 })
 
-let getClearFinalizados = document.getElementById("remover-finalizados");
 let finalizados = document.getElementsByClassName("completed");
+let getClearFinalizados = document.getElementById("remover-finalizados");
 
 getClearFinalizados.addEventListener("click", function()
 {
-    for(let l of finalizados)
+    for(let l = finalizados.length -1; l >= 0; l -= 1)
     {
-        l.remove();
+        finalizados[l].remove();
     }
 })
 
