@@ -7,6 +7,15 @@
 body {
     background-color: rgb(75, 148, 7);
 }
+h1 {
+    color: white;
+}
 #lista-tarefas {
-    
+
+}
+#criar-tarefa {
+    color: white;
+    border-radius: 10px;
+    height: 20px;
+    width: 79px;
 }
