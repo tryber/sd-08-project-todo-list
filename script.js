@@ -50,13 +50,13 @@ list.addEventListener('click', function (event) {
 
 
 
-// let apagaTudo = document.getElementById("apaga-tudo");
+let apagaTudo = document.getElementById("apaga-tudo");
 
-// apagaTudo.addEventListener('click', function () {
-//     while (list.firstChild) {
-//       list.removeChild(list.firstChild);
-//     }
-// });
+apagaTudo.addEventListener('click', function () {
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
+    }
+});
 
 
 
@@ -97,13 +97,6 @@ list.addEventListener ('dblclick', function(event){
     }
   })
   
-  let cleanUp = document.querySelector('#apaga-tudo');
-  cleanUp.addEventListener ('click', function(){
-    let items = document.querySelectorAll('.item');
-    for (let i = 0; i < items.length; i += 1) {
-      list.lastChild.remove();
-    }
-  })
   
   let clean = document.querySelector('#remover-finalizados');
   clean.addEventListener('click', function(){
