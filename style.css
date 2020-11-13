@@ -1,3 +1,17 @@
 body {
-    background-color: #f3d9c5;
+    background-color: #003a74;
+}
+
+.list-container {
+    background-color: rgb(248, 231, 200);
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    margin: 100px auto;
+    padding: 25px 25px;
+    /* text-align: center; */
+    width: 60%;
+}
+
+.list-title h1 {
+    margin-top: 0;
 }
