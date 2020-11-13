@@ -58,3 +58,17 @@ function mudaBackground() {
   });
 }
 mudaBackground();
+
+//9
+
+function criaBotaoApagaTudo() {
+  let botaoApagaTudo = document.createElement('button');
+  let lista = document.getElementById('lista-tarefas');
+  document.body.appendChild(botaoApagaTudo);
+  botaoApagaTudo.id = 'apaga-tudo';
+  botaoApagaTudo.innerText = 'Limpar lista';
+  botaoApagaTudo.addEventListener('click', function() {
+    lista.innerHTML = '';
+  });
+}
+criaBotaoApagaTudo();
