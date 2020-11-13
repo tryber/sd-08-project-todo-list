@@ -2,7 +2,10 @@ const taskList = document.getElementById('lista-tarefas');
 taskList.innerHTML = localStorage.getItem('tasks');
 const inputTask = document.getElementById('texto-tarefa');
 const btnAdd = document.getElementById('criar-tarefa');
+const btnRmvFirst = document.getElementById('apaga-primeira');
 const btnClear = document.getElementById('apaga-tudo');
+const btnRmvSelected = document.getElementById('remover-selecionado');
+const btnRmvFinished = document.getElementById('remover-finalizados');
 const btnSave = document.getElementById('salvar-tarefas');
 const btnUp = document.getElementById('mover-cima');
 const btnDown = document.getElementById('mover-baixo');
@@ -36,9 +39,20 @@ salvarTarefas();
 function riscarTarefa() {
   taskList.addEventListener('dblclick', function (event) {
     event.target.style.textDecoration = 'line-through';
+    event.target.className += ' completed';
   });
 }
 riscarTarefa();
+
+function removerFinalizadas() {
+  btnRmvFinished.addEventListener('click', function () {
+    let finalizados = document.getElementsByClassName('completed');
+    for (let index = 0; (index = finalizados.length); index += 1) {
+      finalizados[0].parentNode.removeChild(finalizados[0]); // Não se utilizou o index porque cada vez que remove uma criança, o length diminui, e isso atrapalha diretamente, meio que quebra o código.
+    }
+  });
+}
+removerFinalizadas();
 
 function highLightSelectedTask() {
   taskList.addEventListener('click', function (event) {
@@ -67,8 +81,7 @@ function moverBaixo() {}
 
 // Funções atoas:
 function removeFirst() {
-  const btnEraseLast = document.getElementById('apaga-primeira');
-  btnEraseLast.addEventListener('click', function () {
+  btnRmvFirst.addEventListener('click', function () {
     taskList.removeChild(taskList.firstElementChild);
   });
 }
