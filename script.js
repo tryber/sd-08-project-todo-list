@@ -91,14 +91,20 @@ function removeSelected() {
 removeSelected();
 
 function moverCima() {
-  btnUp.addEventListener('click', function () {
-    for (let index = 0; index < taskList.children.length; index += 1) {
-      if (taskList.children[index].classList.contains('selected') === true) {
-        taskList.children[index].insertBefore(
-          taskList.children[index - 1],
-          taskList[index],
-        );
+  btnDown.addEventListener('click', function () {
+    const childNode = document.querySelectorAll('.task');
+    let selected;
+    for (let index = 0; index < childNode.length; index += 1) {
+      if (childNode[index].classList.contains('selected')) {
+        selected = index;
       }
+    }
+    if (selected > 0) {
+      childNode[selected].parentElement.insertBefore(
+        childNode[selected],
+        childNode[selected - 1],
+      );
+      // Solução encontrada no site 'https://stackoverflow.com/questions/9732624/how-to-swap-dom-child-nodes-in-javascript'
     }
   });
 }
@@ -106,17 +112,24 @@ moverCima();
 
 function moverBaixo() {
   btnDown.addEventListener('click', function () {
-    for (let index = 0; index < taskList.children.length; index += 1) {
-      if (taskList.children[index].classList.contains('selected') === true) {
-        taskList.children[index].insertBefore(
-          taskList.children[index+1],
-          taskList[index],
-        )
+    const childNode = document.querySelectorAll('.task');
+    let selected;
+    for (let index = 0; index < childNode.length; index += 1) {
+      if (childNode[index].classList.contains('selected')) {
+        selected = index + 1;
       }
+    }
+    if (selected < childNode.length) {
+      childNode[selected].parentElement.insertBefore(
+        childNode[selected],
+        childNode[selected - 1],
+      );
     }
   });
 }
-moverBaixo()
+
+moverBaixo();
+
 // Funções atoas:
 function removeFirst() {
   btnRmvFirst.addEventListener('click', function () {
@@ -159,3 +172,13 @@ function hightLightTaskMouseOut() {
   });
 }
 hightLightTaskMouseOut();
+
+function enterAddsTask() {
+  inputTask.addEventListener('keyup', function (event) {
+    event.preventDefault();
+    if (event.wich === '113') {
+      adicionaTarefa();
+    }
+  });
+}
+enterAddsTask();
