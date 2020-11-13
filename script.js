@@ -47,10 +47,14 @@ function criaBotao() {
 }
 criaBotao();
 
-function pintaBackground() {
+function mudaBackground() {
   let lista = document.getElementById('lista-tarefas');
   lista.addEventListener('click', function(evento) {
+    listaItens = lista.children;
+    for (let indice = 0; indice < listaItens.length; indice += 1) {
+      listaItens[indice].style.backgroundColor = 'white';
+    }
     evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
-pintaBackground();
+mudaBackground();
