@@ -20,7 +20,15 @@ body {
   margin-left: 40px;
 }
 
-.symbols {
+#remover-selecionado {
+  background-color: rgb(151, 112, 4);
+  border-radius: 100%;
+}
+#mover-cima {
+  background-color: rgb(151, 112, 4);
+  border-radius: 100%;
+}
+#mover-baixo {
   background-color: rgb(151, 112, 4);
   border-radius: 100%;
 }
@@ -29,7 +37,10 @@ body {
   text-decoration: line-through;
 }
 
-.saveAdd {
+#criar-tarefa {
+  background-color:rgb(12, 114, 18);
+}
+#salvar-tarefas {
   background-color:rgb(12, 114, 18);
 }
 
@@ -44,14 +55,17 @@ button:focus {
   box-shadow: none;
 }
 
-.clear {
-  background-color: rgb(202, 27, 27);
-  
+#remover-finalizados {
+  background-color: rgb(202, 27, 27); 
 }
 
-#criar-tarefa:focus {
+#apagar-tudo {
+  background-color: rgb(202, 27, 27); 
+}
 
-  border: 10px blue groove;
+#texto-tarefa:focus {
+
+  border: 4px blue groove;
 }
 
 li {
