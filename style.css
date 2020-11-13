@@ -1,0 +1,19 @@
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.item {
+  cursor: pointer;
+}
+
+.form-controls {
+  margin: 20px 30px;
+}
+
+.texto-tarefa {
+  width: 40em;
+}
+
+.selected {
+  background-color: gray;
+}
