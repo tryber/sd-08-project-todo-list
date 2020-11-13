@@ -127,7 +127,7 @@ function geradorValor() {
   localStorage.clear();
   const elemento = document.getElementById('lista-tarefas').children;
   for (let index = 0; index < elemento.length; index += 1) {
-    const valorElemento = elemento[index].innerText + ' ' + elemento[index].classList.value;
+    const valorElemento = '"' + elemento[index].innerText + '"' + ' ' + elemento[index].classList.value;
     localStorage.setItem(index, valorElemento);
   }
 }
@@ -135,13 +135,17 @@ function geradorValor() {
 function geradorElemento() {
   if (localStorage.length > 0) {
     for (let index = 0; index < localStorage.length; index += 1) {
-      const tarefaLi = document.createElement('li');
-      tarefaLi.innerText = localStorage.getItem(index).split(' ')[0];
-      for (let indexLista = 1; indexLista < localStorage.getItem(index).split(' ').length; indexLista += 1) {
-        tarefaLi.classList.add(localStorage.getItem(index).split(' ')[indexLista]);
-      }
-      listaTarefas.appendChild(tarefaLi);
-    }  
+    const  info = localStorage.getItem(index);
+    const listaValorClasse = info.split('"');
+    const tarefaLi = document.createElement('li');
+    tarefaLi.innerText = listaValorClasse[1];
+    const listaClasses = listaValorClasse[2];
+    for (let indexClasses = 1; indexClasses < listaClasses.length; indexClasses += 1) {
+      tarefaLi.classList.add(listaClasses.split(' ')[indexClasses]);
+      tarefaLi.classList.remove('undefined');
+    }
+    listaTarefas.appendChild(tarefaLi);
+    }
   }
 }
 
