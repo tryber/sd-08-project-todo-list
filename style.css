@@ -1,28 +1,28 @@
 body {
-  font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+  font-family: Lucida Sans, Geneva, Verdana, sans-serif;
   font-size: large;
 }
 
-#texto-tarefa {
-  font-size: 30px; 
+.texto-tarefas {
+  font-size: 30px;
 }
 
-#button-container {
-  margin-top: 10px;
+.buttons-container {
+  background-color: azure;
   border: 5px groove black;
   display: flex;
   flex-wrap: wrap;
+  height: fit-content;
+  margin-top: 10px;
   justify-content: space-around;
   width: fit-content;
-  height: fit-content;
-  background-color: azure;
 }
 
-#button-container button {
-    background-color:black;
-    color: white;
-    font-size: large;
-    margin-top: 10px;
-    border: 1px solid yellowgreen;
-    display: block;
-  }
+.buttons-container button {
+  background-color: black;
+  border: 1px solid yellowgreen;
+  color: white;
+  display: block;
+  font-size: large;
+  margin-top: 10px;
+}

@@ -48,12 +48,13 @@ function riscarTarefa() {
   });
 }
 riscarTarefa();
-
+// Na função abaixo não se utilizou o index como normalmente (ex. finalizados[index]), pois,
+// Cada vez que remove uma criança, o length diminui, e isso meio que quebra o código.
 function removerFinalizadas() {
   btnRmvFinished.addEventListener('click', function () {
     let finalizados = document.getElementsByClassName('completed');
-    for (let index = 0; (index = finalizados.length); index += 1) {
-      finalizados[0].parentNode.removeChild(finalizados[0]); // Não se utilizou o index porque cada vez que remove uma criança, o length diminui, e isso atrapalha diretamente, meio que quebra o código.
+    for (let index = 0; index < finalizados.length; index += 1) {
+      finalizados[0].parentNode.removeChild(finalizados[0]);
     }
   });
 }
