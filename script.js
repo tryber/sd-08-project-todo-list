@@ -28,10 +28,10 @@ function criarTarefa() {
 function addSelected(event) {
     for (let index=0; index < todasTarefasCriadas.length; index += 1) {
         todasTarefasCriadas[index].classList.remove('selected');
-        todasTarefasCriadas[index].style.backgroundColor = 'white';
-	}
-    event.target.classList.add('selected');
+        todasTarefasCriadas[index].style.backgroundColor = null;
+    }
     event.target.style.backgroundColor = 'rgb(128,128,128)';
+    event.target.classList.add('selected');
 }
     
 
