@@ -3,6 +3,7 @@ const inputText = document.querySelector('#texto-tarefa');//onde digita o texto
 const taskList = document.querySelector('#lista-tarefas');//ol
 let liSelected = null;
 const removeButton = document.querySelector('#apaga-tudo');
+const btnRemoveCompletedTask = document.querySelector('#remover-finalizados');
 
 addButton.addEventListener('click', sendText);
 
@@ -35,11 +36,15 @@ function taskCompleted (event) {
 
 removeButton.addEventListener('click', removeTasks);
 function removeTasks () {
-   taskList.innerText = '';
-    
+   taskList.innerText = '';    
 };
 
-
+btnRemoveCompletedTask.addEventListener('click', removeCompletedTask );
+function removeCompletedTask (event) {   
+        event = document.querySelectorAll('.completed').forEach(function(a){
+            a.remove();
+        })       
+}
 
 
 
