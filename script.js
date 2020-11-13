@@ -1,10 +1,10 @@
 // Reconhecendo o texto digitado no campo input e armazenando (atualizando)
 const campoInput = document.getElementById('texto-tarefa');
-const  buttonCriarTarefa = document.getElementById('criar-tarefa');
-const  listaTarefasContainer = document.getElementById('lista-tarefas');
-const  todasTarefasCriadas = document.getElementsByClassName('tarefa');
-const  buttonApagaTudo = document.getElementById('apaga-tudo');
-const  buttonRemoverFinalizados = document.getElementById('remover-finalizados');
+const buttonCriarTarefa = document.getElementById('criar-tarefa');
+const listaTarefasContainer = document.getElementById('lista-tarefas');
+const todasTarefasCriadas = document.getElementsByClassName('tarefa');
+const buttonApagaTudo = document.getElementById('apaga-tudo');
+const buttonRemoverFinalizados = document.getElementById('remover-finalizados');
 
 // Campo Input para receber a string com a tarefa
 
@@ -23,7 +23,7 @@ function criarTarefa() {
   tarefaElement.addEventListener('dblclick', addCompleted);
   tarefaElement.textContent = campoInput.textContent;
   listaTarefasContainer.appendChild(tarefaElement);
-  document.getElementById('texto-tarefa').value='';
+  document.getElementById('texto-tarefa').value = '';
 }
 
 buttonCriarTarefa.addEventListener('click', criarTarefa);
@@ -50,18 +50,18 @@ function addCompleted(dblclick) {
 
 // Botão apaga tudo que limpa todas as tarefas
 
-buttonApagaTudo.addEventListener('click', apagaTudo);
-
 function apagaTudo() {
   document.location.reload(true);
 }
+
+buttonApagaTudo.addEventListener('click', apagaTudo);
 
 // Botão remover tarefas completadas
 
 function removeCompleted() {
   const selected = document.querySelectorAll('.completed');
   for (let index = 0; index < selected.length; index += 1) {
-	listaTarefasContainer.removeChild(selected[index]);
+    listaTarefasContainer.removeChild(selected[index]);
   }
 }
 
