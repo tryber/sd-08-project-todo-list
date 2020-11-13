@@ -18,11 +18,11 @@ function monstrarLista() {
   });
 }
 monstrarLista();
-
+const selecionadas = document.querySelector("#lista-tarefas");
 function selecionand() {
   const criandoCLasse = document.getElementsByClassName("selected");
-  const selecionadas = document.querySelector("#lista-tarefas");
-  const arrSeleci = document.getElementsByTagName('li')
+
+  const arrSeleci = document.getElementsByTagName("li");
 
   selecionadas.addEventListener("click", function (event) {
     // console.log(document.querySelectorAll(".color"))
@@ -30,7 +30,7 @@ function selecionand() {
     if (event.target.className == "selected") {
       // event.target.className = "color";
     } else if (event.target.className != "selected") {
-      //e todos outros voltram para color
+      //e todos outros voltam para color
       for (let i = 0; i < arrSeleci.length; i++) {
         arrSeleci[i].className = "";
       }
@@ -40,7 +40,15 @@ function selecionand() {
 }
 selecionand();
 
-function exibeWebSto() {
+function sublinhando() {
+  console.log(selecionadas);
+  selecionadas.addEventListener("dblclick", function (event) {
+    event.target.className += " completed";
+  });
+}
+sublinhando();
+
+/**function exibeWebSto() {
   let lista = document.querySelector("#lista-tarefas");
 
   console.log(localStorage.length);
@@ -51,10 +59,24 @@ function exibeWebSto() {
     }
   }
 }
-exibeWebSto();
+exibeWebSto();**/
 
 function limparDados() {
-  localStorage.clear();
+  let btlimpar = document.querySelector("#apaga-tudo");
+  let select = document.getElementById("lista-tarefas");
+  btlimpar.addEventListener("click", function () {
+    select.innerHTML = "";
+  });
 }
-let btlimpar = document.querySelector("#apaga-tudo");
-btlimpar.addEventListener("click", limparDados);
+limparDados();
+
+function removerFinalizados() {
+  let btRemoveFina = document.querySelector("#remover-finalizados");
+
+  btRemoveFina.addEventListener("click", function () {
+    let selecc = document.getElementsByClassName("selected completed");
+    selecc[0].remove()
+    
+  });
+}
+removerFinalizados()
