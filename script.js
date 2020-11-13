@@ -1,156 +1,87 @@
-function addButton () {
+const inputButton = document.getElementById('criar-tarefa');
+const listaTarefas = document.getElementById('lista-tarefas');
 
-    let listaOrdenada = document.getElementById("lista-tarefas");
-
-    let textInput = document.querySelector("#texto-tarefa");
-
-    let novoItem = document.createElement("li");
-
-    listaOrdenada.appendChild(novoItem);
-
-    novoItem.innerText = textInput.value;
-
-    novoItem.className="tarefa";
-
-    textInput.value = "";
+// Criar tarefa na lista
+function addTarefa() {
+  const inputText = document.getElementById('texto-tarefa').value;
+  const createListItem = document.createElement('li');
+  createListItem.innerHTML = inputText;
+  createListItem.className = 'list-item';
+  listaTarefas.appendChild(createListItem);
+  document.getElementById('texto-tarefa').value = '';
 }
 
+inputButton.addEventListener('click', addTarefa);
 
-let addButtonClick = document.querySelector("#criar-tarefa");
-
-addButtonClick.addEventListener("click", function(){
-    addButton ();
+// Add backgroundColor
+listaTarefas.addEventListener('click', function (event) {
+  const removeClass = document.querySelector('.selected');
+  if (removeClass !== null) {
+    removeClass.classList.remove('selected');
+  }
+  const selectClass = event.target;
+  selectClass.className += ' selected';
 });
 
-let list = document.getElementById("lista-tarefas");
-
-list.addEventListener('click', function (event) {
-    let li = event.target;
-    for (let i = 0; i < list.childNodes.length; i += 1) {
-      if (list.childNodes[i] !== li) {
-        list.childNodes[i].style.backgroundColor = 'transparent';
-      }
-    }
-
-    li.style.backgroundColor = 'rgb(128, 128, 128)';
-
+// Add linha riscada
+listaTarefas.addEventListener('dblclick', function (event) {
+  const completedClass = event.target;
+  completedClass.classList.toggle('completed');
 });
 
-// list.addEventListener("dblclick" , function(event){
-
-//     if (event.target.classList.contains("completed")){
-//         event.target.classList.remove("completed");
-//     }
-//     else{
-//         event.target.className="completed";
-//     }
-
-// })
-
-
-
-
-let apagaTudo = document.getElementById("apaga-tudo");
-
-apagaTudo.addEventListener('click', function () {
-    while (list.firstChild) {
-      list.removeChild(list.firstChild);
-    }
+// Remover tudo
+const clearAllButton = document.getElementById('apaga-tudo');
+clearAllButton.addEventListener('click', function () {
+  while (listaTarefas.firstChild) {
+    listaTarefas.removeChild(listaTarefas.firstChild);
+  }
 });
 
-
-
-
-// let apagaFinalizados = document.getElementById("remover-finalizados");
-
-// apagaFinalizados.addEventListener('click', function () {
-//     for (let i = (list.childNodes.length - 1); i >= 0; i -= 1) {
-//       if (list.childNodes[i].classList.contains('completed')) {
-//         list.removeChild(list.childNodes[i]);
-//       }
-//     }
-//   });
-
-
-
-//   function saveTasks(listaDeTarefas){
-//     localStorage.setItem("tarefas-salvas", listaDeTarefas);
-//   }
-  
-//   let listaDeTarefas = document.getElementById("lista-tarefas");
-//   let buttonSaveTasks = document.getElementById("salvar-tarefas");
-  
-//   buttonSaveTasks.addEventListener('click', function () {
-//     localStorage.clear();
-//     let listaDeTarefas = document.getElementsByTagName('li');
-//     for (let item = 0; item < listaDeTarefas.length; item += 1) {
-//       localStorage.setItem(item, listaDeTarefas[item].innerHTML);
-//       localStorage.setItem(listaDeTarefas[item].innerText, listaDeTarefas[item].className);
-//     }
-//   });
-list.addEventListener ('dblclick', function(event){
-    const completed = event.target;
-    if (completed.classList.contains('completed')) {
-      completed.classList.remove('completed');
-    } else {
-      completed.classList.add('completed');
-    }
-  })
-  
-  
-  let clean = document.querySelector('#remover-finalizados');
-  clean.addEventListener('click', function(){
-    let items = document.querySelectorAll('.item');
-    for (let i = 0; i < items.length; i += 1){
-      if (items[i].classList.contains('completed')){
-        list.removeChild(items[i]);
-      }
-    }
-  })
-
-
-  window.onload=function(){
-    for (let i = 0; i < (localStorage.length / 2); i += 1) {
-      let localStorageList = document.createElement('li');
-      localStorageList.innerText = localStorage.getItem(i);
-      localStorageList.className = localStorage.getItem(localStorageList.innerText);
-      list.appendChild(localStorageList);
+// Remover itens finalizados
+const removeDoneButton = document.getElementById('remover-finalizados');
+removeDoneButton.addEventListener('click', function () {
+  let listaLength = listaTarefas.childNodes.length - 1;
+  for (listaLength; listaLength >= 0; listaLength -= 1) {
+    if (listaTarefas.childNodes[listaLength].classList.contains('completed')) {
+      listaTarefas.removeChild(listaTarefas.childNodes[listaLength]);
     }
   }
+});
 
+// Remover itens selecionados
+const removeSelectedButton = document.getElementById('remover-selecionado');
+removeSelectedButton.addEventListener('click', function () {
+  const selectedClass = document.querySelector('.selected');
+  listaTarefas.removeChild(selectedClass);
+});
 
+// Salvar a lista
+const saveButton = document.getElementById('salvar-tarefas');
+saveButton.addEventListener('click', function () {
+  localStorage.setItem('lista', listaTarefas.innerHTML);
+});
+if (localStorage.lista !== undefined) {
+  listaTarefas.innerHTML = localStorage.lista;
+}
 
-  let upButton = document.getElementById("mover-cima");
+// Botão Up/Down
+const upButton = document.getElementById('mover-cima');
+const downButton = document.getElementById('mover-baixo');
 
-  upButton.addEventListener('click', function () {   
-    let tasks = listaDeTarefas.childNodes;
-      for (let i = 1; i < tasks.length; i += 1) {
-        if (tasks[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-          listaDeTarefas.insertBefore(tasks[i], tasks[i - 1]);
-        }
-      }
-  });
-  
-  
-
-
-  let downButton = document.getElementById("mover-baixo");
-  downButton.addEventListener('click', function () { 
-    let tasks = listaDeTarefas.childNodes;
-      for (let i = tasks.length - 2; i >= 0; i -= 1) {
-        if (tasks[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-          listaDeTarefas.insertBefore(tasks[i + 1], tasks[i]);
-        }
-      }
-  });
-  
-  
-  let removeSelecionado = document.getElementById("remover-selecionado"); 
-  removeSelecionado.addEventListener('click', function () {
-    let tasks = listaDeTarefas.childNodes;
-    for (let i = 0; i < tasks.length; i += 1) {
-      if (tasks[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-        list.removeChild(tasks[i]);
-      }
+upButton.addEventListener('click', function () {
+  const childList = listaTarefas.childNodes;
+  for (let i = 1; i < childList.length; i += 1) {
+    if (childList[i].classList.contains('selected')) {
+      listaTarefas.insertBefore(childList[i], childList[i - 1]);
     }
-  });
+  }
+});
+
+downButton.addEventListener('click', function () {
+  const childList = listaTarefas.childNodes;
+  for (let i = childList.length - 2; i >= 0; i -= 1) {
+    if (childList[i].classList.contains('selected')) {
+      listaTarefas.insertBefore(childList[i + 1], childList[i]);
+    }
+  }
+});
