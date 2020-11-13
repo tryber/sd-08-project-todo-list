@@ -2,5 +2,8 @@
     font-size: small;
 }
 #texto-tarefa {
-    
+    border-radius: 5px;
+}
+body {
+    background-color: rgb(75, 148, 7);
 }
