@@ -40,3 +40,14 @@ function createAll() {
   });
 }
 createAll();
+
+let buttonRemove = document.getElementById("remover-finalizados");
+let olTask = document.getElementById("lista-tarefas");
+buttonRemove.addEventListener("click", function () {
+  let itemList = olTask.querySelectorAll("li");
+  for (let index = 0; index < itemList.length; index += 1) {
+    if (itemList[index].classList.contains("completed")) {
+      olTask.removeChild(itemList[index]);
+    }
+  }
+});
