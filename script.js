@@ -92,12 +92,31 @@ removeSelected();
 
 function moverCima() {
   btnUp.addEventListener('click', function () {
-    const taskList = document.querySelector('#lista-tarefas');
+    for (let index = 0; index < taskList.children.length; index += 1) {
+      if (taskList.children[index].classList.contains('selected') === true) {
+        taskList.children[index].insertBefore(
+          taskList.children[index - 1],
+          taskList[index],
+        );
+      }
+    }
   });
 }
+moverCima();
 
-function moverBaixo() {}
-
+function moverBaixo() {
+  btnDown.addEventListener('click', function () {
+    for (let index = 0; index < taskList.children.length; index += 1) {
+      if (taskList.children[index].classList.contains('selected') === true) {
+        taskList.children[index].insertBefore(
+          taskList.children[index+1],
+          taskList[index],
+        )
+      }
+    }
+  });
+}
+moverBaixo()
 // Funções atoas:
 function removeFirst() {
   btnRmvFirst.addEventListener('click', function () {
