@@ -1,71 +1,110 @@
-// Função adiciona task e remove o conteúdo do input (ok!):
+const taskList = document.getElementById('lista-tarefas');
+taskList.innerHTML = localStorage.getItem('tasks');
+const inputTask = document.getElementById('texto-tarefa');
+const btnAdd = document.getElementById('criar-tarefa');
+const btnClear = document.getElementById('apaga-tudo');
+const btnSave = document.getElementById('salvar-tarefas');
+const btnUp = document.getElementById('mover-cima');
+const btnDown = document.getElementById('mover-baixo');
+
 function adicionaTarefa() {
-  const botaoAdd = document.getElementById('criar-tarefa');
-  const input = document.getElementById('texto-tarefa');
-  const taskList = document.getElementById('lista-tarefas');
-  botaoAdd.addEventListener('click', function () {
+  btnAdd.addEventListener('click', function () {
     let task = document.createElement('li');
-    task.innerHTML = input.value;
+    task.innerHTML = inputTask.value;
     task.className = 'task';
     taskList.appendChild(task);
-    input.value = '';
-    input.style.backgroundColor = 'white';
+    inputTask.value = '';
+    inputTask.style.backgroundColor = 'white';
   });
 }
 adicionaTarefa();
 
-function highlightTask() {
-  const taskList = document.getElementById('lista-tarefas');
-  taskList.addEventListener('mouseover', function (event) {
-    if ((event.target.className === 'task')) {
-      if (event.target.style.backgroundColor !== 'yellow') {
-        event.target.style.backgroundColor = 'yellow';
-      }
-    }
+function apagaTudo() {
+  btnClear.addEventListener('click', function () {
+    taskList.innerHTML = ' ';
   });
-  taskList.addEventListener('mouseout', function (event) {
-    if ((event.target.className === 'task')) {
-      if (event.target.style.backgroundColor === 'yellow') {
-        event.target.style.backgroundColor = 'white';
-      }
+}
+apagaTudo();
+
+function salvarTarefas() {
+  btnSave.addEventListener('click', function () {
+    localStorage.setItem('tasks', taskList.innerHTML);
+  });
+}
+salvarTarefas();
+
+function riscarTarefa() {
+  taskList.addEventListener('dblclick', function (event) {
+    event.target.style.textDecoration = 'line-through';
+  });
+}
+riscarTarefa();
+
+function highLightSelectedTask() {
+  taskList.addEventListener('click', function (event) {
+    if (
+      event.target.style.backgroundColor !== 'rgb(128, 128, 128)' &&
+      event.target.className === 'task'
+    ) {
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      event.target.className = 'task selected';
+    } else {
+      event.target.style.backgroundColor = 'white';
+      event.target.className = 'task';
     }
   });
 }
-highlightTask();
+
+highLightSelectedTask();
 
 function moverCima() {
-  const btnUp = document.getElementById('mover-cima');
   btnUp.addEventListener('click', function () {
     const taskList = document.querySelector('#lista-tarefas');
   });
 }
 
-function moverBaixo() {
-  const btnDown = document.getElementById('mover-baixo');
-}
+function moverBaixo() {}
 
 // Funções atoas:
 function removeFirst() {
-  const btnEraseLast = document.getElementById('remover-selecionado');
+  const btnEraseLast = document.getElementById('apaga-primeira');
   btnEraseLast.addEventListener('click', function () {
-    const taskList = document.querySelector('#lista-tarefas');
     taskList.removeChild(taskList.firstElementChild);
   });
 }
 removeFirst();
 
 function highlightInput() {
-  const taskList = document.getElementById('lista-tarefas');
-  const inputPlace = document.getElementById('texto-tarefa');
-  inputPlace.addEventListener('focus', function () {
-    inputPlace.style.backgroundColor = 'yellow';
+  inputTask.addEventListener('focus', function () {
+    inputTask.style.backgroundColor = 'yellow';
   });
-  inputPlace.addEventListener('blur', function () {
-    if (inputPlace.value !== '') {
-      inputPlace.style.backgroundColor = 'yellow';
+  inputTask.addEventListener('blur', function () {
+    if (inputTask.value !== '') {
+      inputTask.style.backgroundColor = 'yellow';
     } else {
-      inputPlace.style.backgroundColor = 'white';
+      inputTask.style.backgroundColor = 'white';
     }
   });
 }
 highlightInput();
+
+function highlightTaskMouseOver() {
+  taskList.addEventListener('mouseover', function (event) {
+    if (event.target.className === 'task') {
+      if (event.target.style.border !== '1px solid black') {
+        event.target.style.border = '1px solid black';
+      }
+    }
+  });
+}
+highlightTaskMouseOver();
+function hightLightTaskMouseOut() {
+  taskList.addEventListener('mouseout', function (event) {
+    if (event.target.className === 'task') {
+      if (event.target.style.border === '1px solid black') {
+        event.target.style.border = 'none';
+      }
+    }
+  });
+}
+hightLightTaskMouseOut();
