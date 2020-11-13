@@ -4,6 +4,7 @@ let buttonCriarTarefa = document.getElementById('criar-tarefa');
 let listaTarefasContainer = document.getElementById('lista-tarefas');
 let todasTarefasCriadas = document.getElementsByClassName('tarefa');
 let buttonApagaTudo = document.getElementById('apaga-tudo');
+let buttonRemoverFinalizados = document.getElementById('remover-finalizados');
 
 // Campo Input para receber a string com a tarefa
 
@@ -53,4 +54,15 @@ buttonApagaTudo.addEventListener('click', apagaTudo);
 
 function apagaTudo() {
    document.location.reload(true);
-}
+};
+
+// Botão remover tarefas completadas
+
+function removeCompleted() {
+	let selected = document.querySelectorAll('.completed');
+	for (let index = 0; index < selected.length; index += 1) {
+		listaTarefasContainer.removeChild(selected[index]);
+	};
+};
+
+buttonRemoverFinalizados.addEventListener('click', removeCompleted);
