@@ -91,20 +91,20 @@ function removeSelected() {
 removeSelected();
 
 function moverCima() {
-  btnDown.addEventListener('click', function () {
-    const childNode = document.querySelectorAll('.task');
+  btnUp.addEventListener('click', function () {
+    const parametreNode = document.querySelectorAll('.task');
     let selected;
-    for (let index = 0; index < childNode.length; index += 1) {
-      if (childNode[index].classList.contains('selected')) {
+    for (let index = 0; index < parametreNode.length; index += 1) {
+      if (parametreNode[index].classList.contains('selected')) {
         selected = index;
       }
     }
     if (selected > 0) {
-      childNode[selected].parentElement.insertBefore(
-        childNode[selected],
-        childNode[selected - 1],
+      parametreNode[selected].parentElement.insertBefore(
+        parametreNode[selected],
+        parametreNode[selected - 1],
       );
-      // Solução encontrada no site 'https://stackoverflow.com/questions/9732624/how-to-swap-dom-child-nodes-in-javascript'
+      // Solução obtida através de 'https://stackoverflow.com/questions/9732624/how-to-swap-dom-child-nodes-in-javascript'
     }
   });
 }
@@ -112,22 +112,21 @@ moverCima();
 
 function moverBaixo() {
   btnDown.addEventListener('click', function () {
-    const childNode = document.querySelectorAll('.task');
+    const parametreNode = document.querySelectorAll('.task');
     let selected;
-    for (let index = 0; index < childNode.length; index += 1) {
-      if (childNode[index].classList.contains('selected')) {
+    for (let index = 0; index < parametreNode.length; index += 1) {
+      if (parametreNode[index].classList.contains('selected')) {
         selected = index + 1;
       }
     }
-    if (selected < childNode.length) {
-      childNode[selected].parentElement.insertBefore(
-        childNode[selected],
-        childNode[selected - 1],
+    if (selected < parametreNode.length) {
+      parametreNode[selected].parentElement.insertBefore(
+        parametreNode[selected],
+        parametreNode[selected - 1],
       );
     }
   });
 }
-
 moverBaixo();
 
 // Funções atoas:
@@ -175,9 +174,17 @@ hightLightTaskMouseOut();
 
 function enterAddsTask() {
   inputTask.addEventListener('keyup', function (event) {
+    eventKeyString = event.key.toString();
+    console.log('You have pressed key: ' + event.key);
+    console.log(eventKeyString);
     event.preventDefault();
-    if (event.wich === '113') {
-      adicionaTarefa();
+    if (eventKeyString === 'ArrowDown') {
+      let task = document.createElement('li');
+      task.innerHTML = inputTask.value;
+      task.className = 'task';
+      taskList.appendChild(task);
+      inputTask.value = '';
+      inputTask.style.backgroundColor = 'white';
     }
   });
 }
