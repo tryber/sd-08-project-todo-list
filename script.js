@@ -51,10 +51,9 @@
    document.getElementById('apaga-tudo').addEventListener('click',funcApagao);
   
   function funcApagao (){
-    let lisDel =document.querySelectorAll('.file');
-    for(let i =0;i < lisDel.length;i+=1);
-   document.removeChild('lisDel[i]');
-    
+     let olconteiner = document.querySelector('#lista-tarefas');
+     olconteiner.innerHTML = '';
+     
   };
 
     /**/
