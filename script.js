@@ -46,3 +46,11 @@ function criaBotao() {
   });
 }
 criaBotao();
+
+function pintaBackground() {
+  let lista = document.getElementById('lista-tarefas');
+  lista.addEventListener('click', function(evento) {
+    evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
+}
+pintaBackground();
