@@ -54,22 +54,22 @@ function removerFinalizadas() {
 }
 removerFinalizadas();
 
-function highLightSelectedTask() {
+function highLightSelected() {
+  let taskListChildren = taskList.children;
   taskList.addEventListener('click', function (event) {
-    if (
-      event.target.style.backgroundColor !== 'rgb(128, 128, 128)' &&
-      event.target.className === 'task'
-    ) {
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      event.target.className = 'task selected';
-    } else {
-      event.target.style.backgroundColor = 'white';
-      event.target.className = 'task';
+    for (let index = 0; index < taskListChildren.length; index += 1) {
+      if (taskListChildren[index] === event.target) {
+        event.target.classList.add('selected');
+        event.target.style.backgroundColor = 'rgb(128,128,128)';
+      } else {
+        taskListChildren[index].classList.remove('selected');
+        taskListChildren[index].style.backgroundColor = 'white';
+        taskListChildren[index].style.border = 'none';
+      }
     }
   });
 }
-
-highLightSelectedTask();
+highLightSelected();
 
 function moverCima() {
   btnUp.addEventListener('click', function () {
