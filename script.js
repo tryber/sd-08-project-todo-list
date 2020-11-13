@@ -29,14 +29,14 @@ function selecionand() {
 
     if (event.target.className == "selected") {
       // event.target.className = "color";
-    } else if (event.target.className != "selected") {
+    } else if (event.target.className != "selected completed") {
       //e todos outros voltam para color
       for (let i = 0; i < arrSeleci.length; i++) {
-        arrSeleci[i].className = "";
+        arrSeleci[i].classList.remove("selected");
       }
-      event.target.className += "selected";
+      event.target.className += " selected";
     }
-  });
+  });removerFinalizados();
 }
 selecionand();
 
@@ -44,7 +44,7 @@ function sublinhando() {
   console.log(selecionadas);
   selecionadas.addEventListener("dblclick", function (event) {
     event.target.className += " completed";
-  });
+  });removerFinalizados();
 }
 sublinhando();
 
@@ -74,9 +74,19 @@ function removerFinalizados() {
   let btRemoveFina = document.querySelector("#remover-finalizados");
 
   btRemoveFina.addEventListener("click", function () {
-    let selecc = document.getElementsByClassName("selected completed");
-    selecc[0].remove()
+    let selecc = document.getElementsByClassName("completed");
     
+    
+  
+    for (let i = 0; i < selecc.length; i += 1) {
+      selecc[i].remove()
+      
+    }
+    /** for (let i = 0; i < sele1.length; i += 1) {
+      
+      sele1[i].remove()
+    }*/
+   
   });
 }
-removerFinalizados()
+removerFinalizados();
