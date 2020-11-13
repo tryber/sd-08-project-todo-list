@@ -38,9 +38,9 @@ salvarTarefas();
 
 function riscarTarefa() {
   taskList.addEventListener('dblclick', function (event) {
-    if (event.target.style.textDecoration !== 'line-through') {
-      event.target.style.textDecoration = 'line-through';
-      event.target.className = 'task completed';
+    if (event.target.classList.contains('completed') === false) {
+      event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+      event.target.classList.add('completed');
     } else {
       event.target.style.textDecoration = 'none';
       event.target.classList.remove('completed');
