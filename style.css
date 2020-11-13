@@ -3,7 +3,7 @@ body {
 }
 
 .list-container {
-    background-color: rgb(248, 231, 200);
+    background-color: rgb(228, 226, 225);
     border: 1px solid lightgray;
     border-radius: 30px;
     margin: 100px auto;
@@ -14,4 +14,33 @@ body {
 
 .list-title h1 {
     margin-top: 0;
+}
+
+.task-form {
+    display: flex;
+}
+
+#texto-tarefa {
+    height: 30px;
+    width: 15rem;
+    padding-bottom: 0;
+    font-size: 16px;
+}
+
+#criar-tarefa {
+    background-color:  #bf3e43;
+    border: 1px solid black;
+    /* border-color: inherit; */
+    border-radius: 18px;
+    color: white;
+    font-weight: 600;;
+    margin-left: 10px;
+    padding: 5px;
+    /* outline: none; */
+    width: 5rem;
+
+}
+
+#criar-tarefa:hover {
+    border: 2px solid rgb(56, 52, 52);
 }
