@@ -29,14 +29,19 @@ button.innerHTML = 'Adicionar tarefa';
 input.parentNode.insertBefore(button, input.nextSibling);
 
 button.addEventListener('click', function () {
-    const li = document.createElement('li');
-    li.classList.add('task');
-    li.innerHTML = input.value;
-    ol.appendChild(li);
+    if (input.value != '') {
+        const li = document.createElement('li');
+        li.classList.add('task');
+        li.style.backgroundColor = 'white'; // colocar background no css
+        li.innerHTML = input.value;
+        ol.appendChild(li);
+    }
     input.value = '';
 });
 
 /* ---------------------------- REQUISITO 07 e 08 ---------------------------- */
+
+// document.querySelectorAll("ol")[0].childNodes.forEach() //...
 
 ol.addEventListener('click', function (event) {
     const listItem = document.querySelectorAll('.task');
@@ -90,3 +95,40 @@ buttonSaveTask.addEventListener('click', function (event) {
     localStorage.setItem('listTaskFinished', ol.innerHTML);
 })
 ol.innerHTML = localStorage.getItem('listTaskFinished');
+
+/* ---------------------------- REQUISITO 14 ---------------------------- */
+
+const removeItem = document.createElement('button');
+removeItem.id = 'remover-selecionado';
+removeItem.innerHTML = 'Apaga Item Selecionado';
+buttonClearFinished.parentNode.insertBefore(removeItem, buttonClearFinished.nextSibling);
+
+removeItem.addEventListener('click', function (event) {
+    const liItem = document.querySelectorAll('.task');
+    for (let i = 0; i < liItem.length; i += 1) {
+        if (event.target.style.backgroundColor === 'rgb(128, 128, 128)') {
+            liItem[i].remove();
+        }
+    }
+})
+
+/* ---------------------------- REQUISITO 13 ---------------------------- */
+
+const buttonUp = document.createElement('button');
+buttonUp.id = 'mover-cima';
+buttonUp.innerHTML = '&uarr;'
+buttonSaveTask.parentNode.insertBefore(buttonUp, buttonSaveTask.nextSibling);
+
+const buttonDown = document.createElement('button');
+buttonDown.id = 'mover-baixo';
+buttonDown.innerHTML = '&darr;';
+buttonSaveTask.parentNode.insertBefore(buttonDown, buttonSaveTask.nextSibling);
+
+buttonUp.addEventListener('click', function (event) {
+
+});
+
+buttonDown.addEventListener('click', function (event) {
+
+});
+

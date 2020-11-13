@@ -29,6 +29,7 @@ button {
     font-family: 'Comfortaa', cursive;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 ol {
@@ -38,14 +39,13 @@ ol {
 li {
     width: 300px;
     border: 1px solid rgb(0,0,0);
-    display: inline-block;
     font-size: 20px;
     border-radius: 10px;
-    margin-left: 5px;
-    margin-bottom: 15px;
+    margin: 0 auto;
     cursor: pointer;
     font-family: 'Comfortaa', cursive;
     padding: 5px;
+    margin-bottom: 15px;
 }
 
 #funcionamento {
@@ -56,7 +56,7 @@ li {
 
 #texto-tarefa{
     font-size: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-family: 'Comfortaa', cursive;
     padding: 5px;
     border-radius: 10px;
@@ -64,21 +64,22 @@ li {
 }
 
 #criar-tarefa {
-    background-color: rgb(50,205,50);
-    cursor: pointer;
+    background-color: rgba(50,205,50,0.5);
 }
 
 #apaga-tudo {
-    background-color: rgb(178,34,34);
-    cursor: pointer;
+    background-color: rgba(178,34,34,0.5);
+    margin-top: 5px;
 }
 
 #remover-finalizados{
-    background-color: rgb(178,34,34);
-    cursor: pointer;
+    background-color: rgba(178,34,34,0.5);
 }
 
 #salvar-tarefas {
     background-color: rgb(169,169,169);
-    cursor: pointer;
+}
+
+#remover-selecionado {
+    background-color: rgba(178,34,34,0.5);
 }
