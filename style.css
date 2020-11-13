@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: white;
+    background: url(try.jpg);
+    background-size: 10%;
+}
+
+.container {
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    min-height: 150px;
+    padding: 4rem;
+    width: 750px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+   
+  
+}
+
+.container .text-muted {
+    color: grey;
+    font-size: 1rem;
+}
+
+.container .inputNewTodo {
+    width: 125px;
+}
+
+.container .inputNewTodo:focus {
+    box-shadow: 0px 0px 2px #4887e9;
+    outline: 1px #4887e9;
+    outline-style: solid;
+}
+
+.button-primary {
+    border-radius: 5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.selected {
+    background-color: rgb(128, 128, 128);
+}
+
+.container .actions {
+    margin-top: 2rem;
+}
+
+.container .actions button {
+    margin-right: 1rem;
+}
+
+#apaga-tudo{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f80404;
+}
+
+#remover-finalizados{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
+}
+
+#remover-selecionado{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
+}
+
+#salvar-tarefas{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
+}
+
+#mover-cima{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing; 
+    border: 1px solid #f89604;
+}
+        
+#mover-baixo{
+    border-radius: 5px;
+    height: 26.5px;
+    cursor: grabbing;
+    border: 1px solid #f89604;
+}
