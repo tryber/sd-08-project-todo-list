@@ -55,7 +55,7 @@ button:focus {
 }
 
 li {
-  border: 1px solid rgb(189, 186, 186);
+  border: 1px solid rgb(128, 128, 128);
   width: fit-content;
   padding: 3px;
   border-radius: 5px;
