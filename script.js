@@ -8,12 +8,29 @@ function createTasks () {
     listChild.innerText = newText;
     textBox.value = "";
     listChild.addEventListener('click', function(event){
+        
 
         event.target.style.backgroundColor = "rgb(128, 128, 128)";
-    });
+    });    
     
 
 }
+
+function completed (event) {
+    let element = event.target;
+    
+    if (element.classList.contains('completed')) {
+        event.target.classList.remove('completed');
+
+    } else {
+        element.classList.add('completed')
+    }
+}
+
+
+listaOl = document.getElementById('lista-tarefas');
+listaOl.addEventListener('dblclick', completed);
+
 
 
 let button = document.getElementById('criar-tarefa');
@@ -29,3 +46,4 @@ function clearAll() {
 }
 
 clearButton.addEventListener('click', clearAll);
+
