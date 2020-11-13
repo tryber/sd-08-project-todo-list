@@ -38,8 +38,13 @@ salvarTarefas();
 
 function riscarTarefa() {
   taskList.addEventListener('dblclick', function (event) {
-    event.target.style.textDecoration = 'line-through';
-    event.target.className += ' completed';
+    if (event.target.style.textDecoration !== 'line-through') {
+      event.target.style.textDecoration = 'line-through';
+      event.target.className = 'task completed';
+    } else {
+      event.target.style.textDecoration = 'none';
+      event.target.classList.remove('completed');
+    }
   });
 }
 riscarTarefa();
