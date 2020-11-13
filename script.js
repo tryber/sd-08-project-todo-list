@@ -24,19 +24,10 @@ function criarTarefa() {
 };
 
 // Adiciona classe selected para tarefa e altera cor de fundo
-
 function addSelected(event) {
-    for (let index=0; index < todasTarefasCriadas.length; index += 1) {
-        todasTarefasCriadas[index].classList.remove('selected');
-        todasTarefasCriadas[index].style.backgroundColor = null;
-    }
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
-    event.target.classList.add('selected');
-}
-    
-
-
-
-
-
-
+    for (let index = 0; index < todasTarefasCriadas.length; index += 1) {
+        let tarefa = todasTarefasCriadas[index];
+        tarefa.classList.remove('selected');
+    };
+    event.target.classList.toggle('selected');
+};
