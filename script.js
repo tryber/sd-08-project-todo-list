@@ -3,6 +3,9 @@ let campoInput = document.getElementById('texto-tarefa');
 let buttonCriarTarefa = document.getElementById('criar-tarefa');
 let listaTarefasContainer = document.getElementById('lista-tarefas');
 let todasTarefasCriadas = document.getElementsByClassName('tarefa');
+let buttonApagaTudo = document.getElementById('apaga-tudo');
+
+// Campo Input para receber a string com a tarefa
 
 campoInput.addEventListener('input', atualizaValor);
 
@@ -25,6 +28,7 @@ function criarTarefa() {
 };
 
 // Adiciona classe selected para tarefa e altera cor de fundo
+
 function addSelected(click) {
     for (let index = 0; index < todasTarefasCriadas.length; index += 1) {
         let tarefa = todasTarefasCriadas[index];
@@ -33,6 +37,8 @@ function addSelected(click) {
     click.target.classList.toggle('selected');
 };
 
+// Adiciona e remove a classe completed com dois clicks
+
 function addCompleted(dblclick) {
     if (dblclick.target.classList.contains('completed')) {
         dblclick.target.classList.remove('completed');
@@ -40,3 +46,11 @@ function addCompleted(dblclick) {
         dblclick.target.classList.add('completed');
     };
 };
+
+// Botão apaga tudo que limpa todas as tarefas
+
+buttonApagaTudo.addEventListener('click', apagaTudo);
+
+function apagaTudo() {
+   document.location.reload(true);
+}
