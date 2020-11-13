@@ -6,20 +6,17 @@ function createTasks () {
     list.appendChild(listChild);
     let newText = textBox.value;
     listChild.innerText = newText;
-    textBox.value = "";    
+    textBox.value = "";
+    listChild.addEventListener('click', function(){
+        listChild.style.backgroundColor = "rgb(128, 128, 128)";
+    })    
 
 }
-
 
 let button = document.getElementById('criar-tarefa');
 button.addEventListener('click', createTasks);
 
-//requisito 7
-function changeColor(){
-    listChild.style.backgroundColor = "rgb(128,128,128)";
-}
 
-listChild.addEventListener('click', changeColor);
 
 
 
