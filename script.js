@@ -62,47 +62,29 @@ btnApagaLista.addEventListener('click', apagarLista);
 function apagarCompleted() {
   const tamanhoLista = document.getElementsByClassName('completed').length;
   for (let index = 0; index < tamanhoLista; index += 1) {
-    document.getElementsByClassName('completed')[0].outerHTML= '';
+    document.getElementsByClassName('completed')[0].outerHTML = '';
   }
 }
 
 btnApagaCompleted.addEventListener('click', apagarCompleted);
 
-function salvarTarefas() {
-  localStorage.clear();
-  for (let index = 0; index < document.getElementsByClassName("tarefa").length; index += 1) {
-    const valor = document.getElementsByClassName("tarefa")[index].innerText;
-    localStorage.setItem(index, valor);
-  }
-}
-
-btnSalvarTarefas.addEventListener('click', salvarTarefas);
-
-function recuperarTarefas() {
-  if (localStorage.length > 0) {
-    for (let index = 0; index < localStorage.length; index += 1) {
-        const tarefaLi = document.createElement('li');
-        tarefaLi.innerText = localStorage.getItem(index);
-        tarefaLi.className = 'tarefa';
-        listaTarefas.appendChild(tarefaLi);
-    }
-  }
-}
-
-window.onload = recuperarTarefas();
-
 function moverBaixo() {
-  const itemSelecionado = document.getElementsByClassName('selecionado')[0];
-  for (let index = 0; index < listaTarefas.children.length; index += 1) {
-    if(listaTarefas.children[index].innerText === itemSelecionado.innerText) {
-      const proximoItem = listaTarefas.children[index].nextElementSibling;
-      const proximoItemTexto = proximoItem.innerText;
-      const itemSelecTexto = itemSelecionado.innerText;
-
-      itemSelecionado.innerText = proximoItemTexto;
-      proximoItem.innerText = itemSelecTexto;
-      document.querySelector('.selecionado').classList.remove('selecionado');
-      proximoItem.classList.add('selecionado');
+  if (document.getElementsByClassName('selecionado')[0] !== listaTarefas.lastElementChild) {
+    if (document.getElementsByClassName('selecionado')[0] !== undefined) {
+      const itemSelecionado = document.getElementsByClassName('selecionado')[0];
+      for (let index = 0; index < listaTarefas.children.length; index += 1) {
+        if (listaTarefas.children[index].innerText === itemSelecionado.innerText) {
+          const proximoItem = listaTarefas.children[index].nextElementSibling;
+          const proximoItemTexto = proximoItem.innerText;
+          const proximoItemClasse = proximoItem.className;
+          const itemSelecTexto = itemSelecionado.innerText;
+          const itemSelecClasse = itemSelecionado.className;
+          itemSelecionado.innerText = proximoItemTexto;
+          itemSelecionado.className = proximoItemClasse;
+          proximoItem.innerText = itemSelecTexto;
+          proximoItem.className = itemSelecClasse;
+        }
+      }
     }
   }
 }
@@ -110,17 +92,22 @@ function moverBaixo() {
 btnMoverBaixo.addEventListener('click', moverBaixo);
 
 function moverCima() {
-  const itemSelecionado = document.getElementsByClassName('selecionado')[0];
-  for (let index = 0; index < listaTarefas.children.length; index += 1) {
-    if(listaTarefas.children[index].innerText === itemSelecionado.innerText) {
-      const anteriorItem = listaTarefas.children[index].previousElementSibling;
-      const anteriorItemTexto = anteriorItem.innerText;
-      const itemSelecTexto = itemSelecionado.innerText;
-
-      itemSelecionado.innerText = anteriorItemTexto;
-      anteriorItem.innerText = itemSelecTexto;
-      document.querySelector('.selecionado').classList.remove('selecionado');
-      anteriorItem.classList.add('selecionado');
+  if (document.getElementsByClassName('selecionado')[0] !== listaTarefas.firstElementChild) {
+    if (document.getElementsByClassName('selecionado')[0] !== undefined) {
+      const itemSelecionado = document.getElementsByClassName('selecionado')[0];
+      for (let index = 0; index < listaTarefas.children.length; index += 1) {
+        if (listaTarefas.children[index].innerText === itemSelecionado.innerText) {
+          const anteriorItem = listaTarefas.children[index].previousElementSibling;
+          const anteriorItemTexto = anteriorItem.innerText;
+          const anteriorItemClasse = anteriorItem.className;
+          const itemSelecTexto = itemSelecionado.innerText;
+          const itemSelecClasse = itemSelecionado.className;
+          itemSelecionado.innerText = anteriorItemTexto;
+          itemSelecionado.className = anteriorItemClasse;
+          anteriorItem.innerText = itemSelecTexto;
+          anteriorItem.className = itemSelecClasse;
+        }
+      }
     }
   }
 }
@@ -130,8 +117,33 @@ btnMoverCima.addEventListener('click', moverCima);
 function apagarSelecionado() {
   const tamanhoLista = document.getElementsByClassName('selecionado').length;
   for (let index = 0; index < tamanhoLista; index += 1) {
-    document.getElementsByClassName('selecionado')[0].outerHTML= '';
+    document.getElementsByClassName('selecionado')[0].outerHTML = '';
   }
 }
 
 btnApagarSelecionado.addEventListener('click', apagarSelecionado);
+
+function geradorValor() {
+  localStorage.clear();
+  const elemento = document.getElementById('lista-tarefas').children;
+  for (let index = 0; index < elemento.length; index += 1) {
+    const valorElemento = elemento[index].innerText + ' ' + elemento[index].classList.value;
+    localStorage.setItem(index, valorElemento);
+  }
+}
+
+function geradorElemento() {
+  if (localStorage.length > 0) {
+    for (let index = 0; index < localStorage.length; index += 1) {
+      const tarefaLi = document.createElement('li');
+      tarefaLi.innerText = localStorage.getItem(index).split(' ')[0];
+      for (let indexLista = 1; indexLista < localStorage.getItem(index).split(' ').length; indexLista += 1) {
+        tarefaLi.classList.add(localStorage.getItem(index).split(' ')[indexLista]);
+      }
+      listaTarefas.appendChild(tarefaLi);
+    }  
+  }
+}
+
+window.onload = geradorElemento();
+btnSalvarTarefas.addEventListener('click', geradorValor);
