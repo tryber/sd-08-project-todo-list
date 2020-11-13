@@ -13,8 +13,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   height: fit-content;
-  margin-top: 10px;
   justify-content: space-around;
+  margin-top: 10px;
   padding: 10px;
   width: fit-content;
 }

@@ -12,7 +12,7 @@ const btnDown = document.getElementById('mover-baixo');
 
 function adicionaTarefa() {
   btnAdd.addEventListener('click', function () {
-    let task = document.createElement('li');
+    const task = document.createElement('li');
     task.innerHTML = inputTask.value;
     task.className = 'task';
     taskList.appendChild(task);
@@ -51,7 +51,7 @@ riscarTarefa();
 
 function removerFinalizadas() {
   btnRmvFinished.addEventListener('click', function () {
-    let finalizados = document.querySelectorAll('.completed');
+    const finalizados = document.querySelectorAll('.completed');
     for (let index = 0; index < finalizados.length; index += 1) {
       finalizados[index].parentNode.removeChild(finalizados[index]);
     }
@@ -60,7 +60,7 @@ function removerFinalizadas() {
 removerFinalizadas();
 
 function highLightSelected() {
-  let taskListChildren = taskList.children;
+  const taskListChildren = taskList.children;
   taskList.addEventListener('click', function (event) {
     for (let index = 0; index < taskListChildren.length; index += 1) {
       if (taskListChildren[index] === event.target) {
@@ -169,20 +169,20 @@ function hightLightTaskMouseOut() {
 }
 hightLightTaskMouseOut();
 
-function enterAddsTask() {
-  inputTask.addEventListener('keyup', function (event) {
-    eventKeyString = event.key.toString();
-    console.log('You have pressed key: ' + event.key);
-    console.log(eventKeyString);
-    event.preventDefault();
-    if (eventKeyString === 'ArrowDown') {
-      let task = document.createElement('li');
-      task.innerHTML = inputTask.value;
-      task.className = 'task';
-      taskList.appendChild(task);
-      inputTask.value = '';
-      inputTask.style.backgroundColor = 'white';
-    }
-  });
-}
-enterAddsTask();
+// function enterAddsTask() {
+//   inputTask.addEventListener('keyup', function (event) {
+//     eventKeyString = event.key.toString();
+//     console.log('You have pressed key: ' + event.key);
+//     console.log(eventKeyString);
+//     event.preventDefault();
+//     if (eventKeyString === 'ArrowDown') {
+//       let task = document.createElement('li');
+//       task.innerHTML = inputTask.value;
+//       task.className = 'task';
+//       taskList.appendChild(task);
+//       inputTask.value = '';
+//       inputTask.style.backgroundColor = 'white';
+//     }
+//   });
+// }
+// enterAddsTask();
