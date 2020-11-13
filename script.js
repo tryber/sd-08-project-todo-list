@@ -51,16 +51,13 @@ riscarTarefa();
 
 function removerFinalizadas() {
   btnRmvFinished.addEventListener('click', function () {
-    let finalizados = document.getElementsByClassName('completed');
+    let finalizados = document.querySelectorAll('.completed');
     for (let index = 0; index < finalizados.length; index += 1) {
-      finalizados[0].parentNode.removeChild(finalizados[0]);
+      finalizados[index].parentNode.removeChild(finalizados[index]);
     }
   });
 }
 removerFinalizadas();
-// Na função acima não se utilizou o index como normalmente (finalizados[index]), pois,
-// Cada vez que remove uma 'criança', o length diminui, e isso meio que quebra o código
-// Se utilizar o [index].
 
 function highLightSelected() {
   let taskListChildren = taskList.children;
