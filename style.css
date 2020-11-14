@@ -1,0 +1,85 @@
+body {
+  background-color: rgb(47 , 62 , 70);
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 75%;
+  min-width: 450px;
+}
+
+header {
+  background-color: rgb(202 , 210 , 197);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.header-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 75%;
+  padding: 40px 0;
+}
+
+.instruction {
+  display: block;
+  font-size: small;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.input-container input {
+  margin-bottom: 10px;
+  padding: 5px 0;
+  width: 99%;
+}
+
+.list-display {
+  display: inline-block;
+}
+
+.btn-container {
+  border: 2px solid rgb(74 , 109 , 101);
+  margin-right: 16px;
+  padding: 5px;
+  width: 20%;
+}
+
+button {
+  background-color: rgb(202 , 210 , 197);
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  width: 100%;
+}
+
+.list-container {
+  background-color: rgb(202 , 210 , 197);
+  border: 2px solid rgb(74 , 109 , 101);
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 1.4;
+  padding: 15px 0;
+  position: absolute;
+  width: 55%;
+}
+
+.list-container ol {
+  max-height: 215px;
+  overflow: auto;
+}
+
+.list-container li {
+  border-radius: 6px;
+  max-width: 95%;
+  padding-left: 5px;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
