@@ -1,18 +1,13 @@
 body {
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: rgba(255, 255, 255, 0.959);
+  background-color: rgb(235, 235, 235);
   color: rgb(240, 240, 240);
-}
-
-main {
-  border: 5px solid rgb(49, 49, 49);
-  background-color: rgba(88, 88, 88, 0.931);
   width: 50%;
 }
 
 .container {
   border: 3px solid rgba(0, 0, 0, 0.349);
-  background-color: rgba(22, 22, 22, 0.705);
+  background-color: rgba(0, 0, 0, 0.876);
   margin: 5px;
   padding: 5px;
   min-height: 35px;
@@ -20,14 +15,14 @@ main {
 
 header {
   border: 3px solid rgba(0, 0, 0, 0.349);
-  background-color: rgba(22, 22, 22, 0.705);
+  background-color: rgba(0, 0, 0, 0.876);
   margin: 5px;
   padding: 20px;
 }
 
 #instrucoes {
   border: 3px solid rgba(0, 0, 0, 0.349);
-  background-color: rgba(22, 22, 22, 0.705);
+  background-color: rgba(0, 0, 0, 0.876);
   margin: 5px;
   padding: 20px;
 }

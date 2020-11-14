@@ -79,6 +79,7 @@ const loadTasks = () => {
 };
 
 const moveUp = () => {
+  const list = document.getElementById('lista-tarefas');
   //
 };
 
