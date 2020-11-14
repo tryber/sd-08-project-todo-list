@@ -1,13 +1,24 @@
 // Criar Tarefa
 document.getElementById('criar-tarefa').addEventListener('click', () => {
-  const taskText = document.getElementById('texto-tarefa').value;
-  document.getElementById('texto-tarefa').value = '';
-  document.getElementById('lista-tarefas').innerHTML += `<li class='task'>${taskText.trim()} </li>`;
+  const taskText = document.getElementById('texto-tarefa').value || '';
+
+  if (taskText.trim() !== '') {
+    setTimeout(() => {
+      document.getElementById('texto-tarefa').value = '';
+    }, 100);
+    setTimeout(() => {
+      document.getElementById(
+        'lista-tarefas'
+      ).innerHTML += `<li class='task'>${taskText.trim()} </li>`;
+    }, 200);
+  }
 });
 
 // Remover Todas
 document.getElementById('apaga-tudo').addEventListener('click', () => {
-  document.getElementById('lista-tarefas').innerHTML = '';
+  setTimeout(() => {
+    document.getElementById('lista-tarefas').innerHTML = '';
+  }, 200);
 });
 
 // Seleciona
