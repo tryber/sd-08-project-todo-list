@@ -46,10 +46,13 @@ button.addEventListener('click', function () {
 ol.addEventListener('click', function (event) {
     const listItem = document.querySelectorAll('.task');
 
-    for (let i = 0; i < listItem.length; i += 1) {
-        listItem[i].style.backgroundColor = 'white';
+    if (event.target.className === 'task') {
+        for (let i = 0; i < listItem.length; i += 1) {
+            listItem[i].style.backgroundColor = 'white';
+        }
+        event.target.style.backgroundColor = 'rgb(128,128,128)';
     }
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
+
 });
 
 /* ---------------------------- REQUISITO 09 ---------------------------- */
@@ -103,7 +106,7 @@ removeItem.id = 'remover-selecionado';
 removeItem.innerHTML = 'Apaga Item Selecionado';
 buttonClearFinished.parentNode.insertBefore(removeItem, buttonClearFinished.nextSibling);
 
-removeItem.addEventListener('click', function (event) {
+removeItem.addEventListener('click', function () {
     const liItem = document.querySelectorAll('.task');
     for (let i = 0; i < liItem.length; i += 1) {
         if (liItem[i].style.backgroundColor === 'rgb(128, 128, 128)') {
@@ -124,11 +127,31 @@ buttonDown.id = 'mover-baixo';
 buttonDown.innerHTML = '&darr;';
 buttonSaveTask.parentNode.insertBefore(buttonDown, buttonSaveTask.nextSibling);
 
-buttonUp.addEventListener('click', function (event) {
+buttonUp.addEventListener('click', function () {
+    const liItem = document.querySelectorAll('.task');
+    let select;
+    let previous;
+    let next;
+    for (let i = 0; i < liItem.length; i += 1) {
+        if (liItem[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+            select = liItem[i].outerHTML;
+            previous = liItem[i - 1].outerHTML;
 
+            liItem[i].outerHTML = previous;
+            liItem[i - 1].outerHTML = select;
+        }
+    }
 });
 
-buttonDown.addEventListener('click', function (event) {
+buttonDown.addEventListener('click', function () {
+    const liItem = document.querySelectorAll('.task');
+    for (let i = 0; i < liItem.length; i += 1) {
+        if (liItem[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+            select = liItem[i].outerHTML;
+            next = liItem[i + 1].outerHTML
 
+            liItem[i].outerHTML = next;
+            liItem[i + 1].outerHTML = select;
+        }
+    }
 });
-
