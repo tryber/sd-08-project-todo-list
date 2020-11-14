@@ -88,39 +88,3 @@ const moveDown = () => {
 };
 
 document.onload = loadTasks();
-
-/*
-
-function moveUp() {
-  const lista = document.querySelector('#lista-tarefas');
-  const btnMoveUp = document.querySelector('#mover-cima');
-  btnMoveUp.addEventListener('click', () => {
-    if (document.querySelector('.selected')) {
-      const itemSelected = document.querySelectorAll('.selected');
-      if (itemSelected[0].previousElementSibling !== null) {
-        const previousItem = itemSelected[0].previousElementSibling.outerHTML;
-        itemSelected[0].previousElementSibling.outerHTML = itemSelected[0].outerHTML;
-        itemSelected[0].outerHTML = previousItem;
-      }
-    }
-  });
-}
-moveUp();
-
-function moveDown() {
-  const lista = document.querySelector('#lista-tarefas');
-  const btnMoveDown = document.querySelector('#mover-baixo');
-  btnMoveDown.addEventListener('click', () => {
-    if (document.querySelector('.selected')) {
-      const itemSelected = document.querySelectorAll('.selected');
-      if (itemSelected[0].nextElementSibling !== null) {
-        const nextItem = itemSelected[0].nextElementSibling.outerHTML;
-        itemSelected[0].nextElementSibling.outerHTML = itemSelected[0].outerHTML;
-        itemSelected[0].outerHTML = nextItem;
-      }
-    }
-  });
-}
-moveDown();
-
-*/
