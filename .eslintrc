@@ -1,15 +1,69 @@
 {
-  "extends": "airbnb",
   "rules": {
-    "no-alert": "off",
-    "prefer-arrow-callback": "off",
-    "func-names": "off",
-    "arrow-parens": [2, "always"],
-    "no-param-reassign": "off"
+    "global-require": "off",
+    "func-names": [
+      "error",
+      "never"
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "clear",
+          "warn",
+          "log",
+          "error"
+        ]
+      }
+    ],
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "space-before-function-paren": [
+      2,
+      {
+        "anonymous": "always",
+        "named": "never"
+      }
+    ],
+    "no-use-before-define": [
+      2,
+      "nofunc"
+    ],
+    // TODO: turn on later
+    "comma-dangle": [
+      0
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "no-underscore-dangle": [
+      0
+    ]
   },
   "env": {
-    "browser": true,
     "node": true,
-    "jest": true
-  }
+    "mocha": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base"
+  ]
 }
