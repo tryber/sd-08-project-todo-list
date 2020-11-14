@@ -18,8 +18,7 @@ const colorItem = document.querySelectorAll('.lista');
 // colorItem.addEventListener('click', paintTask);
 
 function paintTask(event) {
-    event.target.style.backgroundColor = 'rgb(128,128,128)'
-    
+    event.target.style.backgroundColor = 'rgb(128,128,128)'   
 }
 
 function taskComplete(event) {
