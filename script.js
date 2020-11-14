@@ -106,7 +106,7 @@ buttonClearFinished.parentNode.insertBefore(removeItem, buttonClearFinished.next
 removeItem.addEventListener('click', function (event) {
     const liItem = document.querySelectorAll('.task');
     for (let i = 0; i < liItem.length; i += 1) {
-        if (event.target.style.backgroundColor === 'rgb(128, 128, 128)') {
+        if (liItem[i].style.backgroundColor === 'rgb(128, 128, 128)') {
             liItem[i].remove();
         }
     }
