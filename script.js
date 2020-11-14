@@ -9,6 +9,7 @@ function newTask () {
     createList.addEventListener('dblclick', taskComplete)
     createList.innerText = caixaTexto.value;
     newTaskContainer.appendChild(createList);
+    document.getElementById('texto-tarefa').value = '';
 }
 
 eventButton.addEventListener('click', newTask)
