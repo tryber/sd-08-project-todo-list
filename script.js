@@ -9,7 +9,7 @@ document.getElementById('criar-tarefa').addEventListener('click', () => {
   if (taskText.trim() !== '') {
     document.getElementById(
       'lista-tarefas'
-    ).innerHTML += `<li class='task'>${taskText.trim()} </li>`;
+    ).innerHTML += `<li class='task'>${taskText.trim()}</li>`;
     document.getElementById('texto-tarefa').value = '';
   }
 });
