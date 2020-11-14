@@ -1,27 +1,28 @@
-
 body {
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: rgb(17, 17, 17);
-  color: aliceblue;
+  background-color: rgb(39, 39, 39);
+  color: rgb(212, 212, 212);
 }
 
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 button {
-background-color: rgb(61, 136, 52);
-border: 1px solid black;
-min-height: 30px;
-min-width: 40px;
-border-radius: 25px;
+  background-color: rgb(16, 156, 0);
+  border: 1px solid black;
+  min-height: 30px;
+  min-width: 40px;
+  border-radius: 5px;
 }
 
 input {
-background-color: rgb(200, 231, 196);
-border: 1px solid black;
-min-height: 30px;
-min-width: 200px;
-border-radius: 25px;
-font-weight: 400;
+  background-color: rgb(232, 250, 229);
+  border: 1px solid black;
+  min-height: 30px;
+  min-width: 200px;
+  border-radius: 5px;
+  font-weight: 400;
+  text-decoration: none;
+  overflow: hidden;
 }
