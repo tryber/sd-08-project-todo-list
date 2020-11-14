@@ -2,7 +2,7 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   background-color: rgb(235, 235, 235);
   color: rgb(240, 240, 240);
-  width: 50%;
+  width: 70%;
 }
 
 .container {
@@ -116,11 +116,11 @@ button:focus {
 }
 
 #mover-cima {
-  width: 40px;
+  width: 60px;
 }
 
 #mover-baixo {
-  width: 40px;
+  width: 60px;
 }
 
 #remover-finalizados {
