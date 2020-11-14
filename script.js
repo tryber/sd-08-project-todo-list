@@ -92,58 +92,56 @@ function getSavedList() {
   if (localSavedList != null) {
     const savedListItem = JSON.parse(localSavedList);
 
-    function addSavedList() {
-      for (let j = 0; j < savedListItem.length; j += 1) {
-        const aux = savedListItem[j];
-        const createLi = document.createElement('li');
-        createLi.innerHTML = aux[0];
-        createLi.className = aux[1];
-        orderedList.appendChild(createLi);
-      }
+    for (let j = 0; j < savedListItem.length; j += 1) {
+      const aux = savedListItem[j];
+      const createLi = document.createElement('li');
+      createLi.innerHTML = aux[0];
+      createLi.className = aux[1];
+      orderedList.appendChild(createLi);
     }
-    addSavedList();
   }
 }
 getSavedList();
 
-function moveTarefas() {
-  const upBtn = document.querySelector('#mover-cima');
-  const downBtn = document.querySelector('#mover-baixo');
+function verifySelected(nodeArray) {
+  let sel = 0;
+  for (let index = 0; index < nodeArray.length; index += 1) {
+    if (nodeArray[index].classList.contains('selected')) {
+      sel = index;
+    }
+  }
+  return sel;
+}
 
+function moveUpTarefas() {
+  const upBtn = document.querySelector('#mover-cima');
 
   upBtn.addEventListener('click', function () {
     const olNodeList = document.querySelectorAll('.tarefa');
     let sel = 0;
-
     if (document.querySelector('.selected') != null) {
-      for (let k = 0; k < olNodeList.length; k += 1) {
-        if (olNodeList[k].classList.contains('selected')) {
-          sel = k;
-        }
-      }
-
+      sel = verifySelected(olNodeList);
       if (sel > 0) {
         olNodeList[sel].parentElement.insertBefore(olNodeList[sel], olNodeList[sel - 1]);
       }
     }
   });
+}
+
+function moveDownTarefas() {
+  const downBtn = document.querySelector('#mover-baixo');
 
   downBtn.addEventListener('click', function () {
     const olNodeList = document.querySelectorAll('.tarefa');
     let sel = 0;
-
     if (document.querySelector('.selected') != null) {
-      for (let k = 0; k < olNodeList.length; k += 1) {
-        if (olNodeList[k].classList.contains('selected')) {
-          sel = k;
-        }
-      }
-
+      sel = verifySelected(olNodeList);
       olNodeList[sel].parentElement.insertBefore(olNodeList[sel], olNodeList[sel + 2]);
     }
   });
 }
-moveTarefas();
+moveUpTarefas();
+moveDownTarefas();
 
 function deleteItem() {
   const btnDeleteItem = document.querySelector('#remover-selecionado');

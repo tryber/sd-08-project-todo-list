@@ -7,26 +7,34 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-    <span id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</span>
-  </header>
-  <section>
-    <input
-      id="texto-tarefa"
-      type="text"
-      placeholder="Escreva a tarefa >">
-    <button id="criar-tarefa">Adicionar</button>
-    <button id="apaga-tudo">Apagar Lista</button>
-    <button id="remover-finalizados">Remover Finalizadas</button>
-    <button id="salvar-tarefas">Salvar lista</button>
-    <button id="mover-cima">Mover p/ cima</button>
-    <button id="mover-baixo">Mover p/ baixo</button>
-    <button id="remover-selecionado">Remove Item</button>
-  </section>
-  <section>
-    <ol id="lista-tarefas"></ol>
-  </section>
+  <main>
+    <header>
+      <div class="header-container">
+        <h1>Minha Lista de Tarefas</h1>
+        <span class="funcionamento">Escreva a tarefa e adicione à lista</span>
+        <span class="funcionamento">Clique na tarefa para selecionar</span>
+        <span class="funcionamento">Clique duas vezes em um item para marcá-lo como completo</span>
+      </div>
+    </header>
+    <section class="input-container">
+      <input
+        id="texto-tarefa"
+        type="text"
+        placeholder="Escreva a tarefa >">
+    </section>
+    <section class="btn-container list-display">
+        <button id="criar-tarefa" class="btn-width">Adicionar</button>
+        <button id="mover-cima" class="btnMove-container">Mover p/ cima</button>
+        <button id="mover-baixo" class="btnMove-container">Mover p/ baixo</button>
+        <button id="salvar-tarefas">Salvar lista</button>
+        <button id="apaga-tudo">Apagar Lista</button>
+        <button id="remover-selecionado">Remover Item</button>
+        <button id="remover-finalizados">Remover Completas</button>
+    </section>
+    <section class="list-container list-display">
+      <ol id="lista-tarefas"></ol>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
