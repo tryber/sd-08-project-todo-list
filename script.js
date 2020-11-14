@@ -6,22 +6,27 @@ function newTask () {
     const createList = document.createElement('li');
     createList.className = 'lista';
     createList.addEventListener('click', paintTask);
-    createList.addEventListener('dblclick', taskComplete)
+    createList.addEventListener('dblclick', taskComplete);
     createList.innerText = caixaTexto.value;
     newTaskContainer.appendChild(createList);
     document.getElementById('texto-tarefa').value = '';
+    console.log(createList)
 }
 
 eventButton.addEventListener('click', newTask)
 
 const colorItem = document.querySelectorAll('.lista');
-// colorItem.addEventListener('click', paintTask);
 
 function paintTask(event) {
     event.target.style.backgroundColor = 'rgb(128,128,128)'   
 }
 
-function taskComplete(event) {
-    let alemento = event.target
+ function taskComplete(event) {
+    const elemento = event.target;
+    if (elemento.classList.contains('completed')) {
+        elemento.classList.remove('completed')
+    } else {
+        elemento.classList.add('completed')
+    }
 
 }

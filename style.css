@@ -44,3 +44,7 @@ body {
 #criar-tarefa:hover {
     border: 2px solid rgb(56, 52, 52);
 }
+
+.completed {
+    text-decoration: line-through;
+}
