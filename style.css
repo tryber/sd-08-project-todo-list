@@ -1,0 +1,7 @@
+* {
+ margin:10px;
+}
+.completed {
+    text-decoration: line-through solid;
+    color:rgb(0, 0, 0);
+}
