@@ -48,7 +48,6 @@ function tarefaCompleada(event) {
     elemento.classList.add('completed');
   }
 }
-
 function removeApenasFinalizados(event) {
   let apagaConcluidos = document.querySelectorAll('.completed');
   apagaConcluidos.forEach((item)=>{
