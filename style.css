@@ -60,9 +60,9 @@ ol {
   list-style: none;
 }
 
-li:focus {
+/* li:focus {
   outline: none;
-}
+} */
 
 li {
   border: 1px solid rgba(8, 8, 8, 0.431);
@@ -71,15 +71,15 @@ li {
   display: block;
 }
 
-li:before {
+/* li:before {
   content: ">";
   padding-right: 10px;
   color: rgb(57, 243, 0);
-}
+} */
 
-li:hover {
+/* li:hover {
   background-color: rgba(128, 128, 128, 0.561);
-}
+} */
 
 .completed {
   text-decoration: line-through;
