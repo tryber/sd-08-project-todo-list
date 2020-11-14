@@ -36,15 +36,15 @@ function itemSelected() {
 itemSelected();
 function completedItem() {
     orderList.addEventListener('dblclick', function (event) {
-      const completedListItem = document.querySelector(".tarefa.completed");
+      const completedListItem = document.querySelector(".tarefa.selected.completed");
       if (completedListItem === null) {
-        event.target.className = 'tarefa completed';
+        event.target.className = 'tarefa selected completed';
       } else {
-        event.target.className = 'tarefa';
+        event.target.className = 'tarefa selected';
       }
     });
   };
-  completedItem();
+completedItem();
   function deleteList() {
     const btnDeleteAll = document.querySelector('#apaga-tudo');
     btnDeleteAll.addEventListener('click', function () {
@@ -53,4 +53,15 @@ function completedItem() {
       }
     });
   }
-  deleteList();
+deleteList();
+  function deleteCompletedItens() {
+    const btnDeleteItens = document.querySelector('#remover-finalizados');
+  
+    btnDeleteItens.addEventListener('click', function () {
+      let completedListItem = document.getElementsByClassName('completed');
+      while(completedListItem.length > 0) {
+        completedListItem[0].parentNode.removeChild(completedListItem[0]);
+      }
+    });
+  };
+deleteCompletedItens();
