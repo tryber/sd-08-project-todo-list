@@ -1,3 +1,27 @@
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: rgb(17, 17, 17);
+  color: aliceblue;
+}
+
 .completed {
     text-decoration: line-through;
+}
+
+button {
+background-color: rgb(61, 136, 52);
+border: 1px solid black;
+min-height: 30px;
+min-width: 40px;
+border-radius: 25px;
+}
+
+input {
+background-color: rgb(200, 231, 196);
+border: 1px solid black;
+min-height: 30px;
+min-width: 200px;
+border-radius: 25px;
+font-weight: 400;
 }
