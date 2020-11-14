@@ -16,8 +16,18 @@
 
      function corDeFundo(event) {
         let  linha =document.querySelectorAll('li');
-        for (let index = 0; index < linha.length;index += 1){
+             for (let index = 0; index < linha.length;index += 1){
                 linha[index].style.backgroundColor = 'white';
         }
         event.target.style.backgroundColor ='rgb(128,128,128)'
     }
+
+    listaOrdenada.addEventListener ('dblclick', function(evento){
+    	  const completed = evento.target;
+    	  if (completed.classList.contains('completed')) {
+        completed.classList.remove('completed');
+          } else {
+            completed.classList.add('completed');
+              }
+            }) ;
+       
