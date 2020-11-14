@@ -2,7 +2,8 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   background-color: rgb(32, 32, 32);
   color: rgb(240, 240, 240);
-  width: 55%;
+  width: 53%;
+  padding: 10px;
 }
 
 .container {
@@ -21,8 +22,6 @@ header {
 #instrucoes {
   border: 3px solid rgba(0, 0, 0, 0.349);
   background-color: rgba(0, 0, 0, 0.876);
-  margin: 5px;
-  padding: 20px;
 }
 
 #tarefas {
