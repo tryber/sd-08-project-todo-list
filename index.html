@@ -11,21 +11,37 @@
 </head>
 
 <body>
-    <header>Lista de Tarefas</header>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <main>
+        <!-- Header -->
+        <header>
+            <h1>Lista de Tarefas</h1>
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        </header>
 
-    <input id="texto-tarefa" type="text">
-    <button id="criar-tarefa">Acionar</button>
 
-    <ol id="lista-tarefas"></ol>
+        <!-- Menu 1 -->
+        <div id='menu1' class='container'>
+            <input id="texto-tarefa" type="text">
+            <button id="criar-tarefa">Acionar</button>
+        </div>
 
-    <button id="apaga-tudo">Apagar tudo</button>
-    <button id="remover-selecionado">Remover Selecionado</button>
-    <button id="mover-cima">&uarr;</button>
-    <button id="mover-baixo">&darr;</button>
-    <button id="remover-finalizados">Remover Finalizados</button>
-    <button id="salvar-tarefas">Salvar</button>
+        <!-- Lista de Tarefas -->
+        <div id='tarefas' class='container'>
+            <ol id="lista-tarefas">
 
+            </ol>
+        </div>
+
+        <!-- Menu 2 -->
+        <div id='menu2' class='container'>
+            <button id="apaga-tudo">Apagar tudo</button>
+            <button id="remover-selecionado">Remover Selecionado</button>
+            <button id="mover-cima">&uarr;</button>
+            <button id="mover-baixo">&darr;</button>
+            <button id="remover-finalizados">Remover Finalizados</button>
+            <button id="salvar-tarefas">Salvar</button>
+        </div>
+    </main>
     <script src="script.js"></script>
 </body>
 
