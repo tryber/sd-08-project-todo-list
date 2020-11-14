@@ -36,5 +36,5 @@ function changeColor(event) {
 // }
 // elementScratched();
 function captureInput(event){
-  event.target.classList.toggle("completed");
+  event.target.classList.toggle("completed")
 }
