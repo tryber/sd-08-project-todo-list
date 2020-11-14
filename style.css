@@ -1,23 +1,21 @@
 body {
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(32, 32, 32);
   color: rgb(240, 240, 240);
   width: 55%;
 }
 
 .container {
   border: 3px solid rgba(0, 0, 0, 0.349);
-  background-color: rgba(0, 0, 0, 0.876);
+  background-color: rgb(17, 17, 17);
   margin: 5px;
-  padding: 5px;
-  min-height: 35px;
+  padding: 10px;
 }
 
 header {
-  border: 3px solid rgba(0, 0, 0, 0.349);
-  background-color: rgba(0, 0, 0, 0.876);
   margin: 5px;
-  padding: 20px;
+  padding: 10px;
+  min-height: auto;
 }
 
 #instrucoes {
@@ -60,9 +58,9 @@ ol {
   list-style: none;
 }
 
-/* li:focus {
+li:focus {
   outline: none;
-} */
+}
 
 li {
   border: 1px solid rgba(8, 8, 8, 0.431);
@@ -71,15 +69,15 @@ li {
   display: block;
 }
 
-/* li:before {
+li:before {
   content: ">";
   padding-right: 10px;
   color: rgb(57, 243, 0);
-} */
+}
 
-/* li:hover {
+li:hover {
   background-color: rgba(128, 128, 128, 0.561);
-} */
+}
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0)
