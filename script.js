@@ -23,11 +23,11 @@
     }
 
     listaOrdenada.addEventListener ('dblclick', function(evento){
-    	  const completed = evento.target;
-    	  if (completed.classList.contains('completed')) {
-        completed.classList.remove('completed');
+    	  let classe = evento.target;
+    	  if (classe.classList.contains('completed')) {
+        classe.classList.remove('completed');
           } else {
-            completed.classList.add('completed');
+            classe.classList.add('completed');
               }
             }) ;
        
