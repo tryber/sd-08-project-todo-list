@@ -20,17 +20,15 @@ function insereElementoNaLista() {
   doubleClick(Item);
 }
 // Ao clicar no botão salva o texto na lista e apaga conteúdo do input
-document.getElementById("criar-tarefa").onclick = function (e) {
-  insereElementoNaLista();
-  e.preventDefault();
+document.getElementById("criar-tarefa").onclick = function () {
+  insereElementoNaLista(); 
 };
-document.getElementById("criar-tarefa").keyup = function (e) {
-  insereElementoNaLista();
-  e.preventDefault();
-};
-
-
-
+//Ao pressionar a tecla enter também é acionada a função de inserir tarefa
+document.getElementById("texto-tarefa").addEventListener("keyup", function (event){
+    if (event.key === "Enter") {
+      insereElementoNaLista(); 
+    } 
+})
 //Mover para cima as tarefas
 document.getElementById('mover-cima').addEventListener('click', function () {
   let listaAtual = document.querySelector('#lista-tarefas').children;
@@ -43,12 +41,13 @@ document.getElementById('mover-cima').addEventListener('click', function () {
         let itemAtualText = document.querySelector('.list-item-active').innerText   
         let itemPosterior = document.querySelector('.list-item-active').previousElementSibling
         let itemPosteriorText = document.querySelector('.list-item-active').previousElementSibling.innerText
-        var aText = itemPosteriorText;    
+        let aText = itemPosteriorText;    
        
         itemPosterior.className ='list-item-active'
         itemPosterior.innerText = itemAtualText
         itemAtual.className = 'list-item'
         itemAtual.innerText = aText
+        break
       }else {         
         alert('Não há itens acima') 
       }   
@@ -67,12 +66,15 @@ document.getElementById('mover-baixo').addEventListener('click', function () {
         let itemAtualText = document.querySelector('.list-item-active').innerText   
         let itemAnterior = document.querySelector('.list-item-active').nextElementSibling
         let itemAnteriorText = document.querySelector('.list-item-active').nextElementSibling.innerText
-        var aText = itemAnteriorText;           
+        let aText = itemAnteriorText;           
         itemAnterior.className ='list-item-active'
         itemAnterior.innerText = itemAtualText
         itemAtual.className = 'list-item'
         itemAtual.innerText = aText
-      }  
+        break
+      }else {         
+        alert('Não há itens abaixo') 
+      } 
     } 
   } 
 })
