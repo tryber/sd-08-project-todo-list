@@ -1,4 +1,23 @@
-const lista = [];
+let lista = [];
+let retornoStorage = localStorage.getItem("lista")
+let arrayStorage = retornoStorage.split(",")
+lista=retornoStorage.split(",")
+
+function storage(){
+  let li_ID = document.getElementById("lista-tarefas");
+//Cria a lista a partir do retorno do session storage
+  for (let i = 0; i < arrayStorage.length; i++){  
+  let Item = document.createElement("li");
+  Item.classList.add("list-item");
+  Item.innerHTML = arrayStorage[i];  
+  li_ID.appendChild(Item)  
+}
+
+setColor();
+
+  // doubleClick(Item);
+} storage();
+
 // Insere elemento na lista
 function insereElementoNaLista() {
   let inputText = document.getElementById("texto-tarefa").value;
@@ -6,6 +25,7 @@ function insereElementoNaLista() {
   let Item = document.createElement("li");
   Item.classList.add("list-item");
   let ultimoElemento;
+  
   //Verifica se o input text está vazio
   if (inputText !== "") {
     lista.push(document.getElementById("texto-tarefa").value);
@@ -19,6 +39,18 @@ function insereElementoNaLista() {
   setColor();
   doubleClick(Item);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 // Ao clicar no botão salva o texto na lista e apaga conteúdo do input
 document.getElementById("criar-tarefa").onclick = function () {
   insereElementoNaLista(); 
@@ -164,3 +196,11 @@ botaoApagaTarefaSelecionada.onclick = () => {
     alert("\t Não há itens na lista! \t");
   }
 };
+//Botão para salvar o array lista, com os valores de cada li
+document.getElementById("salvar-tarefas").addEventListener("click", function(){   
+  localStorage.setItem("lista",lista)   
+})
+
+
+
+
