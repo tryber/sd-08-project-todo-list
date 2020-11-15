@@ -3,6 +3,12 @@ const eventButton = document.querySelector('#criar-tarefa');
 const newTaskContainer = document.querySelector('#lista-tarefas');
 
 function paintTask(event) {
+    let colorTask = document.querySelectorAll('.lista')
+    for (let index = 0; index < colorTask.length; index += 1) {
+       if (colorTask[index].getAttribute('style')) {
+           colorTask[index].removeAttribute('style');
+       }
+    }
     event.target.style.backgroundColor = 'rgb(128,128,128)'
 }
 
