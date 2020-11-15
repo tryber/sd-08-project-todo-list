@@ -71,7 +71,6 @@ const moveSelectedPos = (pos = 0) => {
   if (pos !== 0) {
     const list = document.getElementById('lista-tarefas').children;
     for (let i = 0; i < list.length; i++) {
-      //
       if (list[i].classList.contains('selected')) {
         if (i >= 0 || i <= list.length) {
           const sel = {
