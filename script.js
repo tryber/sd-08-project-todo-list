@@ -134,7 +134,7 @@ function buttonMoveDn() {
             if (e.hasAttribute('style') && key < tamanhoLista - 1) {
                 getOl.insertBefore(e, getLi[key + 2]);
                 console.log(e)
-                console.log( getLi[key + 2])
+                console.log(getLi[key + 2])
             }
             if (e.hasAttribute('style') && key === tamanhoLista -1){
                 console.log('INDICE --> ' + key + ' --- CONTADOR -> ' + key + 1);
@@ -144,7 +144,23 @@ function buttonMoveDn() {
     })
 }
 
-
+function deleteSelect(){
+    let getList = document.querySelector('#lista-tarefas');
+    let btnDelete = document.querySelector('#remover-selecionado');
+    let color = `rgb(${128}, ${128}, ${128})`;
+    console.log(getList)
+    btnDelete.addEventListener('click', (ev) =>{
+        for(let el of getList.children){
+            if(el.hasAttribute("style")){
+               if(window.getComputedStyle(el).backgroundColor === color){
+                console.log(el)
+                console.log(window.getComputedStyle(el).backgroundColor)
+                getList.removeChild(el)
+               }
+            }
+        }
+    })
+}
 
 //INICIA TODAS AS FUNÇÕES
 window.onload = function () {
@@ -157,4 +173,5 @@ window.onload = function () {
     loadingDate();
     buttonMoveUp();
     buttonMoveDn();
+    deleteSelect();
 }

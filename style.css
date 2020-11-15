@@ -157,3 +157,16 @@ button {
     cursor: pointer;
     background-color: rgba(255, 68, 0, 0.795);
 }
+
+#remover-selecionado {
+    background-color: brown;
+}
+
+#remover-selecionado:focus {
+    outline: none;
+}
+
+#remover-selecionado:hover {
+    cursor: pointer;
+    background-color: rgba(160, 56, 56, 0.801);
+}
