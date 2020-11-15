@@ -1,65 +1,90 @@
-*{
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    color: rgb(83, 75, 75);
+* {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: rgb(83, 75, 75);
 }
-.center{  
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgb(245, 238, 238);
-    padding: 10px;
-    width: 60%;
-    margin: auto;    
+h1 {
+  text-shadow: 1px 1px 4px rgba(136, 148, 170, 0.623);
+  letter-spacing: 2px;
 }
-button{
-    transition: 0.2s;
-    margin: 0 10px;
-    padding: 3px 15px;
-    border: 2px solid rgb(218, 209, 209);
-    box-shadow: 0px 3px 8px rgb(224, 217, 217)    
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(226, 217, 217);
+  padding: 10px;
+  width: 80%;
+  margin: auto;
 }
-button:hover{
-    border: 2px solid rgba(255, 46, 46, 0.596);
-    box-shadow: 0px 3px 15px rgb(216, 178, 178);
-    border-radius: 3px;
-    cursor: pointer;
+button {
+  transition: 0.2s;
+  margin: 0 10px;
+  padding: 3px 15px;
+  border: 2px solid rgb(218, 209, 209);
+  box-shadow: 0px 3px 8px rgb(224, 217, 217);
 }
-#lista{
-    width:40%;
-    /* border:1px solid rgb(233, 224, 224); */
-    margin: auto;
-    
+button:hover {
+  border: 2px solid rgba(255, 46, 46, 0.596);
+  box-shadow: 0px 3px 15px rgb(185, 101, 101);
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
 }
-.list-item{
-    background-color: rgb(244, 247, 247);
-    transition: 0.5s;
-    margin-right: 45px ;
+#lista {
+  width: 40%;
+  /* border:1px solid rgb(233, 224, 224); */
+  margin: auto;
+  transition: 0.5s;
 }
-.list-item-active{
-    background-color: rgb(128,128,128);
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    margin-right: 45px;
-    
+.list-item {
+  background-color: rgb(244, 247, 247);
+  transition: 0.5s;
+  margin-right: 45px;
 }
-.completed{
-    text-decoration: line-through solid rgb(0,0,0);
-    border-bottom: 2px dashed rgb(9, 155, 41);
-    background-color: rgba(62, 250, 62, 0.664);
-    transition: 0.5s;
+.list-item-active {
+  background-color: rgb(128, 128, 128);
+  color: rgb(255, 255, 255);
+  /* font-weight: bold; */
+  margin-right: 45px;
+  border: 2px solid rgb(240, 89, 89);
+  border-radius: 5px;
 }
-#texto-tarefa{
-    width: 90%;
-    border: 2px solid rgb(199, 194, 194);
-    border-radius: 3px;
-    padding:5px;
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+  border-bottom: 2px dashed rgb(9, 155, 41);
+  background-color: rgba(62, 250, 62, 0.664);
+  transition: 0.5s;
 }
-li{
-    border-bottom: 2px dashed rgba(255, 0, 0, 0.336);
-    list-style: none;
-    cursor: pointer;
-    margin: 5px;
-    border-radius: 3px;  
-    padding: 1px 10px;  
+#texto-tarefa {
+  width: 90%;
+  border: 2px solid rgba(255, 255, 255, 0.747);
+  border-radius: 3px;
+  padding: 5px;
+  outline: none;
+  transition: 0.5s;
+}
+#texto-tarefa:focus {
+  border: 2px dashed rgba(255, 46, 46, 0.596);
+  background-color: rgba(255, 46, 46, 0.055);
+  outline: none;
+  transition: 0.5s;
+  border-radius: 12px;
+}
+li {
+  border-bottom: 2px dashed rgba(255, 0, 0, 0.336);
+  background-color: rgb(212, 190, 190);
+  list-style: none;
+  cursor: pointer;
+  margin: 5px;
+  /* border-radius: 3px;   */
+  padding: 1px 10px;
+}
+#container {
+  margin: 50px auto;
+  width: 80%;
+  background-color: rgb(233, 230, 230);
+  padding: 30px;
+  border: 2px solid rgb(196, 193, 193);
+  border-radius: 10px;
+  box-shadow: 0px 3px 8px rgb(224, 217, 217);
 }
