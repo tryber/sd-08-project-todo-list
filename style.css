@@ -46,6 +46,10 @@ input {
   padding-right: 5px;
 }
 
+.bug {
+  background-color: rgba(255, 17, 17, 0.397);
+}
+
 .task {
   font-size: 20px;
   width: 90%;
