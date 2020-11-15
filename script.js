@@ -57,12 +57,52 @@ document.getElementById('remover-finalizados').addEventListener('click', () => {
   });
 });
 
+// move up
+document.getElementById('mover-cima').addEventListener('click', () => {
+  const list = document.getElementById('lista-tarefas').children;
+  try {
+    for (let i = 0; i < list.length; i++) {
+      //
+      if (list[i].classList.contains('selected')) {
+        settings.selected = null;
+        list[i].classList.remove('selected');
+        const sel = list[i].innerHTML;
+        const aux = list[i - 1].innerHTML;
+        list[i].innerHTML = aux;
+        list[i - 1].innerHTML = sel;
+        break;
+      }
+    }
+  } catch (error) {
+    return 0;
+  }
+});
+
+// move down
+document.getElementById('mover-baixo').addEventListener('click', () => {
+  const list = document.getElementById('lista-tarefas').children;
+  try {
+    for (let i = 0; i < list.length; i++) {
+      //
+      if (list[i].classList.contains('selected')) {
+        settings.selected = null;
+        list[i].classList.remove('selected');
+        const sel = list[i].innerHTML;
+        const aux = list[i + 1].innerHTML;
+        list[i].innerHTML = aux;
+        list[i + 1].innerHTML = sel;
+        break;
+      }
+    }
+  } catch (error) {
+    return 0;
+  }
+});
+
 // save tanks
 document.getElementById('salvar-tarefas').addEventListener('click', () => {
   localStorage.clear();
-
   const content = document.getElementById('lista-tarefas').innerHTML;
-
   localStorage.setItem('tasks', content);
 });
 
@@ -74,15 +114,6 @@ const loadTasks = () => {
     element.classList.remove('selected');
   });
   settings.selected = null;
-};
-
-const moveUp = () => {
-  const list = document.getElementById('lista-tarefas');
-  //
-};
-
-const moveDown = () => {
-  //
 };
 
 document.onload = loadTasks();
