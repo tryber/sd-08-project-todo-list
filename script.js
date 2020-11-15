@@ -113,10 +113,11 @@ function loadingDate() {
 function buttonMoveUp() {
     let getButtonUp = document.querySelector('#mover-cima');
     let getOl = document.querySelector('#lista-tarefas');
+
     getButtonUp.addEventListener('click', () => {
         let getLi = document.querySelectorAll('.list-iten')
         getLi.forEach((e, key) => {
-            if (e.hasAttribute('style')) {
+            if (e.hasAttribute('style') && key > 0) {
                 getOl.insertBefore(e, getLi[key - 1]);
             }
         })
@@ -136,10 +137,10 @@ function buttonMoveDn() {
                 console.log(e)
                 console.log(getLi[key + 2])
             }
-            if (e.hasAttribute('style') && key === tamanhoLista -1){
-                console.log('INDICE --> ' + key + ' --- CONTADOR -> ' + key + 1);
-                getOl.insertBefore(e, getLi[0]);
-            }
+            // if (e.hasAttribute('style') && key === tamanhoLista -1){
+            //     console.log('INDICE --> ' + key + ' --- CONTADOR -> ' + key + 1);
+            //     getOl.insertBefore(e, getLi[0]);
+            // }
         })
     })
 }
