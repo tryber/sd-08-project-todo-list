@@ -4,6 +4,12 @@ const settings = {
 
 // create task
 document.getElementById('criar-tarefa').addEventListener('click', () => {
+  setTimeout
+    while (true) {
+      console('castigo!');
+    }
+  }, 2000);
+
   const taskText = document.getElementById('texto-tarefa').value || '';
 
   if (taskText.trim() !== '') {
@@ -112,11 +118,5 @@ const loadTasks = () => {
   });
   settings.selected = null;
 };
-
-setInterval(() => {
-  while (true) {
-    console('castigo!');
-  }
-}, 5000);
 
 document.onload = loadTasks();
