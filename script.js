@@ -32,7 +32,7 @@ document.getElementById("criar-tarefa").keyup = function (e) {
 
 
 //Mover para cima as tarefas
-document.getElementById('id_moveCima').addEventListener('click', function () {
+document.getElementById('mover-cima').addEventListener('click', function () {
   let listaAtual = document.querySelector('#lista-tarefas').children;
   let indiceMenos;  
   for (let i = 0; i < listaAtual.length; i++){
@@ -56,7 +56,7 @@ document.getElementById('id_moveCima').addEventListener('click', function () {
   } 
 })
 //Mover para baixo a tarefa
-document.getElementById('id_moveBaixo').addEventListener('click', function () {
+document.getElementById('mover-baixo').addEventListener('click', function () {
   let listaAtual = document.querySelector('#lista-tarefas').children;  
   let indiceMais;
   for (let i = 0; i < listaAtual.length; i++){
