@@ -22,10 +22,14 @@ function eventColor(ev, value) {
     let getLi = document.querySelectorAll('.list-iten');
     let estado = ev.target.hasAttribute('style');
 
-    getLi.forEach((el) => el.removeAttribute('style'));
+    getLi.forEach((el) => {
+        el.removeAttribute('style'); 
+        el.classList.remove('selected')
+    })
 
     if (!estado) {
         ev.target.style.backgroundColor = value;
+        ev.target.classList.add('selected');
     }
 }
 
@@ -115,7 +119,7 @@ function buttonMoveUp() {
     btnUp.addEventListener('click', function () {
         let getList = document.querySelectorAll('.list-iten');
         getList.forEach((e, index) => {
-            if (e.hasAttribute('style') && index > 0) {
+            if (e.classList.contains('selected') && index > 0) {
                 getList[index].parentElement.insertBefore(getList[index], getList[index - 1]);
             }
         })
@@ -127,7 +131,7 @@ function buttonMoveDn() {
     btnDn.addEventListener('click', function () {
         let getList = document.querySelectorAll('.list-iten');
         getList.forEach((e, index) => {
-            if (e.hasAttribute('style')) {
+            if (e.classList.contains('selected')) {
                 getList[index].parentElement.insertBefore(getList[index], getList[index + 2]);
             }
         })
