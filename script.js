@@ -19,10 +19,11 @@ document.getElementById('apaga-tudo').addEventListener('click', () => {
 
 // select
 document.getElementById('lista-tarefas').addEventListener('click', () => {
-  if (event.target.classList.contains('selected')) {
-    // event.target.classList.remove('selected');
-    // settings.selected = null;
-  } else if (event.target.classList.contains('task')) {
+  // if (event.target.classList.contains('selected')) {
+  //   event.target.classList.remove('selected');
+  //   settings.selected = null;
+  // } else
+  if (event.target.classList.contains('task')) {
     document.querySelectorAll('.task').forEach((element) => {
       element.classList.remove('selected');
     });
@@ -70,9 +71,10 @@ document.getElementById('mover-baixo').addEventListener('click', () => {
 const moveSelectedPos = (pos = 0) => {
   if (pos !== 0) {
     const list = document.getElementById('lista-tarefas').children;
-    for (let i = 0; i < list.length; i++) {
-      if (list[i].classList.contains('selected')) {
-        if (i >= 0 || i <= list.length) {
+    try {
+      for (let i = 0; i < list.length; i++) {
+        //
+        if (list[i].classList.contains('selected')) {
           const sel = {
             value: list[i].innerHTML,
             class: list[i].classList.toString()
@@ -88,6 +90,8 @@ const moveSelectedPos = (pos = 0) => {
           break;
         }
       }
+    } catch (error) {
+      return 0;
     }
   }
 };
