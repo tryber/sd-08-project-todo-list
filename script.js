@@ -1,9 +1,10 @@
 let lista = [];
-let retornoStorage = localStorage.getItem("lista")
-let arrayStorage = retornoStorage.split(",")
-lista=retornoStorage.split(",")
+
 
 function storage(){
+  let retornoStorage = localStorage.getItem("lista")
+  let arrayStorage = retornoStorage.split(",")
+  lista=retornoStorage.split(",")
   let li_ID = document.getElementById("lista-tarefas");
 //Cria a lista a partir do retorno do session storage
   for (let i = 0; i < arrayStorage.length; i++){  
@@ -166,7 +167,7 @@ botaoApagaSelecionados.onclick = () => {
   let listaInterna = document.querySelector("#lista-tarefas");
 
   if (lista.length != 0) {
-    if (confirm("\t\n Deseja apagar as tarefas selecionadas? \t\n")) {
+    if (confirm("\t\n Deseja apagar as tarefas concluídas? \t\n")) {
       for (let i = 0; i < itensDalista.length; i++) {
         if (itensDalista[i].className === "completed") {
           listaInterna.removeChild(itensDalista[i]);
