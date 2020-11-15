@@ -11,7 +11,7 @@ document.getElementById('criar-tarefa').addEventListener('click', () => {
     document.getElementById('texto-tarefa').value = '';
   }
 });
-
+//
 // clear all
 document.getElementById('apaga-tudo').addEventListener('click', () => {
   document.getElementById('lista-tarefas').innerHTML = '';
