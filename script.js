@@ -25,7 +25,7 @@ input.parentNode.insertBefore(ol, input.nextSibling);
 
 const button = document.createElement('button');
 button.id = 'criar-tarefa';
-button.innerHTML = 'Adicionar tarefa';
+button.innerHTML = 'Nova tarefa';
 input.parentNode.insertBefore(button, input.nextSibling);
 
 button.addEventListener('click', function () {
@@ -65,7 +65,7 @@ ol.addEventListener('dblclick', function (event) {
 
 const buttonClear = document.createElement('button');
 buttonClear.id = 'apaga-tudo';
-buttonClear.innerHTML = 'Limpar tarefas';
+buttonClear.innerHTML = 'Limpar todas';
 ol.parentNode.insertBefore(buttonClear, ol.nextSibling);
 
 buttonClear.addEventListener('click', function (event) {
@@ -76,7 +76,7 @@ buttonClear.addEventListener('click', function (event) {
 
 const buttonClearFinished = document.createElement('button');
 buttonClearFinished.id = 'remover-finalizados';
-buttonClearFinished.innerHTML = 'Limpar tarefas finalizadas';
+buttonClearFinished.innerHTML = 'Limpar finalizadas';
 buttonClear.parentNode.insertBefore(buttonClearFinished, buttonClear.nextSibling);
 
 buttonClearFinished.addEventListener('click', function (event) {
@@ -103,7 +103,7 @@ ol.innerHTML = localStorage.getItem('listTaskFinished');
 
 const removeItem = document.createElement('button');
 removeItem.id = 'remover-selecionado';
-removeItem.innerHTML = 'Apaga Item Selecionado';
+removeItem.innerHTML = 'Limpar selecionada';
 buttonClearFinished.parentNode.insertBefore(removeItem, buttonClearFinished.nextSibling);
 
 removeItem.addEventListener('click', function () {
