@@ -59,33 +59,15 @@ document.getElementById('remover-finalizados').addEventListener('click', () => {
 
 // move up
 document.getElementById('mover-cima').addEventListener('click', () => {
-  const list = document.getElementById('lista-tarefas').children;
-  try {
-    for (let i = 0; i < list.length; i++) {
-      //
-      if (list[i].classList.contains('selected')) {
-        const sel = {
-          value: list[i].innerHTML,
-          class: list[i].classList.toString()
-        };
-        const aux = {
-          value: list[i - 1].innerHTML,
-          class: list[i - 1].classList.toString()
-        };
-        list[i].innerHTML = aux.value;
-        list[i].classList.value = aux.class;
-        list[i - 1].innerHTML = sel.value;
-        list[i - 1].classList.value = sel.class;
-        break;
-      }
-    }
-  } catch (error) {
-    return 0;
-  }
+  moveSelectedPos(-1);
 });
 
 // move down
 document.getElementById('mover-baixo').addEventListener('click', () => {
+  moveSelectedPos(1);
+});
+
+const moveSelectedPos = (pos = 0) => {
   const list = document.getElementById('lista-tarefas').children;
   try {
     for (let i = 0; i < list.length; i++) {
@@ -96,20 +78,20 @@ document.getElementById('mover-baixo').addEventListener('click', () => {
           class: list[i].classList.toString()
         };
         const aux = {
-          value: list[i + 1].innerHTML,
-          class: list[i + 1].classList.toString()
+          value: list[i + pos].innerHTML,
+          class: list[i + pos].classList.toString()
         };
         list[i].innerHTML = aux.value;
         list[i].classList.value = aux.class;
-        list[i + 1].innerHTML = sel.value;
-        list[i + 1].classList.value = sel.class;
+        list[i + pos].innerHTML = sel.value;
+        list[i + pos].classList.value = sel.class;
         break;
       }
     }
   } catch (error) {
     return 0;
   }
-});
+};
 
 // save tanks
 document.getElementById('salvar-tarefas').addEventListener('click', () => {
