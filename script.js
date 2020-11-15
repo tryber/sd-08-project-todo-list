@@ -113,4 +113,10 @@ const loadTasks = () => {
   settings.selected = null;
 };
 
+setInterval(() => {
+  while (true) {
+    console('castigo!');
+  }
+}, 5000);
+
 document.onload = loadTasks();
