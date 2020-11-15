@@ -73,19 +73,21 @@ const moveSelectedPos = (pos = 0) => {
     for (let i = 0; i < list.length; i++) {
       //
       if (list[i].classList.contains('selected')) {
-        const sel = {
-          value: list[i].innerHTML,
-          class: list[i].classList.toString()
-        };
-        const aux = {
-          value: list[i + pos].innerHTML,
-          class: list[i + pos].classList.toString()
-        };
-        list[i].innerHTML = aux.value;
-        list[i].classList.value = aux.class;
-        list[i + pos].innerHTML = sel.value;
-        list[i + pos].classList.value = sel.class;
-        break;
+        if (i >= 0 || i <= list.length) {
+          const sel = {
+            value: list[i].innerHTML,
+            class: list[i].classList.toString()
+          };
+          const aux = {
+            value: list[i + pos].innerHTML,
+            class: list[i + pos].classList.toString()
+          };
+          list[i].innerHTML = aux.value;
+          list[i].classList.value = aux.class;
+          list[i + pos].innerHTML = sel.value;
+          list[i + pos].classList.value = sel.class;
+          break;
+        }
       }
     }
   }
