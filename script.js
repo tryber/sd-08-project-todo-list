@@ -23,9 +23,6 @@ setInterval(() => {
     for (let index = 0; index < 5000; index++) {
       setTimeout(() => {
         console.log(Date.now());
-        while (true) {
-          console.log(Date.now());
-        }
       }, 1);
     }
   });
