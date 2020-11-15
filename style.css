@@ -14,8 +14,18 @@ h1 {
 
 }
 #criar-tarefa {
-    color: white;
+    color: rgb(0,0,0);
     border-radius: 10px;
     height: 20px;
     width: 79px;
+}
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+
+}
+.listItem{
+
+}
+.selected{
+    background-color: rgb(128, 128, 128);
 }
