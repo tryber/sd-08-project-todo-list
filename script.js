@@ -129,13 +129,16 @@ function buttonMoveDn() {
     getButtonUp.addEventListener('click', () => {
         let getLi = document.querySelectorAll('.list-iten')
         let tamanhoLista = getLi.length;
+        console.log(tamanhoLista)
         getLi.forEach((e, key) => {
-            if (e.hasAttribute('style') && key !== tamanhoLista - 1) {
-                getOl.insertBefore(getLi[key + 1], e);
+            if (e.hasAttribute('style') && key < tamanhoLista - 1) {
+                getOl.insertBefore(e, getLi[key + 2]);
+                console.log(e)
+                console.log( getLi[key + 2])
             }
             if (e.hasAttribute('style') && key === tamanhoLista -1){
                 console.log('INDICE --> ' + key + ' --- CONTADOR -> ' + key + 1);
-                getOl.insertBefore(getLi[key], getLi[0]);
+                getOl.insertBefore(e, getLi[0]);
             }
         })
     })
