@@ -60,9 +60,7 @@ document.getElementById('remover-finalizados').addEventListener('click', () => {
 // save tanks
 document.getElementById('salvar-tarefas').addEventListener('click', () => {
   localStorage.clear();
-
   const content = document.getElementById('lista-tarefas').innerHTML;
-
   localStorage.setItem('tasks', content);
 });
 
@@ -76,13 +74,16 @@ const loadTasks = () => {
   settings.selected = null;
 };
 
-const moveUp = () => {
-  const list = document.getElementById('lista-tarefas');
-  //
-};
+// move up
+document.getElementById('move-cima').addEventListener('click', () => {
+  const list = document.getElementsByClassName('task');
+  console.log(list);
+});
 
-const moveDown = () => {
-  //
-};
+// move down
+document.getElementById('move-baixo').addEventListener('click', () => {
+  const list = document.getElementsByClassName('task');
+  console.log(list);
+});
 
 document.onload = loadTasks();
