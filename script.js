@@ -3,10 +3,10 @@ function taskList(){
     addButton.addEventListener.EventListener("click", taskCreator)
 
     function taskCreator(){
-        let task = document.getElementById("texto-tarefa");
-        let orderedTask = document.getElementById("lista-tarefas");
+        let task = document.querySelector("#texto-tarefa");
+        let orderedTask = document.querySelector("#lista-tarefas");
         let listTask = document.createElement("li");
-        orderedTask.appendChild(listask);
+        orderedTask.appendChild(listTask);
         listTask.innerHTML = task.value;
         task.value = "";
     }
