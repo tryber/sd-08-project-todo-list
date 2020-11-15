@@ -20,8 +20,8 @@ document.getElementById('apaga-tudo').addEventListener('click', () => {
 // select
 document.getElementById('lista-tarefas').addEventListener('click', () => {
   if (event.target.classList.contains('selected')) {
-    event.target.classList.remove('selected');
-    settings.selected = null;
+    // event.target.classList.remove('selected');
+    // settings.selected = null;
   } else if (event.target.classList.contains('task')) {
     document.querySelectorAll('.task').forEach((element) => {
       element.classList.remove('selected');
