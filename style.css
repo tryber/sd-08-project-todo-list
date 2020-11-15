@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+    background-color: #1db937;
+}
+
+.container {
+    width: 700px;
+    min-height: 230px;
+    background-color: #ffffff;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+header {
+    margin: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+    max-width: 450px;
+}
+
+#funcionamento {
+    margin-left: 5px;
+    font-style: italic;
+    font-size: small;
+}
+
+#texto-tarefa {
+    margin: 20px 0 10px 15px;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+    border: 1px solid rgba(235, 229, 229, 0.856);
+    font-size: 1.2em;
+    font-family: 'Oswald', sans-serif;
+    color: rgba(46, 46, 46, 0.904);
+}
+
+#texto-tarefa:focus {
+    outline: none;
+}
+
+#criar-tarefa {
+    width: 80px;
+    height: 30px;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 4px;
+    color: rgba(46, 46, 46, 0.904);
+    background-color: rgb(26, 150, 26);
+    margin-left: 15px;
+}
+
+#criar-tarefa:focus , #apaga-tudo {
+    outline: none
+}
+
+#criar-tarefa:hover {
+    cursor: pointer;
+    background-color: rgba(27, 158, 27, 0.829);
+}
+
+#lista-tarefas {
+    width: 90%;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    margin: 5px;
+    border-radius: 3px;
+    height: 1.6em;
+    padding: 4px;
+    position: relative;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: rgba(236, 229, 229, 0.87);
+    border-radius: 3px;
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+button {
+    width: 80px;
+    height: 30px;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 4px;
+    color: rgba(46, 46, 46, 0.904);
+    background-color: rgba(201, 60, 60, 0.774);
+    position: relative;
+    margin: 30px 10px 40px 15px;
+}
+
+#apaga-tudo:hover {
+    cursor: pointer;
+    background-color: rgba(231, 44, 44, 0.884);
+    color: rgb(0, 0, 0);
+}
+
+#remover-finalizados {
+    background-color: black;
+    color: white;
+}
+
+#remover-finalizados:hover {
+    cursor: pointer;
+    background-color: rgb(119, 103, 103);
+}
+
+#remover-finalizados:focus{
+    outline: none;
+}
+
+#salvar-tarefas {
+    background-color: rgba(124, 154, 196, 0.877);
+}
+
+#salvar-tarefas:hover {
+    cursor: pointer;
+    background-color: rgb(59, 59, 184);
+    color: whitesmoke;
+}
+
+#salvar-tarefas:focus {
+    outline: none;
+}
+
+#mover-cima , #mover-baixo{
+    font-size: 20px;
+    padding: 2px;
+    width: 40px;
+    background-color: orangered;
+}
+
+#mover-cima:focus , #mover-baixo:focus {
+    outline: none;
+}
+
+#mover-cima:hover , #mover-baixo:hover {
+    cursor: pointer;
+    background-color: rgba(255, 68, 0, 0.795);
+}
+
+#remover-selecionado {
+    background-color: brown;
+}
+
+#remover-selecionado:focus {
+    outline: none;
+}
+
+#remover-selecionado:hover {
+    cursor: pointer;
+    background-color: rgba(160, 56, 56, 0.801);
+}
+
