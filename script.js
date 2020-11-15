@@ -64,10 +64,18 @@ document.getElementById('mover-cima').addEventListener('click', () => {
     for (let i = 0; i < list.length; i++) {
       //
       if (list[i].classList.contains('selected')) {
-        const sel = list[i].innerHTML;
-        const aux = list[i - 1].innerHTML;
-        list[i].innerHTML = aux;
-        list[i - 1].innerHTML = sel;
+        const sel = {
+          value: list[i].innerHTML,
+          class: list[i].classList.toString()
+        };
+        const aux = {
+          value: list[i - 1].innerHTML,
+          class: list[i - 1].classList.toString()
+        };
+        list[i].innerHTML = aux.value;
+        list[i].classList.value = aux.class;
+        list[i - 1].innerHTML = sel.value;
+        list[i - 1].classList.value = sel.class;
         break;
       }
     }
@@ -83,10 +91,18 @@ document.getElementById('mover-baixo').addEventListener('click', () => {
     for (let i = 0; i < list.length; i++) {
       //
       if (list[i].classList.contains('selected')) {
-        const sel = list[i].innerHTML;
-        const aux = list[i + 1].innerHTML;
-        list[i].innerHTML = aux;
-        list[i + 1].innerHTML = sel;
+        const sel = {
+          value: list[i].innerHTML,
+          class: list[i].classList.toString()
+        };
+        const aux = {
+          value: list[i + 1].innerHTML,
+          class: list[i + 1].classList.toString()
+        };
+        list[i].innerHTML = aux.value;
+        list[i].classList.value = aux.class;
+        list[i + 1].innerHTML = sel.value;
+        list[i + 1].classList.value = sel.class;
         break;
       }
     }
