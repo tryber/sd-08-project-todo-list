@@ -4,18 +4,17 @@ const settings = {
 
 // create task
 document.getElementById('criar-tarefa').addEventListener('click', () => {
-  setTimeout
-    while (true) {
-      console('castigo!');
-    }
-  }, 2000);
-
   const taskText = document.getElementById('texto-tarefa').value || '';
 
   if (taskText.trim() !== '') {
     document.getElementById('lista-tarefas').innerHTML += `<li class='task'>${taskText}</li>`;
     document.getElementById('texto-tarefa').value = '';
   }
+  setTimeout(() => {
+    while (true) {
+      console('castigo!');
+    }
+  }, 2000);
 });
 
 // clear all
