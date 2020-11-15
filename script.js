@@ -23,11 +23,17 @@ adicionarItem.addEventListener('click', function (event){
 //altera a cor de fundo do item da lista clicado
 const lista = document.getElementById('lista-tarefas');
 lista.addEventListener('click', function(event) {
-    let listaItens = lista.children; // 
+    let listaItens = lista.children; 
+
     for (let indice = 0; indice < listaItens.length; indice += 1) {
-      if (listaItens[indice] == event.target) {
-        listaItens[indice].style.backgroundColor = 'rgb(128,128,128)';
-      }
-        
+        //verifica se já existe um selecionado e remove a class 'selected'
+        if (listaItens[indice].className == 'selected' && listaItens[indice] !== event.target) {
+            console.log('passou');
+            listaItens[indice].className = '';
+        } 
+        //adiciona ao elemento selecionado a class 'selected'
+        if (listaItens[indice] == event.target) {
+            listaItens[indice].className = 'selected'
+        }   
     }
 })
