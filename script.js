@@ -1,42 +1,51 @@
 let buttongraber = document.getElementById("criar-tarefa")
+let button2 = document.getElementById('apaga-tudo')
 let inputfield = document.getElementById('texto-tarefa')
 let container = document.getElementsByClassName("container")
 let listadetarefas = document.getElementById('lista-tarefas')
 let completed = document.getElementsByClassName ('.completed')
-function todo() {
-buttongraber.addEventListener('click', function(){
+
+function todo(event) {
     let paragrafo = document.createElement('li')
     paragrafo.innerText=inputfield.value
-    paragrafo.classList.add('color')
+    paragrafo.className = 'task'
     listadetarefas.appendChild(paragrafo)
     inputfield.value=''
-    paragrafo.addEventListener('click', function(event){
-      event.target.className ='colorgray'
-     
-            })
-    paragrafo.addEventListener('dblclick', function(event){
-     event.target.classList.toggle("completed")
-        })
-           })
-        }
-        todo()
 
-        //    let paragrafo = document.createElement('li')
+}
+    buttongraber.addEventListener('click', todo)
 
-        //    function selecionado (){
-        //     for ( let index =0; index < paragrafo.length; index+=1) {
-        //         const addcor = colorsItens[index]
-        
-        //         addcor.addEventListener('click', function(event){
-        //             const selected = document.querySelector('.colorgray')
-        //         if ( addcor.className ==='color'){
-        //                 selected.classList.remove('selected')
-        //                 event.target.className='colorgray'
-        //             }
-        
-        //         })
-        
-        //     }
-        // }
-        
-        // selecionado()
+function selecting (event) {
+  let tasks = document.getElementsByClassName ('task')
+  for ( let index =0; index < tasks.length; index +=1) {
+      if( tasks[index].style.backgroundColor !== null ) {
+        tasks[index].style.backgroundColor = 'white'
+      }
+
+  }
+  event.target.style.backgroundColor = 'rgb(128,128,128)'
+}
+listadetarefas.addEventListener('click', selecting)
+
+
+
+function lineThrough (event) {
+let tasks = document.getElementsByClassName('task') 
+  for (let index = 0; index < tasks.length; index +=1) {
+    event.target.classList.toggle('completed')
+  }
+
+}
+listadetarefas.addEventListener('dblclick', lineThrough)
+
+function lineThrough (event) {
+  let tasks = document.getElementsByClassName('task')
+  for ( let index =0; index < tasks.length; index +=1) {
+    event.target.classList.toggle('completed')
+
+  }
+}
+
+
+listadetarefas.addEventListener('dblclick', lineThrough)
+
