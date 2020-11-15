@@ -111,53 +111,40 @@ function loadingDate() {
 }
 
 function buttonMoveUp() {
-    let getButtonUp = document.querySelector('#mover-cima');
-    let getOl = document.querySelector('#lista-tarefas');
-
-    getButtonUp.addEventListener('click', () => {
-        let getLi = document.querySelectorAll('.list-iten')
-        getLi.forEach((e, key) => {
-            if (e.hasAttribute('style') && key > 0) {
-                getOl.insertBefore(e, getLi[key - 1]);
+    let btnUp = document.querySelector('#mover-cima');
+    btnUp.addEventListener('click', function () {
+        let getList = document.querySelectorAll('.list-iten');
+        getList.forEach((e, index) => {
+            if (e.hasAttribute('style') && index > 0) {
+                getList[index].parentElement.insertBefore(getList[index], getList[index - 1]);
             }
         })
     })
 }
 
 function buttonMoveDn() {
-    let getButtonUp = document.querySelector('#mover-baixo');
-    let getOl = document.querySelector('#lista-tarefas');
-    getButtonUp.addEventListener('click', () => {
-        let getLi = document.querySelectorAll('.list-iten')
-        let tamanhoLista = getLi.length;
-        console.log(tamanhoLista)
-        getLi.forEach((e, key) => {
-            if (e.hasAttribute('style') && key < tamanhoLista - 1) {
-                getOl.insertBefore(e, getLi[key + 2]);
-                console.log(e)
-                console.log(getLi[key + 2])
+    let btnDn = document.querySelector('#mover-baixo');
+    btnDn.addEventListener('click', function () {
+        let getList = document.querySelectorAll('.list-iten');
+        getList.forEach((e, index) => {
+            if (e.hasAttribute('style')) {
+                getList[index].parentElement.insertBefore(getList[index], getList[index + 2]);
             }
-            // if (e.hasAttribute('style') && key === tamanhoLista -1){
-            //     console.log('INDICE --> ' + key + ' --- CONTADOR -> ' + key + 1);
-            //     getOl.insertBefore(e, getLi[0]);
-            // }
         })
     })
+
 }
 
-function deleteSelect(){
+function deleteSelect() {
     let getList = document.querySelector('#lista-tarefas');
     let btnDelete = document.querySelector('#remover-selecionado');
     let color = `rgb(${128}, ${128}, ${128})`;
-    console.log(getList)
-    btnDelete.addEventListener('click', (ev) =>{
-        for(let el of getList.children){
-            if(el.hasAttribute("style")){
-               if(window.getComputedStyle(el).backgroundColor === color){
-                console.log(el)
-                console.log(window.getComputedStyle(el).backgroundColor)
-                getList.removeChild(el)
-               }
+    btnDelete.addEventListener('click', (ev) => {
+        for (let el of getList.children) {
+            if (el.hasAttribute("style")) {
+                if (window.getComputedStyle(el).backgroundColor === color) {
+                    getList.removeChild(el)
+                }
             }
         }
     })
