@@ -1,11 +1,11 @@
 window.onload = function () {
   // Add conteudo na lista
-  const texto = document.getElementById('texto-tarefa');
-  const adicionaTarefa = document.getElementById('criar-tarefa');
-  const lista = document.getElementById('lista-tarefas');
+  let texto = document.getElementById('texto-tarefa');
+  let adicionaTarefa = document.getElementById('criar-tarefa');
+  let lista = document.getElementById('lista-tarefas');
 
   adicionaTarefa.addEventListener('click', function () {
-    const tarefa = document.createElement('li');
+    let tarefa = document.createElement('li');
     tarefa.classList.add('item-list');
     tarefa.innerText = texto.value;
     lista.appendChild(tarefa);
@@ -28,6 +28,14 @@ window.onload = function () {
     } else {
       event.target.classList.remove('completed');
     }
+  })
+  // Botão apaga tudo
+  document.getElementById('apaga-tudo').addEventListener('click', function () {
+    let item = document.querySelectorAll('.item-list')
+    for (let index = 0; index < item.length; index += 1) {
+      lista.removeChild(item[index]);
+    }
+    
   })
 };
 
