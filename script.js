@@ -131,27 +131,34 @@ buttonUp.addEventListener('click', function () {
     const liItem = document.querySelectorAll('.task');
     let select;
     let previous;
-    let next;
+
     for (let i = 0; i < liItem.length; i += 1) {
         if (liItem[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-            select = liItem[i].outerHTML;
-            previous = liItem[i - 1].outerHTML;
+            if (i !== 0) {
+                select = liItem[i].outerHTML;
+                previous = liItem[i - 1].outerHTML;
 
-            liItem[i].outerHTML = previous;
-            liItem[i - 1].outerHTML = select;
+                liItem[i].outerHTML = previous;
+                liItem[i - 1].outerHTML = select;
+            }
         }
     }
 });
 
 buttonDown.addEventListener('click', function () {
+    let select;
+    let next;
     const liItem = document.querySelectorAll('.task');
+
     for (let i = 0; i < liItem.length; i += 1) {
         if (liItem[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-            select = liItem[i].outerHTML;
-            next = liItem[i + 1].outerHTML
+            if (i !== liItem.length - 1) {
+                select = liItem[i].outerHTML;
+                next = liItem[i + 1].outerHTML
 
-            liItem[i].outerHTML = next;
-            liItem[i + 1].outerHTML = select;
+                liItem[i].outerHTML = next;
+                liItem[i + 1].outerHTML = select;
+            }
         }
     }
 });
