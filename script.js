@@ -23,5 +23,11 @@ adicionarItem.addEventListener('click', function (event){
 //altera a cor de fundo do item da lista clicado
 const lista = document.getElementById('lista-tarefas');
 lista.addEventListener('click', function(event) {
-    event.target.className = 'list-backgorund';
+    let listaItens = lista.children; // 
+    for (let indice = 0; indice < listaItens.length; indice += 1) {
+      if (listaItens[indice] == event.target) {
+        listaItens[indice].style.backgroundColor = 'rgb(128,128,128)';
+      }
+        
+    }
 })
