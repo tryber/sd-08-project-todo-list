@@ -38,14 +38,18 @@ let tasks = document.getElementsByClassName('task')
 }
 listadetarefas.addEventListener('dblclick', lineThrough)
 
-function lineThrough (event) {
-  let tasks = document.getElementsByClassName('task')
-  for ( let index =0; index < tasks.length; index +=1) {
-    event.target.classList.toggle('completed')
-
-  }
-}
 
 
-listadetarefas.addEventListener('dblclick', lineThrough)
+
+
+// function lineThrough (event) {
+//   let tasks = document.getElementsByClassName('task')
+//   for ( let index =0; index < tasks.length; index +=1) {
+//     event.target.classList.toggle('completed')
+
+//   }
+// }
+
+
+// listadetarefas.addEventListener('dblclick', lineThrough)
 
