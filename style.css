@@ -1,0 +1,18 @@
+#lista-tarefas {
+margin-top: 50px;
+
+}
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.colorgray{
+    background-color: rgb(128, 128, 128)
+}
+
+.colorWhite {
+    background-color: white;
+}
+.color{
+    background-color: none;
+}
