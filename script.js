@@ -64,8 +64,8 @@ document.getElementById('mover-cima').addEventListener('click', () => {
     for (let i = 0; i < list.length; i++) {
       //
       if (list[i].classList.contains('selected')) {
-        settings.selected = null;
-        list[i].classList.remove('selected');
+        // settings.selected = null;
+        // list[i].classList.remove('selected');
         const sel = list[i].innerHTML;
         const aux = list[i - 1].innerHTML;
         list[i].innerHTML = aux;
@@ -85,8 +85,8 @@ document.getElementById('mover-baixo').addEventListener('click', () => {
     for (let i = 0; i < list.length; i++) {
       //
       if (list[i].classList.contains('selected')) {
-        settings.selected = null;
-        list[i].classList.remove('selected');
+        // settings.selected = null;
+        // list[i].classList.remove('selected');
         const sel = list[i].innerHTML;
         const aux = list[i + 1].innerHTML;
         list[i].innerHTML = aux;
