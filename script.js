@@ -10,11 +10,6 @@ document.getElementById('criar-tarefa').addEventListener('click', () => {
     document.getElementById('lista-tarefas').innerHTML += `<li class='task'>${taskText}</li>`;
     document.getElementById('texto-tarefa').value = '';
   }
-  setTimeout(() => {
-    while (true) {
-      console('castigo!');
-    }
-  }, 2000);
 });
 
 // clear all
