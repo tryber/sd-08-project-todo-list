@@ -50,5 +50,25 @@ document.addEventListener("click", function(event){
 });
 
 //Botão remover-finalizados
+let eraseDone = document.getElementById("lista-tarefas");
+document.addEventListener("click", function(event){    
+    for (let i = 0; i < eraseDone.length; i++){    
+    if (event.target.id === "remover-finalizados"){
+        if  (eraseDone[i].classList = "completed"){
+            eraseDone.removeChild(eraseDone.childNodes[i]);
+        }                  
+        };
+    }  
+});
 
 //Botão remover-selecionado
+let eraseSelected = document.getElementById("lista-tarefas");
+document.addEventListener("click", function(event){    
+    for (let i = 0; i < eraseDone.length; i++){    
+    if (event.target.id === "remover-finalizados"){
+        if  (eraseSelected[i].classList = "selected"){
+            eraseSelected.removeChild(eraseSelected.childNodes[i]);
+        }                  
+        };
+    }  
+});
