@@ -16,6 +16,7 @@ function criaTarefas() {
   novaTarefa.addEventListener("click", marcarDeCinza); // adicionando eventos para todos lis criados
   novaTarefa.className = "cinzas";
   entradaTarefa.value = "";
+  novaTarefa.addEventListener("dblclick", riscaDaLista);
 }
 
 let listaDeTarefa = document.querySelectorAll(".cinzas");
@@ -23,10 +24,10 @@ let pintaCinza = document.getElementsByClassName("corDeFundoDasTarefas");
 
 function marcarDeCinza(event) {
   for (let i = 0; i < pintaCinza.length; i++) {
-    pintaCinza[i].classList.remove("corDeFundoDasTarefas");
+    pintaCinza[i].classList.remove("corDeFundoDasTarefas"); //removendo a class de todos os elementos
   }
   const evento = event.target;
-  evento.classList.add("corDeFundoDasTarefas");
+  evento.classList.add("corDeFundoDasTarefas"); //adicionando a class no elemento clicado
 }
 
 function apagaTudo() {
@@ -35,6 +36,9 @@ function apagaTudo() {
   }
 }
 
-function revFinalizados() {
-  console.log("Estou removendo todas tarefas");
+function riscaDaLista(event) {
+  const evento = event.target;
+  evento.classList.add("completed");
 }
+
+function revFinalizados() {}
