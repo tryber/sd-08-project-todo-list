@@ -19,8 +19,23 @@ jobCreate();
 function clickItens () {
     let selectItens = document.getElementById('lista-tarefas');
     selectItens.addEventListener('click', e =>{
-        event.target.style.backgroundColor = 'rgb(128,128,128)';
+        e.target.classList.add('item-list');
+        if(e.target.classList.contains('item-list')) {
+            document.querySelectorAll('.item-list').forEach((Element) => {
+                Element.classList.remove('item-list');
+            });
+            e.target.classList.add('item-list');
+        }
     });
 }
-
 clickItens();
+
+
+
+
+// if(e.target.classList.contains('item-list')) {
+//     document.querySelectorAll('.item-list').forEach((Element) => {
+//         Element.classList.remove('item-list');
+//     });
+//     e.target.classList.add('item-list')
+// }
