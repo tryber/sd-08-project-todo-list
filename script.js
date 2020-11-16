@@ -112,3 +112,16 @@ function moveDown() {
 }
 
 moveDown();
+
+function deleteSelected() {
+    let list = document.querySelector('#lista-tarefas');
+    let button = document.querySelector('#remover-selecionado');
+    button.addEventListener('click', function () {
+        let selected = document.querySelector('.selected');
+        if (selected !== null) {
+            list.removeChild(selected);
+        }
+    })
+}
+
+deleteSelected();
