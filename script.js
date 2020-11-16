@@ -77,6 +77,7 @@ window.onload = function () {
     tarefa.innerText = tarefaSalva[index].item;
     lista.appendChild(tarefa);
   }
+  // Mover tarefas
 };
 
   
