@@ -70,8 +70,8 @@ window.onload = function () {
   })
   // Recupera dados
   let tarefaSalva = JSON.parse(localStorage.getItem('tarefa'));
-  let num = tarefaSalva.length;
-  for (let index = 0; index < num; index += 1) {
+  console.log(tarefaSalva);
+  for (let index = 0; index < 4; index += 1) {
     let tarefa = document.createElement('li');
     tarefa.className = tarefaSalva[index].class;
     tarefa.innerText = tarefaSalva[index].item;
