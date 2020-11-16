@@ -85,9 +85,12 @@ createButttonUp();
 const buttonUp = document.querySelector('#mover-cima')
 buttonUp.addEventListener('click', function () {
   const listTask = document.querySelector('.selected');
-  const antes = document.querySelector('.selected').previousElementSibling;
-  const listContent = document.querySelector('#lista-tarefas');
-  antes.insertAdjacentElement('beforebegin', listTask);
+  if (listTask !== null) {
+    const antes = document.querySelector('.selected').previousElementSibling;
+    if (antes !== null) {
+      antes.insertAdjacentElement('beforebegin', listTask);
+    }
+  }
 })
 
 
@@ -107,9 +110,12 @@ createButttonDown();
 const buttonDown = document.querySelector('#mover-baixo')
 buttonDown.addEventListener('click', function () {
   const listTask = document.querySelector('.selected');
-  const depois = document.querySelector('.selected').nextElementSibling;
-  const listContent = document.querySelector('#lista-tarefas');
-  depois.insertAdjacentElement('afterend', listTask);
+  if (listTask !== null) {
+    const depois = document.querySelector('.selected').nextElementSibling;
+    if (depois !== null) {
+      depois.insertAdjacentElement('afterend', listTask);
+    }
+  }
 })
 
 function createButtonRemoveSolved() {
