@@ -12,3 +12,7 @@
 .completed{
    text-decoration:  line-through solid rgb(0, 0, 0);
 }
+
+.danger{
+    background-color: rgba(226, 102, 102, 0.692);
+}

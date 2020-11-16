@@ -15,9 +15,13 @@ addEventListener('click', (event) => {
         };
         event.target.classList.add('itemSelected');
     };
+    if(event.target.id == 'apaga-tudo'){ 
+        tarefaList.innerHTML = '';
+    }
 });
 addEventListener('dblclick', (event) => {
     if(event.target.classList.contains('item')){
         event.target.classList.toggle('completed');
     }
 });
+
