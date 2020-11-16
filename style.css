@@ -70,7 +70,7 @@ main {
 }
 
 .caixa-texto:focus , .botoes:focus {
-  color:  rgb(28 , 31 , 209);
+  color: rgb(28 , 31 , 209);
   outline: none;
 }
 
