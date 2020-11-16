@@ -1,4 +1,5 @@
-const listaTarefas = document.getElementById('list-tarefas');
+const listaTarefas = document.getElementById('lista-tarefas');
+listaTarefas.innerHTML = localStorage.getItem('List');
 
 document.addEventListener('click', (event) => {
   if (event.target.id === 'criar-tarefa') {
@@ -7,7 +8,7 @@ document.addEventListener('click', (event) => {
     tarefa.innerHTML = textoTarefa.value;
     tarefa.classList.add('tarefa');
     textoTarefa.value = '';
-    textoTarefa.appendChild(tarefa);
+    listaTarefas.appendChild(tarefa);
   }
   
   if (event.target.id === 'apaga-tudo') {
@@ -20,6 +21,10 @@ document.addEventListener('click', (event) => {
     for (let index = 0; index < lenght; index++) {
       tarefaFinalizada[0].parentElement.removeChild(tarefaFinalizada[0]);
     }
+  }
+
+  if (event.target.id === 'salvar-tarefas') {
+    localStorage.setItem('List', listaTarefas.innerHTML);
   }
 
   if (event.target.classList.contains('tarefa')) {
