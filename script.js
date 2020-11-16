@@ -36,7 +36,8 @@ function selecionand() {
       }
       event.target.className += " selected";
     }
-  });removerFinalizados();
+  });
+  removerFinalizados();
 }
 selecionand();
 
@@ -44,7 +45,8 @@ function sublinhando() {
   console.log(selecionadas);
   selecionadas.addEventListener("dblclick", function (event) {
     event.target.className += " completed";
-  });removerFinalizados();
+  });
+  removerFinalizados();
 }
 sublinhando();
 
@@ -75,18 +77,41 @@ function removerFinalizados() {
 
   btRemoveFina.addEventListener("click", function () {
     let selecc = document.getElementsByClassName("completed");
-    
-    
-  
+
     for (let i = 0; i < selecc.length; i += 1) {
-      selecc[i].remove()
-      
+      selecc[i].remove();
     }
     /** for (let i = 0; i < sele1.length; i += 1) {
       
       sele1[i].remove()
     }*/
-   
   });
 }
 removerFinalizados();
+
+
+let btCima = document.querySelector("#mover-cima");
+btCima.addEventListener("click", function () {
+  /*   console.log(document.querySelectorAll('li')) */
+  let arra = document.getElementsByTagName("li");
+  let arrayLi = Object.values(arra);
+  console.log('fass',arrayLi);
+  for (let i = 0; i < arrayLi.length; i += 1) {
+    let x = arrayLi[i].className.trim();
+    if (x == "selected" || x == "selected completed") {
+      let y = arrayLi.indexOf(arrayLi[i]);
+     
+      function changePosition(arr, from, to) {
+        arr.splice(to, 0, arr.splice(from, 1)[0]);
+        return arr;
+      }
+      
+      let vaii = changePosition(arrayLi, y, y - 1);
+      console.log(typeof vaii)
+      //console.log(vaii[i].textContent)
+      document.querySelector("#lista-tarefas").innerText=vaii
+      
+    }
+  }
+});
+
