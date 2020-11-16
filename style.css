@@ -5,6 +5,10 @@
 }
 
 .item:hover{
-    background-color: rgb(128,128,128);
+    background-color: rgba(128, 128, 128, 0.637);
     cursor: pointer;
+}
+
+.completed{
+    text-decoration: line-through;
 }
