@@ -12,11 +12,26 @@ botaoRevFinalizados.addEventListener("click", revFinalizados);
 function criaTarefas() {
   const novaTarefa = document.createElement("li"); //criando uma tag
   listaOrdenada.appendChild(novaTarefa); //Local onde ela vai ser armazenada
-  novaTarefa.innerText = entradaTarefa.value; //value é o valor que o input recebe
+  novaTarefa.innerText = entradaTarefa.value; //value é o valor que o input recebea
+  novaTarefa.addEventListener("click", marcarDeCinza); // adicionando eventos para todos lis criados
+  novaTarefa.className = "cinzas";
+}
+
+let listaDeTarefa = document.querySelectorAll(".cinzas");
+let pintaCinza = document.getElementsByClassName("corDeFundoDasTarefas");
+
+function marcarDeCinza(event) {
+  for (let i = 0; i < pintaCinza.length; i++) {
+    pintaCinza[i].classList.remove("corDeFundoDasTarefas");
+  }
+  const evento = event.target;
+  evento.classList.add("corDeFundoDasTarefas");
 }
 
 function apagaTudo() {
-  console.log("Estou apagando Tudo");
+  while (listaOrdenada.hasChildNodes()) {
+    listaOrdenada.removeChild(listaOrdenada.firstChild);
+  }
 }
 
 function revFinalizados() {
