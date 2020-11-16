@@ -78,7 +78,7 @@ window.onload = function () {
   //   lista.appendChild(tarefa);
   // }
   // Mover tarefas
-};
+}
 
   
 
