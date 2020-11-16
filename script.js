@@ -19,7 +19,6 @@ function taskComplete(event) {
     } else {
         elemento.classList.add('completed');
     }
-
 }
 
 function newTask() {
@@ -39,7 +38,17 @@ function clearAll() {
     document.getElementById('lista-tarefas').innerHTML = '';
 }
 
+const clearList = document.getElementById('apaga-tudo');
+clearList.addEventListener('click', clearAll);
 
-const clearList = document.getElementById('apaga-tudo')
-clearList.addEventListener('click', clearAll)
+function clearCompleted() {
+    let liCompleted = document.querySelectorAll('.completed');
 
+    for(let index = 0; index < liCompleted.length; index += 1) {
+        let taskCompleted = document.getElementById('lista-tarefas')
+        taskCompleted.removeChild(liCompleted[index])
+    }
+}
+
+const clearTask = document.getElementById('remover-finalizados');
+clearTask.addEventListener('click', clearCompleted);
