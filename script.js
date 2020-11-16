@@ -12,7 +12,7 @@ window.onload = function () {
     texto.value = '';
   });
   // Muda background dos itens da lista
-  let taskList = document.getElementsByClassName('item-list')
+  let taskList = document.getElementsByClassName('item-list');
   lista.addEventListener('click', function (event) {
     for (let index = 0; index < taskList.length; index += 1) {
       if (taskList[index].classList.contains('selected') == true) {
@@ -70,13 +70,13 @@ window.onload = function () {
     localStorage.setItem('tarefa', JSON.stringify(tarefasArray));
   })
   // Recupera tarefas após atualizar a aba ou abrir outra
-  let tarefaSalva = JSON.parse(localStorage.getItem('tarefa'));
-  for (let index = 0; index < tarefaSalva.length; index += 1){
-    let tarefa = document.createElement('li');
-    tarefa.className = tarefaSalva[index].class;
-    tarefa.innerText = tarefaSalva[index].item;
-    lista.appendChild(tarefa);
-  }
+  // let tarefaSalva = JSON.parse(localStorage.getItem('tarefa'));
+  // for (let index = 0; index < tarefaSalva.length; index += 1){
+  //   let tarefa = document.createElement('li');
+  //   tarefa.className = tarefaSalva[index].class;
+  //   tarefa.innerText = tarefaSalva[index].item;
+  //   lista.appendChild(tarefa);
+  // }
   // Mover tarefas
 };
 
