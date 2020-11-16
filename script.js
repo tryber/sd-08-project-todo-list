@@ -19,7 +19,7 @@ document.addEventListener('click', (event) => {
   if (event.target.id === 'remover-finalizados') {
     const tarefaFinalizada = document.getElementsByClassName('completed');
     const lenght = tarefaFinalizada.length;
-    for (let index = 0; index < lenght; index++) {
+    for (let index = 0; index < lenght; index += 1) {
       tarefaFinalizada[0].parentElement.removeChild(tarefaFinalizada[0]);
     }
   }

@@ -18,7 +18,7 @@ button:hover {
 }
 
 .container {
-	background-color: #fff;
+	background-color: white;
 	border-radius: 30px;
 	padding: 10px;
 	margin: 30px;
@@ -40,7 +40,7 @@ button:hover {
 	font-size: 12px;
 	font-style: italic;
 	color: #b9b4b4;
-	margin: 5px 15px 20px 15px;
+	margin: 5px 15px 20px;
 }
 
 .criar-tarefa , .remover-finalizados {
@@ -51,7 +51,7 @@ button:hover {
 	background-color: #39a2d9;
 }
 
-.remover-selecionado, .apaga-tudo {
+.remover-selecionado , .apaga-tudo {
 	background-color: #91261b;
 }
 
@@ -73,5 +73,5 @@ button:hover {
 }
 
 .selected {
-	background-color: rgba(128 , 128 , 128);
+	background-color: rgb(128 , 128 , 128);
 }
