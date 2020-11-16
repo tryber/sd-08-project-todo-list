@@ -30,10 +30,12 @@ function taskColor() {
   const listTask = document.querySelector('#lista-tarefas');
   listTask.addEventListener('click', function (task) {
     if (task.target.style.backgroundColor === 'rgb(128, 128, 128)') {
-    task.target.style.backgroundColor = 'white';
+      task.target.style.backgroundColor = 'white';
+      task.target.className = 'tarefa';
     } else {
       clearColorTask();
       task.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      task.target.className = 'tarefa selected';
     }
   });
 }
@@ -41,9 +43,11 @@ function taskColor() {
 taskColor();
 
 function clearColorTask() {
-  const listTask = document.querySelectorAll('.tarefa');
+  const listTask = document.querySelectorAll('.tarefa, .tarefa selected');
+  console.log(listTask);
   for (let tag of listTask) {
     tag.style.backgroundColor = 'white';
+    tag.className = 'tarefa';
   }
 }
 
@@ -60,6 +64,49 @@ function taskCompleted() {
 }
 
 taskCompleted();
+
+function createButttonUp() {
+  const buttonUpElement = document.createElement('button');
+  buttonUpElement.id = 'mover-cima';
+  buttonUpElement.innerHTML = '&uarr;';
+  buttonUpElement.className = 'botao-controle';
+  buttonUpElement.style.backgroundColor = 'rgb(255, 69, 0)';
+  buttonUpElement.style.font = '20px bold';
+  const footerController = document.querySelector('.footer-controller');
+  footerController.appendChild(buttonUpElement);
+}
+
+createButttonUp();
+
+const buttonUp = document.querySelector('#mover-cima')
+buttonUp.addEventListener('click', function () {
+  const listTask = document.querySelector('.tarefa.selected');
+  const antes = document.querySelector('.tarefa.selected').previousElementSibling;
+  const listContent = document.querySelector('#lista-tarefas');
+  antes.insertAdjacentElement('beforebegin', listTask);
+})
+
+
+function createButttonDown() {
+  const buttonDownElement = document.createElement('button');
+  buttonDownElement.id = 'mover-baixo';
+  buttonDownElement.innerHTML = '&darr;';
+  buttonDownElement.className = 'botao-controle';
+  buttonDownElement.style.backgroundColor = 'rgb(255, 69, 0)';
+  buttonDownElement.style.font = '20px bold';
+  const footerController = document.querySelector('.footer-controller');
+  footerController.appendChild(buttonDownElement);
+}
+
+createButttonDown();
+
+const buttonDown = document.querySelector('#mover-baixo')
+buttonDown.addEventListener('click', function () {
+  const listTask = document.querySelector('.tarefa.selected');
+  const depois = document.querySelector('.tarefa.selected').nextElementSibling;
+  const listContent = document.querySelector('#lista-tarefas');
+  depois.insertAdjacentElement('afterend', listTask);
+})
 
 function createButtonRemoveSolved() {
   const buttonRemoveSolvedElement = document.createElement('button');
@@ -134,3 +181,6 @@ function eventSaveTask() {
 }
 
 eventSaveTask();
+
+
+
