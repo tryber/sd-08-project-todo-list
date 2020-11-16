@@ -15,6 +15,7 @@ function criaTarefas() {
   novaTarefa.innerText = entradaTarefa.value; //value é o valor que o input recebea
   novaTarefa.addEventListener("click", marcarDeCinza); // adicionando eventos para todos lis criados
   novaTarefa.className = "cinzas";
+  entradaTarefa.value = "";
 }
 
 let listaDeTarefa = document.querySelectorAll(".cinzas");
