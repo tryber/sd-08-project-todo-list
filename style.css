@@ -1,0 +1,71 @@
+body {
+    background-color: #003a74;
+}
+
+.list-container {
+    background-color: rgb(228, 226, 225);
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    margin: 100px auto;
+    padding: 25px;
+    width: 60%;
+}
+
+.h1-style {
+    margin-top: 0;
+}
+
+.task-form {
+    display: flex;
+}
+
+#texto-tarefa {
+    height: 30px;
+    width: 15rem;
+    padding-bottom: 0;
+    font-size: 16px;
+}
+
+#criar-tarefa {
+    background-color: rgb(184, 53, 53);
+    border: 1px solid black;
+    border-radius: 18px;
+    color: white;
+    font-weight: 600;
+    margin-left: 10px;
+    padding: 5px;
+    outline: none;
+    width: 5rem;
+}
+
+#apaga-tudo {
+    background-color: rgb(228, 110, 63);
+    border: 1px solid black;
+    border-radius: 18px;
+    color: rgb(250, 245, 245);
+    font-weight: 600;
+    margin-left: 10px;
+    padding: 5px;
+    outline: none;
+    width: 10rem;
+}
+
+#remover-finalizados {
+    background-color: rgb(70, 161, 43);
+    border: 1px solid black;
+    border-radius: 18px;
+    color: white;
+    font-weight: 600;
+    margin-left: 10px;
+    padding: 5px;
+    outline: none;
+    width: 10rem;
+}
+
+#criar-tarefa:hover {
+    border: 2px solid rgb(56, 52, 52);
+}
+
+.completed {
+    text-decoration: line-through;
+}
