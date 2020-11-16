@@ -29,3 +29,15 @@ function addTaskColor() {
     });
 }
 addTaskColor();
+
+function taskCompleted() {
+    let item = document.querySelector('#lista-tarefas');
+    item.addEventListener('dblclick', function(event) {
+        if (event.target.classList.contains('completed')) {
+            event.target.classList.remove('completed');
+        } else {
+            event.target.classList.add('completed');
+        }
+    });
+}
+taskCompleted();
