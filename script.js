@@ -17,11 +17,17 @@ addEventListener('click', (event) => {
     };
     if(event.target.id == 'apaga-tudo'){ 
         tarefaList.innerHTML = '';
-    }
+    };
+    if(event.target.id == 'remover-finalizados'){
+        let completed = document.querySelectorAll('.completed');
+        for(key = 0; key < completed.length; key++){
+            tarefaList.removeChild(completed[key]);
+        };
+    };
 });
 addEventListener('dblclick', (event) => {
     if(event.target.classList.contains('item')){
         event.target.classList.toggle('completed');
-    }
+    };
 });
 
