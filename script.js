@@ -1,30 +1,10 @@
 let lista = [];
-// function storage(){
-//   let retornoStorage = localStorage.getItem("lista")
-//   let arrayStorage = retornoStorage.split(",")
-//   lista=retornoStorage.split(",")
-//   let li_ID = document.getElementById("lista-tarefas");
-// //Cria a lista a partir do retorno do session storage
-//   for (let i = 0; i < arrayStorage.length; i++){  
-//   let Item = document.createElement("li");
-//   Item.classList.add("list-item");
-//   Item.innerHTML = arrayStorage[i];  
-//   li_ID.appendChild(Item)  
-// }
-
-// setColor();
-
-//   // doubleClick(Item);
-// } storage();
-
-// Insere elemento na lista
 function insereElementoNaLista() {
   let inputText = document.getElementById("texto-tarefa").value;
   let li_ID = document.getElementById("lista-tarefas");
   let Item = document.createElement("li");
   Item.classList.add("list-item");
   let ultimoElemento;
-  
   //Verifica se o input text está vazio
   if (inputText !== "") {
     lista.push(document.getElementById("texto-tarefa").value);
@@ -38,66 +18,73 @@ function insereElementoNaLista() {
   setColor();
   doubleClick(Item);
 }
-
 // Ao clicar no botão salva o texto na lista e apaga conteúdo do input
 document.getElementById("criar-tarefa").onclick = function () {
-  insereElementoNaLista(); 
+  insereElementoNaLista();
 };
 //Ao pressionar a tecla enter também é acionada a função de inserir tarefa
-document.getElementById("texto-tarefa").addEventListener("keyup", function (event){
+document
+  .getElementById("texto-tarefa")
+  .addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
-      insereElementoNaLista(); 
-    } 
-})
+      insereElementoNaLista();
+    }
+  });
 //Mover para cima as tarefas
-document.getElementById('mover-cima').addEventListener('click', function () {
-  let listaAtual = document.querySelector('#lista-tarefas').children;
-  let indiceMenos;  
-  for (let i = 0; i < listaAtual.length; i++){
-    if (listaAtual[i].className === 'list-item-active'){      
-      indiceMenos = listaAtual[i-1]        
-      if (indiceMenos !== undefined){    
-        let itemAtual = document.querySelector('.list-item-active')
-        let itemAtualText = document.querySelector('.list-item-active').innerText   
-        let itemPosterior = document.querySelector('.list-item-active').previousElementSibling
-        let itemPosteriorText = document.querySelector('.list-item-active').previousElementSibling.innerText
-        let aText = itemPosteriorText;    
-       
-        itemPosterior.className ='list-item-active'
-        itemPosterior.innerText = itemAtualText
-        itemAtual.className = 'list-item'
-        itemAtual.innerText = aText
-        break
-      }else {         
-        alert('Não há itens acima') 
-      }   
-    } 
-  } 
-})
+document.getElementById("mover-cima").addEventListener("click", function () {
+  let listaAtual = document.querySelector("#lista-tarefas").children;
+  let indiceMenos;
+  for (let i = 0; i < listaAtual.length; i++) {
+    if (listaAtual[i].className === "list-item-active") {
+      indiceMenos = listaAtual[i - 1];
+      if (indiceMenos !== undefined) {
+        let itemAtual = document.querySelector(".list-item-active");
+        let itemAtualText = document.querySelector(".list-item-active")
+          .innerText;
+        let itemPosterior = document.querySelector(".list-item-active")
+          .previousElementSibling;
+        let itemPosteriorText = document.querySelector(".list-item-active")
+          .previousElementSibling.innerText;
+        let aText = itemPosteriorText;
+
+        itemPosterior.className = "list-item-active";
+        itemPosterior.innerText = itemAtualText;
+        itemAtual.className = "list-item";
+        itemAtual.innerText = aText;
+        break;
+      } else {
+        alert("Não há itens acima");
+      }
+    }
+  }
+});
 //Mover para baixo a tarefa
-document.getElementById('mover-baixo').addEventListener('click', function () {
-  let listaAtual = document.querySelector('#lista-tarefas').children;  
+document.getElementById("mover-baixo").addEventListener("click", function () {
+  let listaAtual = document.querySelector("#lista-tarefas").children;
   let indiceMais;
-  for (let i = 0; i < listaAtual.length; i++){
-    if (listaAtual[i].className === 'list-item-active'){      
-      indiceMais = listaAtual[i+1]        
-      if (indiceMais !== undefined){    
-        let itemAtual = document.querySelector('.list-item-active')
-        let itemAtualText = document.querySelector('.list-item-active').innerText   
-        let itemAnterior = document.querySelector('.list-item-active').nextElementSibling
-        let itemAnteriorText = document.querySelector('.list-item-active').nextElementSibling.innerText
-        let aText = itemAnteriorText;           
-        itemAnterior.className ='list-item-active'
-        itemAnterior.innerText = itemAtualText
-        itemAtual.className = 'list-item'
-        itemAtual.innerText = aText
-        break
-      }else {         
-        alert('Não há itens abaixo') 
-      } 
-    } 
-  } 
-})
+  for (let i = 0; i < listaAtual.length; i++) {
+    if (listaAtual[i].className === "list-item-active") {
+      indiceMais = listaAtual[i + 1];
+      if (indiceMais !== undefined) {
+        let itemAtual = document.querySelector(".list-item-active");
+        let itemAtualText = document.querySelector(".list-item-active")
+          .innerText;
+        let itemAnterior = document.querySelector(".list-item-active")
+          .nextElementSibling;
+        let itemAnteriorText = document.querySelector(".list-item-active")
+          .nextElementSibling.innerText;
+        let aText = itemAnteriorText;
+        itemAnterior.className = "list-item-active";
+        itemAnterior.innerText = itemAtualText;
+        itemAtual.className = "list-item";
+        itemAtual.innerText = aText;
+        break;
+      } else {
+        alert("Não há itens abaixo");
+      }
+    }
+  }
+});
 //Função para apagar itens da lista
 let botaoApaga = document.querySelector("#apaga-tudo");
 botaoApaga.onclick = () => {
@@ -184,11 +171,3 @@ botaoApagaTarefaSelecionada.onclick = () => {
     alert("\t Não há itens na lista! \t");
   }
 };
-// //Botão para salvar o array lista, com os valores de cada li
-// document.getElementById("salvar-tarefas").addEventListener("click", function(){   
-//   localStorage.setItem("lista",lista)   
-// })
-
-
-
-

@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TodoList</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div id="container">
-        <header class="center">
-            <h1>Minha Lista de Tarefas</h1>
-        </header>
-    
-        <div class="center">
-            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        </div>
-    
-        <div class="center">
-            <label for="texto-tarefa"><img src="task.png"class="seta2"></label>
-            <input type="text" placeholder="Digite o nome da tarefa." id="texto-tarefa">
-        </div>
-    
-        <div id="lista">
-            <ol id="lista-tarefas"></ol>
-        </div>
-        <div class="center">            
-            <button id="mover-cima"><img src="seta_cima.png" class="seta2"></button>
-            <button id="mover-baixo"><img src="set_baixo.png" class="seta2"></button>            
-            <button id="salvar-tarefas"><img src="save.png" class="seta2"></button>
-        </div>
-        <div class="center">           
-            <button id="criar-tarefa"> <label>NOVA<img src="new.png" class="seta"></label></button>           
-            <button id="remover-selecionado"><label>SELECIONADA<img src="delete.png" class="seta"></label></button>
-            <button id="remover-finalizados"><label>CONCLUÍDAS<img src="delete.png" class="seta"></label></button>        
-            <button id="apaga-tudo"><label>TUDO<img src="delete.png" class="seta"></label></button>            
-        </div>
+      <header class="center">
+        <h1>Minha Lista de Tarefas</h1>
+      </header>
+      <div class="center">
+        <p id="funcionamento">
+          Clique duas vezes em um item para marcá-lo como completo
+        </p>
+      </div>
+      <div class="center">
+        <label for="texto-tarefa"><img src="task.png" class="seta2" /></label>
+        <input
+          type="text"
+          placeholder="Digite o nome da tarefa."
+          id="texto-tarefa"
+        />
+      </div>
+      <div id="lista">
+        <ol id="lista-tarefas"></ol>
+      </div>
+      <div class="center">
+        <button id="mover-cima">
+          <img src="seta_cima.png" class="seta2" />
+        </button>
+        <button id="mover-baixo">
+          <img src="set_baixo.png" class="seta2" />
+        </button>
+      </div>
+      <div class="center">
+        <button id="criar-tarefa">
+          <label>NOVA<img src="new.png" class="seta" /></label>
+        </button>
+        <button id="remover-selecionado">
+          <label>SELECIONADA<img src="delete.png" class="seta" /></label>
+        </button>
+        <button id="remover-finalizados">
+          <label>CONCLUÍDAS<img src="delete.png" class="seta" /></label>
+        </button>
+        <button id="apaga-tudo">
+          <label>TUDO<img src="delete.png" class="seta" /></label>
+        </button>
+      </div>
     </div>
-    
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
