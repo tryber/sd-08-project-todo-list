@@ -41,3 +41,12 @@ function taskCompleted() {
     });
 }
 taskCompleted();
+
+function cleanAll() {
+    let btnClean = document.querySelector('#apaga-tudo');
+    btnClean.addEventListener('click', function() {
+        let list = document.querySelector('#lista-tarefas');
+        list.innerHTML = '';
+    });
+}
+cleanAll();
