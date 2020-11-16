@@ -1,23 +1,23 @@
 let lista = [];
 
 
-function storage(){
-  let retornoStorage = localStorage.getItem("lista")
-  let arrayStorage = retornoStorage.split(",")
-  lista=retornoStorage.split(",")
-  let li_ID = document.getElementById("lista-tarefas");
-//Cria a lista a partir do retorno do session storage
-  for (let i = 0; i < arrayStorage.length; i++){  
-  let Item = document.createElement("li");
-  Item.classList.add("list-item");
-  Item.innerHTML = arrayStorage[i];  
-  li_ID.appendChild(Item)  
-}
+// function storage(){
+//   let retornoStorage = localStorage.getItem("lista")
+//   let arrayStorage = retornoStorage.split(",")
+//   lista=retornoStorage.split(",")
+//   let li_ID = document.getElementById("lista-tarefas");
+// //Cria a lista a partir do retorno do session storage
+//   for (let i = 0; i < arrayStorage.length; i++){  
+//   let Item = document.createElement("li");
+//   Item.classList.add("list-item");
+//   Item.innerHTML = arrayStorage[i];  
+//   li_ID.appendChild(Item)  
+// }
 
-setColor();
+// setColor();
 
-  // doubleClick(Item);
-} storage();
+//   // doubleClick(Item);
+// } storage();
 
 // Insere elemento na lista
 function insereElementoNaLista() {
