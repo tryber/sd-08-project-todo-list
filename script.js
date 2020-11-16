@@ -12,7 +12,7 @@ function functionCriaTarefa() {
     listaDeItens.addEventListener('click', corFundoClicado);
     listaDeItens.addEventListener('click', removeSelection);
     listaDeItens.addEventListener('dblclick', tarefaCompleta);
-    botaoApagaFinalizados.addEventListener('click', functionApagaFinalizados);
+    //botaoApagaFinalizados.addEventListener('click', functionApagaFinalizados);
 }
 
 botaoAdiciona.addEventListener('click', functionCriaTarefa);
@@ -40,9 +40,11 @@ botaoApagaTudo.addEventListener('click', functionApagaTarefa);
 function functionApagaTarefa() {
     listaOrdenada.innerHTML = '';
 }
-function functionApagaFinalizados() {
-    const listaDeItensFinalizados = listaOrdenada.getElementsByClassName('completed');
+botaoApagaFinalizados.addEventListener("click", function () {
+    let listaDeItensFinalizados = listaOrdenada.querySelectorAll("li");
     for (let index = 0; index < listaDeItensFinalizados.length; index += 1) {
-        listaDeItensFinalizados[index].remove();
+        if (listaDeItensFinalizados[index].classList.contains("completed")) {
+            listaOrdenada.removeChild(listaDeItensFinalizados[index]);
+        }
     }
-}
+});
