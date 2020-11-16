@@ -1,3 +1,7 @@
+window.onload = function () {
+    dataGet();
+}
+
 function createTask() {
     let input = document.querySelector('#texto-tarefa');
     let button = document.querySelector('#criar-tarefa');
@@ -23,6 +27,8 @@ function selecting() {
     })
 }
 
+selecting();
+
 function completing() {
     let list = document.querySelector('#lista-tarefas');
     list.addEventListener('dblclick', function (event) {
@@ -35,7 +41,6 @@ function completing() {
 }
 
 completing();
-selecting();
 
 function deleteList() {
     let list = document.querySelector('#lista-tarefas');
@@ -59,3 +64,21 @@ function deleteCompletedItens() {
 }
 
 deleteCompletedItens();
+
+function dataSave() {
+    let list = document.querySelector('#lista-tarefas');
+    let button = document.querySelector('#salvar-tarefas');
+    button.addEventListener('click', function () {
+        localStorage.setItem('list', list.innerHTML);
+    })
+}
+
+dataSave();
+
+function dataGet() {
+    let storage = localStorage.getItem('list');
+    let list = document.querySelector('#lista-tarefas');
+    if (storage !== null) {
+        list.innerHTML = storage;
+    }
+}
