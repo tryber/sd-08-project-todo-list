@@ -1,4 +1,5 @@
-let lista = [];
+const lista = [];
+// Insere elemento na lista
 function insereElementoNaLista() {
   let inputText = document.getElementById("texto-tarefa").value;
   let li_ID = document.getElementById("lista-tarefas");
@@ -18,7 +19,6 @@ function insereElementoNaLista() {
   setColor();
   doubleClick(Item);
 }
-// Ao clicar no botão salva o texto na lista e apaga conteúdo do input
 document.getElementById("criar-tarefa").onclick = function () {
   insereElementoNaLista();
 };
@@ -46,7 +46,6 @@ document.getElementById("mover-cima").addEventListener("click", function () {
         let itemPosteriorText = document.querySelector(".list-item-active")
           .previousElementSibling.innerText;
         let aText = itemPosteriorText;
-
         itemPosterior.className = "list-item-active";
         itemPosterior.innerText = itemAtualText;
         itemAtual.className = "list-item";
@@ -139,9 +138,8 @@ let botaoApagaSelecionados = document.querySelector("#remover-finalizados");
 botaoApagaSelecionados.onclick = () => {
   let itensDalista = document.querySelectorAll("li");
   let listaInterna = document.querySelector("#lista-tarefas");
-
   if (lista.length != 0) {
-    if (confirm("\t\n Deseja apagar as tarefas concluídas? \t\n")) {
+    if (confirm("\t\n Deseja apagar as tarefas selecionadas? \t\n")) {
       for (let i = 0; i < itensDalista.length; i++) {
         if (itensDalista[i].className === "completed") {
           listaInterna.removeChild(itensDalista[i]);
