@@ -28,9 +28,7 @@ function clearInput() {
 function taskColor() {
   const listTask = document.querySelector('#lista-tarefas');
   listTask.addEventListener('click', function (task) {
-    if (task.target.className == 'selected') {
-      task.target.className = 'tarefa';
-    } else if (task.target.className == 'selected completed') {
+    if (task.target.className == 'selected completed') {
       clearColorTask();
       task.target.className = 'tarefa completed';
     } else if (task.target.className == 'tarefa') {
