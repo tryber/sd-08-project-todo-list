@@ -66,11 +66,11 @@ main {
 }
 
 .botoes:hover {
-  color: rgb(245 , 245 , 36);
+  color: rgb(28 , 31 , 209);
 }
 
 .caixa-texto:focus , .botoes:focus {
-  color: rgb(245 , 245 , 36);
+  color:  rgb(28 , 31 , 209);
   outline: none;
 }
 

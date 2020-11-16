@@ -32,11 +32,7 @@ function corFundoTarefa(event) {
 listaOrdenada.addEventListener('click', corFundoTarefa);
 
 function riscarTarefa(event) {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
+  event.target.classList.toggle('completed');
 }
 
 listaOrdenada.addEventListener('dblclick', riscarTarefa);
