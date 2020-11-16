@@ -55,7 +55,6 @@ window.onload = function () {
     }
   })
   // Salva tarefas
-  
   document.getElementById('salvar-tarefas').addEventListener('click', function () {
     localStorage.clear();
     tarefasArray = []
@@ -69,16 +68,16 @@ window.onload = function () {
     }
     localStorage.setItem('tarefa', JSON.stringify(tarefasArray));
   })
-  // Recupera tarefas após atualizar a aba ou abrir outra
-  // let tarefaSalva = JSON.parse(localStorage.getItem('tarefa'));
-  // for (let index = 0; index < tarefaSalva.length; index += 1){
-  //   let tarefa = document.createElement('li');
-  //   tarefa.className = tarefaSalva[index].class;
-  //   tarefa.innerText = tarefaSalva[index].item;
-  //   lista.appendChild(tarefa);
-  // }
-  // Mover tarefas
-}
+  // Recupera dados
+  let tarefaSalva = JSON.parse(localStorage.getItem('tarefa'));
+  let num = tarefaSalva.length;
+  for (let index = 0; index < num; index += 1) {
+    let tarefa = document.createElement('li');
+    tarefa.className = tarefaSalva[index].class;
+    tarefa.innerText = tarefaSalva[index].item;
+    lista.appendChild(tarefa);
+  }
+};
 
   
 
