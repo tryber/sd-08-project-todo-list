@@ -89,8 +89,10 @@ function moveUp() {
     let button = document.querySelector('#mover-cima');
     button.addEventListener('click', function () {
         let selected = document.querySelector('.selected');
-        if (selected.previousElementSibling) {
-            selected.parentNode.insertBefore(selected, selected.previousElementSibling);
+        if (selected !== null) {
+            if (selected.previousElementSibling) {
+                selected.parentNode.insertBefore(selected, selected.previousElementSibling);
+            }
         }
     })
 }
@@ -101,8 +103,10 @@ function moveDown() {
     let button = document.querySelector('#mover-baixo');
     button.addEventListener('click', function () {
         let selected = document.querySelector('.selected');
-        if (selected.nextElementSibling) {
-            selected.parentNode.insertBefore(selected.nextElementSibling, selected);
+        if (selected !== null) {
+            if (selected.nextElementSibling) {
+                selected.parentNode.insertBefore(selected.nextElementSibling, selected);
+            }
         }
     })
 }
