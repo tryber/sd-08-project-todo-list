@@ -12,5 +12,4 @@ function adicionar() {
     listagem.appendChild(item);
     document.principal.texto.value= "";
   
-    //createCloseButton(li);
   }
