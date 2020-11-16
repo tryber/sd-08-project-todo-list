@@ -1,0 +1,10 @@
+
+.itemSelected{
+    background-color: rgb(128,128,128);
+    cursor: pointer;
+}
+
+.item:hover{
+    background-color: rgb(128,128,128);
+    cursor: pointer;
+}
