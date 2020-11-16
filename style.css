@@ -67,3 +67,11 @@ button:hover {
 	padding-left: 20px;
 	padding-right: 20px;
 }
+
+.completed {
+	text-decoration: line-through solid #0c0c00;
+}
+
+.selected {
+	background-color: rgba(128 , 128 , 128);
+}
