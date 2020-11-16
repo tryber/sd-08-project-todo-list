@@ -2,6 +2,7 @@ const listaTarefas = document.getElementById('lista-tarefas');
 listaTarefas.innerHTML = localStorage.getItem('List');
 
 document.addEventListener('click', (event) => {
+  // Cria tarefa
   if (event.target.id === 'criar-tarefa') {
     const textoTarefa = document.getElementById('texto-tarefa');
     const tarefa = document.createElement('li');
@@ -10,11 +11,11 @@ document.addEventListener('click', (event) => {
     textoTarefa.value = '';
     listaTarefas.appendChild(tarefa);
   }
-  
+  // Limpa a lista
   if (event.target.id === 'apaga-tudo') {
     listaTarefas.innerHTML = '';
   }
-
+  // Remove tarefas finalizadas
   if (event.target.id === 'remover-finalizados') {
     const tarefaFinalizada = document.getElementsByClassName('completed');
     const lenght = tarefaFinalizada.length;
@@ -22,11 +23,11 @@ document.addEventListener('click', (event) => {
       tarefaFinalizada[0].parentElement.removeChild(tarefaFinalizada[0]);
     }
   }
-
+  // Salva lista no localStorage
   if (event.target.id === 'salvar-tarefas') {
     localStorage.setItem('List', listaTarefas.innerHTML);
   }
-
+  // Seleciona tarefa
   if (event.target.classList.contains('tarefa')) {
     const tarefas = document.querySelector('.selected');
     if (tarefas === null) {
@@ -37,8 +38,8 @@ document.addEventListener('click', (event) => {
       event.target.classList.add('selected');
     }
   }
-});
-
-listaTarefas.addEventListener('dbclick', (event) => {
-  event.target.classList.toggle('completed');
+  // Marca tarefa como finalizada
+  listaTarefas.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
 });
