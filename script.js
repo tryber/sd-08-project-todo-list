@@ -105,7 +105,7 @@ function loadTasks() {
         addTask(taskList[i].task);
       }
     }
-  }, 2000);
+  }, 3000);
 }
 function moveUp() {
   const ol = document.getElementById('lista-tarefas');
