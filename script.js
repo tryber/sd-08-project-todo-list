@@ -21,10 +21,10 @@ getButtonCreateTask.addEventListener('click', () => {
 });
 
 function toggleSelected(event) {
-  for (let i = 0; i < getTaskList.length; i += 1) {
-    getTaskList[i].classList.remove('selected');
+  for (let index = 0; index < getTaskList.length; index += 1) {
+    getTaskList[index].classList.remove('selected');
     event.target.classList.add('selected');
-    getTaskList[i] = event.target;
+    getTaskList[index] = event.target;
   }
 }
 
@@ -38,7 +38,7 @@ getButtonClearAll.addEventListener('click', () => {
 
 getButtonRemoveFinished.addEventListener('click', () => {
   let completedTask = document.getElementsByClassName('completed');
-  for (let i = completedTask.length - 1; i >= 0; i -= 1) {
-    completedTask[i].remove();
+  for (let index = completedTask.length - 1; index >= 0; index -= 1) {
+    completedTask[index].remove();
   }
 });
