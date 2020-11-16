@@ -82,3 +82,29 @@ function dataGet() {
         list.innerHTML = storage;
     }
 }
+
+//As funções de mover para cima e para baixo aprendi nesse site https://www.it-swarm-pt.tech/pt/javascript/mover-um-elemento-um-lugar-para-cima-ou-para-baixo-na-arvore-do-dom-com-javascript/822635469/
+
+function moveUp() {
+    let button = document.querySelector('#mover-cima');
+    button.addEventListener('click', function () {
+        let selected = document.querySelector('.selected');
+        if (selected.previousElementSibling) {
+            selected.parentNode.insertBefore(selected, selected.previousElementSibling);
+        }
+    })
+}
+
+moveUp();
+
+function moveDown() {
+    let button = document.querySelector('#mover-baixo');
+    button.addEventListener('click', function () {
+        let selected = document.querySelector('.selected');
+        if (selected.nextElementSibling) {
+            selected.parentNode.insertBefore(selected.nextElementSibling, selected);
+        }
+    })
+}
+
+moveDown();
