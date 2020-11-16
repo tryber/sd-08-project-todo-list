@@ -26,6 +26,7 @@ body {
 .tarefa {
   border: 30px;
   line-height: 25px;
+  background-color: white;
 }
 
 .completed {
@@ -43,4 +44,10 @@ body {
   border: 1px;
   font-size: 15px;
   color: white;
+}
+
+.selected {
+  border: 30px;
+  line-height: 25px;
+  background-Color: rgb(128, 128, 128);
 }

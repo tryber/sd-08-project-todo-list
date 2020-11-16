@@ -10,7 +10,6 @@ function addTask() {
   buttonAddTask.addEventListener('click', function () {
     const taskElement = document.createElement('li');
     taskElement.className = 'tarefa'
-    taskElement.style.backgroundColor = 'white';
     const inputTask = document.querySelector('#texto-tarefa');
     taskElement.innerHTML = inputTask.value;
     const listTask = document.querySelector('#lista-tarefas');  
@@ -29,13 +28,17 @@ function clearInput() {
 function taskColor() {
   const listTask = document.querySelector('#lista-tarefas');
   listTask.addEventListener('click', function (task) {
-    if (task.target.style.backgroundColor === 'rgb(128, 128, 128)') {
-      task.target.style.backgroundColor = 'white';
+    if (task.target.className == 'selected') {
       task.target.className = 'tarefa';
-    } else {
+    } else if (task.target.className == 'selected completed') {
       clearColorTask();
-      task.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      task.target.className = 'tarefa selected';
+      task.target.className = 'tarefa completed';
+    } else if (task.target.className == 'tarefa') {
+      clearColorTask();
+      task.target.className = 'selected';
+    } else if (task.target.className == 'tarefa completed') {
+      clearColorTask();
+      task.target.className = 'selected completed';
     }
   });
 }
@@ -43,23 +46,24 @@ function taskColor() {
 taskColor();
 
 function clearColorTask() {
-  const listTask = document.querySelectorAll('.tarefa, .tarefa selected');
-  console.log(listTask);
+  const listTask = document.querySelectorAll('.selected');
   for (let tag of listTask) {
-    tag.style.backgroundColor = 'white';
-    tag.className = 'tarefa';
+    if (tag.className == 'selected completed')
+      tag.className = 'tarefa completed';
+    else
+      tag.className = 'tarefa';
   }
 }
-
 
 function taskCompleted() {
   const listTask = document.querySelector('#lista-tarefas');
   listTask.addEventListener('dblclick', function (solved) {
-    if (solved.target.className === 'tarefa completed') {
+    if (solved.target.className == 'selected completed')
+      solved.target.className = 'selected';
+    if (solved.target.className == 'tarefa completed')
       solved.target.className = 'tarefa';
-    } else {
-      solved.target.className = 'tarefa completed';
-    }
+    else
+      solved.target.className += ' completed';
   });
 }
 
@@ -80,8 +84,8 @@ createButttonUp();
 
 const buttonUp = document.querySelector('#mover-cima')
 buttonUp.addEventListener('click', function () {
-  const listTask = document.querySelector('.tarefa.selected');
-  const antes = document.querySelector('.tarefa.selected').previousElementSibling;
+  const listTask = document.querySelector('.selected');
+  const antes = document.querySelector('.selected').previousElementSibling;
   const listContent = document.querySelector('#lista-tarefas');
   antes.insertAdjacentElement('beforebegin', listTask);
 })
@@ -102,8 +106,8 @@ createButttonDown();
 
 const buttonDown = document.querySelector('#mover-baixo')
 buttonDown.addEventListener('click', function () {
-  const listTask = document.querySelector('.tarefa.selected');
-  const depois = document.querySelector('.tarefa.selected').nextElementSibling;
+  const listTask = document.querySelector('.selected');
+  const depois = document.querySelector('.selected').nextElementSibling;
   const listContent = document.querySelector('#lista-tarefas');
   depois.insertAdjacentElement('afterend', listTask);
 })
@@ -124,7 +128,6 @@ function eventRemoveSolved() {
   const buttonRemoveSolved = document.querySelector('#remover-finalizados');
   buttonRemoveSolved.addEventListener('click', function () {
     const tasksCompletedList = document.querySelectorAll('.completed');
-    console.log(tasksCompletedList);
     const listElement = document.querySelector('#lista-tarefas');
     for (let tag of tasksCompletedList) {
       listElement.removeChild(tag);
@@ -149,7 +152,7 @@ createButtonClearList();
 function eventClearList() {
   const buttonClear = document.querySelector('#apaga-tudo');
   buttonClear.addEventListener('click', function () {
-    const tasksList = document.querySelectorAll('.tarefa');
+    const tasksList = document.querySelectorAll('.tarefa, .selected');
     const listElement = document.querySelector('#lista-tarefas');
     for (let tag of tasksList) {
       listElement.removeChild(tag);
@@ -181,6 +184,4 @@ function eventSaveTask() {
 }
 
 eventSaveTask();
-
-
 
