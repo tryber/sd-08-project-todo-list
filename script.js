@@ -28,6 +28,7 @@ function clickItens () {
         }
     });
 }
+
 clickItens();
 
 
