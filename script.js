@@ -141,6 +141,14 @@ function actionDown() {
     moveDown();
   });
 }
+function removeSelected() {
+  const btnRemoveSelected = document.getElementById('remover-selecionado');
+  btnRemoveSelected.addEventListener('click', function () {
+    const liSelected = document.querySelector('.selected');
+    liSelected.remove();
+  });
+}
+removeSelected();
 actionUp();
 actionDown();
 window.onload = function () {
