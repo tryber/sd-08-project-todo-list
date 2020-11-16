@@ -11,3 +11,5 @@ function addTask(){
         inputText.value='';
     })
 }
+
+addTask();
