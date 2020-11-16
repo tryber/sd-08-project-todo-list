@@ -1,5 +1,5 @@
 document.addEventListener('click', function (event) {
-    if (event.target.classList.contains('criar-tarefa')) {
+    if (event.target.id === 'criar-tarefa') {
         const list = document.getElementById('lista-tarefas');
         let taskText = document.getElementById('texto-tarefa');
         let createList = document.createElement('li');
@@ -11,10 +11,15 @@ document.addEventListener('click', function (event) {
         let removeSelect = document.getElementsByClassName('selected');
         for (let i = 0; i < removeSelect.length; i += 1) {
             removeSelect[i].classList.remove('selected');
-        }
+        };
         event.target.classList.add('selected');
     } else if (event.target.id === 'apaga-tudo') {
         document.getElementById('lista-tarefas').innerHTML = '';
+    } else if (event.target.id === 'remover-finalizados') {
+        let removeCompleted = document.getElementsByClassName('completed');
+        for (let j = 0; j < removeCompleted.length;) {
+            removeCompleted[0].remove();
+        };
     }
 }, false);
 
@@ -26,6 +31,3 @@ document.addEventListener('dblclick', function (event) {
     };
 }, false);
 
-// document.addEventListener('dblclick', function (event) {
-    
-// }, false);
