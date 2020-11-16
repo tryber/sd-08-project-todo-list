@@ -7,17 +7,28 @@
   <link rel='stylesheet' href='style.css'></link>
 </head>
 <body>
-  <header>Minha Lista de Tarefas</header>
-  <p id='funcionamento'><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
-  <input id='texto-tarefa' type = 'text'>
-  <button id='criar-tarefa'>Adicionar</button>
-  <ol id='lista-tarefas'></ol>
-  <button id='apaga-tudo'>Limpar</button>
-  <button id='remover-finalizados'>Remove Finalizados</button>
-  <button id='salvar-tarefas'>Salvar Tarefas</button>
-  <button id='mover-cima'>Mover para cima</button>
-  <button id='mover-baixo'>Mover para baixo</button>
-  <button id='remover-selecionado'>Remover Selecionado</button>
+  <main class='main-content'>
+    <header class='titulo'>Minha Lista de Tarefas
+      <p id='funcionamento'><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
+      <div class='adicionar'>
+        <label for='texto-tarefa'>Insira a tarefa: </label>
+        <input id='texto-tarefa' type = 'text' placeholder="Insira sua tarefa aqui">
+        <button class='btn' id='criar-tarefa'>Adicionar</button>
+      </div>  
+      <div class='lista-estilo'>
+        <ol class='ordenada' id='lista-tarefas'></ol>
+      </div>
+        <div class='buttons'>
+          <button class='btn' id='apaga-tudo'>Limpar</button>
+          <button class='btn' id='remover-finalizados'>Remove Finalizados</button>
+          <button class='btn' id='salvar-tarefas'>Salvar Tarefas</button>
+          <button class='btn' id='mover-cima'>Mover para cima</button>
+          <button class='btn' id='mover-baixo'>Mover para baixo</button>
+          <button class='btn' id='remover-selecionado'>Remover Selecionado</button>
+        </div>
+      </div>
+    </header>    
+  </main>
   <script src='script.js'></script>
 </body>
 </html>

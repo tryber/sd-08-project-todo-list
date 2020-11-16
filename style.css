@@ -1,7 +1,80 @@
+html {
+  height: 100%;
+}
+body {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .elemento-cinza {
   background-color: rgb(128 ,128 ,128);
 }
-
 .completed {
-	text-decoration: line-through;
+  text-decoration: line-through;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  background-color: rgb(79, 189, 226);
+  padding: 30px 100px 30px 100px;
+  border: darkgray 1px solid;
+  border-radius: 10px;
+}
+
+.adicionar label {
+  margin-right: 6px;
+}
+.adicionar input {
+  margin-right: 6px;
+  border-radius: 3px;
+  border: solid darkgray;
+}
+
+.lista-estilo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 25px;
+  border: 2px dashed darkgray;
+  background-color:white;
+  padding: 0 30px 0 0;
+}
+
+
+.ordenada {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 25px;
+}
+
+.buttons {
+  display: flex;
+  width: 750px;
+  height: 30px;
+   
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn {
+  border-radius: 10px;  
 }
