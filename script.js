@@ -16,7 +16,7 @@ addTask();
 function addTaskColor() {
     let taskList = document.querySelector("#lista-tarefas");
     taskList.addEventListener('click', function(event) {
-    let selected = document.querySelector('.selector');
+    let selected = document.querySelector('.selected');
     if (selected === null) {
         event.target.classList.add('selected');
         event.target.style.backgroundColor = 'rgb(128, 128, 128)'
