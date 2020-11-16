@@ -1,6 +1,4 @@
 let lista = [];
-
-
 // function storage(){
 //   let retornoStorage = localStorage.getItem("lista")
 //   let arrayStorage = retornoStorage.split(",")
@@ -40,17 +38,6 @@ function insereElementoNaLista() {
   setColor();
   doubleClick(Item);
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // Ao clicar no botão salva o texto na lista e apaga conteúdo do input
 document.getElementById("criar-tarefa").onclick = function () {
@@ -197,10 +184,10 @@ botaoApagaTarefaSelecionada.onclick = () => {
     alert("\t Não há itens na lista! \t");
   }
 };
-//Botão para salvar o array lista, com os valores de cada li
-document.getElementById("salvar-tarefas").addEventListener("click", function(){   
-  localStorage.setItem("lista",lista)   
-})
+// //Botão para salvar o array lista, com os valores de cada li
+// document.getElementById("salvar-tarefas").addEventListener("click", function(){   
+//   localStorage.setItem("lista",lista)   
+// })
 
 
 
