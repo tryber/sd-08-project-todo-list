@@ -1,0 +1,82 @@
+body {
+  background-color: rgb(166, 235, 196);
+  text-align: center;
+}
+
+li {
+    font-family: syne mono;
+}
+
+header {
+    background-color: aquamarine;
+    font-family: Syne mono, Arial, Helvetica, sans-serif;
+    padding: 20px
+}
+.selected {
+    background-color: rgb(128, 128, 128);
+}
+.completed {
+    text-decoration: line-through solid;
+}
+footer {
+    margin-top: 20px;
+    position: absolute;
+    top: 500px;    
+}
+
+button {
+    border-radius: 20px;
+}
+
+.apaga-tudo {
+    background-color: rgb(252, 102, 102);
+    display: block;
+}
+
+.remover-finalizados {
+    background-color: rgb(255, 255, 100);
+    display: block;
+}
+
+.remover-selecionado {
+    background-color: rgb(128, 128, 128);
+    display: block;
+}
+
+.button-container {
+    float: left;
+    display: inline-block;
+    margin: 20px;
+    width: 150px;
+}
+
+main {
+    float: right;
+    display: inline-block;
+    width: 70%;
+}
+
+.apaga-tudo, .remover-finalizados, .remover-selecionado, .salvar-tarefas {
+    display: block;
+    margin-top: 20px;
+    width: 150px;
+    
+}
+
+.mover-cima, .mover-baixo {
+    width: 60px;
+    height: 60px;
+    display: block;
+    border-radius: 100%;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+img {
+    width: 40px;
+    border-radius: 100%;
+}
+
+.mover-cima {
+    margin-top: 40px;
+}
