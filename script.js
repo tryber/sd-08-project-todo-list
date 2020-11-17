@@ -1,8 +1,8 @@
 let caixaTexto = document.getElementById("texto-tarefa");
-let adicionado = document.getElementById("lista-tarefas");
 let btnAdiciona = document.querySelector('#criar-tarefa');
 let listagem = document.querySelector('#lista-tarefas');
-
+let liLocal = document.getElementsByTagName('li');
+// Função para adicionar lista//
 function adicionar() {
     let item = document.createElement('li');
     let inserirValor= document.principal.texto.value;
@@ -12,4 +12,15 @@ function adicionar() {
     listagem.appendChild(item);
     document.principal.texto.value= "";
   
+  };
+
+// Evento para mudar o background
+
+listagem.addEventListener('click', function(event){
+  
+  for (let index=0; index<liLocal.length; index +=1){
+    liLocal[index].className = ''
+
   }
+  event.target.className = "planoDeFundo";
+})

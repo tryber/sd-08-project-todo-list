@@ -135,23 +135,23 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 
 /- Será verificada a existência de um elemento `ol` com o id `lista-tarefas`.
 
-### 5 - Deve haver um botão com `id="criar-tarefa"` e ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo.
-##### As seguintes verificações serão feitas:
+/### 5 - Deve haver um botão com `id="criar-tarefa"` e ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo.
+/##### As seguintes verificações serão feitas:
 
 - Será verificada a existência de um elemento do tipo `button` com o id `criar-tarefa`
 - No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
 /- A adição de elementos na lista será feita algumas vezes, e será checado se todos os itens criados permanecem na lista na medida em que novos são adicionados.
 
-### 6 - Os itens da lista de tarefas devem ser ordenados por ordem de criação.
-##### As seguintes verificações serão feitas:
+/### 6 - Os itens da lista de tarefas devem ser ordenados por ordem de criação.
+/##### As seguintes verificações serão feitas:
 
-- Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante.
+/- Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante.
 
-### 7 - Ao clicar em um item da lista, altere a cor de fundo do item para cinza rgb(128,128,128).
-##### As seguintes verificações serão feitas:
+/### 7 - Ao clicar em um item da lista, altere a cor de fundo do item para cinza rgb(128,128,128).
+/##### As seguintes verificações serão feitas:
 
-- Será verificado que, ao se carregar a página, os itens da lista **não tem** o estilo CSS `background-color: rgb(128, 128, 128)`
-- Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)`
+/- Será verificado que, ao se carregar a página, os itens da lista **não tem** o estilo CSS `background-color: rgb(128, 128, 128)`
+/- Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)`
 
 ### 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo.
 ##### As seguintes verificações serão feitas:
