@@ -51,3 +51,17 @@ function cleanList(){
     })
 }
 cleanList();
+
+function eraseCompleted() {
+    let buttonEraseCompleted = document.querySelector('#remover-finalizados');
+    buttonEraseCompleted.addEventListener('click', function() {
+        let taskList = document.querySelector('#lista-tarefas');
+        for (let index = 0; index < taskList.children.length; index++) {
+            if (taskList.children[index].classList.contains('completed')) {
+                taskList.removeChild(taskList.children[index]);
+                index -= 1;
+            }
+        }
+    });
+}
+eraseCompleted();
