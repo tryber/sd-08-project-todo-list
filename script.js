@@ -57,6 +57,29 @@ function taskCompleted() {
 
 taskCompleted();
 
+function createButtonClearSelected() {
+  const buttonClearSelectedElement = document.createElement('button');
+  buttonClearSelectedElement.id = 'remover-selecionado';
+  buttonClearSelectedElement.innerHTML = 'X';
+  buttonClearSelectedElement.className = 'botao-controle';
+  buttonClearSelectedElement.style.backgroundColor = 'rgb(150, 0, 0)';
+  buttonClearSelectedElement.style.font = '20px';
+  const footerController = document.querySelector('.footer-controller');
+  footerController.appendChild(buttonClearSelectedElement);
+}
+
+createButtonClearSelected();
+
+const buttonClearSelected = document.querySelector('#remover-selecionado');
+buttonClearSelected.addEventListener('click', function () {
+  const tasksList = document.querySelectorAll('.selected');
+  const listElement = document.querySelector('#lista-tarefas');
+  for (let tag of tasksList) {
+    listElement.removeChild(tag);
+  }
+})
+
+
 function createButttonUp() {
   const buttonUpElement = document.createElement('button');
   buttonUpElement.id = 'mover-cima';
@@ -72,15 +95,11 @@ createButttonUp();
 
 const buttonUp = document.querySelector('#mover-cima')
 buttonUp.addEventListener('click', function () {
-  const listTask = document.querySelector('#lista-tarefas');
   const task = document.querySelector('.selected');
   if (task !== null) {
     const before = document.querySelector('.selected').previousElementSibling;
     if (before !== null) {
-      //before.insertAdjacentElement('beforebegin', listTask);
-      listTask.insertBefore(task, before);
-      // const nodeTask = document.querySelectorAll('.selected');
-      // nodeTask[0].classList.remove('selected');
+      before.insertAdjacentElement('beforebegin', listTask);
     }
   }
 })
@@ -100,13 +119,11 @@ createButttonDown();
 
 const buttonDown = document.querySelector('#mover-baixo')
 buttonDown.addEventListener('click', function () {
-  const listTask = document.querySelector('.selected');
-  if (listTask !== null) {
+  const task = document.querySelector('.selected');
+  if (task !== null) {
     const depois = document.querySelector('.selected').nextElementSibling;
-    if (depois !== null) {
-      depois.insertAdjacentElement('afterend', listTask);
-      // const nodeTask = document.querySelectorAll('.selected');
-      // nodeTask[0].classList.remove('selected');
+    if (after !== null) {
+      after.insertAdjacentElement('afterend', listTask);
     }
   }
 })
