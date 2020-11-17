@@ -9,10 +9,6 @@ function criarTarefa() {
         listTask.innerText = task.value;
         orderedTask.appendChild(listTask);
         task.value = "";
-
     }
-
-
-
 }
 criarTarefa();
