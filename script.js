@@ -13,3 +13,20 @@ function addTask(){
 }
 
 addTask();
+
+function addTaskColor() {
+    let taskList = document.querySelector("#lista-tarefas");
+    taskList.addEventListener('click', function(event) {
+    let chosen = document.querySelector('.chosen');
+    if (chosen == null) {
+        event.target.classList.add('chosen');
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    } else {
+        chosen.classList.remove('chosen');
+        chosen.style.backgroundColor = '';
+        event.target.classList.add('chosen');
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    }
+    });
+}
+addTaskColor();
