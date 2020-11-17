@@ -26,9 +26,21 @@ listagem.addEventListener('click', function(event){
 });
 
 listagem.addEventListener('dblclick',function(event){
+
   
   if (event.target.className === "completed"){
     event.target.className = "";
   } else {event.target.className += "completed";}
 
-})
+});
+
+let umaLista= document.getElementsByTagName('ol')[0];
+let umItem = umaLista.getElementsByTagName('li');
+
+function apagaTudo(){
+  for (index=liLocal.length-1; index>=0; index-=1){
+    umaLista.removeChild(umItem[index]);
+    
+  }
+  
+}
