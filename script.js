@@ -72,7 +72,6 @@ function umCliqueTarefa () {
 }
 
 function doisCliquesTarefa(){
-  console.log("2 cliques");
   idTarefa = this.id;
   let tarefaAtual = document.getElementById(idTarefa);
   if (tarefaAtual.className !== "completed") {
@@ -83,8 +82,11 @@ function doisCliquesTarefa(){
 }
 
 function fRemoverFinalizados() {
-  console.log('btn remove finalizados');
-  
+  let listaTarefasFinalizadas = document.querySelectorAll('.completed');
+  let listaTarefas = document.querySelector('#lista-tarefas');
+  for (let index of listaTarefasFinalizadas) {
+      listaTarefas.removeChild(index);
+  }
 }
 
 
