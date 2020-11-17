@@ -32,11 +32,27 @@ function clickItens () {
 clickItens();
 
 
+function doubleClickItens () {
+    let selectItens = document.getElementById('lista-tarefas');
+    selectItens.addEventListener('dblclick', e => {
+        if(e.target.classList.contains('completed')) {
+            e.target.classList.remove('completed');
+        } else {
+            e.target.classList.add('completed');
+        }
+    })
+}
 
+doubleClickItens();
 
-// if(e.target.classList.contains('item-list')) {
-//     document.querySelectorAll('.item-list').forEach((Element) => {
-//         Element.classList.remove('item-list');
-//     });
-//     e.target.classList.add('item-list')
-// }
+function cleanAll () {
+    let selectButton = document.getElementById('apaga-tudo');
+    selectButton.addEventListener('click', e => {
+        let removeLi = document.getElementById('lista-tarefas');
+        while (removeLi.hasChildNodes()) {
+            removeLi.removeChild(removeLi.firstChild);
+        }
+    });
+}
+
+cleanAll();
