@@ -150,11 +150,11 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 /### 7 - Ao clicar em um item da lista, altere a cor de fundo do item para cinza rgb(128,128,128).
 /##### As seguintes verificações serão feitas:
 
-/- Será verificado que, ao se carregar a página, os itens da lista **não tem** o estilo CSS `background-color: rgb(128, 128, 128)`
-/- Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)`
+- Será verificado que, ao se carregar a página, os itens da lista **não tem** o estilo CSS `background-color: rgb(128, 128, 128)`
+- Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)`
 
-### 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo.
-##### As seguintes verificações serão feitas:
+/### 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo.
+/##### As seguintes verificações serão feitas:
 
 - Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento.
 

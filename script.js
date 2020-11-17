@@ -26,6 +26,9 @@ listagem.addEventListener('click', function(event){
 });
 
 listagem.addEventListener('dblclick',function(event){
-  event.target.className += " completed";
+  
+  if (event.target.className === "completed"){
+    event.target.className = "";
+  } else {event.target.className += "completed";}
 
 })
