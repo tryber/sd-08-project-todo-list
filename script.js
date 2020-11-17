@@ -92,13 +92,13 @@ moveUp.addEventListener('click', function () {
 let moveDown = document.getElementById('mover-baixo');
 
 moveDown.addEventListener('click', function () {
-    for (let i in taskListArray) {
+    for (let i = 0; i < taskListArray.length; i += 1) {
         if (taskListArray[i].className.includes('selected')) {
-            console.log(taskListArray)
             if (i === taskListArray.length - 1) {}
             else{
                 taskListArray[i].classList.remove('selected');
                 taskListArray[i + 1].classList.add('selected');
+                break;
             }
         }
     
