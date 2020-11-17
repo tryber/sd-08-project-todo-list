@@ -1,0 +1,119 @@
+body {
+    background-color: #0fa36b;
+    color: rgb(128, 128, 128);
+    font-family: Verdana, 'Geneva', sans-serif;
+}
+
+.header-div {
+    background-color: white;
+    border-radius: 10px;
+    margin: 100px auto;
+    padding: 50px;
+    width: 65%;
+}
+
+p {
+    font-style: italic;
+}
+
+#apaga-tudo {
+    border: 1px solid rgb(255, 0, 0);;
+    border-radius: 5px;
+    color: rgb(255, 0, 0);
+    padding: 10px;
+}
+
+#apaga-tudo:hover {
+    background-color: rgb(255, 0, 0);;
+    color: white;
+}
+
+#mover-cima {
+    border: 1px solid rgb(255, 128, 0);
+    border-radius: 5px;
+    color: rgb(255, 128, 0);
+    margin-left: 10px;
+    padding: 10px;
+}
+
+#mover-cima:hover {
+    background-color: rgb(255, 128, 0);
+    color: white;
+}
+
+#mover-baixo {
+    border: 1px solid rgb(255, 128, 0);
+    border-radius: 5px;
+    color: rgb(255, 128, 0);
+    padding: 10px;
+}
+
+#mover-baixo:hover {
+    background-color: rgb(255, 128, 0);
+    color: white;
+}
+
+#remover-selecionado {
+    border: 1px solid rgb(0, 153, 0);
+    border-radius: 5px;
+    color: rgb(0, 153, 0);
+    margin-left: 10px;
+    padding: 10px;
+}
+
+#remover-selecionado:hover {
+    background-color: rgb(0, 153, 0);
+    color: white;
+}
+
+#remover-finalizados {
+    border: 1px solid rgb(0, 153, 0);
+    border-radius: 5px;
+    color: rgb(0, 153, 0);
+    margin-left: 10px;
+    padding: 10px;
+}
+
+#remover-finalizados:hover {
+    background-color: rgb(0, 153, 0);
+    color: white;
+}
+
+#salvar-tarefas {
+    border: 1px solid rgb(0, 51, 102);
+    border-radius: 5px;
+    color: rgb(0, 51, 102);
+    margin-left: 10px;
+    padding: 10px;
+}
+
+#salvar-tarefas:hover {
+    background-color: rgb(0, 51, 102);
+    color: white;
+}
+
+#criar-tarefa {
+    border: 1px solid rgb(0, 51, 102);
+    border-radius: 5px;
+    color: rgb(0, 51, 102);
+    padding: 10px;
+}
+
+#criar-tarefa:hover {
+    background-color: rgb(0, 51, 102);
+    color: white;
+}
+
+#texto-tarefa {
+    width: 27%;
+    border: 1px solid rgb(0, 51, 102);
+    padding: 10px;
+}
+
+.title {
+    margin: 5px 0;
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
