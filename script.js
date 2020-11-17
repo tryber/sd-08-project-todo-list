@@ -12,13 +12,13 @@ botao.addEventListener('click', adicionarTarefa);
 
 function tarefaSelecionada(e) {
   const item = document.querySelectorAll('li');
-  if (e.target.className !== 'selecionado') {
+  if (e.target.classList.contains('selecionado')) {
+    e.target.classList.remove('selecionado');
+  } else {
     for (let check = 0; check < item.length; check += 1) {
       item[check].classList.remove('selecionado');
     }
-    e.target.className = 'selecionado';
-  } else if (e.target.className === 'selecionado') {
-    e.target.classList.remove('selecionado');
+    e.target.classList.add('selecionado');
   }
 }
 
@@ -26,10 +26,10 @@ const lista = document.querySelector('#lista-tarefas');
 lista.addEventListener('click', tarefaSelecionada);
 
 function tarefasCompletas(e) {
-  if (e.target.className !== 'completed') {
-    e.target.className = 'completed';
-  } else if (e.target.className === 'completed') {
+  if (e.target.classList.contains('completed')) {
     e.target.classList.remove('completed');
+  } else {
+    e.target.className += ' completed';
   }
 }
 
