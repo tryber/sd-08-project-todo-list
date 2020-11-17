@@ -29,6 +29,13 @@ addEventListener('click', (event) => {
             tarefaList.removeChild(completed[key]);
         };
     };
+    if(event.target.id == 'remover-selecionado'){
+      for(key = 0; key < tarefaList.children.length; key++){
+        if(tarefaList.children[key].classList.contains('itemSelected')){
+        tarefaList.removeChild(tarefaList.children[key]);
+        };
+      };
+    };
     if(event.target.id == 'salvar-tarefas'){
         localStorage.setItem('tarefaList', tarefaList.innerHTML);
     };
