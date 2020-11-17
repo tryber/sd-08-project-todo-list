@@ -26,11 +26,11 @@ document.addEventListener('click', function (event) {
         for (let j = 0; j < removeCompleted.length;) {
             removeCompleted[0].remove();
         };
-    } else if (event.target.id === 'mover-cima') {
+    } else if (event.target.id === 'mover-cima' && document.getElementsByClassName('selected')[0] != null) {
         let selected = document.getElementsByClassName('selected')[0];
         let previousSibling = document.getElementsByClassName('selected')[0].previousSibling;
         document.getElementById('lista-tarefas').insertBefore(selected, previousSibling);
-    } else if (event.target.id === 'mover-baixo') {
+    } else if (event.target.id === 'mover-baixo' && document.getElementsByClassName('selected')[0] != null) {
         let selected = document.getElementsByClassName('selected')[0];
         let nextSibling = document.getElementsByClassName('selected')[0].nextSibling;
         if (nextSibling != null) {
