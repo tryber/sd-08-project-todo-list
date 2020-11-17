@@ -1,0 +1,49 @@
+.selected {
+    background-color: rgb(128, 128, 128)
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#criar-tarefa {
+    background-color: green;
+    border-radius: 50%;
+}
+
+#funcionamento {
+    font-style: oblique;
+    color: rgb(46, 45, 45);
+    font-family: monospace;
+}
+
+#title {
+    font-family: monospace;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.taskList {
+    font-family: monospace;
+}
+
+.to-do-list {
+    width: 400px;
+    height: 40%;
+    background-color: rgb(101, 157, 241);
+    border: 1px dashed rgb(0, 0, 0);
+}
+
+#mover-cima {
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: rgb(138, 38, 38);
+    color: white;
+}
+
+#mover-baixo {
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: rgb(138, 38, 38);
+    color: white;
+}
