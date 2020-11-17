@@ -4,14 +4,12 @@ let eraseAll = document.getElementById('apagar-tudo');
 let TasksList = document.getElementById('lista-tarefas');
 getText.className = 'list-of-tasks';
 
-function ListofTasks {
+function ListofTasks(event) {
 
     let paragraph = document.createElement('li');
     paragraph.innerText = getText.value;
     paragraph.className = 'task';
-    TasksList.appendchild(paragraph);
-
-
+    TasksList.appendChild(paragraph);
 }
 
-paragraph.addEventListener('click', ListofTasks);
+buttonTarefa.addEventListener('click', ListofTasks);
