@@ -13,3 +13,11 @@ function ListofTasks(event) {
 }
 
 buttonTarefa.addEventListener('click', ListofTasks);
+
+function Selec(event) {
+    //let tarefas = document.getElementById('task');
+
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+}
+
+TasksList.addEventListener('click', Selec);
