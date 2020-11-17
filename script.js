@@ -71,5 +71,18 @@ function removesAll() {
 }
 removesAll();
 
-// var el = document.getElementById( 'conteudo' );
-// el.parentNode.removeChild( el );
+function removesCompleted() {
+
+  let button = document.querySelector('#remover-finalizados');
+
+  button.addEventListener('click', function () {
+
+    let completedTasksList = document.querySelectorAll('.completed');
+
+    for (let index = 0; index < completedTasksList.length; index += 1) {
+      let node = completedTasksList[index];
+      node.parentNode.removeChild(node);
+    }
+  });
+}
+removesCompleted();
