@@ -2,6 +2,7 @@ function adicionarTarefa() {
     let tarefa = document.querySelector('#texto-tarefa').value;
     let lista = document.querySelector('#lista-tarefas');
     let elemento = document.createElement('li');
+    elemento.className = 'elementos'
     elemento.innerText = tarefa;
     lista.appendChild(elemento);
 }
@@ -25,9 +26,17 @@ function cortarItem(event) {
     }
 }
 riscar.addEventListener('dblclick', cortarItem);
-
+let botaoApagar = document.getElementById('apaga-tudo');
+function apagarLista() {
+    let lista = document.querySelectorAll('.elementos');
+    for (let contador = 0; contador < lista.length; contador += 1) {
+      lista[contador].remove();
+    }
+  }
 
 window.onload = function () {
     let botaoAdicionar = document.querySelector('#criar-tarefa');
     botaoAdicionar.addEventListener('click', adicionarTarefa);
+    botaoApagar.addEventListener('click', apagarLista);
+
 }
