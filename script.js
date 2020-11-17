@@ -10,7 +10,7 @@ function taskList(){
         listTask.innerText = task.value;
         task.value = "";
         listTask.addEventListener("click", backgroundColorChanging);
-        
+        listTask.addEventListener("dbclick", doubleClickToComplete);
     }  
 }
 taskList();
@@ -24,6 +24,15 @@ function backgroundColorChanging(event) {
 }
 backgroundColorChanging();
 
+function doubleClickToComplete (event) {
+    let taskDone = event.target;
+    if (taskDone.classList.contains("completed")) {
+        event.target.classList.remove("completed");
+    } else {
+        event.target.classList.add("completed");
+    }
+}
+doubleClickToComplete();
 
 
 
