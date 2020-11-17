@@ -25,8 +25,22 @@ function alterarBackground(e) {
     }
    
 }
-
 let listaTarefa = document.querySelector('#lista-tarefas');
 listaTarefa.addEventListener('click',alterarBackground);
+
+function riscar(e){
+    let lista = document.querySelectorAll('li');
+    if (e.target.className !== 'completed') {
+    for (let index = 0; index < lista.length; index++) {
+        lista[index].classList.remove('completed');
+        }
+        e.target.className = 'completed';
+    } else if (e.target.className === 'completed') {
+        e.target.classList.remove('completed');
+    }
+
+}
+listaTarefa.addEventListener("dblclick", riscar);
+
 
 
