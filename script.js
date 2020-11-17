@@ -1,3 +1,4 @@
+carregarLocalStorage();
 const lista = [];
 // Insere elemento na lista
 function insereElementoNaLista() {
@@ -17,7 +18,7 @@ function insereElementoNaLista() {
     alert("Preencha a lista com algum item!");
   }
   setColor();
-  doubleClick(Item);
+  doubleClick(Item);    
 }
 document.getElementById("criar-tarefa").onclick = function () {
   insereElementoNaLista();
@@ -115,7 +116,7 @@ function setColor() {
   }
 }
 //Ao clicar duas vezes o item recebe a classe completed
-function doubleClick(item) {
+function doubleClick(item) {  
   item.addEventListener("dblclick", function (event) {
     if (item.className !== "completed") {
       event.target.className = "completed";
@@ -169,3 +170,16 @@ botaoApagaTarefaSelecionada.onclick = () => {
     alert("\t Não há itens na lista! \t");
   }
 };
+let botaoSalvar = document.getElementById('salvar-tarefas')
+botaoSalvar.onclick = () => {  
+  let listaInternaSave = document.getElementById('lista-tarefas')
+  localStorage.clear();
+  localStorage.setItem('lista', listaInternaSave.innerHTML);
+}
+function carregarLocalStorage() {
+  let listaInternaSave = document.getElementById('lista-tarefas')
+  let storage = localStorage.getItem('lista');
+  if (storage) {
+    listaInternaSave.innerHTML = storage;
+  }
+} 
