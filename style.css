@@ -1,0 +1,19 @@
+
+.itemSelected{
+    background-color: rgb(128,128,128);
+    cursor: pointer;
+}
+
+.item:hover{
+    background-color: rgba(128, 128, 128, 0.637);
+    cursor: pointer;
+}
+
+.completed{
+   text-decoration:  line-through solid rgb(0, 0, 0);
+   background-color: rgb(128,128,128);
+}
+
+.danger{
+    background-color: rgba(226, 102, 102, 0.692);
+}
