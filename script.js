@@ -41,4 +41,6 @@ function riscaDaLista(event) {
   evento.classList.add("completed");
 }
 
-function revFinalizados() {}
+botaoRevFinalizados.addEventListener("click", revFinalizados);
+
+function revFinalizados(event) {}
