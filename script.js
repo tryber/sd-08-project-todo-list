@@ -1,11 +1,12 @@
 function criaNovaTarefa() {
   const botaoCriaTarefa = document.querySelector('#criar-tarefa');
+  const novaTarefa = document.getElementById('texto-tarefa');
   const lista = document.querySelector('ol');
   botaoCriaTarefa.addEventListener('click', () => {
-    const novaTarefa = document.querySelector('input').value;
     const novaTarefaCriada = document.createElement('li');
-    novaTarefaCriada.innerHTML = novaTarefa;
+    novaTarefaCriada.innerHTML = novaTarefa.value;
     lista.appendChild(novaTarefaCriada);
+    novaTarefa.value = '';
   });
 }
 criaNovaTarefa();
