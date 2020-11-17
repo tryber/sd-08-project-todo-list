@@ -28,12 +28,10 @@ function clearInput() {
 function taskSelected() {
   const listTask = document.querySelector('#lista-tarefas');
   listTask.addEventListener('click', function (task) {
-    if (task.target.classList.contains('selected')) {
-      task.target.classList.remove('selected');
-    } else {
+
       clearColorTask();
       task.target.classList.add('selected');
-    }
+    
   });
 }
 
@@ -81,8 +79,8 @@ buttonUp.addEventListener('click', function () {
     if (before !== null) {
       //before.insertAdjacentElement('beforebegin', listTask);
       listTask.insertBefore(task, before);
-      const nodeTask = document.querySelectorAll('.selected');
-      nodeTask[0].classList.remove('selected');
+      // const nodeTask = document.querySelectorAll('.selected');
+      // nodeTask[0].classList.remove('selected');
     }
   }
 })
@@ -107,8 +105,8 @@ buttonDown.addEventListener('click', function () {
     const depois = document.querySelector('.selected').nextElementSibling;
     if (depois !== null) {
       depois.insertAdjacentElement('afterend', listTask);
-      const nodeTask = document.querySelectorAll('.selected');
-      nodeTask[0].classList.remove('selected');
+      // const nodeTask = document.querySelectorAll('.selected');
+      // nodeTask[0].classList.remove('selected');
     }
   }
 })
