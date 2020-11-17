@@ -19,8 +19,13 @@ function adicionar() {
 listagem.addEventListener('click', function(event){
   
   for (let index=0; index<liLocal.length; index +=1){
-    liLocal[index].className = ''
+    liLocal[index].style.backgroundColor = '';
 
   }
-  event.target.className = "planoDeFundo";
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+});
+
+listagem.addEventListener('dblclick',function(event){
+  event.target.className += " completed";
+
 })
