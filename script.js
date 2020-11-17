@@ -30,6 +30,3 @@ let listaTarefa = document.querySelector('#lista-tarefas');
 listaTarefa.addEventListener('click',alterarBackground);
 
 
-
-//let adcEstilo = document.querySelectorAll("li");
-//adcEstilo.addEventListener("click", )
