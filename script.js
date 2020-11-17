@@ -2,6 +2,7 @@
 const adicionarItem = document.getElementById('criar-tarefa'); //campo com o valor do item
 const button = document.getElementById('criar-tarefa'); // botao enviar
 const lista = document.getElementById('lista-tarefas'); // lista de tarefas
+const reset = document.getElementById("apaga-tudo"); //button apaga tudo
 
 // nao permite que atualize a page ao click do button
 button.addEventListener('click', function(event) {
@@ -22,39 +23,15 @@ adicionarItem.addEventListener('click', function (event){
 
 //altera a cor de fundo do item da lista clicado
 lista.addEventListener('click', function selectItem(event) {
-    let listaItens = lista.children; 
-
-    for (let indice = 0; indice < listaItens.length; indice += 1) {
-        //verifica se já existe um selecionado e remove a class 'selected'
-        if (listaItens[indice].className == 'selected' && listaItens[indice] !== event.target) {
-            console.log('passou');
-            listaItens[indice].className = '';
-        } 
-        //adiciona ao elemento selecionado a class 'selected'
-        if (listaItens[indice] == event.target) {
-            listaItens[indice].className = 'selected'
-        }   
-    }
+    event.target.classList.toggle('selected');
 })
 
 //risca o item finalizado da lista
-lista.addEventListener("dblclick", function completItem(event) {
-    let listaItens = lista.children; 
-    for (let indice = 0; indice < listaItens.length; indice += 1) {
-        //verifica se já existe um selecionado e remove a class 'completed'
-        if (listaItens[indice] == event.target ) {
-            if (listaItens[indice] == event.target && listaItens[indice].className == 'completed') {
-                listaItens[indice].className.remove = 'completed';
-            } else if (listaItens[indice] == event.target ){
-                listaItens[indice].className.includes = 'completed'
-            }
-        }
-
-    }
+lista.addEventListener("dblclick", function (event) {
+    event.target.classList.toggle('completed');
 })
 
-let reset = document.getElementById("apaga-tudo");
-
+//apaga tudo
 reset.addEventListener('click', function deletAll () {
     let liElement = document.getElementsByTagName('li');
     for (key in liElement) {
