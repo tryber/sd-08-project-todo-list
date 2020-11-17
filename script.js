@@ -25,6 +25,10 @@ createTask.addEventListener('click', ()=> {
   })
 })
 
+clearAll.addEventListener('click', ()=> {
+  taskList.innerHTML = '';
+});
+
 
 
 
