@@ -9,13 +9,13 @@ function taskList(){
         orderedTask.appendChild(listTask);
         listTask.innerText = task.value;
         task.value = "";
-        //listTask.addEventListener("click", backgroundColorChanging);
-        //listTask.addEventListener("dbclick", doubleClickToComplete);
+        listTask.addEventListener("click", backgroundColorChanging);
+        listTask.addEventListener("dbclick", doubleClickToComplete);
     }  
 }
 taskList();
   
-/*function backgroundColorChanging(event) {
+function backgroundColorChanging(event) {
     let taskItem = document.querySelectorAll("li");
     for ( let index = 0; index < taskItem.length; index += 1) {
         taskItem[index].style.backgroundColor = "";
@@ -32,7 +32,7 @@ function doubleClickToComplete (event) {
         event.target.classList.add("completed");
     }
 }
-doubleClickToComplete();*/
+doubleClickToComplete();
 
 
 
