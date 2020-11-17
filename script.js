@@ -34,3 +34,23 @@ function tarefasCompletas(e) {
 }
 
 lista.addEventListener('dblclick', tarefasCompletas);
+
+function apagaTarefas() {
+    let item = document.querySelectorAll('li');
+    for (let i = 0; i < item.length; i += 1){
+        lista.removeChild(item[i]);
+    }
+}
+
+let apagador = document.querySelector('#apaga-tudo');
+apagador.addEventListener('click', apagaTarefas);
+
+function apagaCompletos() {
+    let item = document.querySelectorAll('.completed');
+    for (let i = 0; i < item.length; i += 1){
+        lista.removeChild(item[i]);
+    }
+}
+
+let botaoCompletos = document.querySelector('#remover-finalizados');
+botaoCompletos.addEventListener('click', apagaCompletos);
