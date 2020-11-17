@@ -30,3 +30,24 @@ function addTaskColor() {
     });
 }
 addTaskColor();
+
+function completedTasks() {
+    let item = document.querySelector('#lista-tarefas');
+    item.addEventListener('dblclick', function(event) {
+        if (event.target.classList.contains('completed')) {
+            event.target.classList.remove('completed');
+        } else {
+            event.target.classList.add('completed');
+        }
+    });
+}
+completedTasks();
+
+function cleanList(){
+    let cleanButton= document.querySelector('#apaga-tudo');
+    cleanButton.addEventListener('click',function(){
+        let taskList=document.querySelector('#lista-tarefas');
+        taskList.innerHTML='';
+    })
+}
+cleanList();
