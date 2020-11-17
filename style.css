@@ -1,0 +1,8 @@
+li {
+  background-color: none;
+  width: max-content;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
