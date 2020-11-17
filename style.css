@@ -29,8 +29,12 @@ body {
   background-color: white;
 }
 
+.selected {
+  background-Color: rgb(128, 128, 128);
+}
+
 .completed {
- text-decoration: line-through; 
+ text-decoration: line-through solid rgb(0, 0, 0); 
 }
 
 .footer-controller {
@@ -44,10 +48,4 @@ body {
   border: 1px;
   font-size: 15px;
   color: white;
-}
-
-.selected {
-  border: 30px;
-  line-height: 25px;
-  background-Color: rgb(128, 128, 128);
 }

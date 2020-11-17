@@ -25,43 +25,37 @@ function clearInput() {
   inputTask.value = '';  
 }
 
-function taskColor() {
+function taskSelected() {
   const listTask = document.querySelector('#lista-tarefas');
   listTask.addEventListener('click', function (task) {
-    if (task.target.className == 'selected completed') {
+    if (task.target.classList.contains('selected')) {
+      task.target.classList.remove('selected');
+    } else {
       clearColorTask();
-      task.target.className = 'tarefa completed';
-    } else if (task.target.className == 'tarefa') {
-      clearColorTask();
-      task.target.className = 'selected';
-    } else if (task.target.className == 'tarefa completed') {
-      clearColorTask();
-      task.target.className = 'selected completed';
+      task.target.classList.add('selected');
     }
   });
 }
 
-taskColor();
+taskSelected();
 
 function clearColorTask() {
-  const listTask = document.querySelectorAll('.selected');
-  for (let tag of listTask) {
-    if (tag.className == 'selected completed')
-      tag.className = 'tarefa completed';
-    else
-      tag.className = 'tarefa';
+  const listTask = document.querySelectorAll('.tarefa');
+  console.log(listTask);
+  for (let index = 0; index < listTask.length; index += 1) {
+    console.log(listTask[index]);
+    if (listTask[index].classList.contains('selected'))
+      listTask[index].classList.remove('selected');
   }
 }
 
 function taskCompleted() {
   const listTask = document.querySelector('#lista-tarefas');
   listTask.addEventListener('dblclick', function (solved) {
-    if (solved.target.className == 'selected completed')
-      solved.target.className = 'selected';
-    if (solved.target.className == 'tarefa completed')
-      solved.target.className = 'tarefa';
+    if (solved.target.classList.contains('completed'))
+      solved.target.classList.remove('completed');
     else
-      solved.target.className += ' completed';
+      solved.target.classList.add('completed');
   });
 }
 
