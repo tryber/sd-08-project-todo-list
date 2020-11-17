@@ -50,7 +50,26 @@ function createsTask() {
 }
 createsTask();
 
-//REQUISITO 10
 
+function removesAll() {
 
+  let button = document.querySelector('#apaga-tudo');
 
+  button.addEventListener('click', function () {
+
+    let allTasksList = document.querySelectorAll('li');
+
+    for (let index = 0; index < allTasksList.length; index += 1) {
+
+      let node = allTasksList[index];
+      node.parentNode.removeChild(node);
+
+    }
+
+  });
+
+}
+removesAll();
+
+// var el = document.getElementById( 'conteudo' );
+// el.parentNode.removeChild( el );
