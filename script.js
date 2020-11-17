@@ -12,7 +12,7 @@ function createTask(content) {
 }
 
 //implementação da função para adicionar e remover classe 'selected'
-function itemSelected() {
+function itemSelected(event) {
   let allTasks = document.querySelectorAll('.taskList');
   for (let index = 0; allTasks.length > index; index += 1) {
     let thisTask = allTasks[index];
@@ -22,7 +22,7 @@ function itemSelected() {
 
 }
 //função para adicionar ou remover classe 'completed'
-function itemCompleted() {
+function itemCompleted(event) {
   event.target.classList.toggle('completed');
 }
 
@@ -40,7 +40,76 @@ taskButton.addEventListener('click', function() {
   } else {
     alert("Desculpe, você precisa digitar uma tarefa!")
   }
-})
+});
+
+//variáveis para os botões criados no html
+let deleteButton = document.getElementById('apaga-tudo');
+let deleteOkTasks = document.getElementById('remover-finalizados');
+let deleteSelectedButton = document.getElementById('remover-selecionado')
+
+//função para deletar todas as tarefas
+function deleteTasks() {
+  let tasks = document.querySelectorAll('li');
+  for (let index = 0; tasks.length > index; index += 1) {
+    let task = tasks[index];
+    task.remove();
+  }
+}
+deleteButton.addEventListener('click', deleteTasks); //evento para o botão de delete
+
+//função para deletar todas as tarefas concluidas
+function deleteCompletedTasks() {
+  let tasks = document.querySelectorAll('.completed')
+  for (let index = 0; tasks.length > index; index += 1) {
+    let task = tasks[index];
+    task.remove();
+  }
+}
+deleteOkTasks.addEventListener('click', deleteCompletedTasks); //evento para o botão de delete
+
+//função para deletar tarefas selecionadas
+function deleteSelected() {
+  let tasks = document.querySelectorAll('.selected');
+  for (let index = 0; tasks.length > index; index += 1) {
+    let task = tasks[index];
+    task.remove();
+  }
+}
+deleteSelectedButton.addEventListener('click', deleteSelected);
+
+//Botões de direcionamento das atividades
+let cimaBotao = document.querySelector('#mover-cima');
+let baixoBotao = document.querySelector('#mover-baixo');
+
+cimaBotao.addEventListener('click', function() {
+  let task = document.querySelector('.selected');
+  if (task && task.previousElementSibling) {
+    let parent = task.parentNode;
+    parent.insertBefore(task, task.previousElementSibling);
+  }
+});
+
+baixoBotao.addEventListener('click', function() {
+  let task = document.querySelector('.selected');
+  if (task && task.nextElementSibling) {
+    let parent = task.parentNode;
+    parent.insertBefore(task.nextElementSibling, task);
+  }
+});
+
+//botão para salvar tarefas
+
+// let saveTask = document.querySelector('#salvar-tarefas');
+
+// function savedTasks() {
+//   let taskToSave = document.querySelectorAll('li');
+//   let tasksArray = [];
+//   for (let index of taskToSave) {
+//     taskToSave[index].push = tasksArray;
+//   }
+//   localStorage.setItem("task", taskToSave);
+// }
 
 
-//pesquisas feitas em https://www.javascriptprogressivo.net/2018/07/Recebendo-Valor-Usuario-Formulario-Input-JavaScript.html , https://developer.mozilla.org/pt-BR/docs/Web/API/Node/textContent e https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
+
+//pesquisas feitas em https://www.javascriptprogressivo.net/2018/07/Recebendo-Valor-Usuario-Formulario-Input-JavaScript.html , https://developer.mozilla.org/pt-BR/docs/Web/API/Node/textContent, https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList, https://www.devmedia.com.br/alert-em-javascript/37208 , https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore, https://pt.stackoverflow.com/questions/329223/armazenar-um-array-de-objetos-em-um-local-storage-com-js
