@@ -1,0 +1,34 @@
+body {
+    background-color: rgb(231, 221, 221);
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    
+}
+
+#btn {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#criar-tarefa, #apaga-tudo, #remover-finalizados {
+    padding: 10px;
+}
+
+#texto-tarefa {
+    width: 100%;
+}
+
+#funcionamento {
+    font-weight: 550;
+}
