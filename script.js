@@ -111,10 +111,8 @@ function moveUp() {
   const ol = document.getElementById('lista-tarefas');
   const list = document.getElementsByTagName('li');
   for (let i = 0; i < list.length; i += 1) {
-    if (list[i].classList.contains('selected')) {
-      if (i !== 0) {
-        ol.insertBefore(list[i], list[i - 1]);
-      }
+    if (list[i].classList.contains('selected') && i !== 0) {
+      ol.insertBefore(list[i], list[i - 1]);
       return;
     }
   }
