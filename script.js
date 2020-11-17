@@ -41,9 +41,7 @@ taskSelected();
 
 function clearColorTask() {
   const listTask = document.querySelectorAll('.tarefa');
-  console.log(listTask);
   for (let index = 0; index < listTask.length; index += 1) {
-    console.log(listTask[index]);
     if (listTask[index].classList.contains('selected'))
       listTask[index].classList.remove('selected');
   }
@@ -76,15 +74,19 @@ createButttonUp();
 
 const buttonUp = document.querySelector('#mover-cima')
 buttonUp.addEventListener('click', function () {
-  const listTask = document.querySelector('.selected');
-  if (listTask !== null) {
-    const antes = document.querySelector('.selected').previousElementSibling;
-    if (antes !== null) {
-      antes.insertAdjacentElement('beforebegin', listTask);
+  const listTask = document.querySelector('#lista-tarefas');
+  const task = document.querySelector('.selected');
+  if (task !== null) {
+    const before = document.querySelector('.selected').previousElementSibling;
+    if (before !== null) {
+      //before.insertAdjacentElement('beforebegin', listTask);
+      listTask.insertBefore(task, before);
+    } else {
+      const nodeTask = document.querySelectorAll('.selected');
+      nodeTask[0].classList.remove('selected');
     }
   }
 })
-
 
 function createButttonDown() {
   const buttonDownElement = document.createElement('button');
@@ -106,6 +108,9 @@ buttonDown.addEventListener('click', function () {
     const depois = document.querySelector('.selected').nextElementSibling;
     if (depois !== null) {
       depois.insertAdjacentElement('afterend', listTask);
+    } else {
+      const nodeTask = document.querySelectorAll('.selected');
+      nodeTask[0].classList.remove('selected');
     }
   }
 })
@@ -177,7 +182,6 @@ function eventSaveTask() {
   buttonSaveTask.addEventListener('click', function () {
     const tasksCompletedList = document.querySelector('#lista-tarefas');
     localStorage.setItem('taskList', tasksCompletedList.innerHTML);
-    console.log(localStorage.taskList);
   });
 }
 
