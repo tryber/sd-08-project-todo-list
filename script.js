@@ -38,7 +38,7 @@ function fCriarTarefa() {
   document.getElementById('lista-tarefas').appendChild(novaTarefa);
 
   novaTarefa.addEventListener('click', umCliqueTarefa);
-
+  novaTarefa.addEventListener('dblclick', doisCliquesTarefa);
   fLimparImput();
   }
 }
@@ -51,7 +51,7 @@ function fApagaTudo() {
   let tarefa = document.querySelectorAll('li');
   for (index of tarefa) {
       let listaOl = document.querySelector('#lista-tarefas');
-      console.log(listaOl);
+      //console.log(listaOl);
       listaOl.removeChild(index);
   }
 }
@@ -62,16 +62,25 @@ function umCliqueTarefa () {
   let todasTarefas = document.getElementsByClassName('classeTarefa');
   let corPadrao = 'white';
   let corselecao = 'rgb(128,128,128)';
-  console.log(todasTarefas);
+  //console.log(todasTarefas);
 
   for (let index = 0; index < todasTarefas.length; index += 1) {
     todasTarefas[index].style.backgroundColor = corPadrao; 
-    console.log(todasTarefas[index]);  
+    //console.log(todasTarefas[index]);  
   }
- 
   tarefaAtual.style.backgroundColor = corselecao;
 }
 
+function doisCliquesTarefa(){
+  console.log("2 cliques");
+  idTarefa = this.id;
+  let tarefaAtual = document.getElementById(idTarefa);
+  if (tarefaAtual.className !== "completed") {
+    tarefaAtual.className = "completed";
+  } else {
+    tarefaAtual.className = "classeTarefa";
+  }
+}
 
 function fRemoverFinalizados() {
   console.log('btn remove finalizados');
