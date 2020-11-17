@@ -15,6 +15,10 @@ document.addEventListener('click', function (event) {
         event.target.classList.add('selected');
     } else if (event.target.id === 'apaga-tudo') {
         document.getElementById('lista-tarefas').innerHTML = '';
+    } else if (event.target.id === 'remover-selecionado') {
+        if (document.querySelector('.selected') != null) {
+            document.querySelector('.selected').remove();
+        };     
     } else if (event.target.id === 'remover-finalizados') {
         let removeCompleted = document.getElementsByClassName('completed');
         for (let j = 0; j < removeCompleted.length;) {
