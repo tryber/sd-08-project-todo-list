@@ -11,4 +11,7 @@ function criaNovaTarefa() {
 }
 criaNovaTarefa();
 
- 
+function mudaCorDaTarefa() {
+    const tarefas = document.querySelectorAll('li');
+}
+
