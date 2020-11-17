@@ -22,11 +22,24 @@ function selecionaItem() {
     listaTarefa.addEventListener('click', function (event) {
         let itemSelecionado = document.querySelector('.selected');
         if (itemSelecionado == null) {
-            event.target.className = 'item selected';
+            event.target.classList.add('selected');
         } else {
-            itemSelecionado.className = 'item';
-            event.target.className = 'item selected';
+            itemSelecionado.classList.remove('selected');
+            event.target.classList.add('selected');
         }
     })    
 }
 selecionaItem();
+
+function concluiItem() {
+    listaTarefa.addEventListener('dblclick', function (event) {
+        let itens = document.querySelector('.completed');
+        if (event.target !== itens) {
+            event.target.classList.add('completed');
+        } else {
+            event.target.classList.remove('completed');
+        }
+        
+    })
+}
+concluiItem();
