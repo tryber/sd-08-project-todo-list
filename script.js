@@ -1,6 +1,6 @@
 let getText = document.getElementById('texto-tarefa');
 let buttonTarefa = document.getElementById('criar-tarefa');
-let eraseAll = document.getElementById('apagar-tudo');
+let eraseAll = document.getElementById('apaga-tudo');
 let TasksList = document.getElementById('lista-tarefas');
 getText.className = 'list-of-tasks';
 
