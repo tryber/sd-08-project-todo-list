@@ -33,10 +33,19 @@ function apagarLista() {
       lista[contador].remove();
     }
   }
-
+  let botaoApagarFinalizados =document.querySelector('#remover-finalizados');
+  function apagarFinalizados() {
+    let lista = document.querySelectorAll('.elementos');
+    for (let contador = 0; contador < lista.length; contador += 1) {
+      if (lista[contador].classList.contains('completed')) {
+        lista[contador].remove();
+      }
+    }
+  }
 window.onload = function () {
     let botaoAdicionar = document.querySelector('#criar-tarefa');
     botaoAdicionar.addEventListener('click', adicionarTarefa);
     botaoApagar.addEventListener('click', apagarLista);
+    botaoApagarFinalizados.addEventListener('click', apagarFinalizados);
 
 }
