@@ -11,19 +11,16 @@ document.addEventListener("click", function(event){
     document.getElementById("texto-tarefa").value = "";
     
     //Clique colore tarefa
-    let allTasks = document.querySelectorAll("li");
-    for (let i = 0; i < allTasks.length; i++){
-        let task = allTasks[i];
-        task.addEventListener("click", function(event){
-            let selectedTask = document.querySelector(".selected");
-            if (task.localName === "li"){
-                if (selectedTask !== null){
-                    selectedTask.classList.remove("selected");
-                }
-                event.target.classList.add("selected");
-            };
-        });
-    };
+    newItem.addEventListener("click", function(event){
+        let selectedTask = document.querySelector(".selected");
+        if (newItem.localName === "li"){
+            if (selectedTask !== null){
+                selectedTask.classList.remove("selected");
+            }
+            event.target.classList.add("selected");
+        };
+    });
+
     //Clique duplo risca tarefa
     for (let i = 0; i < allTasks.length; i++){
         let task = allTasks[i];
