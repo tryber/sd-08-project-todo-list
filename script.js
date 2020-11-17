@@ -44,3 +44,11 @@ function apagaTudo(){
   }
   
 }
+let localizaRiscados = umaLista.getElementsByClassName('completed');
+function apagaFinalizados(){
+  for (index=localizaRiscados.length-1; index>=0; index-=1){
+    umaLista.removeChild(localizaRiscados[index]);
+    
+  }
+  
+}
