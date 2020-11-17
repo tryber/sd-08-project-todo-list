@@ -23,15 +23,25 @@ adicionarItem.addEventListener('click', function (event){
 
 //altera a cor de fundo do item da lista clicado
 lista.addEventListener('click', function selectItem(event) {
+    let listaItens = lista.children; 
+
+    for (let indice = 0; indice < listaItens.length; indice += 1) {
+        //verifica se já existe um selecionado e remove a class 'selected'
+        if (listaItens[indice].className == 'selected' && listaItens[indice] !== event.target) {
+            listaItens[indice].className = '';
+        }      
+    }
     event.target.classList.toggle('selected');
 })
 
 //risca o item finalizado da lista
 lista.addEventListener("dblclick", function (event) {
+    console.log(event.target); 
     event.target.classList.toggle('completed');
 })
 
-//apaga tudo
+
+// apaga tudo
 reset.addEventListener('click', function deletAll () {
     let liElement = document.getElementsByTagName('li');
     for (key in liElement) {
