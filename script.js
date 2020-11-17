@@ -81,7 +81,6 @@ buttonUp.addEventListener('click', function () {
     if (before !== null) {
       //before.insertAdjacentElement('beforebegin', listTask);
       listTask.insertBefore(task, before);
-    } else {
       const nodeTask = document.querySelectorAll('.selected');
       nodeTask[0].classList.remove('selected');
     }
@@ -108,7 +107,6 @@ buttonDown.addEventListener('click', function () {
     const depois = document.querySelector('.selected').nextElementSibling;
     if (depois !== null) {
       depois.insertAdjacentElement('afterend', listTask);
-    } else {
       const nodeTask = document.querySelectorAll('.selected');
       nodeTask[0].classList.remove('selected');
     }
