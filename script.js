@@ -86,3 +86,22 @@ function removesCompleted() {
   });
 }
 removesCompleted();
+
+function removesSelected() {
+
+  let button = document.querySelector('#remover-selecionado');
+
+  button.addEventListener('click', function () {
+
+    let tasks = document.querySelectorAll('li');
+
+    for (let index = 0; index < tasks.length; index += 1) {
+      if (tasks[index].style.backgroundColor == 'rgb(128, 128, 128)') {
+        let node = tasks[index];
+        node.parentNode.removeChild(node);
+      }
+    }
+  });
+
+}
+removesSelected();
