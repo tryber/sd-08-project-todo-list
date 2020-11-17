@@ -1,56 +1,56 @@
 function adicionarTarefa() {
-  const item = document.createElement("li");
-  const lista = document.querySelector("#lista-tarefas");
-  const texto = document.querySelector("#texto-tarefa");
+  const item = document.createElement('li');
+  const lista = document.querySelector('#lista-tarefas');
+  const texto = document.querySelector('#texto-tarefa');
   item.innerHTML = texto.value;
   lista.appendChild(item);
-  texto.value = "";
+  texto.value = '';
 }
 
-const botao = document.querySelector("#criar-tarefa");
-botao.addEventListener("click", adicionarTarefa);
+const botao = document.querySelector('#criar-tarefa');
+botao.addEventListener('click', adicionarTarefa);
 
 function tarefaSelecionada(e) {
-  const item = document.querySelectorAll("li");
-  if (e.target.id !== "selecionado") {
+  const item = document.querySelectorAll('li');
+  if (e.target.className !== 'selecionado') {
     for (let check = 0; check < item.length; check += 1) {
-      item[check].removeAttribute("id");
+      item[check].classList.remove('selecionado');
     }
-    e.target.id = "selecionado";
-  } else if (e.target.id === "selecionado") {
-    e.target.removeAttribute("id");
+    e.target.className = 'selecionado';
+  } else if (e.target.className === 'selecionado') {
+    e.target.classList.remove('selecionado');
   }
 }
 
-const lista = document.querySelector("#lista-tarefas");
-lista.addEventListener("click", tarefaSelecionada);
+const lista = document.querySelector('#lista-tarefas');
+lista.addEventListener('click', tarefaSelecionada);
 
 function tarefasCompletas(e) {
-  if (e.target.className !== "completed") {
-    e.target.className = "completed";
-  } else if (e.target.className === "completed") {
-    e.target.classList.remove("completed");
+  if (e.target.className !== 'completed') {
+    e.target.className = 'completed';
+  } else if (e.target.className === 'completed') {
+    e.target.classList.remove('completed');
   }
 }
 
-lista.addEventListener("dblclick", tarefasCompletas);
+lista.addEventListener('dblclick', tarefasCompletas);
 
 function apagaTarefas() {
-  const item = document.querySelectorAll("li");
+  const item = document.querySelectorAll('li');
   for (let i = 0; i < item.length; i += 1) {
     lista.removeChild(item[i]);
   }
 }
 
-const apagador = document.querySelector("#apaga-tudo");
-apagador.addEventListener("click", apagaTarefas);
+const apagador = document.querySelector('#apaga-tudo');
+apagador.addEventListener('click', apagaTarefas);
 
 function apagaCompletos() {
-  const item = document.querySelectorAll(".completed");
+  const item = document.querySelectorAll('.completed');
   for (let i = 0; i < item.length; i += 1) {
     lista.removeChild(item[i]);
   }
 }
 
-const botaoCompletos = document.querySelector("#remover-finalizados");
-botaoCompletos.addEventListener("click", apagaCompletos);
+const botaoCompletos = document.querySelector('#remover-finalizados');
+botaoCompletos.addEventListener('click', apagaCompletos);
