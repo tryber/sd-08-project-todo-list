@@ -24,3 +24,13 @@ function tarefaSelecionada(e) {
 
 const lista = document.querySelector('#lista-tarefas');
 lista.addEventListener('click', tarefaSelecionada);
+
+function tarefasCompletas(e) {
+    if (e.target.className !== 'completed') {
+        e.target.className = 'completed'
+    } else if (e.target.className === 'completed') {
+        e.target.classList.remove('completed');
+    }
+}
+
+lista.addEventListener('dblclick', tarefasCompletas);
