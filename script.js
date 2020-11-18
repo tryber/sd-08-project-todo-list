@@ -16,14 +16,25 @@ btnMoverBaixo.addEventListener('click', moverBaixo);
 btnRemoverSelecionado.addEventListener('click', removerSelecionado);
 
 function listaSalva() {
-  if (localStorage.getItem('content') !== null) {
+  if (localStorage.getItem('content') !== null && localStorage.getItem('content') !== '') {
     let tarefas = localStorage.getItem('content');
     tarefas = tarefas.split(',');
     
     for (let tarefa of tarefas) {
       const li = document.createElement('li');
-      const textNode = document.createTextNode(tarefa);
-      li.appendChild(textNode);
+      let textNode;
+
+      if (tarefa.charAt(0) === '1') { //1Tarefa
+        tarefa = tarefa.slice(1); //Tarefa
+        textNode = document.createTextNode(tarefa);
+        li.appendChild(textNode);
+        li.classList.add('completed');
+      } else if (tarefa.charAt(0) === '0') { //0Tarefa
+        tarefa = tarefa.slice(1); //Tarefa
+        textNode = document.createTextNode(tarefa);
+        li.appendChild(textNode);
+      }
+
       li.addEventListener('click', selecionarTarefa);
       li.addEventListener('dblclick', completarTarefa);
 
@@ -67,7 +78,11 @@ function removerFinalizados() {
 function salvarLista() {
   const conteudo = [];
   for (let index = 0; index < listaTarefas.children.length; index += 1) {
-    conteudo.push(listaTarefas.children[index].innerText);
+    if (listaTarefas.children[index].classList.contains('completed')) {
+      conteudo.push('1' + listaTarefas.children[index].innerText)
+    } else {
+      conteudo.push('0' + listaTarefas.children[index].innerText);
+    }
   }
   localStorage.setItem('content', conteudo);
 }
