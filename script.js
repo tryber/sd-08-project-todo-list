@@ -11,9 +11,15 @@ const addTask = document.querySelector('#criar-tarefa');
 addTask.addEventListener('click', addNewTask);
 
 function selectTask(event) {
-  let tasksList = document.getElementsByTagName('li');
-
-  let chosen = event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  let chosen = document.querySelector('.selected');
+  if (chosen === null) {
+    event.target.classList.add('selected');
+  }
+  else {
+    chosen.style.backgroundColor = 'none';
+    chosen.classList.remove('selected');
+    event.target.classList.add('selected');
+  }
 }
 
 const chosenTask = document.getElementById('lista-tarefas');
@@ -54,3 +60,14 @@ function deleteCompleted() {
 
 const deleteAllCompleted = document.getElementById('remover-finalizados');
 deleteAllCompleted.addEventListener('click', deleteCompleted);
+
+function deleteChosenTask() {
+  let chosen = document.getElementsByTagName('li').style.backgroundColor;
+  if (chosen === 'rgb(128, 128, 128)') {
+    let selected = document.getElementById('lista-tarefas');
+    selected.removeChild(selected.nodeValue);
+  }
+}
+
+const deleteChosen = document.getElementById('remover-selecionado');
+deleteChosen.addEventListener('click', deleteChosenTask);
