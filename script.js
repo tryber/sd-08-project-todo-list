@@ -79,24 +79,35 @@ const save = document.getElementById('salvar-tarefas');
 save.addEventListener('click', saveTasks);
 
 function movingUp() {
-  let item = document.querySelector('.selected');
-  let list = document.querySelector('#lista-tarefas');
-  if (item !== list.firstChild) {
-    list.removeChild(item);
-    list.insertBefore(item, list.childNodes[0]);
+  let item;
+  let list = document.getElementsByTagName('li');
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].classList.contains('selected')) {
+      item = index;
+    }
   }
+  if (item !== 0) {
+    list[item].parentElement.insertBefore(list[item], list[item - 1]);
+  }
+// Aprendi a propriedade contains aqui após pegar a dica no PR do Massaki: https://www.w3schools.com/jsref/prop_element_classlist.asp
 }
 
 const moveUp = document.getElementById('mover-cima');
 moveUp.addEventListener('click', movingUp);
 
 function movingDown() {
-  let item = document.querySelector('.selected');
-  let list = document.querySelector('#lista-tarefas');
-  if (item !== list.lastChild) {
-    list.removeChild(item);
-    list.appendChild(item);
+  let item;
+  let list = document.getElementsByTagName('li');
+
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].classList.contains('selected')) {
+      item = index + 1;
+    }
   }
+  if (item !== (list.length)) {
+    list[item].parentElement.insertBefore(list[item], list[item - 1]);
+  }
+// Peguei a dica do PR do Massaki para definir item = index + 1, 
 }
 
 const moveDown = document.getElementById('mover-baixo');
