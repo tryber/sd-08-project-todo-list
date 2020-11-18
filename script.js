@@ -43,6 +43,8 @@ apagaTudo.addEventListener('click', () =>{
 });
 
 removerFinalizados.addEventListener('click', () => {
-    let itemSelecionado = qSelector('.selected');
-    itemSelecionado.remove();
+    let itemsCompletos = qSelectorAll('.completed');
+    for(let index = 0; index < itemsCompletos.length; index += 1){
+        listaTarefas.removeChild(itemsCompletos[index]);
+    }
 });
