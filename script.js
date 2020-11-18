@@ -86,7 +86,7 @@ function movingUp() {
       item = index;
     }
   }
-  if (item !== 0) {
+  if (item > 0) {
     list[item].parentElement.insertBefore(list[item], list[item - 1]);
   }
 // Aprendi a propriedade contains aqui após pegar a dica no PR do Massaki: https://www.w3schools.com/jsref/prop_element_classlist.asp
@@ -104,10 +104,10 @@ function movingDown() {
       item = index + 1;
     }
   }
-  if (item !== (list.length)) {
+  if (item < (list.length)) {
     list[item].parentElement.insertBefore(list[item], list[item - 1]);
   }
-// Peguei a dica do PR do Massaki para definir item = index + 1, 
+// Peguei a dica no PR do Massaki para definir item = index + 1, assim se pode usar o insertBefore mesmo para inserir o último elemento, pois ele inverte as posições, inserindo o último elemento antes do 
 }
 
 const moveDown = document.getElementById('mover-baixo');
