@@ -29,10 +29,10 @@ function completedTask(event) {
   let length = document.querySelectorAll('.completed').length;
   for (let index = 0; index < length; index += 1) {
     if (event.target.classList[index] === 'completed') {
-      let tryAgain = event.target.classList.remove('completed');
+      event.target.classList.remove('completed');
     } 
   }
-  if (length === 0) {
+  if (event.target.querySelector('.completed') === null) {
     let completed = event.target;
     completed.classList.add('completed');
   }
@@ -65,10 +65,12 @@ const deleteAllCompleted = document.getElementById('remover-finalizados');
 deleteAllCompleted.addEventListener('click', deleteCompleted);
 
 function deleteChosenTask() {
-  let chosen = document.getElementsByTagName('li').style.backgroundColor;
-  if (chosen === 'rgb(128, 128, 128)') {
-    let selected = document.getElementById('lista-tarefas');
-    selected.removeChild(selected.nodeValue);
+  let chosen = document.querySelector('.selected');
+  for (let index = 0; index < chosen.classList.length; index += 1) {
+    if (chosen.classList[index] === 'selected') {
+      let selected = document.getElementById('lista-tarefas');
+      selected.removeChild(document.querySelector('.selected'));
+    }
   }
 }
 
