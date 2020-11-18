@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+header {
+    margin: 10vh 0;
+}
+
+#lista-tarefas {
+    list-style-position: inside;
+}
+#lista-tarefas:hover {
+    cursor: pointer;
+}
+
+input {
+    padding: 0.2rem;
+}
+button {
+    padding: 0.2rem;
+    margin: 0.3rem;
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
