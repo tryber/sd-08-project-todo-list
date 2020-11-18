@@ -10,7 +10,6 @@ function taskList(){
         listTask.innerText = task.value;
         task.value = "";
         listTask.addEventListener("click", colorChanging);
-        //orderedTask.addEventListener("dbclick", doubleClickToComplete);
     }  
 }
 taskList();
