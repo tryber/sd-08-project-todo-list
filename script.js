@@ -9,28 +9,33 @@ function taskList(){
         orderedTask.appendChild(listTask);
         listTask.innerText = task.value;
         task.value = "";
-        listTask.addEventListener("click", backgroundColorChanging);
-        listTask.addEventListener("dbclick", doubleClickToComplete);
+        listTask.addEventListener("click", colorChanging);
+        //orderedTask.addEventListener("dbclick", doubleClickToComplete);
     }  
 }
 taskList();
 
-function backgroundColorChanging(event){
+function colorChanging(event){
     let taskItem = document.querySelectorAll("li");
     for (let index = 0; index < taskItem.length; index += 1){
         taskItem[index].style.backgroundColor = "";
         event.target.style.backgroundColor = "rgb(128,128,128)"
     }
 }
+colorChanging();
 
-function doubleClickToComplete(event) {
-    let taskDone = event.target;
-    if (taskDone.classList.contains("completed")){
-        event.target.classList.remove("completed");
-    } else {
-        event.target.classList.add("completed");
-    }
+function doubleClickToComplete() {
+    let taskDone = document.querySelector("#lista-tarefas");
+    taskDone.addEventListener("dblclick", function(event) {
+        if (event.target.classList.contains("completed")){
+            event.target.classList.remove("completed");
+        } else {
+            event.target.classList.add("completed");
+        }
+    });
+    
 }
+doubleClickToComplete();
 
 
   
