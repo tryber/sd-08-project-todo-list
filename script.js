@@ -46,8 +46,9 @@ deleteAllTasks.addEventListener('click', deleteAll);
 function deleteCompleted() {
   let listLength = document.getElementsByTagName('li').length;
   for (let index = 0; index < listLength; index += 1) {
-    let deleteComplete = document.getElementById('lista-tarefas');
-    deleteComplete.removeChild(deleteComplete.className('completed'));
+    let complete = document.getElementById('lista-tarefas');
+    let deleteComplete = document.querySelector('.completed');
+    complete.removeChild(deleteComplete);
   }
 }
 
