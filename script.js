@@ -13,6 +13,46 @@ function addTarefa() {
 }
 addTarefa();
 
+function addCor() {
+    let lista = document.querySelector("#lista-tarefas")
+    lista.addEventListener('click', function(event) {
+    let selected = document.querySelector('.selected')
+    if (selected == null) {
+        event.target.classList.add('selected')
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    } else {
+        selected.classList.remove('selected')
+        selected.style.backgroundColor = ''
+        event.target.classList.add('selected')
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    }
+    })
+}
+addCor()
+
+function limparTudo() {
+    let btnLimpar = document.querySelector('#apaga-tudo')
+    btnLimpar.addEventListener('click', function() {
+        let lista = document.querySelector('#lista-tarefas')
+        lista.innerHTML = ''
+    })
+}
+limparTudo()
+
+function limparTarefa() {
+    let btnLimparTarefa = document.querySelector('#remover-finalizados')
+    btnLimparTarefa.addEventListener('click', function() {
+        let lista = document.querySelector('#lista-tarefas')
+        for (let i = 0; i < lista.children.length; i++) {
+            if (lista.children[i].classList.contains('completed')) {
+                lista.removeChild(lista.children[i])
+                i -= 1
+            }
+        }
+    })
+}
+limparTarefa()
+
 
 /*let addTaskButton = document.querySelector('#criar-tarefa')
 let taskInput = document.querySelector('#texto-tarefa')
