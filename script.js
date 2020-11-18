@@ -10,14 +10,26 @@ function listaDeTarefas() {
         tarefaLi.innerText = entradaTexto.value;
         entradaTexto.value = '';
         tarefaLi.addEventListener('click', mudaDeCor);
+        tarefaLi.addEventListener('dblclick', tarefaCompleta);
     };
 };
 
 listaDeTarefas();
 
 function mudaDeCor(event) {
-    itemDaLista = document.querySelectorAll('li');
+    const itemDaLista = document.querySelectorAll('li');
     for (let lista = 0; lista < itemDaLista.length; lista += 1) {
-        itemDaLista[lista].style.backgroundColor = 'rgb(128,128,128)';
+        itemDaLista[lista].style.backgroundColor = '';
+    }
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+
+}
+
+function tarefaCompleta(event) {
+    const item = event.target;
+    if (item.classList.contains('completed')) {
+        event.target.classList.remove ('completed');
+    } else {
+        item.classList.add('completed')
     }
 }
