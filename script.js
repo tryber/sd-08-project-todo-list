@@ -33,3 +33,12 @@ function tarefaCompleta(event) {
         item.classList.add('completed')
     }
 }
+
+function apagaTudo() {
+    const botaoExcluir = document.getElementById('apaga-tudo');
+    const tarefaOl = document.getElementById('lista-tarefas');
+    botaoExcluir.addEventListener('click', function() {
+        tarefaOl.innerText = '';
+    });
+}
+apagaTudo();
