@@ -56,3 +56,14 @@ function cleanAll () {
 }
 
 cleanAll();
+
+function removeFinished () {
+    let selectButton = document.getElementById('remover-finalizados');
+    selectButton.addEventListener('click', e=> {
+        document.querySelectorAll('.completed').forEach((Element) => {
+            Element.remove()
+        })
+    })
+}
+
+removeFinished();
