@@ -15,4 +15,22 @@ function selectTask(event) {
 }
 
 const chosenTask = document.getElementById('lista-tarefas');
-chosenTask.addEventListener('click', selectTask)
+chosenTask.addEventListener('click', selectTask);
+
+function deselectTask() {
+  for (let index in tasksList) {
+    let tasksList = document.getElementsByTagName('li');
+    tasksList[index].style.backgroundColor = 'none';
+  }
+  selectTask(newChosenTask);
+}
+
+const newChosenTask = document.getElementById('lista-tarefas');
+newChosenTask.addEventListener('click', selectTask);
+
+function completedTask(event) {
+  let completed = event.target.className = 'completed';
+}
+
+const taskDone = document.getElementById('lista-tarefas');
+taskDone.addEventListener('dblclick', completedTask);
