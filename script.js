@@ -26,12 +26,15 @@ const chosenTask = document.getElementById('lista-tarefas');
 chosenTask.addEventListener('click', selectTask);
 
 function completedTask(event) {
-  if (event.target.className === 'completed') {
-    let tryAgain = event.target.className = '';
+  let length = document.querySelectorAll('.completed').length;
+  for (let index = 0; index < length; index += 1) {
+    if (event.target.classList[index] === 'completed') {
+      let tryAgain = event.target.classList.remove('completed');
+    } 
   }
-  else {
+  if (length === 0) {
     let completed = event.target;
-    completed.className = 'completed';
+    completed.classList.add('completed');
   }
 }
 
