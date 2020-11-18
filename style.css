@@ -1,4 +1,18 @@
+body {
+	max-width: 400px;
+	height: 400px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: auto;
+}
+
 #criar-tarefa {
-    border-radius: 5px;
-    border: 2px solid black;
+	border-radius: 5px;
+	border: 2px solid black;
+}
+
+.formato-letra {
+	font-style: italic;
+	color: gray;
+	font-size: small;
 }
