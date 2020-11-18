@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Krona+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,200;0,300;1,100&family=Inconsolata:wght@500&family=Krona+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id='style'>
+      <h2>Todo List</h2>
+    </div>
+    <div id='divBody'>       
+        <header>
+            <h1>Minha Lista de Tarefas</h1>
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        </header>
+            <main>
+                <input id="texto-tarefa" type="text" placeholder="Digite sua tarefa aqui...">
+                <button id="criar-tarefa" type='submit'>Criar Tarefa</button>
+                <button id="apaga-tudo">Apagar Tarefas</button>
+                <button id="remover-finalizados">Apagar Concluídos</button>
+                <ol id="lista-tarefas">
+                </ol>
+            </main>
+    </div>     
+        <ol id="lista-tarefas">
+        </ol>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
