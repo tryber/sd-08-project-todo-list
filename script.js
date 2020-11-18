@@ -77,3 +77,33 @@ function saveTasks() {
 
 const save = document.getElementById('salvar-tarefas');
 save.addEventListener('click', saveTasks);
+
+function movingUp() {
+  let item = document.querySelector('.selected');
+  let list = document.querySelector('#lista-tarefas');
+  if (item === list.firstChild) {
+    return;
+  }
+  else {
+    list.removeChild(item);
+    list.insertBefore(item, list.childNodes[0]);
+  }
+}
+
+const moveUp = document.getElementById('mover-cima');
+moveUp.addEventListener('click', movingUp);
+
+function movingDown() {
+  let item = document.querySelector('.selected');
+  let list = document.querySelector('#lista-tarefas');
+  if (item === list.lastChild) {
+    return;
+  }
+  else {
+    list.removeChild(item);
+    list.appendChild(item);
+  }
+}
+
+const moveDown = document.getElementById('mover-baixo');
+moveDown.addEventListener('click', movingDown);
