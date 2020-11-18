@@ -32,8 +32,5 @@ createButton.addEventListener('click', function () {
       e.target.className += ' completed';
     }
   });
-  buttonClear.addEventListener('click',  clear );
-    function clear (){
-      item.innerText = '';
-    }
+
   
