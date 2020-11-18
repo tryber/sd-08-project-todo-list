@@ -81,6 +81,7 @@ function moveParaBaixo() {
         let auxiliar = todasTarefas[i].innerText;
         todasTarefas[i].innerText = todasTarefas[i + 1].innerText;
         todasTarefas[i + 1].innerText = auxiliar;
+        break;
       }
     }
   }
