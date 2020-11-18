@@ -19,6 +19,13 @@ btnCriaTarefa.addEventListener("click", function () {
             itemLista.style.backgroundColor = "rgb(128, 128, 128)";
             itemLista.id = "selecionado";
         })
+        itemLista.addEventListener("dblclick", function () {
+            if (itemLista.className === "tarefa-na-lista") {
+                itemLista.className = "completed";
+            }else if (itemLista.className === "completed") {
+                itemLista.className = "tarefa-na-lista";
+            }
+        })
     }
 });
 // para fazer essa funcionalidade abaixo pesquisei na internet e utilizei o link: https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
@@ -40,6 +47,13 @@ textoTarefa.addEventListener("keydown", function (event) {
             }
             itemLista.style.backgroundColor = "rgb(128, 128, 128)";
             itemLista.id = "selecionado";
+        })
+        itemLista.addEventListener("dblclick", function () {
+            if (itemLista.className === "tarefa-na-lista") {
+                itemLista.className = "completed";
+            }else if (itemLista.className === "completed") {
+                itemLista.className = "tarefa-na-lista";
+            }
         })
     }
 });
