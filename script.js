@@ -13,8 +13,7 @@ function itemSelect(event) {
 function itemComplete(event) {
   if (event.target.classList.contains('complete') === true) {
     event.target.classList.remove('complete');
-  }
-  else {
+  } else {
     event.target.classList.add('complete');
   }
 }
@@ -39,5 +38,14 @@ function apagarTarefas() {
   }
 }
 
+function removerFinalizados() {
+  const listaTarefas = document.getElementsByClassName('complete');
+  for (let index = 0; index < listaTarefas.length; index += 1) {
+    listaTarefas[index].remove();
+    index -= 1;
+  }
+}
+
 document.querySelector('#criar-tarefa').addEventListener('click', criarTarefa);
-document.querySelector('#apaga-tudo').addEventListener('click', apagarTarefas)
+document.querySelector('#apaga-tudo').addEventListener('click', apagarTarefas);
+document.querySelector('#remover-finalizados').addEventListener('click', removerFinalizados);
