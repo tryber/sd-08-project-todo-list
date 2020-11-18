@@ -1,3 +1,6 @@
+const saveList = document.getElementById('lista-tarefas');
+saveList.innerHTML = localStorage.getItem('list');
+
 function addNewTask() {
   const list = document.getElementById('lista-tarefas');
   let newTask = document.createElement('li');
@@ -67,3 +70,10 @@ function deleteChosenTask() {
 
 const deleteChosen = document.getElementById('remover-selecionado');
 deleteChosen.addEventListener('click', deleteChosenTask);
+
+function saveTasks() {
+  localStorage.setItem('list', saveList.innerHTML);
+}
+
+const save = document.getElementById('salvar-tarefas');
+save.addEventListener('click', saveTasks);
