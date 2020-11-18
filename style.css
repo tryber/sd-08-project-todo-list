@@ -17,3 +17,6 @@ header {
 #lista-tarefas {
     list-style-position: inside;
 }
+#lista-tarefas:hover {
+    cursor: pointer;
+}
