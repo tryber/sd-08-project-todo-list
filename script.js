@@ -1,5 +1,5 @@
 let btn = document.getElementById('criar-tarefa');
-let tarefa = document.getElementById
+let texto = document.getElementById(te)
 
 btn.addEventListener('click', function(){
     
