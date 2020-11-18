@@ -1,0 +1,31 @@
+#funcionamento {
+    font-size: small;
+}
+#texto-tarefa {
+    border-radius: 5px;
+}
+body {
+    background-color: rgb(75, 148, 7);
+}
+h1 {
+    color: white;
+}
+#lista-tarefas {
+
+}
+#criar-tarefa {
+    color: rgb(0,0,0);
+    border-radius: 10px;
+    height: 20px;
+    width: 79px;
+}
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+
+}
+.listItem{
+
+}
+.selected{
+    background-color: rgb(128, 128, 128);
+}
