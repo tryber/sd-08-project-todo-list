@@ -1,12 +1,13 @@
 let btn = document.getElementById('criar-tarefa');
-let texto = document.getElementById('texto-tarefa');
-let list = document.getElementById('lista-tarefas');
+const list = document.getElementById('lista-tarefas');
+const texto = document.getElementById('texto-tarefa');
 
+//requisito 
 btn.addEventListener('click', function () {
-    var lista = list.innerHTML;
-    lista = lista + "<li>" + texto + "</li>";
-    list.innerText = lista;
-
-
-
+	if (texto.value.length != 0){
+	let createLi = document.createElement("li");
+	list.appendChild(createLi);
+	createLi.innerHTML = texto.value;
+	texto.value = null;
+	}
 })
