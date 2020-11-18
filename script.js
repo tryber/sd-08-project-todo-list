@@ -31,7 +31,7 @@ function adicionaLi() {
                 });
             }
         }addSelected();
-
+    }
         //duplo clique
         function duploClique() {
             olList.addEventListener('dblclick', function(evento) {
@@ -51,12 +51,12 @@ function adicionaLi() {
         //remover-finalizados
         function removerFinalizados() {
             btnRemoverFinalizados.addEventListener('click', () => {
-                let liFinalizado = document.getElementsByClassName("completed");
+                let liFinalizado = document.querySelectorAll(".completed");
                 for (let index = 0; index < liFinalizado.length; index += 1) {
                   olList.removeChild(liFinalizado[index]);
                 }
               });
         }removerFinalizados();
     
-    }
+    // }
 }adicionaLi();
