@@ -16,24 +16,20 @@ createList();
 function tintList(){
     let ol = document.getElementById('lista-tarefas');
     ol.addEventListener('click', function(e){   
-        e.target.style.backgroundColor = 'rgb(128,128,128)';  
+        e.target.style.backgroundColor = 'rgb(128, 128, 128)';  
     })
 }
 tintList();
 
-/*function selected(){
-    let ol = document.getElementById('lista-tarefas');
-    ol.addEventListener('click', function(e){
-        for(let index = 0; index < ol.length; index +=1){
-            if(e.target.style.backgroundColor == 'rgb(128,128,128'){
-                ol.style.backgroundColor = '';
-            }else{
-                e.target.style.backgroundColor = 'rgb(128,128,128)';
-            }
-        }
-    })
+let ol = document.getElementById('lista-tarefas');
+function selected(event) {
+    let li = document.getElementsByTagName('li');
+    for(let index = 0; index < li.length; index +=1){
+       li[index].style.backgroundColor = '';
+    }
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
-selected();*/
+ol.addEventListener('click', selected);
 
 //Adiciona evento que ao clicar duas vezes, risca a tarefa indicando que está completa, também faz o processo reverso.
 //O conteúdo utilizado para resolver a questão foi retirado do site :https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
@@ -54,11 +50,25 @@ doneTask();
 //Os conteúdos usados para esse exercício foram aprendidos no seguinte site : https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild 
 function removeList(){
     let button = document.getElementById('apaga-tudo');
-    var elementsOl = document.getElementById('lista-tarefas');
-    while (elementsOl.firstChild){
-        elementsOl.removeChild(elementsOl.firstChild)
+    let ol = document.getElementById('lista-tarefas');
+    while (ol.firstChild){
+        ol.removeChild(ol.firstChild)
     }
     button.addEventListener('click', removeList);
 }
 
 removeList();
+
+function removeCompleted(){
+    let ol = document.querySelectorAll('.completed');
+    for(let index = 0; index < ol.length; index +=1){
+        if(ol[index].className == 'completed'){
+            ol[index].remove();
+        }
+    }
+    let btnRemove = document.getElementById('remover-finalizados');
+    btnRemove.addEventListener('click', removeCompleted);
+}
+
+removeCompleted();
+

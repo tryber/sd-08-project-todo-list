@@ -1,3 +1,70 @@
 .completed{
     text-decoration: line-through;
 }
+
+.bkgColor{
+    background-color: rgb(128, 128, 128);
+}
+
+body{
+    background-color: #1f2935;
+    margin: 0px;
+}
+
+main{
+    background-color: white;
+
+}
+
+#divBody{
+    background-color: white;
+    max-width: 600px;
+    width: 60%;
+    padding: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+h1{
+    text-align: center;
+    font-family: 'Inconsolata', monospace;
+}
+
+#texto-tarefa{
+    height: 30px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+}
+
+button{
+    height: 35px;
+    border-style: none;
+    background-color:#485362;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+#style{
+    background-color: #485362;
+    height: 75px;
+    position: relative;
+    top: -30px;
+}
+
+#funcionamento{
+    font-family: 'Bitter', serif;
+    font-weight: 400;
+}
+
+h2{
+    position: relative;
+    color: white;
+    top: 20px;
+    font-family: 'Sacramento', cursive;
+    font-size: 35px;
+}
+
