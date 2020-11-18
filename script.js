@@ -18,6 +18,7 @@ createButton('Salvar Tarefas', 'salvar-tarefas');
 createButton('Mover para Cima', 'mover-cima');
 createButton('Mover para Baixo', 'mover-baixo');
 createButton('Remover Selecionado', 'remover-selecionado');
+document.getElementById('remover-selecionado').addEventListener('click', removeSelecionado);
 
 function fCriarTarefa() {
   let novaTarefa = document.createElement('li');
@@ -55,7 +56,7 @@ function fApagaTudo() {
       listaOl.removeChild(index);
   }
 }
-//seleciona cor cinza apenas no elemento clicado.
+//seleciona cor cinza apenas no elemento clicado
 function umCliqueTarefa () {
   idTarefa = this.id;
   let tarefaAtual = document.getElementById(idTarefa);
@@ -63,21 +64,26 @@ function umCliqueTarefa () {
   let corPadrao = 'white';
   let corselecao = 'rgb(128,128,128)';
   //console.log(todasTarefas);
-
-  for (let index = 0; index < todasTarefas.length; index += 1) {
-    todasTarefas[index].style.backgroundColor = corPadrao; 
-    //console.log(todasTarefas[index]);  
+  //for atribuir todas tarefas classeTarefas
+  for (let index of todasTarefas) {
+    index.className = 'classeTarefa';
   }
+  //for pintar todas tarefas de branco
+  for (let index = 0; index < todasTarefas.length; index += 1) {
+    todasTarefas[index].style.backgroundColor = corPadrao;
+  }
+  //pintar tarefa atual de cinza e atribuir classe selected
   tarefaAtual.style.backgroundColor = corselecao;
+  tarefaAtual.className = 'classeTarefa selected';
 }
 
 function doisCliquesTarefa(){
   idTarefa = this.id;
   let tarefaAtual = document.getElementById(idTarefa);
-  if (tarefaAtual.className !== "completed") {
-    tarefaAtual.className = "completed";
+  if (tarefaAtual.className !== 'completed') {
+    tarefaAtual.className = 'completed';
   } else {
-    tarefaAtual.className = "classeTarefa";
+    tarefaAtual.className = 'classeTarefa';
   }
 }
 
@@ -89,6 +95,12 @@ function fRemoverFinalizados() {
   }
 }
 
-
+function removeSelecionado() {
+  let tarefasSelecionada = document.querySelectorAll('.selected');
+  let listaTarefas = document.querySelector('#lista-tarefas');
+  for (let index of tarefasSelecionada) {
+      listaTarefas.removeChild(index);
+  }
+}
 
 //Conhecimento aprendido nos sites: (https://www.w3schools.com/jsref/prop_element_childelementcount.asp),((https://www.youtube.com/watch?v=ZGMJqxIkAb0))
