@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 400px;
+  text-align: center;
+  margin: auto;
+}
+
+input {
+  display: block;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 2em;
+}
+
+button {
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+h1 {
+  margin: 35px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.selecionada {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+ol {
+  margin-top: 20px;
+  text-align: left;
+}
+
+li {
+  list-style-type: none;
+  margin: auto;
+  width: 150px;
+  padding: 10px;
+}
