@@ -1,8 +1,7 @@
   
  
 
-  //botão salva Tudo
-  let btnsalva = document.getElementById("salvar-tarefas");
+  
     // seletor do input
   const inputSEl = document.getElementById("texto-tarefa");
   // seletor do ol
@@ -73,17 +72,22 @@
     
      olconteiner.innerHTML.liselecionada = ''; */
 
+
+     //botão salva Tudo
+let btnsalva = document.getElementById("salvar-tarefas");
     
     // escuta o evento salvar lista
-  btnsalva.addEventListener("click", salvatd);
-    function salvatd () {
-      let selectedlis = document.querySelector('li');
-     
-      for (i=0; i < selectedlis.length; i+=1){
-       localStorage.setItem(selectedlis[i].index, selectedlis[i].inertext)      
-        }
-      
-    };
+btnsalva.addEventListener("click", salvatd);
+    
+function salvatd () {
+  let selectedlis = document.querySelectorAll('li');
+  for (let i =0; i < selectedlis.length; i+=1){
+   let a = String("li"+i);
+   let b = selectedlis[i].innerText;
+   localStorage.setItem(a,b);      
+  }
+};
+
 /* //    btnsel.addEventListener("click", nvtarefa);
 
   // function nvtarefa() {
