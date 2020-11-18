@@ -1,4 +1,5 @@
 let TodosItems = []
+let oldSelect = ''
 function criaItem() {
 
     let item = document.getElementById('texto-tarefa').value
@@ -8,7 +9,7 @@ function criaItem() {
     }
     else {
         TodosItems.push(`
-        <li id="${item}" onclick="selectItem(${item})">${item}</li>
+        <li id="${item}" onclick="selectItem('${item}')">${item}</li>
     `)
 
         TodosItemsFormatado = TodosItems.join("")
@@ -18,5 +19,13 @@ function criaItem() {
 }
 
 function selectItem(item){
-    console.log(item)
+    itemSelecionado = document.getElementById(`${item}`)
+    
+
+    if(oldSelect != ''){
+        oldSelect.classList.remove('select-item')
+    }
+    
+    itemSelecionado.classList.add('select-item')
+    oldSelect = itemSelecionado
 }
