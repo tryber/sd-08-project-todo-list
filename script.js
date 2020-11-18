@@ -17,6 +17,9 @@ function criaNovaTarefa() {
       novaTarefaCriada.classList.add('selected');
       console.log(lista);
     });
+    novaTarefaCriada.addEventListener('dblclick', () => {
+      novaTarefaCriada.classList.toggle('completed')
+    })
     novaTarefaCriada.innerHTML = novaTarefa.value;
     lista.appendChild(novaTarefaCriada);
     novaTarefa.value = '';
