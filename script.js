@@ -48,8 +48,8 @@ function selecionarTarefa() {
                console.log('show')
                if(selectedItem != null){
                    selectedItem.classList.remove('selected');
-               }
-           }
-        })
-    })
-    
+               };
+           };
+        });
+    });
+};
