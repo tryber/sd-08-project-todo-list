@@ -34,25 +34,22 @@ criarTarefas.addEventListener('click', () => {
         alert('Digita uma tarefa!')
     };
     selecionarTarefa();
-    marcaCompleto ();
+    
+    
 });
 
 function selecionarTarefa() {    
     const tarefas = qSelectorAll('.tarefa');
-    for (let item of tarefas) {
-        item.addEventListener('click', () => {                
-            let itemSelecionado = qSelector('.selected');
-            if (item.classList.contains('selected') === false) {
-                item.classList.add('selected');
-                
-                if (itemSelecionado != null) {
-                    itemSelecionado.classList.remove('selected');
-                };
-            };               
-        });  
-                  
-    };
+    tarefas.forEach((item) => {
+        item.addEventListener('click', () => {
+           if(item.classList.contains('selected') == false){
+               let selectedItem = qSelector('.selected');
+               item.classList.add('selected');
+               console.log('show')
+               if(selectedItem != null){
+                   selectedItem.classList.remove('selected');
+               }
+           }
+        })
+    })
     
-    
-    
-};
