@@ -1,0 +1,32 @@
+body{
+  background-color: rgb(131, 218, 45);
+}
+
+#divGrande{
+  background-color: rgb(236, 236, 235);
+  display: block;
+  width: 600px;
+  height: auto;
+  border-radius: 10px 20px;
+
+}
+
+.file{
+  width: 200px;
+  background-color: rgb(173, 236, 199);
+  margin-top: 7px;
+
+}
+
+#remover-selecionado{
+
+  background-color: red, yellow;
+  
+}
+
+.completed{
+  text-decoration: line-through;
+}
+
+
+
