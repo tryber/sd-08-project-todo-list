@@ -17,7 +17,7 @@ function newEvent() {
     let inputText = document.getElementById("texto-tarefa");
     let newItens = document.createElement("li");
     newItens.innerHTML = inputText;
-    newItens.className = "itens-lista new-color-list";
+    newItens.className = "itens-lista";
     createList.appendChild(newItens);
 }
 //requisito 7
@@ -25,4 +25,14 @@ window.onload = selectWhite;
 function selectWhite() {
    let selectListIten = document.getElementById("itens-lista");
    selectListIten.className = "color-list-init"
+}
+let taskList = document.getElementsByClassName("itens-lista");
+function paintList() {
+    for(let index = 0; index < taskList.length; index += 1) {
+        taskList[index].addEventListener("click", paddingColor);
+    }
+}
+paintList();
+function paddingColor(event) {
+    event.target.style.backgroundColor = "rgb(128, 128, 128)";
 }
