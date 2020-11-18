@@ -40,6 +40,8 @@ function listaSalva() {
 
       listaTarefas.appendChild(li);
     }
+  } else {
+    localStorage.setItem('content', '');
   }
 }
 
