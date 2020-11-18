@@ -14,7 +14,7 @@ function taskButton() {
 }
 taskButton();
 function newEvent() {
-    let inputText = document.getElementById("texto-tarefa");
+    let inputText = document.getElementById("texto-tarefa").value;
     let newItens = document.createElement("li");
     newItens.innerHTML = inputText;
     newItens.className = "itens-lista";
