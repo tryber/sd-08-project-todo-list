@@ -12,13 +12,8 @@ addTask.addEventListener('click', addNewTask);
 
 function selectTask(event) {
   let tasksList = document.getElementsByTagName('li');
-  for (let index in tasksList) {
-    if (document.getElementsByTagName('li')[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      let deselect = tasksList[index];
-      deselect.style.backgroundColor = 'white';
-    }
-  }
-    let chosen = event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+
+  let chosen = event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 const chosenTask = document.getElementById('lista-tarefas');
@@ -47,3 +42,14 @@ function deleteAll() {
 
 const deleteAllTasks = document.getElementById('apaga-tudo');
 deleteAllTasks.addEventListener('click', deleteAll);
+
+function deleteCompleted() {
+  let listLength = document.getElementsByTagName('li').length;
+  for (let index = 0; index < listLength; index += 1) {
+    let deleteComplete = document.getElementById('lista-tarefas');
+    deleteComplete.removeChild(deleteComplete.className('completed'));
+  }
+}
+
+const deleteAllCompleted = document.getElementById('remover-finalizados');
+deleteAllCompleted.addEventListener('click', deleteCompleted);
