@@ -70,6 +70,7 @@ btApgSel.addEventListener("click", function () {
 function moverBaixo() {
   let liSelected = document.querySelector(".selected");
   let proximo = liSelected.nextElementSibling;
+  if(proximo == null){return}
   if (liSelected && proximo !== null) {
     let elementoPai = liSelected.parentNode;
     elementoPai.insertBefore(liSelected.nextElementSibling, liSelected);
@@ -80,6 +81,7 @@ btBaixo.addEventListener("click", moverBaixo);
 function moverCima() {
   let liSelected = document.querySelector(".selected");
   let anterior = liSelected.previousElementSibling;
+  if(anterior == null){return}
   if (liSelected && anterior !== null) {
     let elementoPai = liSelected.parentNode;
     elementoPai.insertBefore(liSelected, liSelected.previousElementSibling);
