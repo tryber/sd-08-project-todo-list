@@ -1,7 +1,4 @@
-  
- 
 
-  
     // seletor do input
   const inputSEl = document.getElementById("texto-tarefa");
   // seletor do ol
@@ -60,6 +57,7 @@
   function funcApagao (){
      let olconteiner = document.querySelector('#lista-tarefas');
      olconteiner.innerHTML = '';
+     localStorage.clear();
      
   };
    
@@ -88,19 +86,20 @@ function salvatd () {
   }
 };
 
-/* //    btnsel.addEventListener("click", nvtarefa);
+let fim = document.getElementById("final")
 
-  // function nvtarefa() {
-  //   let objcria =document.createElement('li')
-  //   let container = inputSEl.value;
-  //   if (container ===""|| container ===null) {
-  //     alert('Insira um valor');
-  //   }
-  //     else {
-  //   objcria.textContent =container;
-  //   objcria.className ='file';
-  //   objcria.addEventListener("click", bgli);
-  //   objcria.addEventListener("dbleclick", sobrelist);
-  //   olsel.appendChild(objcria);
-  //   inputSEl.value = '';}
-  //     } */
+ //carrega a lista salva em localstorage
+ fim.onload = resurgelista();
+ 
+ function resurgelista(){
+  
+  for (let i =0; i < localStorage.length; i+=1){
+    let objcria =document.createElement('li');
+    let container = localStorage.getItem(String("li"+i));
+    objcria.textContent =container;
+    objcria.className ='file';
+    objcria.addEventListener("click", bgli);
+    objcria.addEventListener("dbleclick", sobrelist);
+    olsel.appendChild(objcria);
+  }
+ };
