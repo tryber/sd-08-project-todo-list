@@ -59,7 +59,7 @@ btApgFin.addEventListener("click", function () {
 
 btApgSel.addEventListener("click", function () {
   let c = document.querySelector(".selected");
-  console.log(c.classList.value);
+ // console.log(c.classList.value);
   if (c == null || c.classList.value == "selected completed") {
     return;
   }
@@ -71,6 +71,7 @@ function moverBaixo() {
   let liSelected = document.querySelector(".selected");
   let proximo = liSelected.nextElementSibling;
   if(proximo == null){return}
+  if(liSelected == null){return}
   if (liSelected && proximo !== null) {
     let elementoPai = liSelected.parentNode;
     elementoPai.insertBefore(liSelected.nextElementSibling, liSelected);
@@ -82,6 +83,7 @@ function moverCima() {
   let liSelected = document.querySelector(".selected");
   let anterior = liSelected.previousElementSibling;
   if(anterior == null){return}
+  if(liSelected == null){return}
   if (liSelected && anterior !== null) {
     let elementoPai = liSelected.parentNode;
     elementoPai.insertBefore(liSelected, liSelected.previousElementSibling);
