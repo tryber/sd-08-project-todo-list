@@ -1,8 +1,8 @@
 //Insere texto na ul
 let allTasks = "";
 let list = document.querySelector("#lista-tarefas");
-let botao = document.getElementById("criar-tarefa");
-botao.addEventListener("click", function (event) {
+let buttonAddTask = document.getElementById("criar-tarefa");
+buttonAddTask.addEventListener("click", function (event) {
     let text = document.querySelector("#texto-tarefa").value;
     let newItem = document.createElement('li');
     newItem.innerHTML = text;
@@ -21,33 +21,36 @@ botao.addEventListener("click", function (event) {
         };
     });
     //Clique duplo risca tarefa
-    newItem.addEventListener("dblclick", function (event) {        
+    newItem.addEventListener("dblclick", function (event) {
         event.target.classList.toggle("completed");
     });
 
-    //Botão apaga-tudo
-    let eraseAll = document.getElementById("lista-tarefas");
-    let listNumber = document.querySelectorAll("li");
-    document.addEventListener("click", function (event) {
-        for (let i = 0; i < listNumber.length; i++) {
-            if (event.target.id === "apaga-tudo") {
-                eraseAll.removeChild(eraseAll.childNodes[i]);
-            };
-        }
-    });
-    //Botão remover-finalizados
-    document.addEventListener("click", function (event) {
-        if (event.target.id === "remover-finalizados") {
-            if (newItem.classList = "completed") {
-                newItem.removeChild(newItem.childNodes);
-            }
-        };
-    });
-
-
-
-
 });
+
+//Botão apaga-tudo
+let buttonRemoveAll = document.getElementById("apaga-tudo");
+let eraseAll = document.querySelector("#lista-tarefas");
+document.addEventListener("click", function (event) {
+    if (event.target.id === "apaga-tudo") {
+        let listNumber = eraseAll.querySelectorAll("li");
+        for (let i = 0; i < listNumber.length; i++) {
+            listNumber[i].remove();
+        }
+    }
+});
+
+//Botão remover-finalizados
+document.addEventListener("click", function (event) {
+    if (event.target.id === "remover-finalizados") {
+        if (newItem.classList = "completed") {
+            newItem.removeChild(newItem.childNodes);
+        }
+    };
+});
+
+
+
+
 
 
 
