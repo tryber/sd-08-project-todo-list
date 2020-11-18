@@ -20,7 +20,7 @@ const qSelectorAll = (element) => document.querySelectorAll(element);
 // });
 
 
-let criarTarefas = qSelector('#criar-tarefas');
+let criarTarefas = qSelector('#criar-tarefa');
 criarTarefas.addEventListener('click', () => {
     let textoTarefa = qSelector('#texto-tarefa');
     const listaTarefas = qSelector('#lista-tarefas');
@@ -34,6 +34,7 @@ criarTarefas.addEventListener('click', () => {
         alert('Digita uma tarefa!')
     };
     selecionarTarefa();
+    marcaCompleto ();
 });
 
 function selecionarTarefa() {    
@@ -42,12 +43,16 @@ function selecionarTarefa() {
         item.addEventListener('click', () => {                
             let itemSelecionado = qSelector('.selected');
             if (item.classList.contains('selected') === false) {
-                item.classList.add('selected');                
+                item.classList.add('selected');
+                
                 if (itemSelecionado != null) {
                     itemSelecionado.classList.remove('selected');
                 };
             };               
-        });            
-    }; 
+        });  
+                  
+    };
+    
+    
+    
 };
-
