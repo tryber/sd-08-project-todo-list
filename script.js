@@ -81,10 +81,7 @@ save.addEventListener('click', saveTasks);
 function movingUp() {
   let item = document.querySelector('.selected');
   let list = document.querySelector('#lista-tarefas');
-  if (item === list.firstChild) {
-    return;
-  }
-  else {
+  if (item !== list.firstChild) {
     list.removeChild(item);
     list.insertBefore(item, list.childNodes[0]);
   }
@@ -96,10 +93,7 @@ moveUp.addEventListener('click', movingUp);
 function movingDown() {
   let item = document.querySelector('.selected');
   let list = document.querySelector('#lista-tarefas');
-  if (item === list.lastChild) {
-    return;
-  }
-  else {
+  if (item !== list.lastChild) {
     list.removeChild(item);
     list.appendChild(item);
   }
