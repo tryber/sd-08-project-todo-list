@@ -45,11 +45,10 @@ const deleteAllTasks = document.getElementById('apaga-tudo');
 deleteAllTasks.addEventListener('click', deleteAll);
 
 function deleteCompleted() {
-  let listLength = document.getElementsByTagName('li').length;
+  let listLength = document.getElementsByClassName('completed').length;
   for (let index = 0; index < listLength; index += 1) {
     let complete = document.getElementById('lista-tarefas');
-    let deleteComplete = document.querySelector('.completed');
-    complete.removeChild(deleteComplete);
+    complete.removeChild(document.querySelector('.completed'));
   }
 }
 
