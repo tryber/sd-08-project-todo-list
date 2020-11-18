@@ -1,5 +1,19 @@
 let TodosItems = []
 let oldSelect = ''
+let TodosItemsFormatado 
+
+function aoAbrir(){
+    if(localStorage.getItem('lista')){
+        TodosItems.push(localStorage.getItem('lista'))
+        
+        TodosItemsFormatado = TodosItems.join("")
+    
+        document.getElementById('lista-tarefas').innerHTML = TodosItemsFormatado
+    }
+   
+}
+aoAbrir()
+
 function criaItem() {
 
     let item = document.getElementById('texto-tarefa').value
@@ -28,4 +42,9 @@ function selectItem(item){
     
     itemSelecionado.classList.add('select-item')
     oldSelect = itemSelecionado
+}
+
+function salvar(){
+    localStorage.setItem('lista', TodosItemsFormatado )
+
 }
