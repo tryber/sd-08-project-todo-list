@@ -66,7 +66,7 @@ subirBotao.addEventListener("click", function () {
       indexSelecionado = i;
     }
   }
-  if (indexSelecionado - 1 != -1) {
+  if (indexSelecionado - 1 > -1) {
     let atual = listItem[indexSelecionado].innerText;
     let anterior = listItem[indexSelecionado - 1].innerText;
     listItem[indexSelecionado].style.backgroundColor = "";
@@ -87,7 +87,7 @@ descerBotao.addEventListener("click", function () {
       indexSelecionado = i;
     }
   }
-  if (indexSelecionado != listItem.length - 1) {
+  if (indexSelecionado < listItem.length - 1) {
     let atual = listItem[indexSelecionado].innerText;
     let proximo = listItem[indexSelecionado + 1].innerText;
     listItem[indexSelecionado].style.backgroundColor = "";
