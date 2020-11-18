@@ -2,10 +2,10 @@ const lista = document.querySelector('ol');
 const botaoCriaTarefa = document.querySelector('#criar-tarefa');
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
 
-function removeSelected() {
+function removeBackgroundColor() {
   const listaDeTarefas = document.getElementsByTagName('li');
   for (let index = 0; index < listaDeTarefas.length; index += 1) {
-    listaDeTarefas[index].classList.remove('selected');
+    listaDeTarefas[index].style.backgroundColor = '';
   }
 }
 
@@ -14,8 +14,8 @@ function criaNovaTarefa() {
   botaoCriaTarefa.addEventListener('click', () => {
     const novaTarefaCriada = document.createElement('li');
     novaTarefaCriada.addEventListener('click', () => {
-      removeSelected();
-      novaTarefaCriada.classList.add('selected');
+      removeBackgroundColor();
+      novaTarefaCriada.style.backgroundColor = 'rgb(128, 128, 128)'
     });
     novaTarefaCriada.addEventListener('dblclick', () => {
       novaTarefaCriada.classList.toggle('completed');
