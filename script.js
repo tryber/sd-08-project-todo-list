@@ -45,11 +45,10 @@
     
       // põe listra na li
    function sobrelist(event){
-    let todolis =document.getElementsByName('li');
-    for (i=0; i<todolis.length;i+=1){
-      event.target[i].className ="Completed";
+     event.target.className ="Completed";
+      //todolis.style.textdecoration: "line-through";
     };
-   }
+   
 
     //botão apagatudo
    document.getElementById('apaga-tudo').addEventListener('click',funcApagao);
