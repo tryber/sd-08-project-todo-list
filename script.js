@@ -34,6 +34,6 @@ createButton.addEventListener('click', function () {
   });
   buttonClear.addEventListener('click',  clear );
     function clear (){
-      listItem = '';
+      item.innerText = '';
     }
   
