@@ -11,7 +11,7 @@ body {
 	border: 2px solid black;
 }
 
-.formato-letra {
+#funcionamento {
 	font-style: italic;
 	color: gray;
 	font-size: small;
