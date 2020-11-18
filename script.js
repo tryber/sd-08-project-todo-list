@@ -26,17 +26,8 @@ const chosenTask = document.getElementById('lista-tarefas');
 chosenTask.addEventListener('click', selectTask);
 
 function completedTask(event) {
-  let length = document.querySelectorAll('.completed').length;
-  for (let index = 0; index < length; index += 1) {
-    if (event.target.classList[index] === 'completed') {
-      event.target.classList.remove('completed');
-    } 
-  }
-  if (event.target.querySelector('.completed') === null) {
-    let completed = event.target;
-    completed.classList.add('completed');
-  }
-}
+  event.target.classList.toggle('completed');
+// Aprendi toggle aqui: https://www.w3schools.com/howto/howto_js_toggle_class.asp
 
 const taskDone = document.getElementById('lista-tarefas');
 taskDone.addEventListener('dblclick', completedTask);
