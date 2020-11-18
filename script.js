@@ -1,6 +1,7 @@
 let TodosItems = []
 let oldSelect = ''
 let TodosItemsFormatado 
+let finalizados = []
 
 function aoAbrir(){
     if(localStorage.getItem('lista')){
@@ -52,5 +53,19 @@ function salvar(){
 function duploClick(id){
     item = document.getElementById(id)
     item.classList.toggle('completed')
-    console.log(item)
+    
+    finalizados.push(id)
+}
+
+function apagaTudo(){
+    document.getElementById('lista-tarefas').innerHTML = ''
+    TodosItems = []
+}
+
+function Finalizadosfun(){
+    for(i=0; i< finalizados.length; i++){
+        document.getElementById(finalizados[i]).remove()
+    }
+    
+    
 }
