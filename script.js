@@ -21,11 +21,11 @@ function newEvent() {
     createList.appendChild(newItens);
 }
 //requisito 7
-window.onload = selectWhite;
-function selectWhite() {
-   let selectListIten = document.getElementById("itens-lista");
-   selectListIten.className = "color-list-init"
-}
+// window.onload = selectWhite;
+// function selectWhite() {
+//    let selectListIten = document.getElementById("itens-lista");
+//    selectListIten.className = "color-list-init"
+// }
 let taskList = document.getElementsByClassName("itens-lista");
 function paintList() {
     for(let index = 0; index < taskList.length; index += 1) {
