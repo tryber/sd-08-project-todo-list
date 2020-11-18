@@ -1,3 +1,16 @@
+window.onload = function () {
+    if (localStorage.getItem("task-names") != null) {
+        let loadText = JSON.parse(localStorage.getItem("task-names"));
+        let loadClasses = JSON.parse(localStorage.getItem("task-classes"));
+        for (let i = 0; i < loadText.length; i += 1) {
+            let printList = document.createElement('li');
+            printList.innerHTML = loadText[i];
+            printList.className = loadClasses[i];
+            document.getElementById('lista-tarefas').appendChild(printList);
+        };
+    };
+}
+
 document.addEventListener('click', function (event) {
     if (event.target.id === 'criar-tarefa') {
         const list = document.getElementById('lista-tarefas');
@@ -36,6 +49,16 @@ document.addEventListener('click', function (event) {
         if (nextSibling != null) {
             document.getElementById('lista-tarefas').insertBefore(nextSibling, selected);
         };
+    } else if (event.target.id === 'salvar-tarefas') {
+        let saveText = [];
+        let saveClass = [];
+        let listaSalvar = document.getElementsByClassName('task');
+        for (let i = 0; i < listaSalvar.length; i += 1) {
+            saveText[i] = listaSalvar[i].innerHTML;
+            saveClass[i] = listaSalvar[i].classList.value;
+        };
+        localStorage.setItem("task-names", JSON.stringify(saveText));
+        localStorage.setItem("task-classes", JSON.stringify(saveClass));
     }
 }, false);
 
