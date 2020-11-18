@@ -40,8 +40,6 @@ function listaSalva() {
 
       listaTarefas.appendChild(li);
     }
-  } else {
-    localStorage.setItem('content', '');
   }
 }
 
@@ -70,7 +68,7 @@ function apagarTarefas() {
 }
 
 function removerFinalizados() {
-  for (let index = 0; index < listaTarefas.children.length; index += 1) {
+  for (let index = listaTarefas.children.length - 1; index >= 0; index -= 1) {
     if (listaTarefas.children[index].classList.contains('completed')) {
       listaTarefas.removeChild(listaTarefas.children[index]);
     }
