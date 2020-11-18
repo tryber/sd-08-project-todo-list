@@ -1,5 +1,3 @@
-//Insere texto na ul
-let allTasks = "";
 let list = document.querySelector("#lista-tarefas");
 let buttonAddTask = document.getElementById("criar-tarefa");
 buttonAddTask.addEventListener("click", function (event) {
@@ -24,11 +22,9 @@ buttonAddTask.addEventListener("click", function (event) {
     newItem.addEventListener("dblclick", function (event) {
         event.target.classList.toggle("completed");
     });
-
 });
 
 //Botão apaga-tudo
-let buttonRemoveAll = document.getElementById("apaga-tudo");
 let eraseAll = document.querySelector("#lista-tarefas");
 document.addEventListener("click", function (event) {
     if (event.target.id === "apaga-tudo") {
@@ -40,41 +36,23 @@ document.addEventListener("click", function (event) {
 });
 
 //Botão remover-finalizados
+let eraseCompleted = document.querySelector("#lista-tarefas");
 document.addEventListener("click", function (event) {
     if (event.target.id === "remover-finalizados") {
-        if (newItem.classList = "completed") {
-            newItem.removeChild(newItem.childNodes);
+        let listNumber = eraseCompleted.querySelectorAll(".completed");        
+        for (let i = 0; i < listNumber.length; i++) {
+            listNumber[i].remove();
         }
-    };
-});
-
-
-
-
-
-
-
-/*
-//Botão remover-finalizados
-let eraseDone = document.getElementById("lista-tarefas");
-document.addEventListener("click", function(event){
-    for (let i = 0; i < eraseDone.length; i++){
-    if (event.target.id === "remover-finalizados"){
-        if  (eraseDone[i].classList = "completed"){
-            eraseDone.removeChild(eraseDone.childNodes[i]);
-        }
-        };
     }
 });
 
 //Botão remover-selecionado
-let eraseSelected = document.getElementById("lista-tarefas");
-document.addEventListener("click", function(event){
-    for (let i = 0; i < eraseDone.length; i++){
-    if (event.target.id === "remover-finalizados"){
-        if  (eraseSelected[i].classList = "selected"){
-            eraseSelected.removeChild(eraseSelected.childNodes[i]);
+let eraseSelected = document.querySelector("#lista-tarefas");
+document.addEventListener("click", function (event) {
+    if (event.target.id === "remover-selecionado") {
+        let listNumber = eraseSelected.querySelectorAll(".selected");        
+        for (let i = 0; i < listNumber.length; i++) {
+            listNumber[i].remove();
         }
-        };
     }
-});*/
+});
