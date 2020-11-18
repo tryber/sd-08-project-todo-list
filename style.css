@@ -12,3 +12,7 @@
         color: white;
         font-weight: bold;
     }
+    
+    .selected {
+        background-color: rgb(128, 128, 128);
+    }
