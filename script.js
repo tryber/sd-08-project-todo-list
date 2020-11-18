@@ -19,7 +19,7 @@ function criaNovaTarefa() {
       novaTarefaCriada.style.backgroundColor = 'rgb(128, 128, 128)';
     });
     novaTarefaCriada.addEventListener('dblclick', () => {
-        novaTarefaCriada.classList.toggle('completed')
+      novaTarefaCriada.classList.toggle('completed');
     });
     novaTarefaCriada.innerHTML = novaTarefa.value;
     lista.appendChild(novaTarefaCriada);
@@ -38,8 +38,7 @@ apagaLista();
 function removeFinalizados() {
   const tarefasProntas = document.getElementsByClassName('completed');
   botaoRemoveFinalizados.addEventListener('click', () => {
-    for (let index = 0; index < tarefasProntas.length; index += 1) {
-      console.log(tarefasProntas[index]);
+    for (let index = 0; tarefasProntas.length > 0; index += 1) {
       lista.removeChild(tarefasProntas[index]);
     }
   });
