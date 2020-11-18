@@ -1,6 +1,6 @@
 // Botão para add tarefa
-let buttonCriar = document.getElementById("criar-tarefa");
-let lista = document.getElementById("lista-tarefas");
+const buttonCriar = document.getElementById("criar-tarefa");
+const lista = document.getElementById("lista-tarefas");
 buttonCriar.addEventListener("click", function () {
   let text = document.getElementById("texto-tarefa");
   let itemLista = document.createElement("li");
@@ -66,10 +66,10 @@ subirBotao.addEventListener("click", function () {
       indexSelecionado = i;
     }
   }
-  let atual = listItem[indexSelecionado].innerText;
-  if (indexSelecionado - 1 < 0) {
+  if (indexSelecionado - 1 == -1) {
     false;
   } else {
+    let atual = listItem[indexSelecionado].innerText;
     let anterior = listItem[indexSelecionado - 1].innerText;
     listItem[indexSelecionado].style.backgroundColor = "";
     listItem[indexSelecionado].innerText = anterior;
@@ -87,10 +87,10 @@ descerBotao.addEventListener("click", function () {
       indexSelecionado = i;
     }
   }
-  let atual = listItem[indexSelecionado].innerText;
   if (indexSelecionado == listItem.length - 1) {
     false;
   } else {
+    let atual = listItem[indexSelecionado].innerText;
     let proximo = listItem[indexSelecionado + 1].innerText;
     listItem[indexSelecionado].style.backgroundColor = "";
     listItem[indexSelecionado].innerText = proximo;
