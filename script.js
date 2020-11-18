@@ -23,7 +23,7 @@ const qSelectorAll = (element) => document.querySelectorAll(element);
 let criarTarefas = qSelector('#criar-tarefas');
 criarTarefas.addEventListener('click', () => {
     let textoTarefa = qSelector('#texto-tarefa');
-    const listaTarefas = qSelector('#lista-tarefas');    
+    const listaTarefas = qSelector('#lista-tarefas');
     if (textoTarefa.value.length >= 3) {
         let listaItem = document.createElement('li');
         listaItem.className = 'tarefa';
@@ -32,31 +32,22 @@ criarTarefas.addEventListener('click', () => {
         textoTarefa.value = '';
     } else {
         alert('Digita uma tarefa!')
-    };    
+    };
     selecionarTarefa();
 });
 
-function checarSeHaTarefas(){
-    const haTarefas = qSelectorAll('.tarefa');
-    if(haTarefas.length > 0){
-        return true;
-    };
-};
-
-
-function selecionarTarefa(){
-    if(checarSeHaTarefas){
-        const tarefas = qSelectorAll('.tarefa');
-        for(let item of tarefas){
-            item.addEventListener('click', () =>{
-                let selectedItem = qSelector('.selected');
-                if(item.classList.contains('selected') === false){
-                   item.classList.add('selected');
-                   if(selectedItem != null){
-                       selectedItem.classList.remove('selected');
-                   };
+function selecionarTarefa() {    
+    const tarefas = qSelectorAll('.tarefa');
+    for (let item of tarefas) {
+        item.addEventListener('click', () => {                
+            let itemSelecionado = qSelector('.selected');
+            if (item.classList.contains('selected') === false) {
+                item.classList.add('selected');                
+                if (itemSelecionado != null) {
+                    itemSelecionado.classList.remove('selected');
                 };
-            });
-        };
-    };
+            };               
+        });            
+    }; 
 };
+
