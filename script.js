@@ -4,6 +4,8 @@ const qSelectorAll = (element) => document.querySelectorAll(element);
 
 const criarTarefas = qSelector('#criar-tarefa');
 const listaTarefas = qSelector('#lista-tarefas');
+const apagaTudo = qSelector('#apaga-tudo');
+const removerFinalizados = qSelector('#remover-finalizados');
 
 
 criarTarefas.addEventListener('click', () => {
@@ -25,13 +27,22 @@ listaTarefas.addEventListener('click', (event) => {
         let itemSelecionado = qSelector('.selected');
         if (itemSelecionado != null && itemSelecionado.classList.contains('selected')) {
             itemSelecionado.classList.remove('selected');
-        }
+        };
         event.target.classList.add('selected');
-    }
-})
-
-
+    };
+});
 
 listaTarefas.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed')
-})
+});
+
+apagaTudo.addEventListener('click', () =>{
+    while(listaTarefas.firstChild){
+        listaTarefas.removeChild(listaTarefas.lastChild)
+    };
+});
+
+removerFinalizados.addEventListener('click', () => {
+    let itemSelecionado = qSelector('.selected');
+    itemSelecionado.remove();
+});
