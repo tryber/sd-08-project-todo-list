@@ -23,7 +23,7 @@ function criaItem() {
     }
     else {
         TodosItems.push(`
-        <li id="${item}" onclick="selectItem('${item}')">${item}</li>
+        <li id="${item}" onclick="selectItem('${item}')" ondblclick="duploClick('${item}')">${item}</li>
     `)
 
         TodosItemsFormatado = TodosItems.join("")
@@ -47,4 +47,10 @@ function selectItem(item){
 function salvar(){
     localStorage.setItem('lista', TodosItemsFormatado )
 
+}
+
+function duploClick(id){
+    item = document.getElementById(id)
+    item.classList.toggle('completed')
+    console.log(item)
 }
