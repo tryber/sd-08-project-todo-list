@@ -1,3 +1,4 @@
+window.onload = function() {
 function criarTarefa() {
  const botaoTarefa = document.getElementById('criar-tarefa');
  botaoTarefa.addEventListener('click', function (){
@@ -31,7 +32,6 @@ criarTarefa();
       }
   }
 
-
 function apagaTudo(){
   const botaoApagaTudo = document.getElementById('apaga-tudo');
   botaoApagaTudo.addEventListener('click', deletaItems);
@@ -46,9 +46,11 @@ function removeFinalizadas(){
   let botao = document.getElementById('remover-finalizados');
   botao.addEventListener('click',function(){
     let finalizadas = document.getElementsByClassName('completed');
-    for (let index = 0; index < finalizadas.length; index += 1){
+    for (let index = finalizadas.length -1; index >= 0; index -= 1){
       finalizadas[index].remove();
     }
       })
     }
 removeFinalizadas();
+}
+
