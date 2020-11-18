@@ -16,7 +16,7 @@ btnMoverBaixo.addEventListener('click', moverBaixo);
 btnRemoverSelecionado.addEventListener('click', removerSelecionado);
 
 function listaSalva() {
-  if (localStorage.getItem('content') !== '') {
+  if (localStorage.getItem('content') !== null) {
     let tarefas = localStorage.getItem('content');
     tarefas = tarefas.split(',');
     
@@ -41,7 +41,7 @@ function adicionarTarefa() {
   if (text === '') {
     return;
   }
-  
+
   input.value = '';
   const textNode = document.createTextNode(text);
   const li = document.createElement('li');
