@@ -66,15 +66,15 @@ subirBotao.addEventListener("click", function () {
       indexSelecionado = i;
     }
   }
-  if (indexSelecionado - 1 == -1) {
-    false;
-  } else {
+  if (indexSelecionado - 1 != -1) {
     let atual = listItem[indexSelecionado].innerText;
     let anterior = listItem[indexSelecionado - 1].innerText;
     listItem[indexSelecionado].style.backgroundColor = "";
     listItem[indexSelecionado].innerText = anterior;
     listItem[indexSelecionado - 1].style.backgroundColor = "rgb(128, 128, 128)";
     listItem[indexSelecionado - 1].innerText = atual;
+  } else {
+    false;
   }
 });
 
@@ -87,15 +87,15 @@ descerBotao.addEventListener("click", function () {
       indexSelecionado = i;
     }
   }
-  if (indexSelecionado == listItem.length - 1) {
-    false;
-  } else {
+  if (indexSelecionado != listItem.length - 1) {
     let atual = listItem[indexSelecionado].innerText;
     let proximo = listItem[indexSelecionado + 1].innerText;
     listItem[indexSelecionado].style.backgroundColor = "";
     listItem[indexSelecionado].innerText = proximo;
     listItem[indexSelecionado + 1].style.backgroundColor = "rgb(128, 128, 128)";
     listItem[indexSelecionado + 1].innerText = atual;
+  } else {
+    false;
   }
 });
 
