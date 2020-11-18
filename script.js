@@ -9,6 +9,9 @@ function listaDeTarefas() {
         tarefaOl.appendChild(tarefaLi);
         tarefaLi.innerText = entradaTexto.value;
         entradaTexto.value = '';
+        tarefaLi.addEventListener('click', function() {
+            tarefaLi.style.backgroundColor = 'rgb(128,128,128)'
+        });
     };
 };
 
