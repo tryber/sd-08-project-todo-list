@@ -2,21 +2,21 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet"/>
     <script src="script.js"></script>
   </head>
   <body>
     <header>
-      <h1>Minha Lista de Tarefas</h1>
-      <p id="funcionamento">
-        Clique duas vezes em um item para marcá-lo como completo
-      </p>
+      <div>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">
+          Clique duas vezes em um item para marcá-lo como completo
+        </p>
+    </div>
     </header>
     <section class="task-container">
       <input type="text" id="texto-tarefa" />
@@ -24,12 +24,14 @@
       <ol id="lista-tarefas"></ol>
     </section>
     <section id="button-container">
-      <button id="remover-selecionado">x</button>
-      <button id="mover-cima">↑</button>
-      <button id="mover-baixo">↓</button>
-      <button id="remover-finalizados">Remover Finalizados</button>
-      <button id="apaga-tudo">Limpar Lista</button>
-      <button id="salvar-tarefas">Salvar Tarefas</button>
+      <div>
+        <button id="remover-selecionado">x</button>
+        <button id="mover-cima">↑</button>
+        <button id="mover-baixo">↓</button>
+        <button id="remover-finalizados">Remover Finalizados</button>
+        <button id="apaga-tudo">Limpar Lista</button>
+        <button id="salvar-tarefas">Salvar Tarefas</button>
+      </div>
     </section>
   </body>
 </html>

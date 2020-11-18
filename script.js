@@ -92,12 +92,13 @@ window.onload = function () {
 
   // Descer
   baixo.addEventListener("click", function () {
-    
-    let selecionado = document.querySelectorAll('.selected');
-    if (selecionado[0].nextElementSibling) {
-      let nextSelecionado = selecionado[0].nextElementSibling.outerHTML;
-      selecionado[0].nextElementSibling.outerHTML = selecionado[0].outerHTML;
-      selecionado[0].outerHTML = nextSelecionado;
+    if (document.querySelector('.selected')) {
+      let selecionado = document.querySelector('.selected');
+      if (selecionado.nextElementSibling) {
+        let nextSelecionado = selecionado.nextElementSibling.outerHTML;
+        selecionado.nextElementSibling.outerHTML = selecionado.outerHTML;
+        selecionado.outerHTML = nextSelecionado;
+      }
     }
     // for (let index = 0; index < getItemList.length; index += 1) {
     //   if (getItemList[index].classList.contains("selected") && index + 1 < getItemList.length) {
