@@ -1,6 +1,7 @@
 const olList = document.getElementById('lista-tarefas');
 let inputTextoTarefa = document.getElementById('texto-tarefa');
 const btnCriaTarefa = document.getElementById('criar-tarefa');
+const btnApagaTudo = document.getElementById('apaga-tudo');
 // adiciona li
 function adicionaLi() {
     btnCriaTarefa.addEventListener('click', addTarefa);
@@ -8,7 +9,7 @@ function adicionaLi() {
         if(inputTextoTarefa.value !== '' && inputTextoTarefa.value !== ' ') {
             const olItem = document.createElement('li');
             olList.style.listStyleType = 'decimal';
-            olItem.classList = 'item';
+            // olItem.classList = 'item';
             olItem.innerHTML = inputTextoTarefa.value;
             olList.appendChild(olItem);
             inputTextoTarefa.value ='';
@@ -30,13 +31,21 @@ function adicionaLi() {
         }addSelected();
 
         //duplo clique
-        olList.addEventListener('dblclick', function (evento) {
-            if (evento.target.classList.contains('completed')) {
-              evento.target.classList.remove('completed');
-            } else {
-              evento.target.classList.add('completed');
-            };
-          });
+        function duploClique() {
+            olList.addEventListener('dblclick', function (evento) {
+                if (evento.target.classList.contains('completed')) {
+                  evento.target.classList.remove('completed');
+                } else {
+                evento.target.classList.add('completed');
+                }
+            });
+        }duploClique();
+        // apagatudo
+        function apagaTudo() {
+            btnApagaTudo.addEventListener('click', function (evento) {
+                if (evento.target.id === 'apaga-tudo') olList.innerHTML = '';
+            });
+        }apagaTudo();
     
     }
 }adicionaLi();
