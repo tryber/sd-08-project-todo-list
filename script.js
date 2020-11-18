@@ -65,16 +65,16 @@ function umCliqueTarefa () {
   let corselecao = 'rgb(128,128,128)';
   //console.log(todasTarefas);
   //for atribuir todas tarefas classeTarefas
-  for (let index of todasTarefas) {
-    index.className = 'classeTarefa';
-  }
+  //for (let index of todasTarefas) {
+  //  index.className = 'classeTarefa';
+  //}
   //for pintar todas tarefas de branco
   for (let index = 0; index < todasTarefas.length; index += 1) {
     todasTarefas[index].style.backgroundColor = corPadrao;
   }
   //pintar tarefa atual de cinza e atribuir classe selected
   tarefaAtual.style.backgroundColor = corselecao;
-  tarefaAtual.className = 'classeTarefa selected';
+  //tarefaAtual.className = 'classeTarefa selected';
 }
 
 function doisCliquesTarefa(){
