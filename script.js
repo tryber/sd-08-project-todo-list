@@ -11,22 +11,18 @@ const addTask = document.querySelector('#criar-tarefa');
 addTask.addEventListener('click', addNewTask);
 
 function selectTask(event) {
-  let chosen = event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  let tasksList = document.getElementsByTagName('li');
+  for (let index in tasksList) {
+    if (document.getElementsByTagName('li')[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      let deselect = tasksList[index];
+      deselect.style.backgroundColor = 'white';
+    }
+  }
+    let chosen = event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 const chosenTask = document.getElementById('lista-tarefas');
 chosenTask.addEventListener('click', selectTask);
-
-function deselectTask() {
-  for (let index in tasksList) {
-    let tasksList = document.getElementsByTagName('li');
-    tasksList[index].style.backgroundColor = 'none';
-  }
-  selectTask(newChosenTask);
-}
-
-const newChosenTask = document.getElementById('lista-tarefas');
-newChosenTask.addEventListener('click', selectTask);
 
 function completedTask(event) {
   if (event.target.className === 'completed') {
@@ -40,3 +36,14 @@ function completedTask(event) {
 
 const taskDone = document.getElementById('lista-tarefas');
 taskDone.addEventListener('dblclick', completedTask);
+
+function deleteAll() {
+  let listLength = document.getElementsByTagName('li').length;
+  for (let index = 0; index < listLength; index += 1) {
+    let toDelete = document.getElementById('lista-tarefas');
+    toDelete.removeChild(toDelete.firstChild);
+  }
+}
+
+const deleteAllTasks = document.getElementById('apaga-tudo');
+deleteAllTasks.addEventListener('click', deleteAll);
