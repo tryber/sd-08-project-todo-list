@@ -1,3 +1,4 @@
+let createList = document.getElementById("lista-tarefas");
 //requisitos 5 e 6
 let createTaskButton = document.getElementById("criar-tarefa");
 function taskButton() {
@@ -15,6 +16,7 @@ function newEvent() {
 //requisito 7
 paintList();
 function paddingColor(event) {
+    let taskList = document.querySelector("li");
     for(let index = 0; index < taskList.length; index += 1) {
         taskList[index].className = "itens-lista";
     }
