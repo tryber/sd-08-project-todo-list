@@ -46,6 +46,12 @@ function removerFinalizados() {
   }
 }
 
+function removerSelecionado() {
+  const tarefaSelecionada = document.querySelector('.selected');
+  tarefaSelecionada.remove();
+}
+
 document.querySelector('#criar-tarefa').addEventListener('click', criarTarefa);
 document.querySelector('#apaga-tudo').addEventListener('click', apagarTarefas);
 document.querySelector('#remover-finalizados').addEventListener('click', removerFinalizados);
+document.querySelector('#remover-selecionado').addEventListener('click', removerSelecionado);
