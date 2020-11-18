@@ -10,7 +10,7 @@ function ListofTasks(event) {
 
     let paragraph = document.createElement('li');
     paragraph.innerText = getText.value;
-    paragraph.className('tarefas')
+    paragraph.className = 'tarefas'
     TasksList.appendChild(paragraph);
     paragraph.addEventListener('click', Selec);
     getText.value = '';
