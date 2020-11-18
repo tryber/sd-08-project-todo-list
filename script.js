@@ -31,13 +31,12 @@ function makeList(){
     const conteudo = document.getElementById('texto-tarefa').value; //Pega valor do imput
     const listaTarefas = document.createElement('li');
     listaTarefas.innerText = conteudo; //Lista recebe valor do imput
-    listaTarefas.id = 'lista';
+    listaTarefas.className = 'lista';
     document.getElementById('texto-tarefa').value = ''; //Apaga valor do imput
     document.querySelector('#lista-tarefas').appendChild(listaTarefas); //Cria lista 
 }
 //Cria botão apaga tudo - 10º requisito
 const apagarLista = document.getElementById('lista-tarefas');
-const vetorLista = document.querySelectorAll('#lista');
 const btnApagar = document.createElement('button');
 btnApagar.id = 'apaga-tudo';
 btnApagar.innerText = 'Apagar Lista';
@@ -46,14 +45,32 @@ btnApagar.addEventListener('click', clearList);
 
 function clearList(){
     apagarLista.textContent = '';
-    // apagarLista.innerHTML = ''; - tfunciona da mesma forma
+    // apagarLista.innerHTML = ''; - funciona da mesma forma
 }
+//Cria botão apaga finalizado - 11º requisito
+const btnApagarFinalizado = document.createElement('button');
+btnApagarFinalizado.id = 'remover-finalizados';
+btnApagarFinalizado.innerText = 'Apagar Finalizados';
+document.querySelector('body').appendChild(btnApagarFinalizado);
+btnApagarFinalizado.addEventListener('click', clearFinished);
+
+function clearFinished(){
+     
+    for( let index = 0; index < apagarLista.childElementCount; index += 1 ){
+        const item = apagarLista.children[index]
+        if (item.classList.contains('completed')){
+        apagarLista.removeChild(item);
+        index -= 1;
+        }
+    }  
+}
+
 //Define backgroundcolor dos itens da Lista - 7º e 8º requisitos
 const backColorList = document.getElementById('lista-tarefas');
 backColorList.addEventListener('click', backColorPaint);
 //Remove style
 function rmvColorPaint(){
-    const vetorLista = document.querySelectorAll('#lista');
+    const vetorLista = document.getElementsByClassName('lista');
     for(let index = 0; index < vetorLista.length; index += 1){
         vetorLista[index].style = '';
     }
@@ -73,10 +90,10 @@ completeList.addEventListener('dblclick', addDobleClick);
 
 function addDobleClick(event){
     const atributo = event.target;
-    if(atributo.className != 'completed'){
-        atributo.className = 'completed';
+    if(atributo.className != 'lista completed'){
+        atributo.className = 'lista completed';
     }else{
-        atributo.className = '';
+        atributo.className = 'lista';
     }
 }
         
