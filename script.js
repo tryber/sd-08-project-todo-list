@@ -42,3 +42,14 @@ function apagaTudo() {
     });
 }
 apagaTudo();
+
+const botaoRemover = document.getElementById('remover-finalizados');
+const tarefaOl = document.getElementById('lista-tarefas');
+botaoRemover.addEventListener('click', function() {
+    const itemDaLista = tarefaOl.querySelectorAll('li');
+    for (let remover = 0; remover < itemDaLista.length; remover += 1) {
+        if (itemDaLista[remover].classList.contains('completed')) {
+            tarefaOl.removeChild(itemDaLista[remover]);
+        }
+    }
+});
