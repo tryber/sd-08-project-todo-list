@@ -29,7 +29,13 @@ const newChosenTask = document.getElementById('lista-tarefas');
 newChosenTask.addEventListener('click', selectTask);
 
 function completedTask(event) {
-  let completed = event.target.className = 'completed';
+  if (event.target.className === 'completed') {
+    let tryAgain = event.target.className = '';
+  }
+  else {
+    let completed = event.target;
+    completed.className = 'completed';
+  }
 }
 
 const taskDone = document.getElementById('lista-tarefas');
