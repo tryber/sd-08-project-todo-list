@@ -10,6 +10,7 @@ function insertElement() {
   newElement.innerHTML = inputLocal.value;
   listLocal.appendChild(newElement);
   inputLocal.value = '';
+  return newElement;
 }
 
 butonTarefaLocal.addEventListener('click', insertElement);
@@ -59,16 +60,43 @@ butonClearScratcheds.addEventListener('click', clearScratcheds);
 function saveList() {
     localStorage.clear();
   for (let i = 0; i < listLocal.children.length; i += 1) {
-    localStorage.setItem(i, listLocal.children[i].innerText);
+    if (listLocal.children[i].className === 'completed') {
+      let textItem = [];
+      textItem.push(listLocal.children[i].innerText);
+      localStorage.setItem(i, textItem);
+      let classItem = [];
+      let className = i + ' ClassName';
+      classItem.push(listLocal.children[i].className);
+      localStorage.setItem(className, classItem);
+    } else {
+      let textItem = listLocal.children[i].innerText;
+      localStorage.setItem(i, textItem);
+    }
   }
 }
 
 butonSave.addEventListener('click', saveList);
 
 function comeListBack() {
-  for (let i = 0; i < localStorage.length; i += 1) {
-    insertElement();
-    listLocal.children[i].innerText = localStorage.getItem(i);
+  let storageClass = '';
+  let aux = localStorage.length;
+  let contItens = 0;
+  
+  for (let index = 0; index < aux; index += 1) {
+    storageClass = index + ' ClassName';
+    if (localStorage.getItem(storageClass) == 'completed') {
+      aux -= 1;
+      insertElement();
+      let elementLocal = document.getElementsByTagName('li');
+      elementLocal[contItens].innerText = localStorage[contItens];
+      elementLocal[contItens].className = localStorage[storageClass];
+      contItens += 1;
+    } else if (localStorage.getItem(index) !== '') {
+      insertElement();
+      let elementLocal = document.getElementsByTagName('li');
+      elementLocal[contItens].innerText = localStorage[contItens];
+      contItens += 1;
+    }
   }
 }
 comeListBack();
