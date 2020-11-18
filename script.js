@@ -21,11 +21,12 @@ function tintList(){
 }
 tintList();
 
+//Adiciona evento que permite selecionar somente uma tarefa.
 let ol = document.getElementById('lista-tarefas');
 function selected(event) {
     let li = document.getElementsByTagName('li');
     for(let index = 0; index < li.length; index +=1){
-        li[index].style.backgroundColor = '';
+        li[index].removeAttribute('style');
     }
     console.log('bruno')
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -60,3 +61,13 @@ function removeList(){
 }
 
 removeList();
+
+//Adiciona evento que apaga todas as tarefas concluídas.
+let btnCompleted = document.getElementById('remover-finalizados');
+function removeCompleted() {
+    let completed = document.querySelectorAll('.completed')
+    for(let index = 0; index < completed.length; index +=1){
+        completed[index].remove();
+    }
+}
+btnCompleted.addEventListener('click', removeCompleted);
