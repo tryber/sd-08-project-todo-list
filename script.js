@@ -1,17 +1,18 @@
 window.onload = function () {
-    if (localStorage.getItem("task-names") != null) {
-        let loadText = JSON.parse(localStorage.getItem("task-names"));
-        let loadClasses = JSON.parse(localStorage.getItem("task-classes"));
-        for (let i = 0; i < loadText.length; i += 1) {
-            let printList = document.createElement('li');
-            printList.innerHTML = loadText[i];
-            printList.className = loadClasses[i];
-            document.getElementById('lista-tarefas').appendChild(printList);
-        };
+  if (localStorage.getItem("task-names") != null) {
+    let loadText = JSON.parse(localStorage.getItem("task-names"));
+    let loadClasses = JSON.parse(localStorage.getItem("task-classes"));
+    for (let i = 0; i < loadText.length; i += 1) {
+        let printList = document.createElement('li');
+        printList.innerHTML = loadText[i];
+        printList.className = loadClasses[i];
+        document.getElementById('lista-tarefas').appendChild(printList);
     };
+};
 }
 
 document.addEventListener('click', function (event) {
+    let selected = document.getElementsByClassName('selected')[0];
     if (event.target.id === 'criar-tarefa') {
         const list = document.getElementById('lista-tarefas');
         let taskText = document.getElementById('texto-tarefa');
@@ -36,16 +37,14 @@ document.addEventListener('click', function (event) {
         };     
     } else if (event.target.id === 'remover-finalizados') {
         let removeCompleted = document.getElementsByClassName('completed');
-        for (let j = 0; j < removeCompleted.length;) {
+        for (let j = 0; j < removeCompleted.length; j = 0) {
             removeCompleted[0].remove();
         };
-    } else if (event.target.id === 'mover-cima' && document.getElementsByClassName('selected')[0] != null) {
-        let selected = document.getElementsByClassName('selected')[0];
-        let previousSibling = document.getElementsByClassName('selected')[0].previousSibling;
+    } else if (event.target.id === 'mover-cima' && selected != null) {
+        let previousSibling = selected.previousSibling;
         document.getElementById('lista-tarefas').insertBefore(selected, previousSibling);
-    } else if (event.target.id === 'mover-baixo' && document.getElementsByClassName('selected')[0] != null) {
-        let selected = document.getElementsByClassName('selected')[0];
-        let nextSibling = document.getElementsByClassName('selected')[0].nextSibling;
+    } else if (event.target.id === 'mover-baixo' && selected != null) {
+        let nextSibling = selected.nextSibling;
         if (nextSibling != null) {
             document.getElementById('lista-tarefas').insertBefore(nextSibling, selected);
         };
