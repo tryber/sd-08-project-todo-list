@@ -1,5 +1,5 @@
 let createList = document.getElementById("lista-tarefas");
-//requisitos 5 e 6
+//requisitos 5
 let createTaskButton = document.getElementById("criar-tarefa");
 function taskButton() {
     createTaskButton.addEventListener("click", newEvent);
@@ -11,10 +11,11 @@ function newEvent() {
     newItens.innerHTML = inputText;
     newItens.className = "itens-lista";
     newItens.addEventListener("click", paddingColor);
+    // newItens.addEventListener("dblclick", clearList);
     createList.appendChild(newItens);
 }
-//requisito 7
-paintList();
+//requisito 6
+//requisitos 7 e 8
 function paddingColor(event) {
     let taskList = document.querySelector(".click-class");
     if (taskList !== null) {
@@ -22,4 +23,7 @@ function paddingColor(event) {
     }
     event.target.className = "itens-lista click-class";
 }
-//requisito 8
+//requisito 9
+// function clearList () {
+
+// }
