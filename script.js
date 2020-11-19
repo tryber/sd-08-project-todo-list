@@ -120,7 +120,7 @@ comeListBack();
 
 function moverCima() {
   const listLi = document.getElementsByTagName('li');
-  for (let index = 0; index < listLi.length; index += 1) {
+  for (let index = 1; index < listLi.length; index += 1) {
     if (listLi[index].style[0] === "background-color") {
       let aux = index - 1;
       let antigoTexto= listLi[index].innerText;
@@ -139,7 +139,7 @@ butonMvUpLocal.addEventListener('click', moverCima);
 
 function moverBaixo() {
   const listLi = document.getElementsByTagName('li');
-  for (let index = 0; index < listLi.length; index += 1) {
+  for (let index = 0; index < listLi.length - 1; index += 1) {
     if (listLi[index].style[0] === "background-color") {
       let aux = index + 1;
       let antigoTexto = listLi[aux].innerText;
@@ -156,3 +156,14 @@ function moverBaixo() {
 }
 const butonMvDLocal = document.getElementById('mover-baixo');
 butonMvDLocal.addEventListener('click', moverBaixo);
+
+function removerSelecionado() {
+  const listLi = document.getElementsByTagName('li');
+  for (let index = 0; index < listLi.length; index += 1) {
+    if (listLi[index].style[0] === "background-color") {
+      listLi[index].remove();
+    }
+  }
+}
+const butonRemSelLocal = document.getElementById('remover-selecionado');
+butonRemSelLocal.addEventListener('click', removerSelecionado);
