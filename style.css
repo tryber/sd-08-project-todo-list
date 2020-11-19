@@ -1,6 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
+  font-size: 15px;
+}
+
+#funcionamento {
+  margin-bottom: 5px;
+  padding: 0;
 }
 
 .completed {
@@ -33,3 +39,6 @@ p {
   margin-top: 0;
 }
 
+#remover-selecionado {
+  margin-bottom: 5px;
+}
