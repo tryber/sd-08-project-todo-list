@@ -1,8 +1,8 @@
 let btn = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const texto = document.getElementById('texto-tarefa');
-const tarefas = document.getElementsByClassName('classeItens')
-
+const tarefas = document.getElementsByClassName('classeItens');
+const botao = document.getElementById('apaga-tudo');
 //requisito 
 btn.addEventListener('click', function () {
 	if (texto.value.length != 0) {
@@ -13,6 +13,7 @@ btn.addEventListener('click', function () {
 		createLi.className = "classeItens"
 	}
 })
+
 //requisito 8
 function completo(event) {
 	event.target.classList.toggle('feito');
@@ -28,3 +29,7 @@ function alterar(event) {
 }
 
 list.addEventListener('click', alterar)
+
+botao.addEventListener('click', function () {
+	list.innerHTML = ''
+})
