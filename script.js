@@ -26,7 +26,7 @@ function changeBackGroundColorSelectedItem(event) {
   }
 }
 
-listLocal.addEventListener('mouseover', changeBackGroundColorSelectedItem);
+listLocal.addEventListener('click', changeBackGroundColorSelectedItem);
 
 function scratchCompletedItem(event) {
   if (event.target.className === '') {
@@ -56,6 +56,22 @@ function clearScratcheds() {
 }
 
 butonClearScratcheds.addEventListener('click', clearScratcheds);
+
+// utilizado código do 
+/*
+function salvarLista() {
+  let mandarWeb = document.getElementById("lista-tarefas").innerHTML;
+  localStorage.clear();
+  localStorage.setItem('item' ,mandarWeb)
+}
+butonSave.addEventListener("click", salvarLista);
+
+function carregarLista() {
+  document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('item');
+}
+carregarLista();
+
+*/
 
 function saveList() {
     localStorage.clear();
@@ -100,3 +116,43 @@ function comeListBack() {
   }
 }
 comeListBack();
+
+
+function moverCima() {
+  const listLi = document.getElementsByTagName('li');
+  for (let index = 0; index < listLi.length; index += 1) {
+    if (listLi[index].style[0] === "background-color") {
+      let aux = index - 1;
+      let antigoTexto= listLi[index].innerText;
+      listLi[index].innerText = listLi[aux].innerText;
+      listLi[aux].innerText = antigoTexto;
+      let antigoClass = listLi[aux].className;
+      listLi[aux].className = listLi[index].className;
+      listLi[index].className = antigoClass;
+      listLi[aux].style.backgroundColor = listLi[index].style.backgroundColor;
+      listLi[index].style.backgroundColor = '';
+    }
+  }
+}
+const butonMvUpLocal = document.getElementById('mover-cima');
+butonMvUpLocal.addEventListener('click', moverCima);
+
+function moverBaixo() {
+  const listLi = document.getElementsByTagName('li');
+  for (let index = 0; index < listLi.length; index += 1) {
+    if (listLi[index].style[0] === "background-color") {
+      let aux = index + 1;
+      let antigoTexto = listLi[aux].innerText;
+      listLi[aux].innerText = listLi[index].innerText;
+      listLi[index].innerText = antigoTexto;
+      let antigoClass = listLi[aux].className;
+      listLi[aux].className = listLi[index].className;
+      listLi[index].className = antigoClass;
+      listLi[aux].style.backgroundColor = listLi[index].style.backgroundColor;
+      listLi[index].style.backgroundColor = '';
+      break;
+    }
+  }
+}
+const butonMvDLocal = document.getElementById('mover-baixo');
+butonMvDLocal.addEventListener('click', moverBaixo);
