@@ -1,8 +1,6 @@
 .completed{
   text-decoration: line-through;
 }
-.com-cinza{
-  background-color:rgb(128, 128, 128);
+.selected {
+  background-color: rgb(128, 128, 128);
 }
-
-
