@@ -9,9 +9,11 @@ function newEvent() {
     let inputText = document.getElementById("texto-tarefa").value;
     let newItens = document.createElement("li");
     newItens.innerHTML = inputText;
+    inputText.value = "";
+    // Source: https://www.guj.com.br/t/limpar-um-inputtext/203164/3
     newItens.className = "itens-lista";
     newItens.addEventListener("click", paddingColor);
-    // newItens.addEventListener("dblclick", clearList);
+    newItens.addEventListener("dblclick", lineThrough);
     createList.appendChild(newItens);
 }
 //requisito 6
@@ -24,6 +26,10 @@ function paddingColor(event) {
     event.target.className = "itens-lista click-class";
 }
 //requisito 9
-// function clearList () {
-
-// }
+function lineThrough(event) {
+    let changeLineStyle = document.querySelector("completed");
+    if (changeLineStyle !== null) {
+        changeLineStyle.className = "itens-lista"
+    }
+    event.target.className = "itens-lista completed";
+}
