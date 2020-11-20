@@ -4,6 +4,7 @@ const texto = document.getElementById('texto-tarefa');
 const tarefas = document.getElementsByClassName('classeItens');
 const botao = document.getElementById('apaga-tudo');
 const botaofinal = document.getElementById('remover-finalizados');
+const rmvselectedbtn = document.getElementById('remover-selecionado');
 //requisito 
 btn.addEventListener('click', function () {
 	if (texto.value.length != 0) {
@@ -40,5 +41,12 @@ botaofinal.addEventListener('click', function () {
 	for (let i = 0; i < comp.length; i += 1) {
 		comp[i].remove();
 	}
-		
+
+})
+
+rmvselectedbtn.addEventListener('click', function () {
+	let selected = document.getElementsByClassName('alteraCor');
+	for (let i = 0; i < selected.length; i += 1) {
+		selected[i].remove()
+	}
 })
