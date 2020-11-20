@@ -17,7 +17,7 @@ btn.addEventListener('click', function () {
 
 //requisito 8
 function completo(event) {
-	event.target.classList.toggle('feito');
+	event.target.classList.toggle('completed');
 }
 
 list.addEventListener('dblclick', completo)
@@ -36,7 +36,7 @@ botao.addEventListener('click', function () {
 })
 
 botaofinal.addEventListener('click', function () {
-	let comp = document.querySelectorAll('.feito')
+	let comp = document.querySelectorAll('.completed')
 	for (let i = 0; i < comp.length; i += 1) {
 		comp[i].remove();
 	}
