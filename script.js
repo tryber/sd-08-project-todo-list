@@ -7,9 +7,10 @@ function taskButton() {
 taskButton();
 function newEvent() {
     let inputText = document.getElementById("texto-tarefa").value;
+    let clearInput = document.getElementById("texto-tarefa");
     let newItens = document.createElement("li");
     newItens.innerHTML = inputText;
-    inputText.value = "";
+    clearInput.value = "";
     // Source: https://www.guj.com.br/t/limpar-um-inputtext/203164/3
     newItens.className = "itens-lista";
     newItens.addEventListener("click", paddingColor);
