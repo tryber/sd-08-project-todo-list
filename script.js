@@ -1,8 +1,10 @@
-let getText = document.getElementById('texto-tarefa');
-let buttonTarefa = document.getElementById('criar-tarefa');
-let eraseAll = document.getElementById('apaga-tudo');
-let TasksList = document.getElementById('lista-tarefas');
-let getTasks = document.getElementById('tasks');
+const getText = document.getElementById('texto-tarefa');
+const buttonTarefa = document.getElementById('criar-tarefa');
+const eraseAll = document.getElementById('apaga-tudo');
+const TasksList = document.getElementById('lista-tarefas');
+const getTasks = document.getElementById('tasks');
+const saveTasks = document.getElementById('salvar-tarefas');
+
 
 
 
@@ -10,7 +12,7 @@ function ListofTasks(event) {
 
     let paragraph = document.createElement('li');
     paragraph.innerText = getText.value;
-    paragraph.className = 'tarefas'
+    paragraph.className = 'tarefas';
     TasksList.appendChild(paragraph);
     paragraph.addEventListener('click', Selec);
     getText.value = '';
@@ -26,7 +28,25 @@ function Selec(event) {
     if (selected.length > 0) {
         selected[0].className = '';
     }
-    event.target.className = 'selected';
+    event.target.className = 'tarefas selected';
 }
 
 TasksList.addEventListener('click', Selec);
+
+function erasingTasks() {
+    const lista = document.querySelectorAll('.tarefas');
+    for (let index = 0; index < lista.length; index += 1) {
+        lista[index].remove();
+    }
+}
+
+eraseAll.addEventListener('click', erasingTasks);
+
+saveTasks.addEventListener('click', savingList);
+
+function savingList() {
+    const contentTasks = TasksList.innerHTML;
+    localStorage.setItem('conteudoTarefas', contentTasks);
+}
+
+savingList();
