@@ -31,7 +31,7 @@ botaoApaga.addEventListener('click', function () {
 function tarefaConcluida(Event) {
   Event.target.className = 'completed';
   const retiraTarefaConcluida = Event.target;
-  retiraTarefaConcluida.addEventListener('dblclick', function(Event) {
+  retiraTarefaConcluida.addEventListener('dblclick', function() {
     Event.target.className = 'tarefa';
   });
 }
@@ -50,5 +50,5 @@ botaoRemoveFinalizados.addEventListener('click', function () {
 listaOrdenadaTarefas.innerHTML = localStorage.getItem('listaSalva');
 const salvaListaGeral = document.getElementById('salvar-tarefas');
 salvaListaGeral.addEventListener('click', function () {
- localStorage.setItem('listaSalva', listaOrdenadaTarefas.innerHTML);
+  localStorage.setItem('listaSalva', listaOrdenadaTarefas.innerHTML);
 });
