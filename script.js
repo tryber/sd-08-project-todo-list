@@ -1,6 +1,6 @@
+window.onload = LoadList();
 
 let elementAdd = document.getElementById("criar-tarefa");
-
 
 elementAdd.addEventListener("click", function()
 {
@@ -21,6 +21,7 @@ elementAdd.addEventListener("click", function()
     lineAdd.addEventListener("dblclick", completed);
 
     getInput.value = "";            // esvazia input depois de pegar valor
+
 })
 
 function color(event)
@@ -65,6 +66,48 @@ getClearFinalizados.addEventListener("click", function()
     }
 })
 
+function SaveAll()
+{
+    if(localStorage.getItem("1"))
+    {
+        for(let i = 0; i < localStorage.length; i += 1)
+        {
+            localStorage.removeItem(i);
+        }
+    }
+
+    const lista = document.getElementById("lista-tarefas");
+    
+    for(let i = 0; i < lista.children.length; i += 1) {
+        let key = i + 1;
+        let value = lista.children[i].outerHTML;
+
+        localStorage.setItem(key, value);
+    }    
+}
+
+let buttonSave = document.getElementById("salvar-tarefas");
+buttonSave.addEventListener("click", SaveAll);
+
+function LoadList()
+{
+    let lista = document.getElementById("lista-tarefas");
+    let i = 1;
+    while(localStorage.getItem(i))
+    {
+        let save = localStorage.getItem(i);
+        lista.innerHTML += save;
+        
+        i += 1;
+    }
+
+}
+
+
+
+
+
+
 
 
 
@@ -80,9 +123,8 @@ getClearFinalizados.addEventListener("click", function()
 
 //
 //
-//
-//
-//
+// https://github.com/tryber/sd-08-project-todo-list/tree/tandy-almeida-todo-list-project
+// https://github.com/tryber/sd-08-project-todo-list/blob/BrunoPDRS-todo-list/script.js   (while em vez do for) e (salvar como obj)
 // https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/button
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
 // https://developer.mozilla.org/pt-BR/docs/Web/Events
