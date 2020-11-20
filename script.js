@@ -19,11 +19,11 @@ function corFundoLista(Event) {
   } else {
     tarefaSelecionada.style.backgroundColor = 'white';
     tarefaSelecionada = Event.target;
-    }
+  }
   tarefaSelecionada.style.backgroundColor = 'rgb(128,128,128)';
 }
 // console.log(Event.target);
-let botaoApaga = document.getElementById('apaga-tudo');
+const botaoApaga = document.getElementById('apaga-tudo');
 botaoApaga.addEventListener('click', function () {
   listaOrdenadaTarefas.innerHTML = '';
 });
@@ -31,17 +31,17 @@ botaoApaga.addEventListener('click', function () {
 function tarefaConcluida(Event) {
   Event.target.className = 'completed';
   const retiraTarefaConcluida = Event.target;
-  retiraTarefaConcluida.addEventListener('dblclick', function(Event){
+  retiraTarefaConcluida.addEventListener('dblclick', function(Event) {
     Event.target.className = 'tarefa';
   });
 }
 
 const botaoRemoveFinalizados = document.getElementById('remover-finalizados');
-botaoRemoveFinalizados.addEventListener('click', function (){
+botaoRemoveFinalizados.addEventListener('click', function () {
   const tarefaFinalizada = document.getElementsByClassName('completed');
-  let tarefaFinalizadaArray = tarefaFinalizada.length;
-  for (let index = 0; index < tarefaFinalizadaArray; index+= 1) {
-    if (tarefaFinalizada[0].classList.contains('completed')){
+  const tarefaFinalizadaArray = tarefaFinalizada.length;
+  for (let index = 0; index < tarefaFinalizadaArray; index += 1) {
+    if (tarefaFinalizada[0].classList.contains('completed')) {
       tarefaFinalizada[0].remove();
     }
   }
