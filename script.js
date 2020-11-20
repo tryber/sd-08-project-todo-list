@@ -46,3 +46,9 @@ botaoRemoveFinalizados.addEventListener('click', function () {
     }
   }
 });
+
+listaOrdenadaTarefas.innerHTML = localStorage.getItem('listaSalva');
+const salvaListaGeral = document.getElementById('salvar-tarefas');
+salvaListaGeral.addEventListener('click', function () {
+ localStorage.setItem('listaSalva', listaOrdenadaTarefas.innerHTML);
+});
