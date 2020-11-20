@@ -21,6 +21,7 @@ function corFundoLista(Event) {
     tarefaSelecionada = Event.target;
   }
   tarefaSelecionada.style.backgroundColor = 'rgb(128,128,128)';
+  tarefaSelecionada.className = 'selected';
 }
 // console.log(Event.target);
 const botaoApaga = document.getElementById('apaga-tudo');
@@ -51,4 +52,15 @@ listaOrdenadaTarefas.innerHTML = localStorage.getItem('listaSalva');
 const salvaListaGeral = document.getElementById('salvar-tarefas');
 salvaListaGeral.addEventListener('click', function () {
   localStorage.setItem('listaSalva', listaOrdenadaTarefas.innerHTML);
+});
+
+const botaoRemoveSelecionado = document.getElementById('remover-selecionado');
+botaoRemoveSelecionado.addEventListener('click', function () {
+  const tarefaSelected = document.getElementsByClassName('selected');
+  const tarefaSelectedArray = tarefaSelected.length;
+  for (let index = 0; index < tarefaSelectedArray; index += 1) {
+    if (tarefaSelected[0].classList.contains('selected')) {
+      tarefaSelected[0].remove();
+    }
+  }
 });
