@@ -3,6 +3,7 @@ const list = document.getElementById('lista-tarefas');
 const texto = document.getElementById('texto-tarefa');
 const tarefas = document.getElementsByClassName('classeItens');
 const botao = document.getElementById('apaga-tudo');
+const botaofinal = document.getElementById('remover-finalizados');
 //requisito 
 btn.addEventListener('click', function () {
 	if (texto.value.length != 0) {
@@ -31,5 +32,13 @@ function alterar(event) {
 list.addEventListener('click', alterar)
 
 botao.addEventListener('click', function () {
-	list.innerHTML = ''
+	list.innerHTML = '';
+})
+
+botaofinal.addEventListener('click', function () {
+	let comp = document.querySelectorAll('.feito')
+	for (let i = 0; i < comp.length; i += 1) {
+		comp[i].remove();
+	}
+		
 })
