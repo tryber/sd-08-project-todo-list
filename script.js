@@ -28,10 +28,13 @@ function color(event)
 {
     for(let l of document.getElementsByClassName("lines"))
     {
-        if(l.style.backgroundColor = "rgb(128,128,128)")
+        if(l.style.backgroundColor = "rgb(128,128,128)") {
             l.style.backgroundColor = null;
+            l.classList.remove("selected");
+        }
     }
     event.target.style.backgroundColor = "rgb(128,128,128)";
+    event.target.classList.add("selected");
 }
 
 function completed(event)
@@ -103,8 +106,39 @@ function LoadList()
 
 }
 
+// mover cima
 
+const cimaButton = document.getElementById("mover-cima");
 
+cimaButton.addEventListener("click", function() {
+    let lines = document.getElementsByClassName("lines");
+    
+    for(let i = 0; i < lines.length; i += 1)
+    {
+        if(lines[i].classList.contains("selected")) {
+            let neww = lines[i-1].innerHTML;
+            let temp = lines[i].innerHTML;
+            lines[i-1].innerHTML = temp;
+            lines[i].innerHTML = neww;
+        }       
+    }
+})
+
+const baixoButon = document.getElementById("mover-baixo");
+
+baixoButon.addEventListener("click", function() {
+    let lines = document.getElementsByClassName("lines");
+    
+    for(let i = 0; i < lines.length; i += 1)
+    {
+        if(lines[i].classList.contains("selected")) {
+            let neww = lines[i+1].innerHTML;
+            let temp = lines[i].innerHTML;
+            lines[i+1].innerHTML = temp;
+            lines[i].innerHTML = neww;
+        }       
+    }
+})
 
 
 
