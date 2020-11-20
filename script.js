@@ -36,3 +36,8 @@ function lineThrough(event) {
     };
 }
 //requisito 10
+let createRemoveButton = document.getElementById("apaga-tudo");
+createRemoveButton.addEventListener("click", newButton);
+function newButton() {
+  createList.innerHTML = ""; 
+}
