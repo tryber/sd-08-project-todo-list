@@ -31,7 +31,7 @@ botaoApaga.addEventListener('click', function () {
 function tarefaConcluida(Event) {
   Event.target.className = 'completed';
   const retiraTarefaConcluida = Event.target;
-  retiraTarefaConcluida.addEventListener('dblclick', function(){
+  retiraTarefaConcluida.addEventListener('dblclick', function () {
     Event.target.className = 'tarefa';
   });
 }
