@@ -41,3 +41,14 @@ function tarefaConcluida(Event) {
     });
 }
 
+let botaoRemoveFinalizados = document.getElementById('remover-finalizados');
+botaoRemoveFinalizados.addEventListener('click', function () {
+    let tarefaFinalizada = document.getElementsByClassName('completed')
+    let tarefaFinalizadaArray = tarefaFinalizada.length;
+    for (let index = 0; index < tarefaFinalizadaArray; index+= 1) {
+        if( tarefaFinalizada[0].classList.contains('completed')){
+            tarefaFinalizada[0].remove();
+        }
+    }
+});
+
