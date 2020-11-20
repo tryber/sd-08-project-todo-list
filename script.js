@@ -28,12 +28,10 @@ function color(event)
 {
     for(let l of document.getElementsByClassName("lines"))
     {
-        if(l.style.backgroundColor = "rgb(128,128,128)") {
-            l.style.backgroundColor = null;
+        if(l.classList.contains("selected")) {
             l.classList.remove("selected");
         }
     }
-    event.target.style.backgroundColor = "rgb(128,128,128)";
     event.target.classList.add("selected");
 }
 
@@ -113,34 +111,42 @@ const cimaButton = document.getElementById("mover-cima");
 cimaButton.addEventListener("click", function() {
     let lines = document.getElementsByClassName("lines");
     
-    for(let i = 0; i < lines.length; i += 1)
-    {
-        if(lines[i].classList.contains("selected")) {
-            let neww = lines[i-1].innerHTML;
-            let temp = lines[i].innerHTML;
-            lines[i-1].innerHTML = temp;
-            lines[i].innerHTML = neww;
-        }       
+    let selectedLi = document.getElementsByClassName("selected")[0];
+
+    if(selectedLi.classList.contains("completed")) {
+        if(!selectedLi.previousElementSibling.classList.contains("completed"))
+            selectedLi.classList.remove("completed");
+        selectedLi.previousElementSibling.classList.add("completed");
     }
+
+        selectedLi.classList.remove("selected");
+        selectedLi.previousElementSibling.classList.add("selected");
+        let temp = selectedLi.innerHTML;
+        selectedLi.innerHTML = selectedLi.previousElementSibling.innerHTML;
+        selectedLi.previousElementSibling.innerHTML = temp;
 })
 
-const baixoButon = document.getElementById("mover-baixo");
+// mover baixo
 
-baixoButon.addEventListener("click", function() {
+const baixoButton = document.getElementById("mover-baixo");
+
+baixoButton.addEventListener("click", function() {
     let lines = document.getElementsByClassName("lines");
     
-    for(let i = 0; i < lines.length; i += 1)
-    {
-        if(lines[i].classList.contains("selected")) {
-            let neww = lines[i+1].innerHTML;
-            let temp = lines[i].innerHTML;
-            lines[i+1].innerHTML = temp;
-            lines[i].innerHTML = neww;
-        }       
+    let selectedLi = document.getElementsByClassName("selected")[0];
+
+    if(selectedLi.classList.contains("completed")) {
+        if(!selectedLi.nextElementSibling.classList.contains("completed"))
+            selectedLi.classList.remove("completed");
+        selectedLi.nextElementSibling.classList.add("completed");
     }
+
+        selectedLi.classList.remove("selected");
+        selectedLi.nextElementSibling.classList.add("selected");
+        let temp = selectedLi.innerHTML;
+        selectedLi.innerHTML = selectedLi.nextElementSibling.innerHTML;
+        selectedLi.nextElementSibling.innerHTML = temp;
 })
-
-
 
 
 
