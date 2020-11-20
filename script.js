@@ -17,20 +17,22 @@ function newEvent() {
     newItens.addEventListener("dblclick", lineThrough);
     createList.appendChild(newItens);
 }
-//requisito 6
-//requisitos 7 e 8
+//requisitos 7 e 8 
 function paddingColor(event) {
     let taskList = document.querySelector(".click-class");
-    if (taskList !== null) {
-        taskList.className = "itens-lista";
+        if (taskList !== null) {
+        taskList.classList.remove("click-class");
+        event.target.classList.add("click-class");
+    } else {
+        event.target.classList.add("click-class");
     }
-    event.target.className = "itens-lista click-class";
 }
 //requisito 9
 function lineThrough(event) {
-    let changeLineStyle = document.querySelector("completed");
-    if (changeLineStyle !== null) {
-        changeLineStyle.className = "itens-lista"
-    }
-    event.target.className = "itens-lista completed";
+    if (event.target.classList.contains("completed")) {
+        event.target.classList.remove("completed");
+    } else {
+        event.target.classList.add("completed");
+    };
 }
+//requisito 10
