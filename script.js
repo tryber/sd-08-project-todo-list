@@ -111,19 +111,22 @@ const cimaButton = document.getElementById("mover-cima");
 cimaButton.addEventListener("click", function() {
     let lines = document.getElementsByClassName("lines");
     
-    let selectedLi = document.getElementsByClassName("selected")[0];
-
-    if(selectedLi.classList.contains("completed")) {
-        if(!selectedLi.previousElementSibling.classList.contains("completed"))
-            selectedLi.classList.remove("completed");
-        selectedLi.previousElementSibling.classList.add("completed");
+    if(document.getElementsByClassName("selected")[0] && this.previousElementSibling)
+    {
+        let selectedLi = document.getElementsByClassName("selected")[0];
+        if(selectedLi.classList.contains("completed")) {
+            if(!selectedLi.previousElementSibling.classList.contains("completed"))
+                selectedLi.classList.remove("completed");
+            selectedLi.previousElementSibling.classList.add("completed");
+        }
+    
+            selectedLi.classList.remove("selected");
+            selectedLi.previousElementSibling.classList.add("selected");
+            let temp = selectedLi.innerHTML;
+            selectedLi.innerHTML = selectedLi.previousElementSibling.innerHTML;
+            selectedLi.previousElementSibling.innerHTML = temp;
     }
-
-        selectedLi.classList.remove("selected");
-        selectedLi.previousElementSibling.classList.add("selected");
-        let temp = selectedLi.innerHTML;
-        selectedLi.innerHTML = selectedLi.previousElementSibling.innerHTML;
-        selectedLi.previousElementSibling.innerHTML = temp;
+    
 })
 
 // mover baixo
@@ -133,19 +136,25 @@ const baixoButton = document.getElementById("mover-baixo");
 baixoButton.addEventListener("click", function() {
     let lines = document.getElementsByClassName("lines");
     
-    let selectedLi = document.getElementsByClassName("selected")[0];
+    
 
-    if(selectedLi.classList.contains("completed")) {
-        if(!selectedLi.nextElementSibling.classList.contains("completed"))
-            selectedLi.classList.remove("completed");
-        selectedLi.nextElementSibling.classList.add("completed");
+    if(document.getElementsByClassName("selected")[0] && this.nextElementSibling)
+    {
+        let selectedLi = document.getElementsByClassName("selected")[0];
+        if(selectedLi.classList.contains("completed")) {
+            
+            if(!selectedLi.nextElementSibling.classList.contains("completed"))
+                selectedLi.classList.remove("completed");
+            selectedLi.nextElementSibling.classList.add("completed");
+        }
+
+            selectedLi.classList.remove("selected");
+            selectedLi.nextElementSibling.classList.add("selected");
+            let temp = selectedLi.innerHTML;
+            selectedLi.innerHTML = selectedLi.nextElementSibling.innerHTML;
+            selectedLi.nextElementSibling.innerHTML = temp;
     }
-
-        selectedLi.classList.remove("selected");
-        selectedLi.nextElementSibling.classList.add("selected");
-        let temp = selectedLi.innerHTML;
-        selectedLi.innerHTML = selectedLi.nextElementSibling.innerHTML;
-        selectedLi.nextElementSibling.innerHTML = temp;
+    
 })
 
 
