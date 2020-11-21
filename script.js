@@ -174,12 +174,12 @@ baixoButton.addEventListener("click", function() {
 
 let remover = document.getElementById("remover-selecionado");
 
-remover.addEventListener("click", function()
+remover.addEventListener("click", function(event)
 {
     if(document.getElementsByClassName("selected")[0])
     {
         const selectedLi = document.getElementsByClassName("selected")[0];
-        selectedLi.classList.remove("selected");
+        selectedLi.remove();
     }    
 })
 
