@@ -41,3 +41,13 @@ createRemoveButton.addEventListener("click", newButton);
 function newButton() {
   createList.innerHTML = ""; 
 }
+//requisito 11
+let createFinalizedButton = document.getElementById("remover-finalizados");
+createFinalizedButton.addEventListener("click", newFinalizedButton);
+function newFinalizedButton() {
+    let completedIten = document.querySelectorAll(".completed");
+    for(let index = 0; index < completedIten.length; index += 1) {
+        let removeFinalizedIten = completedIten[index];
+        createList.removeChild(removeFinalizedIten);
+    }
+}
