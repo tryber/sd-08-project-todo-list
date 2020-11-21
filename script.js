@@ -176,8 +176,11 @@ let remover = document.getElementById("remover-selecionado");
 
 remover.addEventListener("click", function()
 {
-    const selectedLi = document.getElementsByClassName("selected")[0];
-    selectedLi.classList.remove("selected");
+    if(document.getElementsByClassName("selected")[0])
+    {
+        const selectedLi = document.getElementsByClassName("selected")[0];
+        selectedLi.classList.remove("selected");
+    }    
 })
 
 
