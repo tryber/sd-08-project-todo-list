@@ -51,3 +51,12 @@ function newFinalizedButton() {
         createList.removeChild(removeFinalizedIten);
     }
 }
+//requisito 12
+//requisito 13
+//requisito 14
+let createSelectedButton = document.getElementById("remover-selecionado");
+createSelectedButton.addEventListener("click", newSelectedButton);
+function newSelectedButton() {
+    let selectedIten = document.querySelector(".click-class");
+    createList.removeChild(selectedIten);
+}
