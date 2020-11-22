@@ -13,11 +13,20 @@ function addTask() {
 }
 addTask();
 
-function changeLiClassColor(event) {
-  let liArray = document.getElementsByClassName('task-style');
+let liArray = document.getElementsByClassName('task-style');
+
+function changeLiClassColor(event) {  
   for (let index = 0; index < liArray.length; index += 1) {
     liArray[index].classList.remove('selected');
     event.target.classList.add('selected');
   }
 }
-  
+ 
+function clearAllTasks() {
+  let clearArray = document.getElementById('lista-tarefas');
+  const clearButton = document.getElementById('apaga-tudo');
+  clearButton.addEventListener('click', function () {
+    clearArray.innerHTML = '';
+  });
+}
+clearAllTasks();
