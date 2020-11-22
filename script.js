@@ -42,6 +42,15 @@ function removeCompleted() {
 }
 removeCompleted();
 
+function removeSelected() {
+  let selectedTask = document.getElementsByClassName('selected');
+  const buttonRemoveTask = document.getElementById('remover-selecionado');
+  buttonRemoveTask.addEventListener('click', function () {
+    selectedTask[0].remove();
+  });
+}
+removeSelected();
+
 function clearAllTasks() {
   let clearArray = document.getElementById('lista-tarefas');
   const clearButton = document.getElementById('apaga-tudo');
