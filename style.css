@@ -1,6 +1,20 @@
+body {
+  margin: 0px;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
+  background-color: #00FF7F;
+  padding: 15px;
+  margin: 0px;
+}
+
 #funcionamento {
-    font-family: monospace;
-    font-style: italic;
+  font-family: monospace;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
 }
 
 .selected {
@@ -9,4 +23,46 @@
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.buttons-style {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-style button {
+  padding: 5px;
+  margin: 5px;
+  width: 100px;
+}
+
+.move-selected {
+  display: flex;
+  justify-content: center;
+}
+
+.move-selected button {
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+}
+
+.create-task-style {
+  display: flex;
+  justify-content: center;
+}
+
+#lista-tarefas {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 20px;
+  border: outset 4px #9ACD32;
+  width: 380px;
+}
+
+.task-style {
+  width: 350px;
+  font-size: 18px;
 }
