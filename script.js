@@ -31,6 +31,17 @@ function completedTaskClass(event) {
   }
 }
 
+function removeCompleted() {
+  let tasksDone = document.getElementsByClassName('completed');
+  const buttonTaskDone = document.getElementById('remover-finalizados');
+  buttonTaskDone.addEventListener('click', function () {
+    for (let iRemove = tasksDone.length -1; iRemove >= 0; iRemove -= 1) {
+      tasksDone[iRemove].remove();
+    }
+  });
+}
+removeCompleted();
+
 function clearAllTasks() {
   let clearArray = document.getElementById('lista-tarefas');
   const clearButton = document.getElementById('apaga-tudo');
