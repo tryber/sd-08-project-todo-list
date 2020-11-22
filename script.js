@@ -5,7 +5,8 @@ function addTask() {
     let taskList = document.getElementById('lista-tarefas');
     let newTaskItem = document.createElement('li');
     newTaskItem.classList.add('task-style');
-    newTaskItem.addEventListener('click', changeLiClassColor)
+    newTaskItem.addEventListener('click', changeLiClassColor);
+    newTaskItem.addEventListener('dblclick', completedTaskClass);
     taskList.appendChild(newTaskItem);
     newTaskItem.innerText = taskItem.value;
     taskItem.value = '';
@@ -21,7 +22,15 @@ function changeLiClassColor(event) {
     event.target.classList.add('selected');
   }
 }
- 
+
+function completedTaskClass(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
 function clearAllTasks() {
   let clearArray = document.getElementById('lista-tarefas');
   const clearButton = document.getElementById('apaga-tudo');
