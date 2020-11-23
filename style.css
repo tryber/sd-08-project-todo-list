@@ -1,0 +1,117 @@
+body {
+  background-color: blue;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.todo-wrapper {
+  margin-top: 50px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  font-weight: 300;
+}
+
+.todo-wrapper header {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: bold;
+  font-size: larger;
+  font-weight: 900;
+}
+
+.todo-wrapper #funcionamento {
+  font-style: italic;
+  color: #666;
+  margin: 5px 0;
+}
+
+.todo-wrapper ol {
+  margin: 20px 0;
+}
+
+.todo-wrapper ol li {
+  margin: 5px 0;
+  padding: 3px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+/* .todo-wrapper ol li:nth-child(even) {
+  background: blueviolet;
+} */
+
+.todo-wrapper .completed {
+  text-decoration: line-through;
+  color: rgb(128,128,128);
+}
+
+.todo-wrapper .pretty-button {
+  margin: 10px 2px;
+  padding: 5px 20px;
+  border-radius: 15px;
+  background-color: #0093D5;
+  border: none;
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  font-size: small;
+}
+
+.todo-wrapper .pretty-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.todo-wrapper input {
+  padding: 3px 6px;
+}
+
+.todo-wrapper form {
+  display: inline-block;
+}
+
+#control-wrapper {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.todo-wrapper #apaga-tudo { 
+  background-color: #9B1C20;
+}
+
+.todo-wrapper #remover-finalizados {
+  background-color: #f3960b;
+}
+
+.todo-wrapper #salvar-tarefas {
+  background-color: #49B749;
+}
+
+@media only screen and (min-width: 1400px) {
+  .todo-wrapper {
+      width: 50%;
+  }
+
+  .todo-wrapper input {
+      width: 600px;
+  }
+  
+}
+
+@media only screen and (max-width: 1399px) and (min-width: 750px) {
+  .todo-wrapper {
+      width: 75%;
+  }
+
+  .todo-wrapper input {
+      width: 400px;
+  }
+}
