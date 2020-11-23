@@ -106,8 +106,7 @@ function movingDown() {
   if (item < (list.length)) {
     list[item].parentElement.insertBefore(list[item], list[item - 1]);
   }
-// Peguei a dica no PR do Massaki para definir item = index + 1, assim se pode usar o insertBefore
-// para inserir o último elemento, pois ele inverte as posições, inserindo o elemento abaixo do último.
+// Peguei a dica no PR do Massaki para definir item = index + 1.
 }
 
 const moveDown = document.getElementById('mover-baixo');
