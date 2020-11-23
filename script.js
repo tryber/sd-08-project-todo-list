@@ -3,7 +3,7 @@ saveList.innerHTML = localStorage.getItem('list');
 
 function addNewTask() {
   const list = document.getElementById('lista-tarefas');
-  let newTask = document.createElement('li');
+  const newTask = document.createElement('li');
   newTask.innerHTML = document.getElementById('texto-tarefa').value;
 
   list.appendChild(newTask);
@@ -14,11 +14,10 @@ const addTask = document.querySelector('#criar-tarefa');
 addTask.addEventListener('click', addNewTask);
 
 function selectTask(event) {
-  let chosen = document.querySelector('.selected');
+  const chosen = document.querySelector('.selected');
   if (chosen === null) {
     event.target.classList.add('selected');
-  }
-  else {
+  } else {
     chosen.style.backgroundColor = 'none';
     chosen.classList.remove('selected');
     event.target.classList.add('selected');
@@ -37,9 +36,9 @@ const taskDone = document.getElementById('lista-tarefas');
 taskDone.addEventListener('dblclick', completedTask);
 
 function deleteAll() {
-  let listLength = document.getElementsByTagName('li').length;
+  const listLength = document.getElementsByTagName('li').length;
   for (let index = 0; index < listLength; index += 1) {
-    let toDelete = document.getElementById('lista-tarefas');
+    const toDelete = document.getElementById('lista-tarefas');
     toDelete.removeChild(toDelete.firstChild);
   }
 }
@@ -48,9 +47,9 @@ const deleteAllTasks = document.getElementById('apaga-tudo');
 deleteAllTasks.addEventListener('click', deleteAll);
 
 function deleteCompleted() {
-  let listLength = document.getElementsByClassName('completed').length;
+  const listLength = document.getElementsByClassName('completed').length;
   for (let index = 0; index < listLength; index += 1) {
-    let complete = document.getElementById('lista-tarefas');
+    const complete = document.getElementById('lista-tarefas');
     complete.removeChild(document.querySelector('.completed'));
   }
 }
@@ -59,10 +58,10 @@ const deleteAllCompleted = document.getElementById('remover-finalizados');
 deleteAllCompleted.addEventListener('click', deleteCompleted);
 
 function deleteChosenTask() {
-  let chosen = document.querySelector('.selected');
+  const chosen = document.querySelector('.selected');
   for (let index = 0; index < chosen.classList.length; index += 1) {
     if (chosen.classList[index] === 'selected') {
-      let selected = document.getElementById('lista-tarefas');
+      const selected = document.getElementById('lista-tarefas');
       selected.removeChild(document.querySelector('.selected'));
     }
   }
@@ -80,7 +79,7 @@ save.addEventListener('click', saveTasks);
 
 function movingUp() {
   let item;
-  let list = document.getElementsByTagName('li');
+  const list = document.getElementsByTagName('li');
   for (let index = 0; index < list.length; index += 1) {
     if (list[index].classList.contains('selected')) {
       item = index;
@@ -97,7 +96,7 @@ moveUp.addEventListener('click', movingUp);
 
 function movingDown() {
   let item;
-  let list = document.getElementsByTagName('li');
+  const list = document.getElementsByTagName('li');
 
   for (let index = 0; index < list.length; index += 1) {
     if (list[index].classList.contains('selected')) {
@@ -107,7 +106,8 @@ function movingDown() {
   if (item < (list.length)) {
     list[item].parentElement.insertBefore(list[item], list[item - 1]);
   }
-// Peguei a dica no PR do Massaki para definir item = index + 1, assim se pode usar o insertBefore mesmo para inserir o último elemento, pois ele inverte as posições, inserindo o último elemento antes do 
+// Peguei a dica no PR do Massaki para definir item = index + 1, assim se pode usar o insertBefore
+// para inserir o último elemento, pois ele inverte as posições, inserindo o elemento abaixo do último.
 }
 
 const moveDown = document.getElementById('mover-baixo');
