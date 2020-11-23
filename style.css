@@ -48,9 +48,17 @@ body {
   font-size: 18px;
 }
 
+.move-selected #salvar-tarefas {
+  font-size: 15px;
+}
+
 .create-task-style {
   display: flex;
   justify-content: center;
+}
+
+#criar-tarefa {
+  font-size: 15px;
 }
 
 #lista-tarefas {
