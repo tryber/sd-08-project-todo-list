@@ -4,7 +4,7 @@ function addToDoItem(){
   alert("Tarefa criada com sucesso!");
 }
 
-var clearButton = document.getElementById("remover-selecionado");
+var clearButton = document.getElementById("remover-finalizados");
   clearButton.addEventListener('click', clearCompletedToDoItems);
 function clearCompletedToDoItems(){
   alert("Tarefa removida com sucesso!");
