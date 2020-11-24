@@ -55,6 +55,7 @@ var toDoEntryBox = document.getElementById("texto-tarefa");
 function addToDoItem() { 
     var itemText = toDoEntryBox.value;
     newToDoItem(itemText, false);
+    toDoEntryBox.value= "";
 }
 
 function toggleToDoItemState() {
