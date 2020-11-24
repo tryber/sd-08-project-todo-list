@@ -59,7 +59,7 @@ function moveTaskDown() {
   const buttonMoveDown = document.getElementById('mover-baixo');
   buttonMoveDown.addEventListener('click', function () {  
     let taskSelected = document.querySelector('.selected');
-    if (taskSelected.nextElementSibling != null) {
+    if (taskSelected && taskSelected.nextElementSibling) {
       const nextTask = taskSelected.nextElementSibling;
       const nodeTask = taskSelected.parentNode;
       nodeTask.insertBefore(nextTask, taskSelected);
