@@ -38,8 +38,6 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
 }
 
 /* .todo-wrapper ol li:nth-child(even) {
@@ -49,10 +47,6 @@ body {
 .todo-wrapper .completed {
   text-decoration: line-through;
 }
-
-/* .selected {
-  background-color: rgb(128, 128, 128);
-} */
 
 .todo-wrapper .pretty-button {
   margin: 10px 2px;
