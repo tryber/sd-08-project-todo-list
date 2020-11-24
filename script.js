@@ -54,9 +54,12 @@ function newToDoItem(itemText, completed) {
 function selectedItem(event) {
     let unselect = document.querySelector('.selected');
     if (unselect != null) {
+        unselect.style.backgroundColor= "";
         unselect.classList.remove("selected");
+        event.target.style.backgroundColor= "rgb(128,128,128)";
         event.target.classList.add("selected");
     } else {
+        event.target.style.backgroundColor= "rgb(128,128,128)";
         event.target.classList.add("selected");
     }
 }

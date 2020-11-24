@@ -50,9 +50,9 @@ body {
   text-decoration: line-through;
 }
 
-.selected {
+/* .selected {
   background-color: rgb(128, 128, 128);
-}
+} */
 
 .todo-wrapper .pretty-button {
   margin: 10px 2px;
