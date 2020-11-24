@@ -16,6 +16,7 @@ function ListofTasks(event) {
     TasksList.appendChild(paragraph);
     paragraph.addEventListener('click', Selec);
     getText.value = '';
+    doubleclick();
 
 
 
@@ -50,3 +51,20 @@ function savingList() {
 }
 
 savingList();
+
+function doubleclick() {
+    const lista = document.querySelectorAll('.tarefas');
+    for (let index = 0; index < lista.length; index += 1) {
+        lista[index].addEventListener('dblclick', scratchElement)
+    }
+}
+
+
+//
+function scratchElement(element) {
+    if (element.target.classList.contains('completed')) {
+        element.target.classList.remove('completed');
+    } else element.target.classList.add('completed');
+}
+
+scratchElement();
