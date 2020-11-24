@@ -46,7 +46,7 @@ function moveTaskUp() {
   const buttonMoveUp = document.getElementById('mover-cima');
   buttonMoveUp.addEventListener('click', function () {  
     let taskSelected = document.querySelector('.selected');
-    if (taskSelected.previousElementSibling != null) {
+    if (taskSelected && taskSelected.previousElementSibling) {
       const previousTask = taskSelected.previousElementSibling;
       const nodeTask = taskSelected.parentNode;
       nodeTask.insertBefore(taskSelected, previousTask);
