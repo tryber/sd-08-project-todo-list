@@ -44,30 +44,26 @@ removeCompleted();
 
 function moveTaskUp() {
   const buttonMoveUp = document.getElementById('mover-cima');
-  buttonMoveUp.addEventListener('click', function () {
-    if (document.querySelector('.selected')) {
-      let taskSelectedUp = document.querySelector('.selected');
-      if (taskSelectedUp.previousElementSibling != null) {
-        let previousTask = taskSelectedUp.previousElementSibling.outerHTML;
-        taskSelectedUp.previousElementSibling.outerHTML = taskSelectedUp.outerHTML;
-        taskSelectedUp.outerHTML = previousTask;
-      }
-    }
+  buttonMoveUp.addEventListener('click', function () {  
+    let taskSelected = document.querySelector('.selected');
+    if (taskSelected.previousElementSibling != null) {
+      const previousTask = taskSelected.previousElementSibling;
+      const nodeTask = taskSelected.parentNode;
+      nodeTask.insertBefore(taskSelected, previousTask);
+    }    
   });
 }
 moveTaskUp();
 
 function moveTaskDown() {
   const buttonMoveDown = document.getElementById('mover-baixo');
-  buttonMoveDown.addEventListener('click', function () {
-    if (document.querySelector('.selected')) {
-      let taskSelectedDown = document.querySelector('.selected');
-      if (taskSelectedDown.nextElementSibling != null) {
-        let nextTask = taskSelectedDown.nextElementSibling.outerHTML;
-        taskSelectedDown.nextElementSibling.outerHTML = taskSelectedDown.outerHTML;
-        taskSelectedDown.outerHTML = nextTask;
-      }
-    }
+  buttonMoveDown.addEventListener('click', function () {  
+    let taskSelected = document.querySelector('.selected');
+    if (taskSelected.nextElementSibling != null) {
+      const nextTask = taskSelected.nextElementSibling;
+      const nodeTask = taskSelected.parentNode;
+      nodeTask.insertBefore(nextTask, taskSelected);
+    }    
   });
 }
 moveTaskDown();
