@@ -87,6 +87,16 @@ function clearCompletedToDoItems() {
     }
 }
 
+
+var clearSel = document.getElementById("remover-selecionado");
+  clearSel.addEventListener('click', clearSelectedToDoItem);
+function clearSelectedToDoItem() {
+    var selectedItem = toDoList.getElementsByClassName("selected");
+
+    while (selectedItem.length > 0) {
+        selectedItem.item(0).remove();
+    }
+}
 function emptyList() {
     var toDoItems = toDoList.children;
     while (toDoItems.length > 0) {
