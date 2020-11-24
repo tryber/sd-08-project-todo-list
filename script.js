@@ -44,7 +44,7 @@ function newToDoItem(itemText, selected) {
     toDoItem.appendChild(toDoText);
 
     if (selected) {
-        toDoItem.classList.add("selected");
+        toDoItem.classList.add("completed");
     }
   
     toDoList.appendChild(toDoItem);
@@ -59,15 +59,15 @@ function addToDoItem() {
 }
 
 function toggleToDoItemState() {
-    if (this.classList.contains("selected")) {
-        this.classList.remove("selected");
+    if (this.classList.contains("completed")) {
+        this.classList.remove("completed");
     } else {
-        this.classList.add("selected");
+        this.classList.add("completed");
     }
 }
 
 function clearCompletedToDoItems() {
-    var completedItems = toDoList.getElementsByClassName("selected");
+    var completedItems = toDoList.getElementsByClassName("completed");
 
     while (completedItems.length > 0) {
         completedItems.item(0).remove();
@@ -87,7 +87,7 @@ function loadList() {
 
         for (var i = 0; i < toDos.length; i++) {
             var toDo = toDos[i];
-            newToDoItem(toDo.task, toDo.selected);
+            newToDoItem(toDo.task, toDo.completed);
         }
     }
 }
