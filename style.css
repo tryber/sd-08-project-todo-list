@@ -50,6 +50,10 @@ body {
   text-decoration: line-through;
 }
 
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
 .todo-wrapper .pretty-button {
   margin: 10px 2px;
   padding: 5px 20px;

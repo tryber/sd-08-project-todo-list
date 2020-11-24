@@ -26,7 +26,7 @@ function saveList() {
 
         var toDoInfo = {
             "task": toDo.innerText,
-            "selected": toDo.classList.contains("selected")
+            "completed": toDo.classList.contains("completed")
         };
 
         toDos.push(toDoInfo);
@@ -38,17 +38,27 @@ function saveList() {
 
 var todoEntryBox = document.getElementById("texto-tarefa");
 var toDoList = document.getElementById("lista-tarefas");
-function newToDoItem(itemText, selected) {
+function newToDoItem(itemText, completed) {
     var toDoItem = document.createElement("li")
-    var toDoText = document.createTextNode(itemText)
+    var toDoText = document.createTextNode(itemText);
     toDoItem.appendChild(toDoText);
 
-    if (selected) {
+    if (completed) {
         toDoItem.classList.add("completed");
     }
   
     toDoList.appendChild(toDoItem);
+    toDoItem.addEventListener('click', selectedItem);
     toDoItem.addEventListener("dblclick", toggleToDoItemState);
+}
+function selectedItem(event) {
+    let unselect = document.querySelector('.selected');
+    if (unselect != null) {
+        unselect.classList.remove("selected");
+        event.target.classList.add("selected");
+    } else {
+        event.target.classList.add("selected");
+    }
 }
 
 var toDoEntryBox = document.getElementById("texto-tarefa");
