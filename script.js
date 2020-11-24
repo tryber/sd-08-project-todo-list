@@ -55,16 +55,10 @@ savingList();
 function doubleclick() {
     const lista = document.querySelectorAll('.tarefas');
     for (let index = 0; index < lista.length; index += 1) {
-        lista[index].addEventListener('dblclick', scratchElement)
+        lista[index].addEventListener('dblclick', function (evento) {
+            if (evento.target.classList.contains('completed')) {
+                evento.target.classList.remove('completed');
+            } else evento.target.classList.add('completed');
+        });
     }
 }
-
-
-//
-function scratchElement(element) {
-    if (element.target.classList.contains('completed')) {
-        element.target.classList.remove('completed');
-    } else element.target.classList.add('completed');
-}
-
-scratchElement();
