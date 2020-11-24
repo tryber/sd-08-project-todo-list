@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="todo-wrapper">
+        <header>Minha Lista de Tarefas</header>
+<p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo.</p>          
+        <form name="todo-adder">
+            <input type="text" id="texto-tarefa"/>
+        </form>
+        <button id="criar-tarefa" class="pretty-button">Criar tarefa</button>
+        <br />
+        <ol id="lista-tarefas">
+        </ol>
+        <div id="control-wrapper">
+            <button id="remover-finalizados" class="pretty-button">Remover Finalizados</button>
+            <button id="remover-selecionado" class="pretty-button">Remover Selecionado</button>
+            <button id="apaga-tudo" class="pretty-button">Apagar tudo</button>
+            <button id="salvar-tarefas" class="pretty-button">Salvar tarefas</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
