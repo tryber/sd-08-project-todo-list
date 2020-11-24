@@ -26,7 +26,7 @@ function saveList() {
 
         var toDoInfo = {
             "task": toDo.innerText,
-            "completed": toDo.classList.contains("completed")
+            "selected": toDo.classList.contains("selected")
         };
 
         toDos.push(toDoInfo);
@@ -38,13 +38,13 @@ function saveList() {
 
 var todoEntryBox = document.getElementById("texto-tarefa");
 var toDoList = document.getElementById("lista-tarefas");
-function newToDoItem(itemText, completed) {
+function newToDoItem(itemText, selected) {
     var toDoItem = document.createElement("li")
     var toDoText = document.createTextNode(itemText)
     toDoItem.appendChild(toDoText);
 
-    if (completed) {
-        toDoItem.classList.add("completed");
+    if (selected) {
+        toDoItem.classList.add("selected");
     }
   
     toDoList.appendChild(toDoItem);
@@ -59,15 +59,15 @@ function addToDoItem() {
 }
 
 function toggleToDoItemState() {
-    if (this.classList.contains("completed")) {
-        this.classList.remove("completed");
+    if (this.classList.contains("selected")) {
+        this.classList.remove("selected");
     } else {
-        this.classList.add("completed");
+        this.classList.add("selected");
     }
 }
 
 function clearCompletedToDoItems() {
-    var completedItems = toDoList.getElementsByClassName("completed");
+    var completedItems = toDoList.getElementsByClassName("selected");
 
     while (completedItems.length > 0) {
         completedItems.item(0).remove();
@@ -87,7 +87,7 @@ function loadList() {
 
         for (var i = 0; i < toDos.length; i++) {
             var toDo = toDos[i];
-            newToDoItem(toDo.task, toDo.completed);
+            newToDoItem(toDo.task, toDo.selected);
         }
     }
 }

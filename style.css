@@ -46,9 +46,8 @@ body {
   background: blueviolet;
 } */
 
-.todo-wrapper .completed {
-  text-decoration: line-through;
-  color: rgb(128,128,128);
+.todo-wrapper .selected {
+  background-color: rgb(128,128,128);
 }
 
 .todo-wrapper .pretty-button {
