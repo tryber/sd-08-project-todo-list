@@ -1,0 +1,26 @@
+body {
+	max-width: 400px;
+	height: 400px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: auto;
+}
+
+#criar-tarefa {
+	border-radius: 5px;
+	border: 2px solid black;
+}
+
+#funcionamento {
+	font-style: italic;
+	color: gray;
+	font-size: small;
+}
+
+.completed {
+	text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.alteraCor {
+	background-color: rgb(128, 128, 128);
+}
