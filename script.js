@@ -5,7 +5,7 @@ const TasksList = document.getElementById('lista-tarefas');
 const getTasks = document.getElementById('tasks');
 const saveTasks = document.getElementById('salvar-tarefas');
 const buttonRemoveCompleted = document.getElementById('remover-finalizados');
-
+const tarefas = document.getElementsByClassName('tarefas');
 
 
 function ListofTasks() {
@@ -23,15 +23,16 @@ function ListofTasks() {
 
 buttonTarefa.addEventListener('click', ListofTasks);
 
-function Selec(event) {
-    for (let index of document.getElementsByClassName('tarefas')) {
+function Selec() {
+
+    for (let index of tarefas) {
 
 
-        if (index.target.classList.contains('selected')) {
-            index.target.classList.remove('selected');
+        if (index.classList.contains('selected')) {
+            index.classList.remove('selected');
         }
-        event.target.classList.add('selected');
     }
+    this.classList.add('selected');
 }
 
 
