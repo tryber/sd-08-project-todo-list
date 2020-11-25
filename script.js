@@ -10,11 +10,13 @@ cria.addEventListener("click", () => {
   const lista = qSelector("#lista-tarefas");
   if (texto.value.length > 2) {
     let liTag = document.createElement("li");
+    let item = document.getElementsByTagName("li");
     liTag.className = "tarefa";
     liTag.innerText = texto.value;
     lista.appendChild(liTag);
     texto.value = "";
     liTag.addEventListener("click", selecionar);
+    liTag.addEventListener("dblclick", completo);
   } else {
     alert("Digite uma Tarefa antes de adicionar!!!");
   }
@@ -30,6 +32,15 @@ cria.addEventListener("click", () => {
 // //     ol.removeChild(ol.childNodes[0]);
 // //   }
 // // });
+
+// Marca as tarefas concluídas
+function completo(event) {
+  if (event.target.className === "completed") {
+    event.target.className = "";
+  } else {
+    event.target.className = "completed";
+  }
+}
 
 const item = document.getElementsByTagName("li");
 
@@ -51,15 +62,6 @@ function selecionar(event) {
   event.target.style.backgroundColor = "rgb(128, 128, 128)";
 }
 
-// Marca as tarefas concluídas
-function completo(event) {
-  if (event.target.className === "completed") {
-    event.target.className = "";
-  } else {
-    event.target.className = "completed";
-  }
-}
-
 // Apaga todos os itens da lista ordenada
 const buttonApagarTudo = document.getElementById("apaga-tudo");
 buttonApagarTudo.addEventListener("click", function () {
@@ -71,12 +73,6 @@ const btnSalvar = document.getElementById("salvar-tarefas");
 btnSalvar.addEventListener("click", function () {
   localStorage.setItem("lista", lista.innerHTML);
 });
-
-// Lista salva
-window.onload = function () {
-  let tarefaSalvas = localStorage.getItem("lista");
-  lista.innerHTML = tarefaSalvas;
-};
 
 // Remover tarefa selecionada
 const removerBotao = document.getElementById("remover-selecionado");
@@ -129,3 +125,8 @@ btnDescer.addEventListener("click", function () {
     item[itemMarcado + 1].innerText = atual;
   }
 });
+// Lista salva
+window.onload = function () {
+  let tarefaSalvas = localStorage.getItem("lista");
+  lista.innerHTML = tarefaSalvas;
+};
