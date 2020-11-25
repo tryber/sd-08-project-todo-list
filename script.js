@@ -48,18 +48,28 @@ function selectItem(item){
 function salvar(){
     localStorage.setItem('lista', TodosItemsFormatado )
 
+    if(TodosItems == ''){
+        localStorage.setItem('lista', '')
+    }
+
 }
 
 function duploClick(id){
     item = document.getElementById(id)
     item.classList.toggle('completed')
-    
+
+
+    TodosItemsFormatado = TodosItems.join("")
+    TodosItems.push = document.getElementById('lista-tarefas').innerHTML
+        
+
     finalizados.push(id)
 }
 
 function apagaTudo(){
     document.getElementById('lista-tarefas').innerHTML = ''
     TodosItems = []
+    TodosItemsFormatado = []
 }
 
 function Finalizadosfun(){
@@ -67,5 +77,5 @@ function Finalizadosfun(){
         document.getElementById(finalizados[i]).remove()
     }
     
-    
+    TodosItems = document.getElementById('lista-tarefas').innerHTML
 }
