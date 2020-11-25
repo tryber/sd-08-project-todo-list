@@ -1,3 +1,4 @@
-#funcionamento{
-    
+.completed {
+  text-decoration: line-through;
+  /* text-decoration: dashed; */
 }
