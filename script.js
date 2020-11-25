@@ -46,7 +46,7 @@ btnApagarConc.addEventListener("click", function () {
 // Marca as LI's com a cor de fundo cinza
 function selecionar(event) {
   for (let indiceArray = 0; indiceArray < item.length; indiceArray += 1) {
-    item[i].style.backgroundColor = "";
+    item[indiceArray].style.backgroundColor = "";
   }
   event.target.style.backgroundColor = "rgb(128, 128, 128)";
 }
