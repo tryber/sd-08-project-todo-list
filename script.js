@@ -19,7 +19,7 @@ cria.addEventListener("click", () => {
   }
 });
 
-apaga.addEventListener("click", () => {
-  const li = document.querySelectorAll("li");
-  lista.removeChild(li);
-});
+// apaga.addEventListener("click", () => {
+//   const li = document.querySelectorAll("li");
+//   lista.removeChild(li);
+// });
