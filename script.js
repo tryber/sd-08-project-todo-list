@@ -1,6 +1,6 @@
 const qSelector = (elemento) => document.querySelector(elemento);
 const qSelectorAll = (elemento) => document.querySelectorAll(elemento);
-const cria = qSelector("#cria-tarefa");
+const cria = qSelector("#criar-tarefa");
 const apaga = qSelector("#apaga-tudo");
 const lista = qSelector("#lista-tarefas");
 const removeFinalizados = qSelector("#remover-finalizados");
@@ -18,8 +18,3 @@ cria.addEventListener("click", () => {
     alert("Digite uma Tarefa antes de adicionar!!!");
   }
 });
-
-// apaga.addEventListener("click", () => {
-//   const li = document.querySelectorAll("li");
-//   lista.removeChild(li);
-// });
