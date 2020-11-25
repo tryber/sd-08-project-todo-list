@@ -4,7 +4,7 @@ const eraseAll = document.getElementById('apaga-tudo');
 const TasksList = document.getElementById('lista-tarefas');
 const getTasks = document.getElementById('tasks');
 const saveTasks = document.getElementById('salvar-tarefas');
-
+const buttonRemoveCompleted = document.getElementById('remover-finalizados');
 
 
 
@@ -14,11 +14,9 @@ function ListofTasks() {
     paragraph.innerText = getText.value;
     paragraph.className = 'tarefas';
     TasksList.appendChild(paragraph);
-    paragraph.addEventListener('click', Selec);
     getText.value = '';
-    doubleclick(paragraph);
-
-
+    paragraph.addEventListener('click', Selec);
+    paragraph.addEventListener('dblclick', doubleclick);
 
 
 }
@@ -27,11 +25,14 @@ function ListofTasks() {
 buttonTarefa.addEventListener('click', ListofTasks);
 
 function Selec(event) {
-    let selected = document.getElementsByClassName('selected');
-    if (selected.length > 0) {
-        selected[0].className = '';
+    for (let index of document.getElementsByClassName('tarefas')) {
+
+
+        if (index.target.classList.contains('selected')) {
+            index.target.classList.remove('selected');
+        }
+        event.target.classList.add('tarefas selected');
     }
-    event.target.className = 'tarefas selected';
 }
 
 TasksList.addEventListener('click', Selec);
@@ -42,6 +43,17 @@ function erasingTasks() {
         lista[index].remove();
     }
 }
+
+function removingCompleted() {
+    const elementTask = document.querySelectorAll('.tarefas')
+    for (let index = 0; index < elementTask.length; index += 1) {
+        if (elementTask[index].classList.contains('completed')) {
+            elementTask[index].remove();
+        }
+    }
+}
+
+buttonRemoveCompleted.addEventListener('click', removingCompleted);
 
 eraseAll.addEventListener('click', erasingTasks);
 
@@ -62,12 +74,11 @@ function loadingLocalStorage() {
 
 loadingLocalStorage();
 
-function doubleclick(paragraph) {
+function doubleclick(evento) {
+    if (evento.target.classList.contains('completed')) {
+        evento.target.classList.remove('completed');
+    } else evento.target.classList.add('completed');
+};
 
 
-    paragraph.addEventListener('dblclick', function (evento) {
-        if (evento.target.classList.contains('completed')) {
-            evento.target.classList.remove('completed');
-        } else evento.target.classList.add('completed');
-    });
-}
+
