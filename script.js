@@ -14,30 +14,35 @@ funcionamento.innerText = "Clique duas vezes em um item para marcá-lo como comp
 }
 createParagraph(); */
 
-/* //Requisito 3
-function createOl (){
-    let lista = document.getElementById("texto-tarefa");
-    let listaOrdenada = document.createElement("ol");
-    listaOrdenada.getElementById("lista-tarefas");
-    lista.appendChild(listaOrdenada);
-}
-createOl(); */
-
-//Requisito 4
-function createLi (){
-    let listaOrdenada = document.getElementById("lista-tarefas");
-    let listaTarefas = [];
-
-    for (index = 0; index < listaTarefas; index += 1){
-        let tarefa = listaTarefas[index];
-
-        let listaTarefa = document.createElement("li");
-        listaTarefa.innerText = tarefa;
-
-        listaOrdenada.append(listaTarefas);
-    }
-}
-createLi ();
+// //Requisito 3
+// function createOl (){
+//     let lista = document.getElementById("texto-tarefa");
+//     let listaOrdenada = document.createElement("ol");
+//     listaOrdernada.id = 'lista-tarefas';
+//     lista.appendChild(listaOrdenada);
+//     console.log(listaOrdenada);
+// }
+// createOl();
 
 //Requisito 5
+function createTask () {
+    const btn = document.getElementById('criar-tarefa');
 
+    btn.addEventListener('click', function(){
+        let listaOrdernada = document.getElementById('lista-tarefas');
+        let textoTarefa = document.getElementById('texto-tarefa');
+        let listaNumerada = document.createElement('li');
+        listaOrdernada.appendChild(listaNumerada);
+        listaNumerada.innerText = textoTarefa.value;
+        textoTarefa.value = '';
+    });
+}
+createTask();
+
+function changeColorTask () {
+    const listaNumerada = document.querySelector('li');
+       
+            li.addEventListener('click', function(){
+        });
+}
+changeColorTask();

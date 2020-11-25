@@ -2,3 +2,7 @@ header {
     font-size: 30px;
     font-style: oblique;
 }
+
+.active{
+    background-color: rgb(128, 128, 128);
+}
