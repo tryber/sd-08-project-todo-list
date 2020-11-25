@@ -2,6 +2,7 @@ let TodosItems = []
 let oldSelect = ''
 let TodosItemsFormatado  = []
 let finalizados = []
+let finalizadosFormatados = []
 
 //Esta função renderiza quase todas as outras funções
 function render(){
@@ -17,6 +18,14 @@ function render(){
     lista.innerHTML = TodosItemsFormatado
     TodosItemsFormatado = []
 
+    for(i = 0; i < finalizados.length; i++){
+        finalizadosFormatados.push(`<li id="${finalizados[i]}" onclick="selectItem('${finalizados[i]}')" class="completed" ondblclick="duploClick('${finalizados[i]}')">${TodosItems[i]}</li>`)  
+    }
+
+    finalizadosFormatados = finalizadosFormatados.join("")
+    lista.innerHTML += finalizadosFormatados
+    finalizadosFormatados = []
+
 
 }
 
@@ -25,9 +34,15 @@ function aoAbrir(){
         lista = localStorage.getItem('lista').split(',')
         for(i=0; i< lista.length; i++){
           TodosItems.push(lista[i])
-        }
+        }}
+
+    if(localStorage.getItem('finalizados')){
+        lista = localStorage.getItem('finalizados').split(',')
+        for(i=0; i< lista.length; i++){
+            finalizados.push(lista[i])
+        }}
        render()
-    }
+    
    
 }
 aoAbrir()
@@ -66,21 +81,26 @@ function salvar(){
         localStorage.setItem('lista', '')
     }
 
+    localStorage.setItem('finalizados', finalizados)
+
 }
 
 function duploClick(id){
     item = document.getElementById(id)
     item.classList.toggle('completed')
     TodosItems.splice(TodosItems.indexOf(id), 1)
-    console.log(TodosItems)
+    finalizados.push(id)
+   
 }
 
 function apagaTudo(){
     document.getElementById('lista-tarefas').innerHTML = ''
     TodosItems = []
+    
     render()
 }
 
 function Finalizadosfun(){
+    finalizados = []
     render()
 }
