@@ -81,9 +81,9 @@ window.onload = function () {
 // Remover tarefa selecionada
 const removerBotao = document.getElementById("remover-selecionado");
 removerBotao.addEventListener("click", function () {
-  for (let indiceArray = 0; indiceArray < listItem.length; indiceArray += 1) {
-    if (listItem[indiceArray].style.backgroundColor === "rgb(128, 128, 128)") {
-      listItem[indiceArray].parentNode.removeChild(listItem[i]);
+  for (let indiceArray = 0; indiceArray < item.length; indiceArray += 1) {
+    if (item[indiceArray].style.backgroundColor === "rgb(128, 128, 128)") {
+      item[indiceArray].parentNode.removeChild(item[indiceArray]);
     }
   }
 });
