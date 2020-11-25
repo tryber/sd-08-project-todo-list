@@ -14,10 +14,9 @@ function ListofTasks() {
     paragraph.innerText = getText.value;
     paragraph.className = 'tarefas';
     TasksList.appendChild(paragraph);
-    getText.value = '';
     paragraph.addEventListener('click', Selec);
     paragraph.addEventListener('dblclick', doubleclick);
-
+    getText.value = '';
 
 }
 
@@ -31,11 +30,11 @@ function Selec(event) {
         if (index.target.classList.contains('selected')) {
             index.target.classList.remove('selected');
         }
-        event.target.classList.add('tarefas selected');
+        event.target.classList.add('selected');
     }
 }
 
-TasksList.addEventListener('click', Selec);
+
 
 function erasingTasks() {
     const lista = document.querySelectorAll('.tarefas');
