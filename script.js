@@ -37,8 +37,8 @@ const item = document.getElementsByTagName("li");
 const btnApagarConc = document.getElementById("remover-finalizados");
 btnApagarConc.addEventListener("click", function () {
   let listConclu = document.getElementsByClassName("completed");
-  let size = listConclu.length;
-  for (let j = 0; j < size; j += 1) {
+  let tamanho = listConclu.length;
+  for (let indiceArray = 0; indiceArray < tamanho; indiceArray += 1) {
     listConclu[0].parentNode.removeChild(listConclu[0]);
   }
 });
@@ -81,9 +81,9 @@ window.onload = function () {
 // Remover tarefa selecionada
 const removerBotao = document.getElementById("remover-selecionado");
 removerBotao.addEventListener("click", function () {
-  for (let i = 0; i < listItem.length; i += 1) {
-    if (listItem[i].style.backgroundColor === "rgb(128, 128, 128)") {
-      listItem[i].parentNode.removeChild(listItem[i]);
+  for (let indiceArray = 0; indiceArray < listItem.length; indiceArray += 1) {
+    if (listItem[indiceArray].style.backgroundColor === "rgb(128, 128, 128)") {
+      listItem[indiceArray].parentNode.removeChild(listItem[i]);
     }
   }
 });
@@ -93,7 +93,7 @@ const btnSubir = document.getElementById("mover-cima");
 btnSubir.addEventListener("click", function () {
   let itemMarcado;
   for (let indiceArray = 0; indiceArray < item.length; indiceArray += 1) {
-    if (item[i].style.backgroundColor === "rgb(128, 128, 128)") {
+    if (item[indiceArray].style.backgroundColor === "rgb(128, 128, 128)") {
       itemMarcado = i;
     }
   }
@@ -114,8 +114,8 @@ const btnDescer = document.getElementById("mover-baixo");
 btnDescer.addEventListener("click", function () {
   let itemMarcado;
   for (let indiceArray = 0; indiceArray < item.length; indiceArray += 1) {
-    if (item[i].style.backgroundColor === "rgb(128, 128, 128)") {
-      itemMarcado = i;
+    if (item[indiceArray].style.backgroundColor === "rgb(128, 128, 128)") {
+      itemMarcado = indiceArray;
     }
   }
   let atual = item[itemMarcado].innerText;
