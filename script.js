@@ -94,7 +94,7 @@ btnSubir.addEventListener("click", function () {
   let itemMarcado;
   for (let indiceArray = 0; indiceArray < item.length; indiceArray += 1) {
     if (item[indiceArray].style.backgroundColor === "rgb(128, 128, 128)") {
-      itemMarcado = i;
+      itemMarcado = indiceArray;
     }
   }
   let atual = item[itemMarcado].innerText;
