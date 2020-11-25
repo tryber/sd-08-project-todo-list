@@ -5,7 +5,6 @@ document.getElementById('criar-tarefa').addEventListener('click', (event) => {
   listaTarefas.appendChild(tarefas);
   tarefas.className = 'lista-de-tarefas';
   tarefas.innerHTML = entrada;
-  entrada.innerHTML = '';
-  console.log(tarefas);
+  document.getElementById('texto-tarefa').value = '';
 });
 
