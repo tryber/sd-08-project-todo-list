@@ -14,7 +14,118 @@ cria.addEventListener("click", () => {
     liTag.innerText = texto.value;
     lista.appendChild(liTag);
     texto.value = "";
+    liTag.addEventListener("click", selecionar);
   } else {
     alert("Digite uma Tarefa antes de adicionar!!!");
+  }
+});
+
+// const apagaTudo = document.getElementById("apaga-tudo");
+// const ol = document.getElementById("lista-tarefas");
+// const lindiceArray= document.getElementsByClassName(".tarefa");
+
+// // // Remover
+// // apagaTudo.addEventListener("click", function () {
+// //   while (li) {
+// //     ol.removeChild(ol.childNodes[0]);
+// //   }
+// // });
+
+const item = document.getElementsByTagName("li");
+
+// Deleta as tarefas concluídas
+const btnApagarConc = document.getElementById("remover-finalizados");
+btnApagarConc.addEventListener("click", function () {
+  let listConclu = document.getElementsByClassName("completed");
+  let size = listConclu.length;
+  for (let j = 0; j < size; j += 1) {
+    listConclu[0].parentNode.removeChild(listConclu[0]);
+  }
+});
+
+// Marca as LI's com a cor de fundo cinza
+function selecionar(event) {
+  for (let indiceArray = 0; indiceArray < item.length; indiceArray += 1) {
+    item[i].style.backgroundColor = "";
+  }
+  event.target.style.backgroundColor = "rgb(128, 128, 128)";
+}
+
+// Marca as tarefas concluídas
+function completo(event) {
+  if (event.target.className === "completed") {
+    event.target.className = "";
+  } else {
+    event.target.className = "completed";
+  }
+}
+
+// Apaga todos os itens da lista ordenada
+const buttonApagarTudo = document.getElementById("apaga-tudo");
+buttonApagarTudo.addEventListener("click", function () {
+  lista.innerHTML = "";
+});
+
+// Button salva sessao
+const btnSalvar = document.getElementById("salvar-tarefas");
+btnSalvar.addEventListener("click", function () {
+  localStorage.setItem("lista", lista.innerHTML);
+});
+
+// Lista salva
+window.onload = function () {
+  let tarefaSalvas = localStorage.getItem("lista");
+  lista.innerHTML = tarefaSalvas;
+};
+
+// Remover tarefa selecionada
+const removerBotao = document.getElementById("remover-selecionado");
+removerBotao.addEventListener("click", function () {
+  for (let i = 0; i < listItem.length; i += 1) {
+    if (listItem[i].style.backgroundColor === "rgb(128, 128, 128)") {
+      listItem[i].parentNode.removeChild(listItem[i]);
+    }
+  }
+});
+
+// Btn sobe
+const btnSubir = document.getElementById("mover-cima");
+btnSubir.addEventListener("click", function () {
+  let itemMarcado;
+  for (let indiceArray = 0; indiceArray < item.length; indiceArray += 1) {
+    if (item[i].style.backgroundColor === "rgb(128, 128, 128)") {
+      itemMarcado = i;
+    }
+  }
+  let atual = item[itemMarcado].innerText;
+  if (itemMarcado - 1 < 0) {
+    false;
+  } else {
+    let ultimoSelecionado = item[itemMarcado - 1].innerText;
+    item[itemMarcado].style.backgroundColor = "";
+    item[itemMarcado].innerText = ultimoSelecionado;
+    item[itemMarcado - 1].style.backgroundColor = "rgb(128, 128, 128)";
+    item[itemMarcado - 1].innerText = atual;
+  }
+});
+
+// Btn desce
+const btnDescer = document.getElementById("mover-baixo");
+btnDescer.addEventListener("click", function () {
+  let itemMarcado;
+  for (let indiceArray = 0; indiceArray < item.length; indiceArray += 1) {
+    if (item[i].style.backgroundColor === "rgb(128, 128, 128)") {
+      itemMarcado = i;
+    }
+  }
+  let atual = item[itemMarcado].innerText;
+  if (itemMarcado == item.length - 1) {
+    false;
+  } else {
+    let proximo = item[itemMarcado + 1].innerText;
+    item[itemMarcado].style.backgroundColor = "";
+    item[itemMarcado].innerText = proximo;
+    item[itemMarcado + 1].style.backgroundColor = "rgb(128, 128, 128)";
+    item[itemMarcado + 1].innerText = atual;
   }
 });
