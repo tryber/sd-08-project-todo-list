@@ -20,6 +20,6 @@ cria.addEventListener("click", () => {
 });
 
 apaga.addEventListener("click", () => {
-  let ol = qSelector("#apaga-tudo");
-  document.removeChild(ol);
+  const li = document.querySelectorAll("li");
+  lista.removeChild(li);
 });
