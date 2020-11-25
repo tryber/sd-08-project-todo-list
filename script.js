@@ -1,15 +1,32 @@
 let TodosItems = []
 let oldSelect = ''
-let TodosItemsFormatado 
+let TodosItemsFormatado  = []
 let finalizados = []
+
+//Esta função renderiza quase todas as outras funções
+function render(){
+   let lista = document.getElementById('lista-tarefas')
+    
+    for(i=0; i < TodosItems.length; i++){
+        console.log
+        TodosItemsFormatado.push(`
+        <li id="${TodosItems[i]}" onclick="selectItem('${TodosItems[i]}')" ondblclick="duploClick('${TodosItems[i]}')">${TodosItems[i]}</li>
+        `)
+    }
+    TodosItemsFormatado = TodosItemsFormatado.join("")
+    lista.innerHTML = TodosItemsFormatado
+    TodosItemsFormatado = []
+
+
+}
 
 function aoAbrir(){
     if(localStorage.getItem('lista')){
-        TodosItems.push(localStorage.getItem('lista'))
-        
-        TodosItemsFormatado = TodosItems.join("")
-    
-        document.getElementById('lista-tarefas').innerHTML = TodosItemsFormatado
+        lista = localStorage.getItem('lista').split(',')
+        for(i=0; i< lista.length; i++){
+          TodosItems.push(lista[i])
+        }
+       render()
     }
    
 }
@@ -23,19 +40,16 @@ function criaItem() {
         alert('Campo vazio')
     }
     else {
-        TodosItems.push(`
-        <li id="${item}" onclick="selectItem('${item}')" ondblclick="duploClick('${item}')">${item}</li>
-    `)
+        TodosItems.push(item)
 
-        TodosItemsFormatado = TodosItems.join("")
-
-        document.getElementById('lista-tarefas').innerHTML = TodosItemsFormatado
+        render()
     }
 }
 
+
+
 function selectItem(item){
     itemSelecionado = document.getElementById(`${item}`)
-    
 
     if(oldSelect != ''){
         oldSelect.classList.remove('select-item')
@@ -46,7 +60,7 @@ function selectItem(item){
 }
 
 function salvar(){
-    localStorage.setItem('lista', TodosItemsFormatado )
+    localStorage.setItem('lista', TodosItems )
 
     if(TodosItems == ''){
         localStorage.setItem('lista', '')
@@ -57,25 +71,16 @@ function salvar(){
 function duploClick(id){
     item = document.getElementById(id)
     item.classList.toggle('completed')
-
-
-    TodosItemsFormatado = TodosItems.join("")
-    TodosItems.push = document.getElementById('lista-tarefas').innerHTML
-        
-
-    finalizados.push(id)
+    TodosItems.splice(TodosItems.indexOf(id), 1)
+    console.log(TodosItems)
 }
 
 function apagaTudo(){
     document.getElementById('lista-tarefas').innerHTML = ''
     TodosItems = []
-    TodosItemsFormatado = []
+    render()
 }
 
 function Finalizadosfun(){
-    for(i=0; i< finalizados.length; i++){
-        document.getElementById(finalizados[i]).remove()
-    }
-    
-    TodosItems = document.getElementById('lista-tarefas').innerHTML
+    render()
 }
