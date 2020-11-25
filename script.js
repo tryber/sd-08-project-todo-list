@@ -19,7 +19,7 @@ function render(){
     TodosItemsFormatado = []
 
     for(i = 0; i < finalizados.length; i++){
-        finalizadosFormatados.push(`<li id="${finalizados[i]}" onclick="selectItem('${finalizados[i]}')" class="completed" ondblclick="duploClick('${finalizados[i]}')">${TodosItems[i]}</li>`)  
+        finalizadosFormatados.push(`<li id="${finalizados[i]}" onclick="selectItem('${finalizados[i]}')" class="completed" ondblclick="duploClick('${finalizados[i]}')">${finalizados[i]}</li>`)  
     }
 
     finalizadosFormatados = finalizadosFormatados.join("")
@@ -37,9 +37,9 @@ function aoAbrir(){
         }}
 
     if(localStorage.getItem('finalizados')){
-        lista = localStorage.getItem('finalizados').split(',')
-        for(i=0; i< lista.length; i++){
-            finalizados.push(lista[i])
+        finaliz= localStorage.getItem('finalizados').split(',')
+        for(i=0; i< finaliz.length; i++){
+            finalizados.push(finaliz[i])
         }}
        render()
     
