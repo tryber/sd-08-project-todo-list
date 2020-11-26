@@ -2,7 +2,7 @@
 const tarefasListadas = document.querySelector('#lista-tarefas');
 tarefasListadas.innerHTML = localStorage.getItem('lista-de-tarefas');
 
-//Adiciona tarefas.
+//Adiciona tarefas
 document.getElementById('criar-tarefa').addEventListener('click', (event) => {
   const entrada = document.getElementById('texto-tarefa').value;
   const listaTarefas = document.getElementById('lista-tarefas');
@@ -26,4 +26,9 @@ pintaTarefas.addEventListener('click', (event) => {
     seleciona[0].classList.remove('selected');
   }
   event.target.classList.add('selected');
+});
+
+const riscaTarefas = document.querySelector('#lista-tarefas');
+riscaTarefas.addEventListener('dblclick', (event) => {
+  event.target.classList.toggle('completed');
 });
