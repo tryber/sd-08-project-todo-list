@@ -32,3 +32,7 @@ const riscaTarefas = document.querySelector('#lista-tarefas');
 riscaTarefas.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
 });
+
+document.getElementById('apaga-tudo').addEventListener('click', () => {
+  const listas = document.getElementById('lista-tarefas').innerHTML = '';
+})
