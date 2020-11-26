@@ -1,5 +1,5 @@
-//Puxar as informações salvas ao carregar: tarefas listadas.
-const tarefasListadas = document.getElementById('lista-tarefas');
+//Puxar as informações salvas ao carregar: tarefas listadas
+const tarefasListadas = document.querySelector('#lista-tarefas');
 tarefasListadas.innerHTML = localStorage.getItem('lista-de-tarefas');
 
 //Adiciona tarefas.
@@ -13,9 +13,14 @@ document.getElementById('criar-tarefa').addEventListener('click', (event) => {
   document.getElementById('texto-tarefa').value = '';
 });
 
-//Pinta as tarefas.
-const pintaTarefas = document.getElementById('lista-tarefas');
-pintaTarefas[0].addEventListener('click', (event) => {
+//Botão para salvar lista
+document.querySelector('#salvar-tarefas').addEventListener('click', () => {
+  localStorage.setItem('lista', tarefasListadas.innerHTML);
+});
+
+//Pinta as tarefas
+const pintaTarefas = document.querySelector('#lista-tarefas');
+pintaTarefas.addEventListener('click', (event) => {
   const seleciona = document.getElementsByClassName('selected');
   if (seleciona[0] !== undefined) {
     seleciona[0].classList.remove('selected');
