@@ -6,10 +6,10 @@ const getTasks = document.getElementById('tasks');
 const saveTasks = document.getElementById('salvar-tarefas');
 const buttonRemoveCompleted = document.getElementById('remover-finalizados');
 const tarefas = document.getElementsByClassName('tarefas');
-
+const buttonRemoveSelected = document.getElementById('remover-selecionado');
 
 function ListofTasks() {
-
+    //if (getText.trim() !== '') {
     let paragraph = document.createElement('li');
     paragraph.innerText = getText.value;
     paragraph.className = 'tarefas';
@@ -17,8 +17,8 @@ function ListofTasks() {
     paragraph.addEventListener('click', Selec);
     paragraph.addEventListener('dblclick', doubleclick);
     getText.value = '';
-
 }
+//}
 
 
 buttonTarefa.addEventListener('click', ListofTasks);
@@ -35,7 +35,11 @@ function Selec() {
     this.classList.add('selected');
 }
 
-
+function removingSelected() {
+    const selected = document.querySelector('.selected');
+    selected.parentNode.removeChild(selected);
+}
+buttonRemoveSelected.addEventListener('click', removingSelected);
 
 function erasingTasks() {
     const lista = document.querySelectorAll('.tarefas');
