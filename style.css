@@ -3,6 +3,6 @@ header {
     font-style: oblique;
 }
 
-.active{
-    background-color: rgb(128, 128, 128);
+.selected {
+    background-color: rgb (128, 128, 128);
 }

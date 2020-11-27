@@ -29,20 +29,25 @@ function createTask () {
     const btn = document.getElementById('criar-tarefa');
 
     btn.addEventListener('click', function(){
-        let listaOrdernada = document.getElementById('lista-tarefas');
-        let textoTarefa = document.getElementById('texto-tarefa');
-        let listaNumerada = document.createElement('li');
-        listaOrdernada.appendChild(listaNumerada);
-        listaNumerada.innerText = textoTarefa.value;
-        textoTarefa.value = '';
+        let listTasks = document.getElementById('lista-tarefas');
+        let inputTask = document.getElementById('texto-tarefa');
+        let textTasks = document.createElement('li');
+        textTasks.addEventListener('click', changeColorTask())
+        listTasks.appendChild(textTasks);
+        textTasks.className = 'lista-numerada';
+        textTasks.innerText = inputTask.value;
+        inputTask.value = '';
     });
 }
 createTask();
 
-function changeColorTask () {
-    const listaNumerada = document.querySelector('li');
-       
-            li.addEventListener('click', function(){
-        });
+function changeColorTask (event) {
+    let textTasks = document.getElementsByClassName('lista-numerada');
+
+    for (let index = 0; index < textTasks.length; index += 1){
+            textTasks[index].classList.add('selected');
+            event.target.style.backgroundColor;
+        };
 }
 changeColorTask();
+
