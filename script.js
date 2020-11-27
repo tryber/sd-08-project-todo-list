@@ -37,9 +37,11 @@ document.getElementById('apaga-tudo').addEventListener('click', () => {
   document.getElementById('lista-tarefas').innerHTML = '';
 })
 //Botão remove selecionados
-/* document.getElementById('remover-selecionados').addEventListener('click', (event) => {
-  const finalizados = document.getElementsByClassName('lista-de-tarefas');
-  if (finalizados.classList === 'lista-de-tarefas selected') {
-    finalizados.innerHTML = '';
+document.getElementById('remover-finalizados').addEventListener('click', (event) => {
+  const finalizados = document.querySelectorAll('.lista-de-tarefas');
+  for (let index = 0; index < finalizados.length; index += 1) {
+    if (finalizados[index].classList.contains('completed')) {
+      finalizados[index].remove();
+    }
   }
-}) */
+})
