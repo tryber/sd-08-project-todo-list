@@ -34,6 +34,7 @@ function createTask () {
         let textTasks = document.createElement('li');
         textTasks.className = 'lista-numerada';
         textTasks.addEventListener('click', changeColorTask);
+        textTasks.addEventListener('dblclick', completeTask);
         listTasks.appendChild(textTasks);
         textTasks.innerText = inputTask.value;
         inputTask.value = '';
@@ -53,3 +54,10 @@ function changeColorTask (event) {
     }
 }
 
+function completeTask (event) {
+    if (event.target.classList.contains ('completed')) {
+        event.target.classList.remove('completed');
+    } else {
+        event.target.classList.add('completed');
+    }
+}
