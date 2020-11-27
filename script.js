@@ -53,13 +53,26 @@ function clearTask () {
 }
 clearTask ();
 
+// Requisito 11
+function removeCompleted () {
+    let remove = document.getElementById('remover-finalizados');
+
+    remove.addEventListener('click', function (){
+        let completed = document.getElementsByClassName('completed');
+        for (let i = completed.length - 1; i >= 0; i -= 1){
+        completed[i].remove();
+        }
+    });
+}
+removeCompleted();
+
 // Requisito 14
 function removeSelected () {
     let remove = document.getElementById('remover-selecionado');
 
     remove.addEventListener('click', function(){
-        let textTasks = document.getElementsByClassName('selected');
-        textTasks[0].remove();
+        let selected = document.getElementsByClassName('selected');
+        selected[0].remove();
     });
 }
 removeSelected ();
