@@ -36,12 +36,20 @@ riscaTarefas.addEventListener('dblclick', (event) => {
 document.getElementById('apaga-tudo').addEventListener('click', () => {
   document.getElementById('lista-tarefas').innerHTML = '';
 })
-//Botão remove selecionados
+//Botão remove finalizados
 document.getElementById('remover-finalizados').addEventListener('click', (event) => {
   const finalizados = document.querySelectorAll('.lista-de-tarefas');
   for (let index = 0; index < finalizados.length; index += 1) {
     if (finalizados[index].classList.contains('completed')) {
       finalizados[index].remove();
     }
+  }
+});
+//Botão remover selecionado
+document.getElementById('remover-selecionado').addEventListener('click', (event) => {
+  const selecionado = document.getElementsByClassName('lista-de-tarefas');
+  for (let index = 0; index < selecionado.length; index += 1) {
+    selecionado[index].classList.contains('selected');
+    selecionado[index].remove();
   }
 })
