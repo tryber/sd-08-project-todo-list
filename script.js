@@ -9,7 +9,6 @@ const tarefas = document.getElementsByClassName('tarefas');
 const buttonRemoveSelected = document.getElementById('remover-selecionado');
 
 function ListofTasks() {
-    //if (getText.trim() !== '') {
     let paragraph = document.createElement('li');
     paragraph.innerText = getText.value;
     paragraph.className = 'tarefas';
@@ -18,7 +17,6 @@ function ListofTasks() {
     paragraph.addEventListener('dblclick', doubleclick);
     getText.value = '';
 }
-//}
 
 
 buttonTarefa.addEventListener('click', ListofTasks);
@@ -57,6 +55,9 @@ function removingCompleted() {
     }
 }
 
+
+
+
 buttonRemoveCompleted.addEventListener('click', removingCompleted);
 
 eraseAll.addEventListener('click', erasingTasks);
@@ -64,25 +65,25 @@ eraseAll.addEventListener('click', erasingTasks);
 saveTasks.addEventListener('click', savingList);
 
 function savingList() {
-    const contentTasks = TasksList.innerText;
-    localStorage.setItem('conteudoTarefas', contentTasks);
+
+    localStorage.setItem("tasks", TasksList.innerHTML);
 }
 
-// savingList();
+function loadingList() {
 
-function loadingLocalStorage() {
-    if (localStorage !== null) {
-        TasksList.innerHTML = localStorage.getItem('conteudoTarefas');
+    TasksList.innerHTML = localStorage.getItem('tasks');
+    let tarefas = TasksList.children;
+    for (let index of tarefas) {
+        index.addEventListener('click', Selec);
+        index.addEventListener('dblclick', doubleclick);
     }
 }
 
-loadingLocalStorage();
+loadingList();
+
 
 function doubleclick(evento) {
     if (evento.target.classList.contains('completed')) {
         evento.target.classList.remove('completed');
     } else evento.target.classList.add('completed');
-};
-
-
-
+}
