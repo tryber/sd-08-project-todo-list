@@ -1,6 +1,6 @@
 //Puxar as informações salvas ao carregar: tarefas listadas
-const tarefasListadas = document.querySelector('#lista-tarefas');
-tarefasListadas.innerHTML = localStorage.getItem('lista-de-tarefas');
+  const tarefasListadas = document.getElementById('lista-tarefas');
+  tarefasListadas.innerHTML = localStorage.getItem('lista');
 
 //Adiciona tarefas
 document.getElementById('criar-tarefa').addEventListener('click', (event) => {
