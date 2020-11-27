@@ -27,12 +27,20 @@ pintaTarefas.addEventListener('click', (event) => {
   }
   event.target.classList.add('selected');
 });
-
+//Botão risca tarefas
 const riscaTarefas = document.querySelector('#lista-tarefas');
 riscaTarefas.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
 });
-
+//Botão apaga tudo
 document.getElementById('apaga-tudo').addEventListener('click', () => {
-  const listas = document.getElementById('lista-tarefas').innerHTML = '';
+  document.getElementById('lista-tarefas').innerHTML = '';
+})
+//Botão remove selecionados
+document.getElementById('remover-selecionados').addEventListener('click', (event) => {
+  const finalizados = document.getElementsByClassName('lista-de-tarefas');
+  console.log(finalizados);
+  if (finalizados.classList === 'lista-de-tarefas selected') {
+    finalizados.innerHTML = '';
+  }
 })
