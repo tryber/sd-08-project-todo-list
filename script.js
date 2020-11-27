@@ -1,6 +1,6 @@
 //Puxar as informações salvas ao carregar: tarefas listadas
-  const tarefasListadas = document.getElementById('lista-tarefas');
-  tarefasListadas.innerHTML = localStorage.getItem('lista');
+const tarefasListadas = document.getElementById('lista-tarefas');
+tarefasListadas.innerHTML = localStorage.getItem('lista');
 
 //Adiciona tarefas
 document.getElementById('criar-tarefa').addEventListener('click', (event) => {
@@ -49,7 +49,8 @@ document.getElementById('remover-finalizados').addEventListener('click', (event)
 document.getElementById('remover-selecionado').addEventListener('click', (event) => {
   const selecionado = document.getElementsByClassName('lista-de-tarefas');
   for (let index = 0; index < selecionado.length; index += 1) {
-    selecionado[index].classList.contains('selected');
-    selecionado[index].remove();
+    if (selecionado[index].classList.contains('selected')) {
+      selecionado[index].remove();
+    }
   }
-})
+});
