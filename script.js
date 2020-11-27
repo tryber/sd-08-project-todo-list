@@ -37,9 +37,9 @@ document.getElementById('apaga-tudo').addEventListener('click', () => {
   document.getElementById('lista-tarefas').innerHTML = '';
 })
 //Botão remove selecionados
-document.getElementById('remover-selecionados').addEventListener('click', (event) => {
+/* document.getElementById('remover-selecionados').addEventListener('click', (event) => {
   const finalizados = document.getElementsByClassName('lista-de-tarefas');
   if (finalizados.classList === 'lista-de-tarefas selected') {
     finalizados.innerHTML = '';
   }
-})
+}) */
