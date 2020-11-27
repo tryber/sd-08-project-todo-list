@@ -52,3 +52,14 @@ function clearTask () {
     });
 }
 clearTask ();
+
+// Requisito 14
+function removeSelected () {
+    let remove = document.getElementById('remover-selecionado');
+
+    remove.addEventListener('click', function(){
+        let textTasks = document.getElementsByClassName('selected');
+        textTasks[0].remove();
+    });
+}
+removeSelected ();
