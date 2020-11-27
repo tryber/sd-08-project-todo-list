@@ -32,9 +32,9 @@ function createTask () {
         let listTasks = document.getElementById('lista-tarefas');
         let inputTask = document.getElementById('texto-tarefa');
         let textTasks = document.createElement('li');
-        textTasks.addEventListener('click', changeColorTask())
-        listTasks.appendChild(textTasks);
         textTasks.className = 'lista-numerada';
+        textTasks.addEventListener('click', changeColorTask);
+        listTasks.appendChild(textTasks);
         textTasks.innerText = inputTask.value;
         inputTask.value = '';
     });
@@ -43,11 +43,13 @@ createTask();
 
 function changeColorTask (event) {
     let textTasks = document.getElementsByClassName('lista-numerada');
-
-    for (let index = 0; index < textTasks.length; index += 1){
-            textTasks[index].classList.add('selected');
-            event.target.style.backgroundColor;
-        };
+        for (let index = 0; index < textTasks.length; index += 1) {
+            if (textTasks[index].classList.contains('selected')) {
+            textTasks[index].classList.remove('selected');
+            event.target.classList.add('selected');
+        } else {
+            event.target.classList.add('selected');
+        }
+    }
 }
-changeColorTask();
 
