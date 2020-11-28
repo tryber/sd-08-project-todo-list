@@ -20,3 +20,9 @@ function createTask() {
     input.value = '';
     taskList.appendChild(newItem);
 }
+
+function eraseEverything() {
+    Array.from(document.getElementsByClassName('task-entry')).forEach((value) => {
+        value.remove();
+    });
+}
