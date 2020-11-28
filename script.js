@@ -63,9 +63,9 @@ function newSaveButton() {
 }
 //requisito 13
 //requisito 14
-let createSelectedButton = document.getElementById("remover-selecionado");
-createSelectedButton.addEventListener("click", newSelectedButton);
-function newSelectedButton() {
-    let selectedIten = document.querySelector(".click-class");
-    createList.removeChild(selectedIten);
-}
+    let createSelectedButton = document.getElementById("remover-selecionado");
+    createSelectedButton.addEventListener("click", newSelectedButton);
+    function newSelectedButton() {
+        let selectedIten = document.querySelector(".click-class");
+        createList.removeChild(selectedIten);
+    }
