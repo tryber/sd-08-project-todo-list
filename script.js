@@ -4,6 +4,7 @@ function createTask() {
     let input = document.getElementById('texto-tarefa');
     newItem.innerText = input.value;
     newItem.className = 'task-entry';
+    newItem.backgroundColor = 'white';
     events(newItem);
     input.value = '';
     taskList.appendChild(newItem);
@@ -62,4 +63,10 @@ window.onload = () => {
             document.getElementById('lista-tarefas').appendChild(newElement);
         } else break;
     }
+}
+
+function removeSelected() {
+    Array.from(document.getElementsByClassName('task-entry')).forEach((element) => {
+        if (element.style.backgroundColor !== 'white') element.remove();
+    });
 }
