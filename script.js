@@ -26,3 +26,9 @@ function eraseEverything() {
         value.remove();
     });
 }
+
+function removeCompleted() {
+    Array.from(document.getElementsByClassName('task-entry')).forEach((value) => {
+        if (value.classList.contains('completed')) value.remove();
+    });
+}
