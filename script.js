@@ -52,6 +52,15 @@ function newFinalizedButton() {
     }
 }
 //requisito 12
+let createSaveButton = document.getElementById("salvar-tarefas");
+createSelectedButton.addEventListener("click", newSaveButton);
+function newSaveButton() {
+    const finalizedIten = document.getElementsByClassName("completed");
+    for(let index = 0; index < finalizedIten.length; index += 1) {
+        let completedIten = finalizedIten[index];
+        localStorage.setItem("completedIten", "completedIten");
+    }
+}
 //requisito 13
 //requisito 14
 let createSelectedButton = document.getElementById("remover-selecionado");
