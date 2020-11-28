@@ -10,7 +10,7 @@ function createTask() {
         });
         newItem.style.backgroundColor = 'rgb(128, 128, 128)';
     }
-    newItem.ondblclck = () => {
+    newItem.ondblclick = () => {
         if (newItem.classList.contains('completed')) {
             newItem.classList.remove('completed');
         } else {
