@@ -12,10 +12,10 @@ function newEvent() {
     newItens.innerHTML = inputText;
     clearInput.value = "";
     // Source: https://www.guj.com.br/t/limpar-um-inputtext/203164/3
-    newItens.className = "itens-lista";
+    createList.appendChild(newItens);
     newItens.addEventListener("click", paddingColor);
     newItens.addEventListener("dblclick", lineThrough);
-    createList.appendChild(newItens);
+    newItens.className = "itens-lista";
 }
 //requisitos 7 e 8 
 function paddingColor(event) {
@@ -53,7 +53,7 @@ function newFinalizedButton() {
 }
 //requisito 12
 let createSaveButton = document.getElementById("salvar-tarefas");
-createSelectedButton.addEventListener("click", newSaveButton);
+createSaveButton.addEventListener("click", newSaveButton);
 function newSaveButton() {
     const finalizedIten = document.getElementsByClassName("completed");
     for(let index = 0; index < finalizedIten.length; index += 1) {
