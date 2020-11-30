@@ -66,6 +66,29 @@ function removeCompleted () {
 }
 removeCompleted();
 
+// Requisito 13
+function moveItems () {
+    const moveUp = document.getElementById('mover-cima');
+    const moveDown = document.getElementById('mover-baixo');
+    const listTasks = document.getElementById('lista-tarefas');
+    
+
+    moveUp.addEventListener('click', function(){
+        let task = document.querySelector('.selected');
+        if (listTasks.firstChild !== task){
+            listTasks.insertBefore(task, task.previousElementSibling);
+        }
+    });
+    
+    moveDown.addEventListener('click', function(){
+        let task = document.querySelector('.selected');
+        if (listTasks.lastChild !== task) {
+            listTasks.insertBefore(task.nextElementSibling, task);
+        }
+    });
+}
+moveItems();
+
 // Requisito 14
 function removeSelected () {
     let remove = document.getElementById('remover-selecionado');
