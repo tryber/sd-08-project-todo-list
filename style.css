@@ -1,0 +1,22 @@
+    body {
+        background-color: blue;
+        margin: 30px;
+    }
+    
+    #funcionamento {
+        margin-left: 10px;
+        color: rgb(0, 255, 255);
+    }
+    
+    #header {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .selected {
+        background-color: rgb(128, 128, 128);
+    }
+
+    .completed{
+        text-decoration: line-through solid black;
+    }
