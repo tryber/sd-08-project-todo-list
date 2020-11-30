@@ -1,5 +1,7 @@
 const inputTask = document.querySelector('#texto-tarefa');
 const createTask = document.querySelector('#criar-tarefa');
+const deleteTask = document.querySelector('#apaga-tudo');
+const removeCompletedTask = document.querySelector('#remover-finalizados');
 const taskList = document.querySelector('#lista-tarefas');
 
 // Submit Task to Task List
@@ -51,3 +53,23 @@ const completedTasks = (event) => {
 };
 
 taskList.addEventListener('dblclick', completedTasks);
+
+// Delete All Tasks
+const deleteAllTasks = () => {
+  while (taskList.hasChildNodes()) {
+    taskList.removeChild(taskList.firstChild);
+  }
+};
+
+deleteTask.addEventListener('click', deleteAllTasks);
+
+// Delete Completed Tasks
+
+const deleteCompletedTasks = () => {
+  const completedItem = document.querySelectorAll('.completed');
+  for (let i = 0; i < completedItem.length; i += 1) {
+    taskList.removeChild(completedItem[i]);
+  }
+};
+
+removeCompletedTask.addEventListener('click', deleteCompletedTasks);
