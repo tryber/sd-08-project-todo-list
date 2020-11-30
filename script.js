@@ -33,7 +33,7 @@ clearSelBtn.addEventListener('click',function(){
 
 //Foi necessário criar um event para assim poder usar as propriedades de .target
 //https://www.w3schools.com/jsref/dom_obj_event.asp
-
+//uso do togle pra nao fazer um if, se o elemento no parametro nao existir ele adiciona porém o contrário ele retira.
 taskList.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
 });
