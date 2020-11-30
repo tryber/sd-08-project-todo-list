@@ -1,5 +1,14 @@
 body {
-    background-color: rgb(98, 65, 160);
-    margin: 0;
-    padding: 0;
+  background-color: rgb(98 , 65 , 160);
+  margin: 0;
+  padding: 0;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.task {
+  background-color: rgb(98 , 65 , 160);
+  margin-right: 700px;  
 }
