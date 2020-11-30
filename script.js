@@ -1,4 +1,5 @@
 let createList = document.getElementById("lista-tarefas");
+createList.innerHTML = localStorage.getItem("completedIten");
 //requisitos 5
 let createTaskButton = document.getElementById("criar-tarefa");
 function taskButton() {
@@ -52,15 +53,14 @@ function newFinalizedButton() {
     }
 }
 //requisito 12
+//Fiz com ajuda do colega Erick Massaki
+let finalizedIten  = document.getElementById("lista-tarefas");
 let createSaveButton = document.getElementById("salvar-tarefas");
 createSaveButton.addEventListener("click", newSaveButton);
 function newSaveButton() {
-    const finalizedIten = document.getElementsByClassName("completed");
-    for(let index = 0; index < finalizedIten.length; index += 1) {
-        let completedIten = finalizedIten[index];
-        localStorage.setItem("completedIten", "completedIten");
-    }
+    localStorage.setItem("completedIten", finalizedIten.innerHTML);
 }
+
 //requisito 13
 //requisito 14
     let createSelectedButton = document.getElementById("remover-selecionado");
@@ -69,3 +69,4 @@ function newSaveButton() {
         let selectedIten = document.querySelector(".click-class");
         createList.removeChild(selectedIten);
     }
+    
