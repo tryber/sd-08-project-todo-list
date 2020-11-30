@@ -66,6 +66,11 @@ function removeCompleted () {
 }
 removeCompleted();
 
+// Requisito 12
+function saveTasks () {
+    localStorage.getItem
+}
+
 // Requisito 13
 function moveItems () {
     const moveUp = document.getElementById('mover-cima');
@@ -75,14 +80,14 @@ function moveItems () {
 
     moveUp.addEventListener('click', function(){
         let task = document.querySelector('.selected');
-        if (listTasks.firstChild !== task){
+        if (listTasks.firstChild && task) {
             listTasks.insertBefore(task, task.previousElementSibling);
         }
     });
     
     moveDown.addEventListener('click', function(){
         let task = document.querySelector('.selected');
-        if (listTasks.lastChild !== task) {
+        if (listTasks.lastChild && task) {
             listTasks.insertBefore(task.nextElementSibling, task);
         }
     });
