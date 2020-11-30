@@ -65,11 +65,10 @@ eraseAll.addEventListener('click', erasingTasks);
 saveTasks.addEventListener('click', savingList);
 
 function savingList() {
-
-    localStorage.setItem("tasks", TasksList.innerHTML);
+    localStorage.setItem('tasks', TasksList.innerHTML);
 }
 
-function loadingList() {
+function loadingList() { // REFERENCIA EXTRAIDA DO CODIGO JS DA BIANCA CAETANO LINK: https://github.com/tryber/sd-08-project-todo-list/blob/bianca-caetano-todo-list-project/
 
     TasksList.innerHTML = localStorage.getItem('tasks');
     let tarefas = TasksList.children;
