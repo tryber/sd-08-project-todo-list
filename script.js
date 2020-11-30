@@ -31,6 +31,10 @@ const selectTask = (event) => {
     event.target.classList.add('selected');
     event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
   }
+  if (event.target.className === 'completed selected') {
+    event.target.className = 'completed';
+    event.target.style.backgroundColor = 'green';
+  }
 };
 
 taskList.addEventListener('click', selectTask);
@@ -40,6 +44,9 @@ const completedTasks = (event) => {
   if (event.target.className !== 'completed') {
     event.target.className = 'completed';
     event.target.style.backgroundColor = 'green';
+  } else {
+    event.target.className = 'task selected';
+    event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
   }
 };
 
