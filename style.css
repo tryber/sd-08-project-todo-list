@@ -9,20 +9,49 @@ body{
 }
 
 #criar-tarefa{
-    background-color: cyan;
-    border-radius: 25px;
+  background-color: darkblue;
+  border-radius: 25px;
+  color:white;
 }
 
 #funcionamento{
   color:gray;
 }
 
+#remover-selecionado{
+    background-color: red;
+    border-radius: 25px;
+    color:white;
+}
+
+#mover-cima{
+    background-color: orange;
+    border-radius: 25px;
+    color:white;
+}
+
+#mover-baixo{
+    background-color: orange;
+    border-radius: 25px;
+    color:white;
+}
+
+
+#remover-finalizados{
+    background-color: darkblue;
+    border-radius: 25px;
+    color:white;
+}
+
 #apaga-tudo{
     background-color: red;
     border-radius: 25px;
+    color:white;
 }
 
-#remover-finalizados{
-    background-color: cyan;
+#salvar-tarefas{
+    color:white;
+    background-color: green;
     border-radius: 25px;
 }
+
