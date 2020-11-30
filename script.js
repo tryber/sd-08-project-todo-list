@@ -29,8 +29,18 @@ const selectTask = (event) => {
   if (event.target.className !== 'task selected') {
     unselectsTasks();
     event.target.classList.add('selected');
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
   }
 };
 
 taskList.addEventListener('click', selectTask);
+
+// Clompleted Tasks
+const completedTasks = (event) => {
+  if (event.target.className !== 'completed') {
+    event.target.className = 'completed';
+    event.target.style.backgroundColor = 'green';
+  }
+};
+
+taskList.addEventListener('dblclick', completedTasks);

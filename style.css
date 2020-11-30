@@ -5,10 +5,11 @@ body {
 }
 
 .completed {
-  text-decoration: line-through;
+  margin-right: 600px;
+  text-decoration: line-through solid black;
 }
 
 .task {
   background-color: rgb(98 , 65 , 160);
-  margin-right: 700px;  
+  margin-right: 600px;
 }
