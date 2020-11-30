@@ -1,7 +1,9 @@
 const addBtn = document.getElementById('criar-tarefa');
 const textInput = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-const clearBtn = document.getElementById('apaga-tudo');
+const clearAllBtn = document.getElementById('apaga-tudo');
+const clearSelBtn = document.getElementById('remover-selecionado');
+
 
 addBtn.addEventListener('click',function(){
     const taskItem = document.createElement('li');
@@ -15,7 +17,7 @@ addBtn.addEventListener('click',function(){
 // textImput seria considerado como null e por isso é necessário chamar-lo com .value:"" para dar uma string a ele.
 // addevent listener não é necessário estar dentro de um window.on
 
-clearBtn.addEventListener('click', function(){
+clearAllBtn.addEventListener('click', function(){
     let allTasks = document.getElementsByTagName('li');
     Array.from(allTasks).forEach((value) => 
         value.remove());
@@ -24,3 +26,15 @@ clearBtn.addEventListener('click', function(){
 });
 //test uso de =>
 // array.from https://www.w3schools.com/jsref/jsref_from.asp
+
+clearSelBtn.addEventListener('click',function(){
+    
+})
+
+taskList.addEventListener('click')
+
+//Foi necessário criar um event para assim poder usar as propriedades de .target
+//https://www.w3schools.com/jsref/dom_obj_event.asp
+taskList.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+});
