@@ -31,11 +31,10 @@ clearSelBtn.addEventListener('click',function(){
     
 })
 
-taskList.addEventListener('click')
-
 //Foi necessário criar um event para assim poder usar as propriedades de .target
 //https://www.w3schools.com/jsref/dom_obj_event.asp
 
-taskList.addEventListener('dblclick', (event) =>
-    event.target.classList.toggle('completed')
-)
+taskList.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+});
+
