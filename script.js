@@ -18,6 +18,8 @@ addBtn.addEventListener('click',function(){
 // textImput seria considerado como null e por isso é necessário chamar-lo com .value:"" para dar uma string a ele.
 // addevent listener não é necessário estar dentro de um window.on
 
+// array.from https://www.w3schools.com/jsref/jsref_from.asp
+
 clearAllBtn.addEventListener('click', function(){
     let allTasks = document.getElementsByTagName('li');
     Array.from(allTasks).forEach((value) => 
@@ -25,10 +27,9 @@ clearAllBtn.addEventListener('click', function(){
 
     
 });
-//test uso de =>
-// array.from https://www.w3schools.com/jsref/jsref_from.asp
 
 
+//uso de => parece ser obrigatório após declarar event
 //Foi necessário criar um event para assim poder usar as propriedades de .target
 //https://www.w3schools.com/jsref/dom_obj_event.asp
 //uso do togle pra nao fazer um if, se o elemento no parametro nao existir ele adiciona porém o contrário ele retira.
@@ -53,7 +54,10 @@ Precisei entender o conceito de que não é só pq o selected
 foi passado depois que eu não posso fazer uma checagem antes
 Foi necessário entender o conceito de que mesmo recebendo algo
 este algo ainda pode ser null
+Foi necessário entender tb que background color pode continuar
+existindo dentro da classe mesmo sem possuir nenhum valor.
  */
+
 taskList.addEventListener('click',(event)=>{
 const preSelected = document.querySelector('.selected');
 if (preSelected != null) {
@@ -61,4 +65,13 @@ if (preSelected != null) {
   preSelected.classList.remove('selected');
 }
 event.target.classList.add('selected');
+});
+
+clearSelBtn.addEventListener('click',function(){
+    let selTask = document.querySelector('.selected');
+    if (selTask != null){
+        (selTask.parentNode).removeChild(selTask)
+    }else{
+        alert("É necessário selecionar um item antes de excluir-la")
+    }
 });
