@@ -80,14 +80,14 @@ function moveItems () {
 
     moveUp.addEventListener('click', function(){
         let task = document.querySelector('.selected');
-        if (listTasks.firstChild && task) {
+        if (tasks && listTasks.firstChild !== task) {
             listTasks.insertBefore(task, task.previousElementSibling);
         }
     });
     
     moveDown.addEventListener('click', function(){
         let task = document.querySelector('.selected');
-        if (listTasks.lastChild && task) {
+        if (task && listTasks.lastChild !== task) {
             listTasks.insertBefore(task.nextElementSibling, task);
         }
     });
