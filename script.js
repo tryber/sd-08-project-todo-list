@@ -39,7 +39,7 @@ taskList.addEventListener('dblclick', (event) => {
 
 //foreach aprendi hoje 30\11
 clearComBtn.addEventListener('click',function(){
-        let completeList = document.getElementsByClassName('completed');
+        let completeList = document.querySelectorAll('.completed');
         for (let pos = 0; pos<completeList.length; pos++){
             li = completeList[pos];
             taskList.removeChild(li);
