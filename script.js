@@ -80,7 +80,7 @@ function moveItems () {
 
     moveUp.addEventListener('click', function(){
         let task = document.querySelector('.selected');
-        if (tasks && listTasks.firstChild !== task) {
+        if (task && listTasks.firstChild !== task) {
             listTasks.insertBefore(task, task.previousElementSibling);
         }
     });
