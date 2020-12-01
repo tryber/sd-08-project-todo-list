@@ -6,6 +6,7 @@ body{
   background-color: white;
   border-radius: 25px;
   padding: 20px;
+  width: 65%;
 }
 
 #criar-tarefa{

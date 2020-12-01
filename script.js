@@ -4,6 +4,7 @@ const taskList = document.getElementById('lista-tarefas');
 const clearAllBtn = document.getElementById('apaga-tudo');
 const clearSelBtn = document.getElementById('remover-selecionado');
 const clearComBtn = document.getElementById('remover-finalizados');
+const saveBtn = document.getElementById('salvar-tarefas');
 
 
 addBtn.addEventListener('click',function(){
@@ -75,3 +76,12 @@ clearSelBtn.addEventListener('click',function(){
         alert("É necessário selecionar um item antes de excluir-la")
     }
 });
+
+//Conceito estudado a partir do commit 
+//https://github.com/tryber/sd-08-project-todo-list/pull/146
+//foi utilizado e armazenado em pouco código tudo no taskList
+saveBtn.addEventListener('click', function(){
+  localStorage.setItem('List', taskList.innerHTML);
+})
+taskList.innerHTML = localStorage.getItem('List');
+
