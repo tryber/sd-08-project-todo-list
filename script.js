@@ -5,6 +5,7 @@ const clearAllBtn = document.getElementById('apaga-tudo');
 const clearSelBtn = document.getElementById('remover-selecionado');
 const clearComBtn = document.getElementById('remover-finalizados');
 
+
 addBtn.addEventListener('click',function(){
     const taskItem = document.createElement('li');
     
@@ -37,7 +38,7 @@ taskList.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
 });
 
-//foreach aprendi hoje 30\11
+
 clearComBtn.addEventListener('click',function(){
         let completeList = document.querySelectorAll('.completed');
         for (let pos = 0; pos<completeList.length; pos++){
@@ -45,3 +46,19 @@ clearComBtn.addEventListener('click',function(){
             taskList.removeChild(li);
         }
     });
+
+
+/* Nossa senhora esse deu mto trabalho
+Precisei entender o conceito de que não é só pq o selected
+foi passado depois que eu não posso fazer uma checagem antes
+Foi necessário entender o conceito de que mesmo recebendo algo
+este algo ainda pode ser null
+ */
+taskList.addEventListener('click',(event)=>{
+const preSelected = document.querySelector('.selected');
+if (preSelected != null) {
+  preSelected.style.backgroundColor = '';
+  preSelected.classList.remove('selected');
+}
+event.target.classList.add('selected');
+});
