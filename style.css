@@ -1,13 +1,28 @@
+main {
+	background-color: rgb(200, 200, 200);
+	width: 550px;
+	padding: 20px;
+	border-radius: 30px;
+}
+
+header {
+	text-align: left;
+	margin-left: 180px;
+	font-size: 25px;
+	font-style: italic;
+}
+
 .completed {
 	text-decoration: line-through solid rgb( 0 , 0 , 0 );
 }
 
 #inputs {
 	display: flex;
+	justify-content: center;
 	margin-bottom: 20px;
 	background-color: orange;
 	width: 300px;
-	padding: 8px;
+	padding: 6px;
 	border-radius: 20px;
 }
 
