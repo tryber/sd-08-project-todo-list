@@ -1,9 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-color: rgb(69 , 123 , 157);
   height: 100vh;
@@ -24,6 +18,7 @@ header {
   border: 1px solid black;
   border-radius: 20px;
   margin: 0 auto;
+  padding: 10px;
   text-align: center;
   width: 800px;
 }
@@ -48,23 +43,23 @@ input {
   border-radius: 10px;
   color: rgb(29 , 53 , 87);
   font-family: Poppins, sans-serif;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
   margin-right: 10px;
   margin-top: 20px;
-  width: 170px;
+  width: 150px;
 }
 
 .clear-all {
-  background-color: white;
+  background-color: red;
   border-radius: 10px;
-  color: rgb(29 , 53 , 87);
+  color: white;
   font-family: Poppins, sans-serif;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
   margin-left: 10px;
   margin-top: 20px;
-  width: 170px;
+  width: 150px;
 }
 
 .remove-finished {
@@ -72,11 +67,23 @@ input {
   border-radius: 10px;
   color: rgb(29 , 53 , 87);
   font-family: Poppins, sans-serif;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
   margin-left: 20px;
   margin-top: 20px;
-  width: 270px;
+  width: 240px;
+}
+
+.salvar-tarefas {
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(29 , 53 , 87);
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 180px;
 }
 
 .ordered-list {
@@ -89,9 +96,9 @@ input {
 }
 
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0 , 0 , 0);
+  text-decoration: line-through solid black;
 }
