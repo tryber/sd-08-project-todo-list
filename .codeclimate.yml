@@ -35,6 +35,7 @@ exclude_patterns:
   - "**/*.{gif,png,jpeg}"
   - "node_modules/"
   - "cypress/"
+  - "git.sh"
 plugins:
   csslint:
     enabled: true
