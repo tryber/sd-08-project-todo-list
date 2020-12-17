@@ -20,7 +20,7 @@ header {
   margin: 0 auto;
   padding: 10px;
   text-align: center;
-  width: 800px;
+  width: 900px;
 }
 
 .operation {
@@ -43,11 +43,24 @@ input {
   border-radius: 10px;
   color: rgb(29 , 53 , 87);
   font-family: Poppins, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
-  margin-right: 10px;
+  margin-left: 10px;
   margin-top: 20px;
-  width: 160px;
+}
+
+.mover-cima {
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(29 , 53 , 87);
+  font-size: 18px;
+}
+
+.mover-baixo {
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(29 , 53 , 87);
+  font-size: 18px;
 }
 
 .clear-all {
@@ -55,11 +68,10 @@ input {
   border-radius: 10px;
   color: white;
   font-family: Poppins, sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   margin-left: 10px;
   margin-top: 20px;
-  width: 180px;
 }
 
 .remove-finished {
@@ -67,28 +79,10 @@ input {
   border-radius: 10px;
   color: rgb(29 , 53 , 87);
   font-family: Poppins, sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  margin-left: 20px;
-  margin-top: 20px;
-  width: 280px;
-}
-
-.mover-cima {
-  background-color: white;
-  border-radius: 10px;
-  color: rgb(29 , 53 , 87);
-  font-size: 24px;
   margin-left: 10px;
-  width: 40px;
-}
-
-.mover-baixo {
-  background-color: white;
-  border-radius: 10px;
-  color: rgb(29 , 53 , 87);
-  font-size: 24px;
-  width: 40px;
+  margin-top: 20px;
 }
 
 .salvar-tarefas {
@@ -96,11 +90,10 @@ input {
   border-radius: 10px;
   color: rgb(29 , 53 , 87);
   font-family: Poppins, sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-top: 20px;
-  width: 200px;
 }
 
 .remover-selecionado {
@@ -108,11 +101,10 @@ input {
   border-radius: 10px;
   color: rgb(29 , 53 , 87);
   font-family: Poppins, sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-top: 20px;
-  width: 300px;
 }
 
 .ordered-list {

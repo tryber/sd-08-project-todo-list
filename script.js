@@ -63,8 +63,7 @@ const getLocalData = () => {
 };
 
 document.getElementById('remover-selecionado').addEventListener('click', () => {
-  document.querySelectorAll('.selected')
-  .forEach((item) => item.remove());
+  document.querySelectorAll('.selected').forEach((item) => item.remove());
 });
 
 document.onload = getLocalData();
