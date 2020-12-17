@@ -74,6 +74,23 @@ input {
   width: 280px;
 }
 
+.mover-cima {
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(29 , 53 , 87);
+  font-size: 24px;
+  margin-left: 10px;
+  width: 40px;
+}
+
+.mover-baixo {
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(29 , 53 , 87);
+  font-size: 24px;
+  width: 40px;
+}
+
 .salvar-tarefas {
   background-color: white;
   border-radius: 10px;

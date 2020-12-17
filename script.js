@@ -46,28 +46,25 @@ getButtonRemoveFinished.addEventListener('click', () => {
 document.getElementById('salvar-tarefas').addEventListener('click', () => {
   localStorage.setItem(
     'list',
-    document.getElementById('lista-tarefas').innerHTML
+    document.getElementById('lista-tarefas').innerHTML,
   );
 });
 
 const getLocalData = () => {
   document.getElementById('lista-tarefas').innerHTML = localStorage.getItem(
-    'list'
+    'list',
   );
-  document.querySelectorAll('.task-list').forEach(item => {
+  document.querySelectorAll('.task-list').forEach((item) => {
     item.addEventListener('dblclick', toggleCompleted);
   });
-  document.querySelectorAll('.task-list').forEach(item => {
+  document.querySelectorAll('.task-list').forEach((item) => {
     item.addEventListener('click', toggleSelected);
   });
 };
 
 document.getElementById('remover-selecionado').addEventListener('click', () => {
-  document.querySelectorAll('.task-list').forEach((item) => {
-    if (item.className === 'selected') {
-      item.classList.remove();
-    }
-  });
+  document.querySelectorAll('.selected')
+  .forEach((item) => item.remove());
 });
 
 document.onload = getLocalData();

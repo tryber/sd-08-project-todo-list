@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/betrybe/sd-03-block5-project-todo-list#readme",
   "devDependencies": {
-    "cypress": "^4.0.2",
+    "cypress": "^6.1.0",
     "cypress-multi-reporters": "^1.2.4",
     "minimist": ">=1.2.3",
     "mocha": "^7.0.1",
