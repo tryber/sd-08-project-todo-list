@@ -1,0 +1,78 @@
+body {
+  background-color: rgb(15 , 163 , 107);
+  font-family: Shadows Into Light , sans-serif;
+  letter-spacing: 3px;
+}
+
+.funcionamento {
+  font-size: 20px;
+}
+
+.principal {
+  background-color: white;
+  border-radius: 30px;
+  margin: 50px auto;
+  padding: 30px;
+  width: 60%;
+}
+
+.texto-tarefa {
+  font-family: Open Sans , sans-serif;
+  font-size: 16px;
+  height: 30px;
+  padding-left: 5px;
+  transition: ease-in-out , width 0.35s ease-in-out;
+  width: 150px;
+}
+
+.texto-tarefa:focus {
+  width: 60%;
+}
+
+.lista-tarefas {
+  margin: 10px 30px 20px;
+  padding: 0;
+}
+
+.task {
+  list-style-position: inside;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+button {
+  background-color: rgb(15 , 163 , 107);
+  border: 1px solid black;
+  border-radius: 15px;
+  color: white;
+  font-family: Architects Daughter , sans-serif;
+  font-weight: 600;
+  height: 40px;
+  letter-spacing: 2px;
+  padding: 5px;
+}
+
+button:hover {
+  border: 2px solid black;
+}
+
+.mover-cima , .mover-baixo , .salvar-tarefas {
+  border-radius: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  width: 40px;
+}
+
+.remover-selecionado , .remover-finalizados , .apagar-tudo {
+  background-color: red;
+}
+
+.remover-finalizados {
+  text-decoration: line-through;
+}
