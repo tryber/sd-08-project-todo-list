@@ -28,7 +28,7 @@ document.addEventListener('click', (event) => {
 
   if (event.target.id === 'remover-finalizados') {
     const completedTasks = document.querySelectorAll('.completed');
-    completedTasks.forEach(item => item.remove());
+    completedTasks.forEach((item) => item.remove());
   }
 
   if (event.target.id === 'salvar-tarefas') {
@@ -59,7 +59,7 @@ document.addEventListener('click', (event) => {
       if (item.classList.contains('selected')) {
         selected = index + 1;
       }
-    })
+    });
     if (selected < childNode.length) {
       childNode[selected].parentElement.insertBefore(
         childNode[selected],
