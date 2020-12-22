@@ -46,13 +46,13 @@ getButtonRemoveFinished.addEventListener('click', () => {
 document.getElementById('salvar-tarefas').addEventListener('click', () => {
   localStorage.setItem(
     'list',
-    document.getElementById('lista-tarefas').innerHTML
+    document.getElementById('lista-tarefas').innerHTML,
   );
 });
 
 const getLocalData = () => {
   document.getElementById('lista-tarefas').innerHTML = localStorage.getItem(
-    'list'
+    'list',
   );
   document.querySelectorAll('.task-list').forEach((item) => {
     item.addEventListener('dblclick', toggleCompleted);
@@ -67,22 +67,32 @@ document.getElementById('remover-selecionado').addEventListener('click', () => {
 });
 
 document.getElementById('mover-cima').addEventListener('click', () => {
+  const getTaskItem = document.querySelectorAll('.task-list');
   const getSelectedItem = document.querySelector('.selected');
-  if (getSelectedItem.previousSibling) {
-    getSelectedItem.parentNode.insertBefore(
-      getSelectedItem,
-      getSelectedItem.previousSibling
-    );
+  for (let index = 0; index < getTaskItem.length; index += 1) {
+    if (getTaskItem[index].classList.contains('selected')) {
+      if (getSelectedItem.previousSibling) {
+        getSelectedItem.parentNode.insertBefore(
+          getSelectedItem,
+          getSelectedItem.previousSibling,
+        );
+      }
+    }
   }
 });
 
 document.getElementById('mover-baixo').addEventListener('click', () => {
+  const getTaskItem = document.querySelectorAll('.task-list');
   const getSelectedItem = document.querySelector('.selected');
-  if (getSelectedItem.nextSibling) {
-    getSelectedItem.parentNode.insertBefore(
-      getSelectedItem.nextSibling,
-      getSelectedItem
-    );
+  for (let index = 0; index < getTaskItem.length; index += 1) {
+    if (getTaskItem[index].classList.contains('selected')) {
+      if (getSelectedItem.nextSibling) {
+        getSelectedItem.parentNode.insertBefore(
+          getSelectedItem.nextSibling,
+          getSelectedItem,
+        );
+      }
+    }
   }
 });
 
