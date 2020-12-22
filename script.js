@@ -46,13 +46,13 @@ getButtonRemoveFinished.addEventListener('click', () => {
 document.getElementById('salvar-tarefas').addEventListener('click', () => {
   localStorage.setItem(
     'list',
-    document.getElementById('lista-tarefas').innerHTML,
+    document.getElementById('lista-tarefas').innerHTML
   );
 });
 
 const getLocalData = () => {
   document.getElementById('lista-tarefas').innerHTML = localStorage.getItem(
-    'list',
+    'list'
   );
   document.querySelectorAll('.task-list').forEach((item) => {
     item.addEventListener('dblclick', toggleCompleted);
@@ -64,6 +64,26 @@ const getLocalData = () => {
 
 document.getElementById('remover-selecionado').addEventListener('click', () => {
   document.querySelectorAll('.selected').forEach((item) => item.remove());
+});
+
+document.getElementById('mover-cima').addEventListener('click', () => {
+  const getSelectedItem = document.querySelector('.selected');
+  if (getSelectedItem.previousSibling) {
+    getSelectedItem.parentNode.insertBefore(
+      getSelectedItem,
+      getSelectedItem.previousSibling
+    );
+  }
+});
+
+document.getElementById('mover-baixo').addEventListener('click', () => {
+  const getSelectedItem = document.querySelector('.selected');
+  if (getSelectedItem.nextSibling) {
+    getSelectedItem.parentNode.insertBefore(
+      getSelectedItem.nextSibling,
+      getSelectedItem
+    );
+  }
 });
 
 document.onload = getLocalData();

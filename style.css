@@ -49,14 +49,14 @@ input {
   margin-top: 20px;
 }
 
-.mover-cima {
+.up {
   background-color: white;
   border-radius: 10px;
   color: rgb(29 , 53 , 87);
   font-size: 18px;
 }
 
-.mover-baixo {
+.down {
   background-color: white;
   border-radius: 10px;
   color: rgb(29 , 53 , 87);
