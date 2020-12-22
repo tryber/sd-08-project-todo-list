@@ -1,0 +1,28 @@
+{
+  "name": "sd-03-block5-project-todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betrybe/sd-03-block5-project-todo-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betrybe/sd-03-block5-project-todo-list/issues"
+  },
+  "homepage": "https://github.com/betrybe/sd-03-block5-project-todo-list#readme",
+  "devDependencies": {
+    "cypress": "^6.1.0",
+    "cypress-multi-reporters": "^1.2.4",
+    "minimist": ">=1.2.3",
+    "mocha": "^7.0.1",
+    "mochawesome": "^4.1.0",
+    "mochawesome-merge": "^4.0.0",
+    "mochawesome-report-generator": "^4.1.0"
+  }
+}
