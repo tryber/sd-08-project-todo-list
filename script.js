@@ -84,6 +84,7 @@ const caixaDeTarefas = document.getElementById("caixa-tarefas");
 function criaTarefa() {
   botaoAdicionar.addEventListener("click", function () {
     const novaTarefa = document.createElement("li");
+    novaTarefa.className = "tarefa";
     novaTarefa.innerText = entradaDeTarefas.value;
     caixaDeTarefas.appendChild(novaTarefa);
     entradaDeTarefas.value = "";
@@ -93,6 +94,12 @@ criaTarefa();
 
 function selecionaTarefas() {
   caixaDeTarefas.addEventListener("click", function (evento) {
+    const tarefas = document.getElementsByClassName("tarefa");
+    for (let i = 0; i < tarefas.length; i += 1) {
+      tarefas[i].className = "tarefa";
+      tarefas[i].style.backgroundColor = "rgb(256, 256, 256)";
+    }
+    evento.target.className = "tarefa selected";
     evento.target.style.backgroundColor = "rgb(128, 128, 128)";
   });
 }
