@@ -83,11 +83,15 @@ const caixaDeTarefas = document.getElementById("caixa-tarefas");
 
 function criaTarefa() {
   botaoAdicionar.addEventListener("click", function () {
+    const entradaDeTarefas = document.getElementById("texto-tarefa");
+    const caixaDeTarefas = document.getElementById("caixa-tarefas");
     const novaTarefa = document.createElement("li");
     novaTarefa.className = "tarefa";
-    novaTarefa.innerText = entradaDeTarefas.value;
-    caixaDeTarefas.appendChild(novaTarefa);
-    entradaDeTarefas.value = "";
+    if (entradaDeTarefas.value.length > 0) {
+      novaTarefa.innerText = entradaDeTarefas.value;
+      caixaDeTarefas.appendChild(novaTarefa);
+      entradaDeTarefas.value = "";
+    }
   });
 }
 criaTarefa();
@@ -104,3 +108,10 @@ function selecionaTarefas() {
   });
 }
 selecionaTarefas();
+
+function selecionaTarefasConcluidas() {
+  caixaDeTarefas.addEventListener("dblclick", function (evento) {
+    // const tar;
+  });
+}
+selecionaTarefasConcluidas();
