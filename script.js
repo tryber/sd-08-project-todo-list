@@ -122,3 +122,15 @@ function moveParaBaixo() {
   });
 }
 moveParaBaixo();
+
+function apagaTarefaSelecionada() {
+  const listaDeTarefas = document.getElementById("lista-tarefas");
+  const botaoApagaTarefaSelecionada = document.getElementById(
+    "remover-selecionado"
+  );
+  botaoApagaTarefaSelecionada.addEventListener("click", function () {
+    const tarefaSelecionada = document.querySelectorAll(".selected");
+    listaDeTarefas.removeChild(tarefaSelecionada[0]);
+  });
+}
+apagaTarefaSelecionada();
