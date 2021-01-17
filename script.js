@@ -36,3 +36,12 @@ function riscaItemDaLista() {
   });
 }
 riscaItemDaLista();
+
+function apagaTodasAsTarefas() {
+  const botaoApagaTudo = document.getElementById("apaga-tudo");
+  botaoApagaTudo.addEventListener("click", function () {
+    const listaDeTarefas = document.getElementById("lista-tarefas");
+    listaDeTarefas.innerHTML = "";
+  });
+}
+apagaTodasAsTarefas();
