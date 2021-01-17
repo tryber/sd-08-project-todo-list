@@ -77,22 +77,24 @@ function moveParaCima() {
   const listaDeTarefas = document.getElementById("lista-tarefas");
   const botaoMoveParaCima = document.getElementById("mover-cima");
   botaoMoveParaCima.addEventListener("click", function () {
-    let tarefaSelecionada = document.querySelector(".selected");
-    const primeiraTarefa = document.getElementById("lista-tarefas")
-      .firstElementChild;
-    let tarefaAnterior = tarefaSelecionada.previousElementSibling;
-    let auxiliar = document.createElement("li");
-    auxiliar.id = "auxiliar";
-    if (tarefaSelecionada !== primeiraTarefa) {
-      listaDeTarefas.appendChild(auxiliar);
-      auxiliar.innerHTML = tarefaSelecionada.innerHTML;
-      auxiliar.classList = tarefaSelecionada.classList;
-      tarefaSelecionada.innerHTML = tarefaAnterior.innerHTML;
-      tarefaSelecionada.classList = tarefaAnterior.classList;
-      tarefaAnterior.innerHTML = auxiliar.innerHTML;
-      tarefaAnterior.classList = auxiliar.classList;
-      const elementoParaDeletar = document.getElementById("auxiliar");
-      listaDeTarefas.removeChild(elementoParaDeletar);
+    let tarefaSelecionada = document.getElementsByClassName("selected");
+    if (tarefaSelecionada.length !== 0) {
+      const primeiraTarefa = document.getElementById("lista-tarefas")
+        .firstElementChild;
+      let tarefaAnterior = tarefaSelecionada[0].previousElementSibling;
+      let auxiliar = document.createElement("li");
+      auxiliar.id = "auxiliar";
+      if (tarefaSelecionada[0] !== primeiraTarefa) {
+        listaDeTarefas.appendChild(auxiliar);
+        auxiliar.innerHTML = tarefaSelecionada[0].innerHTML;
+        auxiliar.classList = tarefaSelecionada[0].classList;
+        tarefaSelecionada[0].innerHTML = tarefaAnterior.innerHTML;
+        tarefaSelecionada[0].classList = tarefaAnterior.classList;
+        tarefaAnterior.innerHTML = auxiliar.innerHTML;
+        tarefaAnterior.classList = auxiliar.classList;
+        const elementoParaDeletar = document.getElementById("auxiliar");
+        listaDeTarefas.removeChild(elementoParaDeletar);
+      }
     }
   });
 }
@@ -102,22 +104,24 @@ function moveParaBaixo() {
   const listaDeTarefas = document.getElementById("lista-tarefas");
   const botaoMoveParaBaixo = document.getElementById("mover-baixo");
   botaoMoveParaBaixo.addEventListener("click", function () {
-    let tarefaSelecionada = document.querySelector(".selected");
-    const ultimaTarefa = document.getElementById("lista-tarefas")
-      .lastElementChild;
-    let tarefaPosterior = tarefaSelecionada.nextElementSibling;
-    let auxiliar = document.createElement("li");
-    auxiliar.id = "auxiliar";
-    if (tarefaSelecionada !== ultimaTarefa) {
-      listaDeTarefas.appendChild(auxiliar);
-      auxiliar.innerHTML = tarefaSelecionada.innerHTML;
-      auxiliar.classList = tarefaSelecionada.classList;
-      tarefaSelecionada.innerHTML = tarefaPosterior.innerHTML;
-      tarefaSelecionada.classList = tarefaPosterior.classList;
-      tarefaPosterior.innerHTML = auxiliar.innerHTML;
-      tarefaPosterior.classList = auxiliar.classList;
-      const elementoParaDeletar = document.getElementById("auxiliar");
-      listaDeTarefas.removeChild(elementoParaDeletar);
+    let tarefaSelecionada = document.getElementsByClassName("selected");
+    if (tarefaSelecionada.length !== 0) {
+      const ultimaTarefa = document.getElementById("lista-tarefas")
+        .lastElementChild;
+      let tarefaPosterior = tarefaSelecionada[0].nextElementSibling;
+      let auxiliar = document.createElement("li");
+      auxiliar.id = "auxiliar";
+      if (tarefaSelecionada[0] !== ultimaTarefa) {
+        listaDeTarefas.appendChild(auxiliar);
+        auxiliar.innerHTML = tarefaSelecionada[0].innerHTML;
+        auxiliar.classList = tarefaSelecionada[0].classList;
+        tarefaSelecionada[0].innerHTML = tarefaPosterior.innerHTML;
+        tarefaSelecionada[0].classList = tarefaPosterior.classList;
+        tarefaPosterior.innerHTML = auxiliar.innerHTML;
+        tarefaPosterior.classList = auxiliar.classList;
+        const elementoParaDeletar = document.getElementById("auxiliar");
+        listaDeTarefas.removeChild(elementoParaDeletar);
+      }
     }
   });
 }
