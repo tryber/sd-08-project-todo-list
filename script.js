@@ -73,3 +73,19 @@
 //   });
 // }
 // criaBotaoApagaTudo();
+
+const header = document.getElementById("header");
+const main = document.getElementById("main");
+const entradaDeTarefas = document.getElementById("texto-tarefa");
+const listaDeTarefas = document.getElementById("lista-tarefas");
+const botaoAdicionar = document.getElementById("criar-tarefa");
+
+function criaTarefa() {
+  botaoAdicionar.addEventListener("click", function () {
+    const novaTarefa = document.createElement("li");
+    novaTarefa.innerText = entradaDeTarefas.value;
+    main.appendChild(novaTarefa);
+    entradaDeTarefas.value = "";
+  });
+}
+criaTarefa();
