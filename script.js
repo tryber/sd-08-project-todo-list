@@ -60,3 +60,13 @@ function apagaAsTarefasCompletadas() {
   });
 }
 apagaAsTarefasCompletadas();
+
+function salvaListaDeTarefas() {
+  const botaoSalvaLista = document.getElementById("salvar-tarefas");
+  const listaDeTarefas = document.getElementById("lista-tarefas");
+  botaoSalvaLista.addEventListener("click", function () {
+    localStorage.setItem("Lista", listaDeTarefas.innerHTML);
+  });
+  listaDeTarefas.innerHTML = localStorage.getItem("Lista");
+}
+salvaListaDeTarefas();
