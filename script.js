@@ -45,3 +45,18 @@ function apagaTodasAsTarefas() {
   });
 }
 apagaTodasAsTarefas();
+
+function apagaAsTarefasCompletadas() {
+  const listaDeTarefas = document.getElementById("lista-tarefas");
+  const tarefasCompletadas = document.querySelectorAll(".completed");
+  const botaoApagaTarefasCompletadas = document.getElementById(
+    "remover-finalizados"
+  );
+  botaoApagaTarefasCompletadas.addEventListener("click", function () {
+    const tarefasCompletadas = document.querySelectorAll(".completed");
+    for (let i = 0; i < tarefasCompletadas.length; i += 1) {
+      listaDeTarefas.removeChild(tarefasCompletadas[i]);
+    }
+  });
+}
+apagaAsTarefasCompletadas();
