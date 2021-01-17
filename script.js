@@ -79,13 +79,21 @@ const main = document.getElementById("main");
 const entradaDeTarefas = document.getElementById("texto-tarefa");
 const listaDeTarefas = document.getElementById("lista-tarefas");
 const botaoAdicionar = document.getElementById("criar-tarefa");
+const caixaDeTarefas = document.getElementById("caixa-tarefas");
 
 function criaTarefa() {
   botaoAdicionar.addEventListener("click", function () {
     const novaTarefa = document.createElement("li");
     novaTarefa.innerText = entradaDeTarefas.value;
-    main.appendChild(novaTarefa);
+    caixaDeTarefas.appendChild(novaTarefa);
     entradaDeTarefas.value = "";
   });
 }
 criaTarefa();
+
+function selecionaTarefas() {
+  caixaDeTarefas.addEventListener("click", function (evento) {
+    evento.target.style.backgroundColor = "rgb(128, 128, 128)";
+  });
+}
+selecionaTarefas();
